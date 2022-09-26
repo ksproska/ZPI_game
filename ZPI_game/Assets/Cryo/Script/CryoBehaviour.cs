@@ -11,6 +11,9 @@ public class CryoBehaviour : MonoBehaviour
 
     [SerializeField] List<Sprite> eyeTypes;
     [SerializeField] List<Sprite> mouthTypes;
+    
+    EyeType currentLeftEyeType;
+    EyeType currentRightEyeType;
 
     float seconds = 0;
     float delta = 2;
@@ -29,17 +32,19 @@ public class CryoBehaviour : MonoBehaviour
             seconds = 0;
             if (index == 0)
             {
-                SetBothEyes(EyeType.EyeSmall);
+                SetBothEyesTypes(EyeType.EyeSmall);
+                SetBothEyesDirection(EyeDirection.DownRight);
                 index += 1;
             }
             else if (index == 1)
             {
-                SetBothEyes(EyeType.Wink);
+                SetBothEyesTypes(EyeType.Wink);
                 index += 1;
             }
             else
             {
-                SetBothEyes(EyeType.EyeBig);
+                SetBothEyesTypes(EyeType.EyeBig);
+                SetRightEyeDirection(EyeDirection.UpRight);
                 index = 0;
             }
         }
@@ -59,33 +64,82 @@ public class CryoBehaviour : MonoBehaviour
                 return eyeTypes[3];
             case EyeType.Wink:
                 return eyeTypes[4];
-            case EyeType.Happy | EyeType.Sad:
+            case EyeType.Happy: case EyeType.Sad:
                 return eyeTypes[5];
             default:
                 return null;
         }
     }
 
-    public void SetBothEyes(EyeType eyeType)
+    public void SetBothEyesTypes(EyeType eyeType)
     {
-        SetRightEye(eyeType);
-        SetLeftEye(eyeType);
+        SetRightEyeType(eyeType);
+        SetLeftEyeType(eyeType);
     }
 
-    public void SetRightEye(EyeType eyeType)
+    public void SetRightEyeType(EyeType eyeType)
     {
+        rightEye.flipX = false;
+        rightEye.flipY = false;
         Sprite sprite = GetEyeGraphic(eyeType);
         rightEye.sprite = sprite;
+        currentRightEyeType = eyeType;
     }
 
-    public void SetLeftEye(EyeType eyeType)
+    public void SetLeftEyeType(EyeType eyeType)
     {
+        leftEye.flipX = false;
+        leftEye.flipY = false;
         Sprite sprite = GetEyeGraphic(eyeType);
         leftEye.sprite = sprite;
+        currentLeftEyeType = eyeType;
         leftEye.flipX = false;
-        if(eyeType == EyeType.Wink || eyeType == EyeType.Angry)
+        if(EyeTypeHandler.IsSimmetric(eyeType))
         {
             leftEye.flipX = true;
+        }
+    }
+
+    public void SetBothEyesDirection(EyeDirection direction)
+    {
+        SetRightEyeDirection(direction);
+        SetLeftEyeDirection(direction);
+    }
+
+    public void SetRightEyeDirection(EyeDirection direction)
+    {
+        if (!EyeTypeHandler.IsRotatable(currentRightEyeType)) return;
+        AssignEyeDirection(rightEye, direction);
+    }
+
+    public void SetLeftEyeDirection(EyeDirection direction)
+    {
+        if (!EyeTypeHandler.IsRotatable(currentLeftEyeType)) return;
+        AssignEyeDirection(leftEye, direction);
+    }
+
+    private void AssignEyeDirection(SpriteRenderer eye, EyeDirection direction)
+    {
+        switch(direction)
+        {
+            case EyeDirection.UpLeft:
+                eye.flipX = false;
+                eye.flipY = false;
+                return;
+            case EyeDirection.UpRight:
+                eye.flipX = true;
+                eye.flipY = false;
+                return;
+            case EyeDirection.DownLeft:
+                eye.flipX = false;
+                eye.flipY = true;
+                return;
+            case EyeDirection.DownRight:
+                eye.flipX = true;
+                eye.flipY = true;
+                return;
+            default:
+                return;
         }
     }
 }

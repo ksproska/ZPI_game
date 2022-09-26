@@ -14,6 +14,31 @@ namespace Assets.Cryo.Script
         DownRight,
     }
 
+    public class EyeTypeHandler
+    {
+        public static bool IsRotatable(EyeType eyeType)
+        {
+            switch(eyeType)
+            {
+                case EyeType.Eye: case EyeType.EyeBig: case EyeType.EyeSmall:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public static bool IsSimmetric(EyeType eyeType)
+        {
+            switch(eyeType)
+            {
+                case EyeType.Angry: case EyeType.Wink:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+    }
+
     public enum EyeType
     {
         Eye,
