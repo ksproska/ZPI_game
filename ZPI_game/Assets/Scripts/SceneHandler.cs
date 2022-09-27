@@ -40,10 +40,7 @@ public class SceneHandler : MonoBehaviour
             int iterNumber = ga.GetIterationNumber();
             double bestScore = ga.GetBestScore();
             double bestForIter = ga.GetBestForIterationScore();
-            //Debug.Log($"Iteration #{iterNumber}");
-            //Debug.Log($"Best for iteration: {bestForIter}");
-            //Debug.Log($"Best all time: {bestScore}");
-            textBox.text = $"Iteration #{iterNumber}\nBest for iteration: {bestForIter}\nBest all time: {bestScore}";
+            textBox.text = $"Iteration #{iterNumber}\nBest for iteration: {bestForIter:0.000}\nBest all time: {bestScore:0.000}";
             var bestGenome = ga.GetBestGenotype();
             AssignCityOrderToDisplay(bestGenome, allCities);
             DrawLines(bestGenome);
@@ -108,19 +105,18 @@ public class SceneHandler : MonoBehaviour
         return ret;
     }
 
-    private void OnDrawGizmos()
-    {
-        //DrawLines();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        
-    }
-
     private void DrawLines(List<int> genome)
     {
-        foreach(var (value, index) in genome.Select((value, index) => (value, index)))
+        //genome.Select((value, index) => (value, index)).ToList().ForEach(pair => 
+        //{
+        //    var (value, index) = pair;
+        //    City current = allCities.Find(city => city.cityNumber == value);
+        //    int nextIndex = (index + 1) % genome.Count;
+        //    City next = allCities.Find(city => city.cityNumber == genome[nextIndex]);
+        //    Debug.DrawLine(current.transform.position, next.transform.position, Color.red, 2f);
+        //});
+
+        foreach (var (value, index) in genome.Select((value, index) => (value, index)))
         {
             City current = allCities.Find(city => city.cityNumber == value);
             int nextIndex = (index + 1) % genome.Count;
