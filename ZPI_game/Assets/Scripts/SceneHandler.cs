@@ -12,10 +12,12 @@ public class SceneHandler : MonoBehaviour
     IGeneticAlgorithm<int> ga;
     private float lastUpdate = 0;
     private List<City> allCities;
+    [SerializeField] LineRenderer _lineRenderer;
     
     void Start()
     {
         allCities = GetAllCities();
+        _lineRenderer.positionCount = allCities.Count + 1;
         ga = GeneticAlgorithmProxy.Get(
             GetDistances(),
             20,
@@ -31,10 +33,9 @@ public class SceneHandler : MonoBehaviour
     void Update()
     {
         lastUpdate += Time.deltaTime;
-        if(lastUpdate > 2)
+        if(lastUpdate > 1)
         {
             lastUpdate = 0;
-            ga.RunIteration();
             int iterNumber = ga.GetIterationNumber();
             double bestScore = ga.GetBestScore();
             double bestForIter = ga.GetBestForIterationScore();
@@ -42,6 +43,7 @@ public class SceneHandler : MonoBehaviour
             var bestGenome = ga.GetBestGenotype();
             AssignCityOrderToDisplay(bestGenome, allCities);
             DrawLines(bestGenome);
+            ga.RunIteration();
         }
     }
 
@@ -109,7 +111,13 @@ public class SceneHandler : MonoBehaviour
             City current = allCities.Find(city => city.cityNumber == value);
             int nextIndex = (index + 1) % genome.Count;
             City next = allCities.Find(city => city.cityNumber == genome[nextIndex]);
-            Debug.DrawLine(current.transform.position, next.transform.position, Color.red, 2f);
+            // Debug.DrawLine(current.transform.position, next.transform.position, Color.red, 2f);
+            var correction = new Vector3(-current.GetComponent<SpriteRenderer>().size.x / 2,
+                current.GetComponent<SpriteRenderer>().size.y, 0) / 5;
+            _lineRenderer.SetPosition(index, current.GetComponent<SpriteRenderer>().transform.position
+                                             + correction);
+            _lineRenderer.SetPosition(index+1, next.GetComponent<SpriteRenderer>().transform.position
+                                               + correction);
         }
     }
 }
