@@ -15,8 +15,6 @@ public class SceneHandler : MonoBehaviour
     
     void Start()
     {
-        //GetAllCities().ForEach(c => Debug.Log(c.GetPosition()));
-        //Debug.Log(GetMatrixPretty(GetDistances()));
         allCities = GetAllCities();
         ga = GeneticAlgorithmProxy.Get(
             GetDistances(),
