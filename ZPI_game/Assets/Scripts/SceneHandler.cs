@@ -57,13 +57,12 @@ public class SceneHandler : MonoBehaviour
 
     public List<List<double>> GetDistances()
     {
-        var cityList = GetAllCities();
-        var distanceMatrix = InitialiseDistanceMatrix(cityList.Count);
-        for(int i = 0; i < cityList.Count; i++)
+        var distanceMatrix = InitialiseDistanceMatrix(allCities.Count);
+        for(int i = 0; i < allCities.Count; i++)
         {
-            for(int j = i + 1; j < cityList.Count; j++)
+            for(int j = i + 1; j < allCities.Count; j++)
             {
-                distanceMatrix[i][j] = cityList[i].Distance(cityList[j]);
+                distanceMatrix[i][j] = allCities[i].Distance(allCities[j]);
                 distanceMatrix[j][i] = distanceMatrix[i][j];
             }
         }
@@ -107,15 +106,6 @@ public class SceneHandler : MonoBehaviour
 
     private void DrawLines(List<int> genome)
     {
-        //genome.Select((value, index) => (value, index)).ToList().ForEach(pair => 
-        //{
-        //    var (value, index) = pair;
-        //    City current = allCities.Find(city => city.cityNumber == value);
-        //    int nextIndex = (index + 1) % genome.Count;
-        //    City next = allCities.Find(city => city.cityNumber == genome[nextIndex]);
-        //    Debug.DrawLine(current.transform.position, next.transform.position, Color.red, 2f);
-        //});
-
         foreach (var (value, index) in genome.Select((value, index) => (value, index)))
         {
             City current = allCities.Find(city => city.cityNumber == value);
