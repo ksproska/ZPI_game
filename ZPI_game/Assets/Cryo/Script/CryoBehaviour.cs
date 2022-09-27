@@ -32,18 +32,21 @@ public class CryoBehaviour : MonoBehaviour
             seconds = 0;
             if (index == 0)
             {
-                SetBothEyesTypes(EyeType.EyeSmall);
+                SetBothEyesTypes(EyeType.EyeBig);
                 SetBothEyesDirection(EyeDirection.DownRight);
+                SetMouthType(MouthType.Confused);
                 index += 1;
             }
             else if (index == 1)
             {
                 SetBothEyesTypes(EyeType.Angry);
+                SetMouthType(MouthType.Angry);
                 index += 1;
             }
             else
             {
-                SetBothEyesTypes(EyeType.EyeBig);
+                SetBothEyesTypes(EyeType.Wink);
+                SetMouthType(MouthType.Sad);
                 //SetRightEyeDirection(EyeDirection.UpRight);
                 index = 0;
             }
@@ -69,6 +72,34 @@ public class CryoBehaviour : MonoBehaviour
             default:
                 return null;
         }
+    }
+
+    public Sprite GetMouthGraphic(MouthType mouthType)
+    {
+        switch(mouthType)
+        {
+            case MouthType.Angry:
+                return mouthTypes[0];
+            case MouthType.Confused:
+                return mouthTypes[1];
+            case MouthType.Crying:
+                return mouthTypes[2];
+            case MouthType.Smile: case MouthType.Sad:
+                return mouthTypes[3];
+            default:
+                return null;
+        }
+    }
+
+    public void SetMouthType(MouthType mouthType)
+    {
+        Sprite sprite = GetMouthGraphic(mouthType);
+        mouth.flipY = false;
+        if(MouthTypeHandler.RequireFlip(mouthType))
+        {
+            mouth.flipY = true;
+        }
+        mouth.sprite = sprite;
     }
 
     public void SetBothEyesTypes(EyeType eyeType)

@@ -50,12 +50,26 @@ namespace Assets.Cryo.Script
         Sad,
     }
 
-    public enum MouthEnum
+    public enum MouthType
     {
         Angry,
         Confused,
         Crying,
         Smile,
         Sad,
+    }
+
+    public class MouthTypeHandler
+    {
+        public static bool RequireFlip(MouthType mouthType)
+        {
+            switch(mouthType)
+            {
+                case MouthType.Sad:
+                    return true;
+                default:
+                    return false;
+            }
+        }
     }
 }
