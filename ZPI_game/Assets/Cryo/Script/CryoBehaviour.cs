@@ -38,13 +38,13 @@ public class CryoBehaviour : MonoBehaviour
             }
             else if (index == 1)
             {
-                SetBothEyesTypes(EyeType.Wink);
+                SetBothEyesTypes(EyeType.Angry);
                 index += 1;
             }
             else
             {
                 SetBothEyesTypes(EyeType.EyeBig);
-                SetRightEyeDirection(EyeDirection.UpRight);
+                //SetRightEyeDirection(EyeDirection.UpRight);
                 index = 0;
             }
         }

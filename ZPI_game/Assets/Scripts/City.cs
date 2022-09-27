@@ -6,7 +6,10 @@ public class City : MonoBehaviour
 {
     private int widthScaler = 1920;
     private int heightScaler = 1080;
-    // Start is called before the first frame update
+
+    [SerializeField] private TextMesh text;
+
+    public int cityNumber;
     void Start()
     {
         
@@ -29,6 +32,18 @@ public class City : MonoBehaviour
         var (thisX, thisY) = GetPosition();
         return Mathf.Sqrt((otherX - thisX) * (otherX - thisX) + (otherY - thisY) * (otherY - thisY));
     }
+
+    public void SetText(string arg)
+    {
+        text.text = arg;
+    }
+
+    //public void DrawLine(City other)
+    //{
+    //    var lineRenderer = GetComponent<LineRenderer>();
+    //    lineRenderer.SetPosition(0, gameObject.transform.position);
+    //    lineRenderer.SetPosition(1, other.gameObject.transform.position);
+    //}
 
 
     
