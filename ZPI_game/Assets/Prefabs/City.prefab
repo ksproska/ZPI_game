@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -253895709900400973}
   - component: {fileID: 6874404982110633033}
   - component: {fileID: 2322916724031837394}
+  - component: {fileID: 6105058509651451647}
   m_Layer: 0
   m_Name: City
   m_TagString: Untagged
@@ -211,6 +212,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!225 &6105058509651451647
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388157175201490710}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2979893030413891923
 GameObject:
   m_ObjectHideFlags: 0

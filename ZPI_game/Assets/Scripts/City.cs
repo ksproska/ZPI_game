@@ -1,15 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class City : MonoBehaviour
+public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private int widthScaler = 1920;
     private int heightScaler = 1080;
-
-    [SerializeField] private TextMesh text;
-
+    private RectTransform _rectTransform;
+    private Canvas _canvas;
+    private CanvasGroup _canvasGroup;
+    private String text;
+    
     public int cityNumber;
+    
+    private void Awake()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        _canvas = FindObjectOfType<Canvas>();
+        _canvasGroup = GetComponent<CanvasGroup>();
+    }
+    
     public (float, float) GetPosition()
     {
         return (gameObject.transform.position.x, gameObject.transform.position.y);
@@ -24,6 +36,24 @@ public class City : MonoBehaviour
 
     public void SetText(string arg)
     {
-        text.text = arg;
+        text = arg;
+    }
+
+
+    public void OnPointerDown(PointerEventData eventData) {}
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        _canvasGroup.blocksRaycasts = false;
+    }
+    
+    public void OnDrag(PointerEventData eventData)
+    {
+        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        _canvasGroup.blocksRaycasts = true;
     }
 }

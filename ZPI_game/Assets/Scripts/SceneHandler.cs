@@ -13,6 +13,8 @@ public class SceneHandler : MonoBehaviour
     private float lastUpdate = 0;
     private List<City> allCities;
     [SerializeField] LineRenderer _lineRenderer;
+    [SerializeField] float _deltaTime = 0.1f;
+    private bool _runAlgoritm = false;
     
     void Start()
     {
@@ -29,24 +31,32 @@ public class SceneHandler : MonoBehaviour
             0.5);
     }
 
-    
     void Update()
     {
-        lastUpdate += Time.deltaTime;
-        if(lastUpdate > 1)
+        if (_runAlgoritm)
         {
-            lastUpdate = 0;
-            int iterNumber = ga.GetIterationNumber();
-            double bestScore = ga.GetBestScore();
-            double bestForIter = ga.GetBestForIterationScore();
-            textBox.text = $"Iteration #{iterNumber}\nBest for iteration: {bestForIter:0.000}\nBest all time: {bestScore:0.000}";
-            var bestGenome = ga.GetBestGenotype();
-            AssignCityOrderToDisplay(bestGenome, allCities);
-            DrawLines(bestGenome);
-            ga.RunIteration();
+            lastUpdate += Time.deltaTime;
+            if(lastUpdate > _deltaTime)
+            {
+                lastUpdate = 0;
+                int iterNumber = ga.GetIterationNumber();
+                double bestScore = ga.GetBestScore();
+                double bestForIter = ga.GetBestForIterationScore();
+                textBox.text = $"Iteration #{iterNumber}\nBest for iteration: {bestForIter:0.000}\nBest all time: {bestScore:0.000}";
+                var bestGenome = ga.GetBestGenotype();
+                AssignCityOrderToDisplay(bestGenome, allCities);
+                DrawLines(bestGenome);
+                ga.RunIteration();
+            }
         }
     }
 
+    public void setRunning()
+    {
+        Debug.Log("click");
+        _runAlgoritm = true;
+    }
+    
     public List<City> GetAllCities()
     {
         var list = new List<City>(FindObjectsOfType<City>());
@@ -111,13 +121,8 @@ public class SceneHandler : MonoBehaviour
             City current = allCities.Find(city => city.cityNumber == value);
             int nextIndex = (index + 1) % genome.Count;
             City next = allCities.Find(city => city.cityNumber == genome[nextIndex]);
-            // Debug.DrawLine(current.transform.position, next.transform.position, Color.red, 2f);
-            var correction = new Vector3(-current.GetComponent<SpriteRenderer>().size.x / 2,
-                current.GetComponent<SpriteRenderer>().size.y, 0) / 5;
-            _lineRenderer.SetPosition(index, current.GetComponent<SpriteRenderer>().transform.position
-                                             + correction);
-            _lineRenderer.SetPosition(index+1, next.GetComponent<SpriteRenderer>().transform.position
-                                               + correction);
+            _lineRenderer.SetPosition(index, current.GetComponent<RectTransform>().transform.position);
+            _lineRenderer.SetPosition(index+1, next.GetComponent<RectTransform>().transform.position);
         }
     }
 }
