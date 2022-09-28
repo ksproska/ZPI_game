@@ -11,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -73,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1664297952664</updated>
       <workItem from="1664297952664" duration="7345000" />
-      <workItem from="1664389794319" duration="2095000" />
+      <workItem from="1664389794319" duration="5800000" />
     </task>
     <servers />
   </component>

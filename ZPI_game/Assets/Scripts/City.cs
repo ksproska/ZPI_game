@@ -10,17 +10,6 @@ public class City : MonoBehaviour
     [SerializeField] private TextMesh text;
 
     public int cityNumber;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public (float, float) GetPosition()
     {
         return (gameObject.transform.position.x, gameObject.transform.position.y);
@@ -37,14 +26,4 @@ public class City : MonoBehaviour
     {
         text.text = arg;
     }
-
-    //public void DrawLine(City other)
-    //{
-    //    var lineRenderer = GetComponent<LineRenderer>();
-    //    lineRenderer.SetPosition(0, gameObject.transform.position);
-    //    lineRenderer.SetPosition(1, other.gameObject.transform.position);
-    //}
-
-
-    
 }
