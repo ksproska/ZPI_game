@@ -15,9 +15,11 @@ public class SceneHandler : MonoBehaviour
     [SerializeField] LineRenderer _lineRenderer;
     [SerializeField] float _deltaTime = 0.1f;
     private bool _runAlgoritm = false;
+    private Canvas _canvas;
     
     void Start()
     {
+        _canvas = FindObjectOfType<Canvas>();
         allCities = GetAllCities();
         _lineRenderer.positionCount = allCities.Count + 1;
         ga = GeneticAlgorithmProxy.Get(
