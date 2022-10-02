@@ -7,5 +7,6 @@ namespace GA
         Individual Get(List<Individual> generation);
 
         void SetArgs(params double[] parameters);
+        string[] GetArgs();
     }
 }

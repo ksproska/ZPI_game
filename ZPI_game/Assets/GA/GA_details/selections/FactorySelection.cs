@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GA
 {
@@ -21,6 +22,21 @@ namespace GA
             }
             selector.SetArgs(parameters);
             return selector;
+        }
+
+        public static Dictionary<string, SelectionType> GetTypeToNameMap()
+        {
+            return new Dictionary<string, SelectionType>()
+            {
+                { "Tournament", SelectionType.Tournament }
+            };
+        }
+        public static Dictionary<SelectionType, string[]> GetTypeToArgsMap<T>()
+        {
+            return new Dictionary<SelectionType, string[]>()
+            {
+                { SelectionType.Tournament, Get<T>(SelectionType.Tournament).GetArgs()}
+            };
         }
     }
 }

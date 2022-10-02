@@ -23,12 +23,17 @@ namespace GA
 
         public void SetArgs(params double[] parameters)
         {
-            if (parameters.Length < 1)
+            if (parameters.Length < GetArgs().Length)
             {
                 throw new Exception("Not enough params passed");
             }
             // TODO other exceptions
             SizePercentage = parameters[0];
+        }
+
+        public string[] GetArgs()
+        {
+            return new string[] { "percentage for tournament" };
         }
     }
 }

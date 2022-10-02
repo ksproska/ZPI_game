@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GA
 {
@@ -17,6 +18,14 @@ namespace GA
             }
 
             throw new NotImplementedException();
+        }
+
+        public static Dictionary<string, CrossoverType> GetTypeToNameMap()
+        {
+            return new Dictionary<string, CrossoverType>()
+            {
+                { "Partially matched", CrossoverType.PartiallyMatched }
+            };
         }
     }
 }
