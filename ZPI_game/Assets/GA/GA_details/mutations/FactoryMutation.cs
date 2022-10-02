@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GA.mutations;
 
 namespace GA
@@ -18,6 +19,14 @@ namespace GA
             }
 
             throw new NotImplementedException();
+        }
+
+        public static Dictionary<string, MutationType> GetTypeToNameMap()
+        {
+            return new Dictionary<string, MutationType>()
+            {
+                { "Reverse random part of genotype", MutationType.PartialReverser }
+            };
         }
     }
 }

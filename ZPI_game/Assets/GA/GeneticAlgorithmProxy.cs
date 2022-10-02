@@ -24,5 +24,10 @@ namespace GA
                 crossover, crossoverProbability
             );
         }
+
+        public static IGaPrettifier GetPrettifier<T>(IGeneticAlgorithm<T> geneticAlgorithm)
+        {
+            return new GaPrettifier<T>(geneticAlgorithm);
+        }
     }
 }

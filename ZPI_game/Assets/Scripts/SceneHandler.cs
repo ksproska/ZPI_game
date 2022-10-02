@@ -9,13 +9,21 @@ using UnityEditor;
 public class SceneHandler : MonoBehaviour
 {
     [SerializeField] Text textBox;
+    [SerializeField] Text history;
     IGeneticAlgorithm<int> ga;
+    IGaPrettifier gaPrettifier;
     private float lastUpdate = 0;
     private List<City> allCities;
     [SerializeField] LineRenderer _lineRenderer;
     [SerializeField] float _deltaTime = 0.1f;
     private bool _runAlgoritm = false;
     private Canvas _canvas;
+    [SerializeField] private Dropdown selection, crossover, mutation;
+
+    public void SetSpeed(float speed)
+    {
+        _deltaTime = speed;
+    }
     
     void Start()
     {
@@ -31,6 +39,24 @@ public class SceneHandler : MonoBehaviour
             0.7d,
             SelectionType.Tournament,
             0.5);
+        gaPrettifier = new GaPrettifier<int>(ga);
+        history.text = gaPrettifier.GetIterationLogHeader();
+        selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+        crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+        mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+    }
+
+    public void SetSelection()
+    {
+        Debug.Log(TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text]);
+    }
+    public void SetCrossover()
+    {
+        Debug.Log(TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text]);
+    }
+    public void SetMutation()
+    {
+        Debug.Log(TypeToNameMappers.GetMutationDescriptionMapper()[mutation.options[mutation.value].text]);
     }
 
     void Update()
@@ -41,10 +67,8 @@ public class SceneHandler : MonoBehaviour
             if(lastUpdate > _deltaTime)
             {
                 lastUpdate = 0;
-                int iterNumber = ga.GetIterationNumber();
-                double bestScore = ga.GetBestScore();
-                double bestForIter = ga.GetBestForIterationScore();
-                textBox.text = $"Iteration #{iterNumber}\nBest for iteration: {bestForIter:0.000}\nBest all time: {bestScore:0.000}";
+                textBox.text = gaPrettifier.GetCurrentIterationLog();
+                history.text += gaPrettifier.GetCurrentIterationLogIfNewBestFound();
                 var bestGenome = ga.GetBestGenotype();
                 AssignCityOrderToDisplay(bestGenome, allCities);
                 DrawLines(bestGenome);
@@ -55,8 +79,7 @@ public class SceneHandler : MonoBehaviour
 
     public void setRunning()
     {
-        Debug.Log("click");
-        _runAlgoritm = true;
+        _runAlgoritm = !_runAlgoritm;
     }
     
     public List<City> GetAllCities()

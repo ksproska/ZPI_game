@@ -9,9 +9,13 @@ namespace GA
         
         private readonly WeightsGrid _weightsGrid;
         private List<Individual> _generation;
+        public Individual Previous { get; private set; }
         public Individual Best { get; private set; }
         public Individual BestForIteration { get; private set; }
         public int Iteration { get; private set; }
+        public int LastIterationWithNewBestDiscovered { get; private set; }
+        public int BetweenChangesDiff { get; private set;  }
+        public int BetweenChangesDiffPrev { get; private set;  }
 
         private readonly ISelector _selector;
         private readonly IMutator<int> _mutator;
@@ -26,8 +30,9 @@ namespace GA
         {
             _weightsGrid = weightsGrid;
             _generation = GetRandomGeneration(generationSize, weightsGrid);
-            Best = Individual.GetBest(_generation);
-            BestForIteration = Best;
+            Previous = Individual.GetBest(_generation);
+            Best = Previous;
+            BestForIteration = Previous;
             Iteration = 0;
             _selector = selector;
             _mutator = mutator;
@@ -50,14 +55,21 @@ namespace GA
         public void RunIteration()
         {
             SetNewGeneration();
-
+            Previous = Best;
             BestForIteration = Individual.GetBest(_generation);
+            Iteration++;
+            
             if (Best.Score > BestForIteration.Score)
             {
                 Best = BestForIteration;
+                LastIterationWithNewBestDiscovered = Iteration;
+                BetweenChangesDiffPrev = BetweenChangesDiff;
+                BetweenChangesDiff = 0;
             }
-
-            Iteration++;
+            else
+            {
+                BetweenChangesDiff++;
+            }
         }
 
         public int GetIterationNumber()
@@ -78,6 +90,26 @@ namespace GA
         public List<int> GetBestGenotype()
         {
             return Best.Genotype;
+        }
+
+        public bool WasNewBestDiscovered()
+        {
+            return LastIterationWithNewBestDiscovered == Iteration;
+        }
+
+        public double GetDecreasePercentage()
+        {
+            return (1 - (Best.Score / Previous.Score)) * 100;
+        }
+
+        public int NumbOfIterationsSincePrevChange()
+        {
+            if (WasNewBestDiscovered())
+            {
+                return BetweenChangesDiffPrev;
+            }
+
+            return BetweenChangesDiff;
         }
 
         private void SetNewGeneration()
