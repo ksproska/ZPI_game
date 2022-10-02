@@ -73,7 +73,6 @@ public class SceneHandler : MonoBehaviour
                 textBox.text = gaPrettifier.GetCurrentIterationLog();
                 history.text += gaPrettifier.GetCurrentIterationLogIfNewBestFound();
                 var bestGenome = ga.GetBestGenotype();
-                AssignCityOrderToDisplay(bestGenome, allCities);
                 DrawLines(bestGenome);
                 ga.RunIteration();
             }
@@ -122,15 +121,6 @@ public class SceneHandler : MonoBehaviour
         return matrix;
     }
 
-    private void AssignCityOrderToDisplay(List<int> genotype, List<City> cities)
-    {
-        cities.ForEach(city =>
-        {
-            int index = genotype.FindIndex(num => num == city.cityNumber);
-            city.SetText(index.ToString());
-        });
-    }
-
     private string GetMatrixPretty(List<List<double>> matrix)
     {
         var ret = "";
@@ -154,8 +144,6 @@ public class SceneHandler : MonoBehaviour
             int nextIndex = (index + 1) % genome.Count;
             City next = allCities.Find(city => city.cityNumber == genome[nextIndex]);
             current.DrawLine(next);
-            //_lineRenderer.SetPosition(index, current.GetComponent<RectTransform>().transform.position);
-            //_lineRenderer.SetPosition(index+1, next.GetComponent<RectTransform>().transform.position);
         }
     }
 }

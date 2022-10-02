@@ -16,8 +16,6 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
     private RectTransform _rectTransform;
     private Canvas _canvas;
     private CanvasGroup _canvasGroup;
-    private String text;
-    
     [NonSerialized] public int cityNumber;
     
     private void Awake()
@@ -47,13 +45,7 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         var (thisX, thisY) = GetPosition();
         return Mathf.Sqrt((otherX - thisX) * (otherX - thisX) + (otherY - thisY) * (otherY - thisY));
     }
-
-    public void SetText(string arg)
-    {
-        text = arg;
-    }
-
-
+    
     public void OnPointerDown(PointerEventData eventData) {}
 
     public void OnBeginDrag(PointerEventData eventData)

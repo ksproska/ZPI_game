@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="correction - linerenderer">
+    <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="changing simulation parameters works">
+      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bin.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AddCity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CityBin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CityBin.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/City.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/City.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Point.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Point.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/slot.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/slot.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/toDrop.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/toDrop.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/City.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/City.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664707339054</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="changing simulation parameters works">
+      <created>1664716827695</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664716827697</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +140,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="correction - linerenderer" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction - linerenderer" />
+    <MESSAGE value="changing simulation parameters works" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing simulation parameters works" />
   </component>
 </project>
