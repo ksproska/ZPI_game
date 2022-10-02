@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,7 @@ using UnityEngine;
 using GA;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEditor.UIElements;
 
 public class SceneHandler : MonoBehaviour
 {
@@ -19,6 +21,8 @@ public class SceneHandler : MonoBehaviour
     private bool _runAlgoritm = false;
     private Canvas _canvas;
     [SerializeField] private Dropdown selection, crossover, mutation;
+    [SerializeField] private Slider crossoverProbability, mutationProbability;
+    [SerializeField] private InputField generationSize;
 
     public void SetSpeed(float speed)
     {
@@ -28,35 +32,34 @@ public class SceneHandler : MonoBehaviour
     void Start()
     {
         _canvas = FindObjectOfType<Canvas>();
-        allCities = GetAllCities();
-        _lineRenderer.positionCount = allCities.Count + 1;
-        ga = GeneticAlgorithmProxy.Get(
-            GetDistances(),
-            20,
-            MutationType.PartialReverser,
-            0.2d,
-            CrossoverType.PartiallyMatched,
-            0.7d,
-            SelectionType.Tournament,
-            0.5);
-        gaPrettifier = new GaPrettifier<int>(ga);
-        history.text = gaPrettifier.GetIterationLogHeader();
+
         selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
         crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
         mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+        
+        SetGA();
     }
 
-    public void SetSelection()
+    public void SetGA()
     {
-        Debug.Log(TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text]);
-    }
-    public void SetCrossover()
-    {
-        Debug.Log(TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text]);
-    }
-    public void SetMutation()
-    {
-        Debug.Log(TypeToNameMappers.GetMutationDescriptionMapper()[mutation.options[mutation.value].text]);
+        allCities = GetAllCities();
+        _lineRenderer.positionCount = allCities.Count + 1;
+        
+        var selectionType = (TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text]);
+        var crossoverType = (TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text]);
+        var mutationType = (TypeToNameMappers.GetMutationDescriptionMapper()[mutation.options[mutation.value].text]);
+
+        ga = GeneticAlgorithmProxy.Get(
+            GetDistances(),
+            Int32.Parse(generationSize.text),
+            mutationType,
+            mutationProbability.value,
+            crossoverType,
+            crossoverProbability.value,
+            selectionType,
+            0.5);
+        gaPrettifier = new GaPrettifier<int>(ga);
+        history.text = gaPrettifier.GetIterationLogHeader();
     }
 
     void Update()
@@ -79,6 +82,10 @@ public class SceneHandler : MonoBehaviour
 
     public void setRunning()
     {
+        if (!_runAlgoritm)
+        {
+            SetGA();
+        }
         _runAlgoritm = !_runAlgoritm;
     }
     
