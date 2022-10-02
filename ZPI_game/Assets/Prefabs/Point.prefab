@@ -102,8 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1377e43ffa841b547b85a9acee81b6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineColor: {r: 1, g: 0, b: 0, a: 0}
-  lineWidth: 10
   lineMaterial: {fileID: 2100000, guid: ce9a55a96a9c41147a8f979e7e56e276, type: 2}
 --- !u!120 &5355582023921786784
 LineRenderer:
@@ -144,7 +142,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}

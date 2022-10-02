@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/GA/GA_details/GaPrettifier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GA/GA_details/GaPrettifier.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GA/IGaPrettifier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GA/IGaPrettifier.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GA/TypeToNameMappers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GA/TypeToNameMappers.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/GA_details/GeneticAlgorithm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GA_details/GeneticAlgorithm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/GA_details/crossovers/FactoryCrossover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GA_details/crossovers/FactoryCrossover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/GA_details/mutations/FactoryMutation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GA_details/mutations/FactoryMutation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/GA_details/selections/FactorySelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GA_details/selections/FactorySelection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/GA_details/selections/ISelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GA_details/selections/ISelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/GA_details/selections/SelectorTournament.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GA_details/selections/SelectorTournament.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/GeneticAlgorithmProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GeneticAlgorithmProxy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/IGeneticAlgorithm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/IGeneticAlgorithm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Point.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Point.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +14,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/GA/GA_details/GaPrettifier.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/GA/GA_details/selections/FactorySelection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scripts/SceneHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scripts/SceneHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scripts/SceneHandler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
