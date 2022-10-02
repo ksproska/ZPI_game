@@ -5,24 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="changing simulation parameters works">
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Graphics/bin.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AddCity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CityBin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CityBin.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/City.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/City.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Point.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Point.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/slot.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/slot.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/toDrop.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/toDrop.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Point.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Point.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/City.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/City.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CityBin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CityBin.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

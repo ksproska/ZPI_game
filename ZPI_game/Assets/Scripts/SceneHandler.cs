@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using GA;
 using UnityEngine.UI;
-using UnityEditor;
-using UnityEditor.UIElements;
 
 public class SceneHandler : MonoBehaviour
 {
@@ -16,7 +13,6 @@ public class SceneHandler : MonoBehaviour
     IGaPrettifier gaPrettifier;
     private float lastUpdate = 0;
     private List<City> allCities;
-    [SerializeField] LineRenderer _lineRenderer;
     [SerializeField] float _deltaTime = 0.1f;
     private bool _runAlgoritm = false;
     private Canvas _canvas;
@@ -43,8 +39,6 @@ public class SceneHandler : MonoBehaviour
     public void SetGA()
     {
         allCities = GetAllCities();
-        _lineRenderer.positionCount = allCities.Count + 1;
-        
         var selectionType = (TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text]);
         var crossoverType = (TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text]);
         var mutationType = (TypeToNameMappers.GetMutationDescriptionMapper()[mutation.options[mutation.value].text]);
@@ -119,21 +113,6 @@ public class SceneHandler : MonoBehaviour
             matrix.Add(row);
         }
         return matrix;
-    }
-
-    private string GetMatrixPretty(List<List<double>> matrix)
-    {
-        var ret = "";
-        matrix.ForEach(row =>
-        {
-            row.ForEach(dist =>
-            {
-                ret += dist.ToString();
-                ret += " ";
-            });
-            ret += "\n";
-        });
-        return ret;
     }
 
     private void DrawLines(List<int> genome)
