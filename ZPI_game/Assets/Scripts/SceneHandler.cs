@@ -123,8 +123,9 @@ public class SceneHandler : MonoBehaviour
             City current = allCities.Find(city => city.cityNumber == value);
             int nextIndex = (index + 1) % genome.Count;
             City next = allCities.Find(city => city.cityNumber == genome[nextIndex]);
-            _lineRenderer.SetPosition(index, current.GetComponent<RectTransform>().transform.position);
-            _lineRenderer.SetPosition(index+1, next.GetComponent<RectTransform>().transform.position);
+            current.DrawLine(next);
+            //_lineRenderer.SetPosition(index, current.GetComponent<RectTransform>().transform.position);
+            //_lineRenderer.SetPosition(index+1, next.GetComponent<RectTransform>().transform.position);
         }
     }
 }
