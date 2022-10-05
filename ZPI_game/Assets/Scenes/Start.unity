@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57773a060312f4748992205869847a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: df3b75721910b4c45a2ac74ef1619393, type: 3}
+  scene: Education
 --- !u!1 &882712777
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57773a060312f4748992205869847a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+  scene: Simulation
 --- !u!1 &1939179884
 GameObject:
   m_ObjectHideFlags: 0
