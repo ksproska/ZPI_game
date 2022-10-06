@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] public int id;
+    public bool isAtTheRightPosition = false;
     private RectTransform _rectTransform;
     private Canvas _canvas;
     private CanvasGroup _canvasGroup;
+    private Vector3 _startPos;
 
     private void Awake()
     {
@@ -18,6 +20,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     
     public void Start()
     {
+        _startPos = GetComponent<Transform>().position;
         Assert.IsTrue(id > 0);
     }
 
@@ -36,5 +39,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         _canvasGroup.blocksRaycasts = true;
+        if (!isAtTheRightPosition)
+        {
+            GetComponent<Transform>().position = _startPos;
+        }
     }
 }

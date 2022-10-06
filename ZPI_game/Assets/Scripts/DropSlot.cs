@@ -22,6 +22,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
             {
                 _placedId = eventData.pointerDrag.GetComponent<DragDrop>().id;
             }
+            eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
         }
     }
     public bool IsCorrect()
