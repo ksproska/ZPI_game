@@ -55,12 +55,15 @@ public class StaticText : MonoBehaviour
     {
         mainText = GetComponent<Text>();
         mainText.color = TextColor.GetTextColor(wordType);
-        openParenthesis.gameObject.SetActive(false);
-        closrParenthesis.gameObject.SetActive(false);
-        if (showParenthesis)
+        if (openParenthesis != null && closrParenthesis != null)
         {
-            openParenthesis.gameObject.SetActive(true);
-            closrParenthesis.gameObject.SetActive(true);
+            openParenthesis.gameObject.SetActive(false);
+            closrParenthesis.gameObject.SetActive(false);
+            if (showParenthesis)
+            {
+                openParenthesis.gameObject.SetActive(true);
+                closrParenthesis.gameObject.SetActive(true);
+            }
         }
     }
 
