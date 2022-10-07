@@ -5,7 +5,8 @@ namespace GA
 {
     public enum CrossoverType
     {
-        PartiallyMatched
+        PartiallyMatched,
+        Order
     }
     public class FactoryCrossover
     {
@@ -15,6 +16,8 @@ namespace GA
             {
                 case CrossoverType.PartiallyMatched:
                     return new CrosserPartiallyMatched();
+                case CrossoverType.Order:
+                    return new CrosserOrder();
             }
 
             throw new NotImplementedException();
@@ -24,7 +27,8 @@ namespace GA
         {
             return new Dictionary<string, CrossoverType>()
             {
-                { "Partially matched", CrossoverType.PartiallyMatched }
+                { "PMX", CrossoverType.PartiallyMatched },
+                { "OX", CrossoverType.Order},
             };
         }
     }

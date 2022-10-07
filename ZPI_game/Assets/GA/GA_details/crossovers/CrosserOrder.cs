@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GA
 {
-    public class CrosserPartiallyMatched : ICrosser<int>
+    public class CrosserOrder: ICrosser<int>
     {
         private static readonly Random Random = new Random();
         public static List<int> Cross(List<int> parent1, List<int> parent2, int startInx, int segmentLength)
@@ -18,21 +18,19 @@ namespace GA
                 int inx = i + startInx;
                 child[inx] = parent1[inx];
             }
-            for (int i = 0; i < segmentLength; i++) {
-                int inx = i + startInx;
-                int valToAdd = parent2[inx];
-    
-                if(!child.Contains(valToAdd)) {
-                    while (child[inx] != -1)
-                    {
-                        inx = parent2.IndexOf(parent1[inx]);
-                    }
-                    child[inx] = valToAdd;
-                }
-            }
+
+            int lastNotContained = 0;
             for (int i = 0; i < child.Count; i++) {
                 if(child[i] == -1) {
-                    child[i] = parent2[i];
+                    for (int j = lastNotContained; j < parent2.Count; j++)
+                    {
+                        lastNotContained = j + 1;
+                        if (!child.Contains(parent2[j]))
+                        {
+                            child[i] = parent2[j];
+                            break; //todo ugly
+                        }
+                    }
                 }
             }
             return child;
