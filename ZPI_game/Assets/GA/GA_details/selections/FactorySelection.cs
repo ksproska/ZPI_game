@@ -5,7 +5,7 @@ namespace GA
 {
     public enum SelectionType
     {
-        Tournament
+        Tournament, Roulette
     }
     public abstract class FactorySelection
     {
@@ -16,6 +16,9 @@ namespace GA
             {
                 case SelectionType.Tournament:
                     selector = new SelectorTournament();
+                    break;
+                case SelectionType.Roulette:
+                    selector = new SelectorRoulette();
                     break;
                 default:
                     throw new NotImplementedException();
@@ -28,14 +31,16 @@ namespace GA
         {
             return new Dictionary<string, SelectionType>()
             {
-                { "Tournament", SelectionType.Tournament }
+                { "Tournament", SelectionType.Tournament },
+                { "Roulette", SelectionType.Roulette },
             };
         }
         public static Dictionary<SelectionType, string[]> GetTypeToArgsMap<T>()
         {
             return new Dictionary<SelectionType, string[]>()
             {
-                { SelectionType.Tournament, Get<T>(SelectionType.Tournament).GetArgs()}
+                { SelectionType.Tournament, Get<T>(SelectionType.Tournament).GetArgs()},
+                { SelectionType.Roulette, Get<T>(SelectionType.Roulette).GetArgs()},
             };
         }
     }

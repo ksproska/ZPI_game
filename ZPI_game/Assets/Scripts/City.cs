@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    private int widthScaler = 1920;
-    private int heightScaler = 1080;
+    // private int widthScaler = 1920;
+    // private int heightScaler = 1080;
 
     [SerializeField] private Material lineMaterial;
 
