@@ -305,8 +305,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00005340576}
-  m_SizeDelta: {x: 377.6147, y: -27.9837}
+  m_AnchoredPosition: {x: 0, y: -0.8914}
+  m_SizeDelta: {x: 377.6147, y: -33.3576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3362698085404021568
 CanvasRenderer:
@@ -337,11 +337,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 7e94c4b52f761cd4c97af9fae45b985d, type: 3}
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -800,6 +800,8 @@ MonoBehaviour:
   leftEye: {fileID: 2798099473165145410}
   rightEye: {fileID: 6191467306724123759}
   mouth: {fileID: 7652189061635352863}
+  chatPanel: {fileID: 7475611817393509923}
+  chatText: {fileID: 3032153356950651375}
   eyeTypes:
   - {fileID: 21300000, guid: dbc446b66449c4f47a037601daaca91d, type: 3}
   - {fileID: 21300000, guid: 0c5be01722a854540986b7a405eed592, type: 3}
@@ -1025,7 +1027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1934542852989039483
 RectTransform:
   m_ObjectHideFlags: 0

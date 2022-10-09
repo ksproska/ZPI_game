@@ -9,6 +9,8 @@ public class CryoUI : MonoBehaviour
     [SerializeField] Image leftEye;
     [SerializeField] Image rightEye;
     [SerializeField] Image mouth;
+    [SerializeField] GameObject chatPanel;
+    [SerializeField] Text chatText;
 
     [SerializeField] List<Sprite> eyeTypes;
     [SerializeField] List<Sprite> mouthTypes;
@@ -36,18 +38,21 @@ public class CryoUI : MonoBehaviour
                 SetBothEyesTypes(EyeType.EyeBig);
                 SetBothEyesDirection(EyeDirection.DownRight);
                 SetMouthType(MouthType.Confused);
+                Say("Hello", 24);
                 index += 1;
             }
             else if (index == 1)
             {
                 SetBothEyesTypes(EyeType.Angry);
                 SetMouthType(MouthType.Angry);
+                Say("I am so f****** angry!");
                 index += 1;
             }
             else
             {
                 SetBothEyesTypes(EyeType.Wink);
                 SetMouthType(MouthType.Sad);
+                Say("But not to worry! I'm not angry with you...");
                 //SetRightEyeDirection(EyeDirection.UpRight);
                 index = 0;
             }
@@ -201,5 +206,17 @@ public class CryoUI : MonoBehaviour
             default:
                 return;
         }
+    }
+
+    public void ShowDialogBox(bool show)
+    {
+        chatPanel.SetActive(show);
+    }
+
+    public void Say(string text, int fontSize = 15)
+    {
+        chatText.text = text;
+        chatText.fontSize = fontSize;
+        ShowDialogBox(true);
     }
 }
