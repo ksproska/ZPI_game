@@ -1,4 +1,5 @@
 using Assets.Cryo.Script;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,13 @@ public class CryoUI : MonoBehaviour
     [SerializeField] Image mouth;
     [SerializeField] GameObject chatPanel;
     [SerializeField] Text chatText;
+    [SerializeField] Button chatButton;
 
     [SerializeField] List<Sprite> eyeTypes;
     [SerializeField] List<Sprite> mouthTypes;
+
+    [NonSerialized] private List<string> dialogSequence;
+    [NonSerialized] private int dialogIndex = -1;
 
     EyeType currentLeftEyeType;
     EyeType currentRightEyeType;
@@ -24,7 +29,13 @@ public class CryoUI : MonoBehaviour
 
     void Start()
     {
-
+        var dialog = new List<string>() {
+            "Stop saying that your life is a joke!",
+            "It's painfull...",
+            "Besides, jokes are supposed to have a meaning",
+        };
+        SetupDialog(dialog);
+        StartDialog();
     }
 
     void Update()
@@ -38,21 +49,18 @@ public class CryoUI : MonoBehaviour
                 SetBothEyesTypes(EyeType.EyeBig);
                 SetBothEyesDirection(EyeDirection.DownRight);
                 SetMouthType(MouthType.Confused);
-                Say("Hello", 24);
                 index += 1;
             }
             else if (index == 1)
             {
                 SetBothEyesTypes(EyeType.Angry);
                 SetMouthType(MouthType.Angry);
-                Say("I am so f****** angry!");
                 index += 1;
             }
             else
             {
                 SetBothEyesTypes(EyeType.Wink);
                 SetMouthType(MouthType.Sad);
-                Say("But not to worry! I'm not angry with you...");
                 //SetRightEyeDirection(EyeDirection.UpRight);
                 index = 0;
             }
@@ -218,5 +226,44 @@ public class CryoUI : MonoBehaviour
         chatText.text = text;
         chatText.fontSize = fontSize;
         ShowDialogBox(true);
+        chatButton.gameObject.SetActive(false);
+    }
+
+    public void SetupDialog(List<string> dialogSequence, string buttonText = "Next")
+    {
+        chatButton.GetComponentInChildren<Text>().text = buttonText;
+        this.dialogSequence = dialogSequence;
+        dialogIndex = 0;
+    }
+
+    public void StartDialog()
+    {
+        if (dialogIndex < 0) return;
+        chatButton.gameObject.SetActive(true);
+        DialogNext();
+    }
+
+    public void StopDialog()
+    {
+        dialogIndex = -1;
+        chatButton.gameObject.SetActive(false);
+        ShowDialogBox(false);
+    }
+
+    public void DialogNext()
+    {
+        if (dialogIndex == dialogSequence.Count)
+        {
+            StopDialog();
+            return;
+        }
+        string toSay = dialogSequence[dialogIndex];
+        if(dialogIndex + 1 == dialogSequence.Count)
+        {
+            chatButton.GetComponentInChildren<Text>().text = "Close";
+        }
+        Say(toSay);
+        chatButton.gameObject.SetActive(true);
+        dialogIndex += 1;
     }
 }
