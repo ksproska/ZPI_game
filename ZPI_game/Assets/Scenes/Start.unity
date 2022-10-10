@@ -1404,6 +1404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CryoUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6257797026778487859, guid: 6fc6aa0f3f71484458c87dc34944375d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8620325478101137551, guid: 6fc6aa0f3f71484458c87dc34944375d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
