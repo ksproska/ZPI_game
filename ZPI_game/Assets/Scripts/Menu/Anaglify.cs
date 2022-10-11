@@ -18,6 +18,7 @@ public class Anaglify : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private void Start()
     {
         SetupAnaglifyEffect(ref redObject, ref redText, "RedText", new Color(1, 0, 0));
+        SetupAnaglifyEffect(ref blueObject, ref blueText, "BlueText", new Color(0, 1, 1));
         //viewerPoint = Camera.main.WorldToViewportPoint(gameObject.transform.position);
 
         //redObject = new GameObject();
@@ -81,13 +82,13 @@ public class Anaglify : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //redText.rectTransform.position = new Vector3(viewerPoint.x + blureFactor, viewerPoint.y, viewerPoint.z);
         redObject.transform.localPosition = new Vector3(blureFactor, 0, 0);
+        blueObject.transform.localPosition = new Vector3(-blureFactor, blureFactor / 2f, 0);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //redText.rectTransform.position = viewerPoint;
         redObject.transform.localPosition = new Vector3(0, 0, 0);
+        blueObject.transform.localPosition = new Vector3(0, 0, 0);
     }
 }
