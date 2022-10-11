@@ -20,6 +20,5 @@ public class ParalaxMenu : MonoBehaviour
         float posX = Mathf.Lerp(transform.position.x, startPosition.x + position.x * moveModifier, 2f * Time.deltaTime);
         float posY = Mathf.Lerp(transform.position.y, startPosition.y + position.y * moveModifier, 2f * Time.deltaTime);
         transform.position = new Vector3(posX, posY, 0f);
-        //Debug.Log("Dzia³a");
     }
 }
