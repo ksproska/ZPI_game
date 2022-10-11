@@ -17,31 +17,31 @@ public class Anaglify : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Start()
     {
-        //SetupAnaglifyEffect(ref redObject, ref redText, "RedText", new Color(1, 0, 0));
+        SetupAnaglifyEffect(ref redObject, ref redText, "RedText", new Color(1, 0, 0));
         //viewerPoint = Camera.main.WorldToViewportPoint(gameObject.transform.position);
 
-        redObject = new GameObject();
-        redObject.name = "RedText";
-        redObject.layer = 5;
+        //redObject = new GameObject();
+        //redObject.name = "RedText";
+        //redObject.layer = 5;
 
 
-        redText = redObject.AddComponent<Text>();
-        redObject.transform.SetParent(text.transform.parent);
+        //redText = redObject.AddComponent<Text>();
+        //redObject.transform.SetParent(text.transform.parent);
 
-        redText.rectTransform.offsetMax = text.rectTransform.offsetMax;
-        redText.rectTransform.offsetMin = text.rectTransform.offsetMin;
-        redObject.transform.localPosition = new Vector3(0, 0, 0);
-        redObject.transform.localScale = gameObject.transform.localScale;
-        redObject.GetComponent<RectTransform>().SetAsFirstSibling();
-        redObject.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
-        redObject.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
-        redObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+        //redText.rectTransform.offsetMax = text.rectTransform.offsetMax;
+        //redText.rectTransform.offsetMin = text.rectTransform.offsetMin;
+        //redObject.transform.localPosition = new Vector3(0, 0, 0);
+        //redObject.transform.localScale = gameObject.transform.localScale;
+        //redObject.GetComponent<RectTransform>().SetAsFirstSibling();
+        //redObject.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        //redObject.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        //redObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
 
-        redText.font = text.font;
-        redText.alignment = text.alignment;
-        redText.text = text.text;
-        redText.color = new Color(1, 0, 0);
-        redText.fontSize = text.fontSize;
+        //redText.font = text.font;
+        //redText.alignment = text.alignment;
+        //redText.text = text.text;
+        //redText.color = new Color(1, 0, 0);
+        //redText.fontSize = text.fontSize;
 
         //blueObject = new GameObject();
         //blueObject.layer = 5;
@@ -61,13 +61,17 @@ public class Anaglify : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         colorObject.layer = 5;
 
 
-        colorText = redObject.AddComponent<Text>();
+        colorText = colorObject.AddComponent<Text>();
         colorObject.transform.SetParent(text.transform.parent);
 
         colorText.rectTransform.offsetMax = text.rectTransform.offsetMax;
+        colorText.rectTransform.offsetMin = text.rectTransform.offsetMin;
         colorObject.transform.localPosition = new Vector3(0, 0, 0);
         colorObject.transform.localScale = gameObject.transform.localScale;
         colorObject.GetComponent<RectTransform>().SetAsFirstSibling();
+        colorObject.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        colorObject.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        colorObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
 
         colorText.font = text.font;
         colorText.alignment = text.alignment;
