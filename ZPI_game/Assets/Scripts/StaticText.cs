@@ -25,17 +25,17 @@ public class TextColor
             case WordType.Basic:
                 return new Color(0.898f, 0.898f, 0.898f);
             case WordType.Function:
-                return new Color(0.784f, 0.184f, 1f);
+                return new Color(0.612f, 0.431f, 0.859f);
             case WordType.Type:
                 return new Color(1f, 0f, 127);
             case WordType.Keyword:
-                return new Color(0.99f, 0.835f, 0.043f);
+                return new Color(0.961f, 0.718f, 0f);
             case WordType.Argument:
                 return new Color(0.165f, 0.58f, 0.949f);
             case WordType.Decorator:
                 return new Color(1f, 0.78f, 0.333f);
             case WordType.String:
-                return new Color(0.2f, 1f, 0.173f);
+                return new Color(0.537f, 0.988f, 0f);
             case WordType.DefaultArgument:
                 return new Color(1f, 0.569f, 0f);
             default:
