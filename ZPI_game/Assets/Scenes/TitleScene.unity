@@ -592,6 +592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1169613888}
   blureFactor: 2
+  firstColor: {r: 0.3137255, g: 0.6313726, b: 0.32941177, a: 1}
+  secondColor: {r: 0.8078432, g: 0.654902, b: 0.33333334, a: 1}
 --- !u!114 &1175093469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,7 +1013,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1366971188}
-  blureFactor: 2
+  blureFactor: 3
+  firstColor: {r: 0.3137255, g: 0.6313726, b: 0.32941177, a: 1}
+  secondColor: {r: 0.8078432, g: 0.654902, b: 0.33333334, a: 1}
 --- !u!114 &1543129250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,6 +1203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 2074996741}
   blureFactor: 2
+  firstColor: {r: 0.3137255, g: 0.6313726, b: 0.32941177, a: 1}
+  secondColor: {r: 0.8078432, g: 0.654902, b: 0.33333334, a: 1}
 --- !u!114 &1587733718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,6 +1339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 419800872}
   blureFactor: 2
+  firstColor: {r: 0.3137255, g: 0.6313726, b: 0.32941177, a: 1}
+  secondColor: {r: 0.8078432, g: 0.654902, b: 0.33333334, a: 1}
 --- !u!114 &1974711563
 MonoBehaviour:
   m_ObjectHideFlags: 0
