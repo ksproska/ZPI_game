@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -320,13 +320,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1962971510}
   - {fileID: 1314221636}
   - {fileID: 1868921154}
   - {fileID: 154254941}
   - {fileID: 1234862902}
   - {fileID: 940753825}
   - {fileID: 1026648953}
-  - {fileID: 1962971510}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -368,7 +368,7 @@ RectTransform:
   m_Children:
   - {fileID: 1688756551}
   m_Father: {fileID: 678059152}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -514,7 +514,7 @@ RectTransform:
   m_Children:
   - {fileID: 1580079128}
   m_Father: {fileID: 678059152}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -729,7 +729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_AnchorMax.x
@@ -749,11 +749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 43.2681
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 23.6699
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_LocalPosition.x
@@ -785,11 +785,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -129
+      value: -279.937
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -37
+      value: -98.835
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1084,12 +1084,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 678059152}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -204, y: -137.8172}
-  m_SizeDelta: {x: 232, y: 203.1608}
+  m_AnchoredPosition: {x: -417.66992, y: -115}
+  m_SizeDelta: {x: 384.6602, y: 203.1608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1962971511
 MonoBehaviour:
@@ -1124,18 +1124,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#ff0000>class</color> WeightsGrid:\r\n    <color=#ff0000>def</color>
+  m_Text: "<color=#000000>class</color> WeightsGrid:\r\n    <color=#000000>def</color>
     \u25A0\u25A0\u25A0\u25A0\u25A0\u25A0(self, grid: <color=#ff6600>list</color>):  
     \r\n        self<color=#ffff00>.</color>__weights: <color=#ff6600>\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0</color>
     <color=#ffff00>=</color> grid   \r\n        self<color=#ffff00>.</color>size:
     <color=#ff6600>int</color> <color=#ffff00>=</color> <color=#ff6600>\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0</color>(grid)   
-    \r\n\r\n    <color=#ff0000>def</color> get_weight(self, index1: <color=#ff6600>int</color>,
+    \r\n\r\n    <color=#000000>def</color> get_weight(self, index1: <color=#ff6600>int</color>,
     index2: <color=#ff6600>int</color>) <color=#ffff00>-</color><color=#ffff00>></color>
-    <color=#ff6600>\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0</color>:   \r\n        <color=#ff0000>return</color>
+    <color=#ff6600>\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0</color>:   \r\n        <color=#000000>return</color>
     self<color=#ffff00>.</color>\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0[index1][index2] 
-    \r\n\r\n    <color=#ff0000>def</color> get_size(\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0)
+    \r\n\r\n    <color=#000000>def</color> get_size(\u25A0\u25A0\u25A0\u25A0\u25A0\u25A0)
     <color=#ffff00>-</color><color=#ffff00>></color> <color=#ff6600>int</color>: 
-    \r\n        <color=#ff0000>return</color> self<color=#ffff00>.</color>size\r\n"
+    \r\n        <color=#000000>return</color> self<color=#ffff00>.</color>size\r\n"
 --- !u!222 &1962971512
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1161,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1262,7 +1262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5791033493032353136, guid: 44dacf965726007438026cd77b5fda59, type: 3}
       propertyPath: m_AnchorMax.x

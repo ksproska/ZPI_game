@@ -9,50 +9,18 @@ public class Anaglify : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Text text;
     [SerializeField] float blureFactor;
-    [NonSerialized] Text redText;
-    [NonSerialized] GameObject redObject;
-    [NonSerialized] Text blueText;
-    [NonSerialized] GameObject blueObject;
-    [NonSerialized] Vector3 viewerPoint;
+    [SerializeField] Color firstColor;
+    [SerializeField] Color secondColor;
+
+    [NonSerialized] Text firstColorText;
+    [NonSerialized] GameObject firstColorObject;
+    [NonSerialized] Text econdColorText;
+    [NonSerialized] GameObject secondColorObject;
 
     private void Start()
     {
-        SetupAnaglifyEffect(ref redObject, ref redText, "RedText", new Color(1, 0, 0));
-        SetupAnaglifyEffect(ref blueObject, ref blueText, "BlueText", new Color(0, 1, 1));
-        //viewerPoint = Camera.main.WorldToViewportPoint(gameObject.transform.position);
-
-        //redObject = new GameObject();
-        //redObject.name = "RedText";
-        //redObject.layer = 5;
-
-
-        //redText = redObject.AddComponent<Text>();
-        //redObject.transform.SetParent(text.transform.parent);
-
-        //redText.rectTransform.offsetMax = text.rectTransform.offsetMax;
-        //redText.rectTransform.offsetMin = text.rectTransform.offsetMin;
-        //redObject.transform.localPosition = new Vector3(0, 0, 0);
-        //redObject.transform.localScale = gameObject.transform.localScale;
-        //redObject.GetComponent<RectTransform>().SetAsFirstSibling();
-        //redObject.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
-        //redObject.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
-        //redObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-
-        //redText.font = text.font;
-        //redText.alignment = text.alignment;
-        //redText.text = text.text;
-        //redText.color = new Color(1, 0, 0);
-        //redText.fontSize = text.fontSize;
-
-        //blueObject = new GameObject();
-        //blueObject.layer = 5;
-        //blueText = blueObject.AddComponent<Text>();
-        //blueText.font = text.font;
-        //blueText.transform.SetParent(text.transform);
-        //blueText.transform.localScale = text.transform.localScale;
-        //blueText.transform.localPosition = new Vector3(0, 0, 0);
-        //blueText.text = text.text;
-        //blueText.color = new Color(0, 1, 1);
+        SetupAnaglifyEffect(ref firstColorObject, ref firstColorText, "RedText", firstColor);
+        SetupAnaglifyEffect(ref secondColorObject, ref econdColorText, "BlueText", secondColor);
     }
 
     void SetupAnaglifyEffect(ref GameObject colorObject, ref Text colorText, string objectName, Color color)
@@ -82,13 +50,13 @@ public class Anaglify : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        redObject.transform.localPosition = new Vector3(blureFactor, 0, 0);
-        blueObject.transform.localPosition = new Vector3(-blureFactor, blureFactor / 2f, 0);
+        firstColorObject.transform.localPosition = new Vector3(blureFactor, 0, 0);
+        secondColorObject.transform.localPosition = new Vector3(-blureFactor, blureFactor / 2f, 0);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        redObject.transform.localPosition = new Vector3(0, 0, 0);
-        blueObject.transform.localPosition = new Vector3(0, 0, 0);
+        firstColorObject.transform.localPosition = new Vector3(0, 0, 0);
+        secondColorObject.transform.localPosition = new Vector3(0, 0, 0);
     }
 }
