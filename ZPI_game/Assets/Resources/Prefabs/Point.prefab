@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1377e43ffa841b547b85a9acee81b6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineMaterial: {fileID: 2100000, guid: ce9a55a96a9c41147a8f979e7e56e276, type: 2}
+  lineMaterial: {fileID: 2100000, guid: 017d187b6e330aa4793b0c06ce3e18de, type: 2}
 --- !u!120 &5355582023921786784
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1

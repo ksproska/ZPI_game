@@ -20,7 +20,7 @@ namespace LevelUtils
         {
             var parsedJson = JsonSerializer.Deserialize<List<LevelInfoJson>>(jsonText);
             List<LevelButtonInfo> levelButtons = parsedJson.Select(lvlInfoJson => new LevelButtonInfo(lvlInfoJson.GameObjectName, lvlInfoJson.LevelNumber, false, null)).ToList();
-
+            return levelButtons;
         }
         public static List<LevelButtonInfo> GetListOfLevels()
         {
@@ -30,6 +30,7 @@ namespace LevelUtils
             }
 
             LoadFromJson("");
+            return ListOfLevels;
         }
 
     }

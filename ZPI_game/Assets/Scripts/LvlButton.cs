@@ -43,6 +43,10 @@ public class LvlButton : MonoBehaviour
             IsDone = false;
         }
 
+        if (PrevBut != null)
+        {
+            this.DrawLine();
+        }
 
     }
 
@@ -52,6 +56,8 @@ public class LvlButton : MonoBehaviour
         _lineRenderer.positionCount = 2;
         _lineRenderer.SetPositions(pathPoints);
         _lineRenderer.material = lineMaterial;
+
+        
     }
 
     public void ChangeImage()
