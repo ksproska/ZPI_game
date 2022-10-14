@@ -22,10 +22,7 @@ public class LvlButton : MonoBehaviour
     void Start()
     {
         _lineRenderer = GetComponent<LineRenderer>();
-        if (PrevBut != null)
-        {
-            this.DrawLine();
-        }
+        _lineRenderer.material = lineMaterial;
     }
 
     // Update is called once per frame
@@ -35,18 +32,16 @@ public class LvlButton : MonoBehaviour
         if (PrevBut != null && PrevBut.IsDone)
         {
             ActiveStatus = true;
+            this.DrawLine();
         }
         else if(PrevBut != null)
         {
+            _lineRenderer.positionCount = 0;
             ActiveStatus = false;
             But.image.sprite = OffSprite;
             IsDone = false;
         }
 
-        if (PrevBut != null)
-        {
-            this.DrawLine();
-        }
 
     }
 
@@ -55,7 +50,6 @@ public class LvlButton : MonoBehaviour
         Vector3[] pathPoints = { this.transform.position, PrevBut.transform.position };
         _lineRenderer.positionCount = 2;
         _lineRenderer.SetPositions(pathPoints);
-        _lineRenderer.material = lineMaterial;
 
         
     }
