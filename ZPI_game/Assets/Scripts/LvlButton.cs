@@ -61,10 +61,9 @@ public class LvlButton : MonoBehaviour
             But.image.sprite = OnSprite;
             IsDone = true;
         }
-        else if(PrevBut != null)
+        else
         {
             But.image.sprite = OffSprite;
-            ActiveStatus = false;
             IsDone = false;
 
         }
