@@ -29,7 +29,7 @@ imported, as well as all the hooks that can be used to customize the
 import system. Note that failures in this step may indicate either
 that the module could not be located, *or* that an error occurred
 while initializing the module, which includes execution of the
-module’s code.
+moduleâ€™s code.
 
 If the requested module is retrieved successfully, it will be made
 available in the local namespace in one of three ways:
@@ -38,7 +38,7 @@ available in the local namespace in one of three ways:
   is bound directly to the imported module.
 
 * If no other name is specified, and the module being imported is a
-  top level module, the module’s name is bound in the local namespace
+  top level module, the moduleâ€™s name is bound in the local namespace
   as a reference to the imported module
 
 * If the module being imported is *not* a top level module, then the
@@ -78,17 +78,17 @@ names defined in the module are bound in the local namespace for the
 scope where the "import" statement occurs.
 
 The *public names* defined by a module are determined by checking the
-module’s namespace for a variable named "__all__"; if defined, it must
+moduleâ€™s namespace for a variable named "__all__"; if defined, it must
 be a sequence of strings which are names defined or imported by that
 module.  The names given in "__all__" are all considered public and
 are required to exist.  If "__all__" is not defined, the set of public
-names includes all names found in the module’s namespace which do not
+names includes all names found in the moduleâ€™s namespace which do not
 begin with an underscore character ("'_'").  "__all__" should contain
 the entire public API. It is intended to avoid accidentally exporting
 items that are not part of the API (such as library modules which were
 imported and used within the module).
 
-The wild card form of import — "from module import *" — is only
+The wild card form of import â€” "from module import *" â€” is only
 allowed at the module level.  Attempting to use it in class or
 function definitions will raise a "SyntaxError".
 
@@ -178,14 +178,14 @@ Note that there is nothing special about the statement:
 
    import __future__ [as name]
 
-That is not a future statement; it’s an ordinary import statement with
+That is not a future statement; itâ€™s an ordinary import statement with
 no special semantics or syntax restrictions.
 
 Code compiled by calls to the built-in functions "exec()" and
 "compile()" that occur in a module "M" containing a future statement
 will, by default, use the new syntax or semantics associated with the
 future statement.  This can be controlled by optional arguments to
-"compile()" — see the documentation of that function for details.
+"compile()" â€” see the documentation of that function for details.
 
 A future statement typed at an interactive interpreter prompt will
 take effect for the rest of the interpreter session.  If an

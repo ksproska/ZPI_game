@@ -22,10 +22,10 @@ is equivalent to
    class Foo(object):
        pass
 
-The classís suite is then executed in a new execution frame (see
+The class‚Äôs suite is then executed in a new execution frame (see
 Naming and binding), using a newly created local namespace and the
 original global namespace. (Usually, the suite contains mostly
-function definitions.)  When the classís suite finishes execution, its
+function definitions.)  When the class‚Äôs suite finishes execution, its
 execution frame is discarded but its local namespace is saved. [3] A
 class object is then created using the inheritance list for the base
 classes and the saved local namespace for the attribute dictionary.
@@ -33,7 +33,7 @@ The class name is bound to this class object in the original local
 namespace.
 
 The order in which attributes are defined in the class body is
-preserved in the new classís "__dict__".  Note that this is reliable
+preserved in the new class‚Äôs "__dict__".  Note that this is reliable
 only right after the class is created and only for classes that were
 defined using the definition syntax.
 
@@ -57,10 +57,10 @@ Changed in version 3.9: Classes may be decorated with any valid
 "assignment_expression". Previously, the grammar was much more
 restrictive; see **PEP 614** for details.
 
-**Programmerís note:** Variables defined in the class definition are
+**Programmer‚Äôs note:** Variables defined in the class definition are
 class attributes; they are shared by instances.  Instance attributes
 can be set in a method with "self.name = value".  Both class and
-instance attributes are accessible through the notation ì"self.name"î,
+instance attributes are accessible through the notation ‚Äú"self.name"‚Äù,
 and an instance attribute hides a class attribute with the same name
 when accessed in this way.  Class attributes can be used as defaults
 for instance attributes, but using mutable values there can lead to

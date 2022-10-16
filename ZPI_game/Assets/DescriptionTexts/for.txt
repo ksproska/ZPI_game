@@ -19,7 +19,7 @@ the suite in the "else" clause, if present, is executed, and the loop
 terminates.
 
 A "break" statement executed in the first suite terminates the loop
-without executing the "else" clause’s suite.  A "continue" statement
+without executing the "else" clauseâ€™s suite.  A "continue" statement
 executed in the first suite skips the rest of the suite and continues
 with the next item, or with the "else" clause if there is no next
 item.
@@ -37,7 +37,7 @@ those made in the suite of the for-loop:
 Names in the target list are not deleted when the loop is finished,
 but if the sequence is empty, they will not have been assigned to at
 all by the loop.  Hint: the built-in function "range()" returns an
-iterator of integers suitable to emulate the effect of Pascal’s "for i
+iterator of integers suitable to emulate the effect of Pascalâ€™s "for i
 := a to b do"; e.g., "list(range(3))" returns the list "[0, 1, 2]".
 
 Note:

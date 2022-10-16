@@ -13,7 +13,7 @@ object.  It must be either a subclass or an instance of
 "BaseException". If it is a class, the exception instance will be
 obtained when needed by instantiating the class with no arguments.
 
-The *type* of the exception is the exception instance’s class, the
+The *type* of the exception is the exception instanceâ€™s class, the
 *value* is the instance itself.
 
 A traceback object is normally created automatically when an exception
@@ -51,7 +51,7 @@ handled, both exceptions will be printed:
 
 A similar mechanism works implicitly if an exception is raised inside
 an exception handler or a "finally" clause: the previous exception is
-then attached as the new exception’s "__context__" attribute:
+then attached as the new exceptionâ€™s "__context__" attribute:
 
    >>> try:
    ...     print(1 / 0)

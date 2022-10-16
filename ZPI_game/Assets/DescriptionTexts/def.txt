@@ -52,17 +52,17 @@ Changed in version 3.9: Functions may be decorated with any valid
 restrictive; see **PEP 614** for details.
 
 When one or more *parameters* have the form *parameter* "="
-*expression*, the function is said to have ìdefault parameter values.î
+*expression*, the function is said to have ‚Äúdefault parameter values.‚Äù
 For a parameter with a default value, the corresponding *argument* may
-be omitted from a call, in which case the parameterís default value is
+be omitted from a call, in which case the parameter‚Äôs default value is
 substituted.  If a parameter has a default value, all following
-parameters up until the ì"*"î must also have a default value ó this is
+parameters up until the ‚Äú"*"‚Äù must also have a default value ‚Äî this is
 a syntactic restriction that is not expressed by the grammar.
 
 **Default parameter values are evaluated from left to right when the
 function definition is executed.** This means that the expression is
-evaluated once, when the function is defined, and that the same ìpre-
-computedî value is used for each call.  This is especially important
+evaluated once, when the function is defined, and that the same ‚Äúpre-
+computed‚Äù value is used for each call.  This is especially important
 to understand when a default parameter is a mutable object, such as a
 list or a dictionary: if the function modifies the object (e.g. by
 appending an item to a list), the default value is in effect modified.
@@ -79,27 +79,27 @@ function, e.g.:
 Function call semantics are described in more detail in section Calls.
 A function call always assigns values to all parameters mentioned in
 the parameter list, either from positional arguments, from keyword
-arguments, or from default values.  If the form ì"*identifier"î is
+arguments, or from default values.  If the form ‚Äú"*identifier"‚Äù is
 present, it is initialized to a tuple receiving any excess positional
 parameters, defaulting to the empty tuple. If the form
-ì"**identifier"î is present, it is initialized to a new ordered
+‚Äú"**identifier"‚Äù is present, it is initialized to a new ordered
 mapping receiving any excess keyword arguments, defaulting to a new
-empty mapping of the same type.  Parameters after ì"*"î or
-ì"*identifier"î are keyword-only parameters and may only be passed by
-keyword arguments.  Parameters before ì"/"î are positional-only
+empty mapping of the same type.  Parameters after ‚Äú"*"‚Äù or
+‚Äú"*identifier"‚Äù are keyword-only parameters and may only be passed by
+keyword arguments.  Parameters before ‚Äú"/"‚Äù are positional-only
 parameters and may only be passed by positional arguments.
 
 Changed in version 3.8: The "/" function parameter syntax may be used
 to indicate positional-only parameters. See **PEP 570** for details.
 
-Parameters may have an *annotation* of the form ì": expression"î
+Parameters may have an *annotation* of the form ‚Äú": expression"‚Äù
 following the parameter name.  Any parameter may have an annotation,
 even those of the form "*identifier" or "**identifier".  Functions may
-have ìreturnî annotation of the form ì"-> expression"î after the
+have ‚Äúreturn‚Äù annotation of the form ‚Äú"-> expression"‚Äù after the
 parameter list.  These annotations can be any valid Python expression.
 The presence of annotations does not change the semantics of a
 function.  The annotation values are available as values of a
-dictionary keyed by the parametersí names in the "__annotations__"
+dictionary keyed by the parameters‚Äô names in the "__annotations__"
 attribute of the function object.  If the "annotations" import from
 "__future__" is used, annotations are preserved as strings at runtime
 which enables postponed evaluation.  Otherwise, they are evaluated
@@ -111,12 +111,12 @@ It is also possible to create anonymous functions (functions not bound
 to a name), for immediate use in expressions.  This uses lambda
 expressions, described in section Lambdas.  Note that the lambda
 expression is merely a shorthand for a simplified function definition;
-a function defined in a ì"def"î statement can be passed around or
+a function defined in a ‚Äú"def"‚Äù statement can be passed around or
 assigned to another name just like a function defined by a lambda
-expression.  The ì"def"î form is actually more powerful since it
+expression.  The ‚Äú"def"‚Äù form is actually more powerful since it
 allows the execution of multiple statements and annotations.
 
-**Programmerís note:** Functions are first-class objects.  A ì"def"î
+**Programmer‚Äôs note:** Functions are first-class objects.  A ‚Äú"def"‚Äù
 statement executed inside a function definition defines a local
 function that can be returned or passed around.  Free variables used
 in the nested function can access the local variables of the function
