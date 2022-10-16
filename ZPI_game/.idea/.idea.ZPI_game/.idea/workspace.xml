@@ -6,8 +6,39 @@
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/CodeSnippet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/CodeSnippet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/@classmethod.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/@classmethod.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/@staticmethod.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/@staticmethod.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/bool.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/bool.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/class.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/class.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/cls.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/cls.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/def.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/def.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/elif.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/elif.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/else.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/else.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/float.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/float.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/for.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/for.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/from.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/from.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/globals.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/globals.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/if.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/if.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/import.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/import.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/int.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/int.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/lambda.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/lambda.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/len.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/len.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/map.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/max.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/max.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/object.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/object.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/pass.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/pass.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/print.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/print.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/raise.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/raise.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/range.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/range.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/return.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/return.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/self.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/self.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/set.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/set.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/sorted.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/sorted.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/str.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/str.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/sum.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/sum.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DescriptionTexts/while.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DescriptionTexts/while.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Edu_L01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Edu_L01.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
