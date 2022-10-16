@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
 public class DropSlot : MonoBehaviour, IDropHandler
