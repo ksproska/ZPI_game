@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+
 
 namespace LevelUtils
 {
@@ -19,12 +19,23 @@ namespace LevelUtils
         }
         public bool IsAvailable()
         {
-            if (PrevLevels == null) { return true; }
+            if (PrevLevels == null || !PrevLevels.Any()) { return true; }
             foreach (LevelButtonInfo level in PrevLevels)
             {
                 if (level.IsFinished) { return true; }
             }
             return false;
+        }
+        public override bool Equals(object? obj)
+        {
+            if ((obj == null) || !GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            LevelButtonInfo other = obj as LevelButtonInfo;
+            bool prevEqual = PrevLevels == null && other.PrevLevels == null || PrevLevels != null && other.PrevLevels != null && PrevLevels.SequenceEqual(other.PrevLevels);
+            return GameObjectName == other.GameObjectName && LevelNumber == other.LevelNumber && IsFinished == other.IsFinished
+                   && LevelName == other.LevelName && prevEqual;
         }
 
     }
@@ -35,6 +46,12 @@ namespace LevelUtils
         public int LevelNumber { get; set; }
         public List<int> PrevLevels { get; set; }
 
+        public LevelInfoJson(string gameObjectName, int levelNumber, List<int> prevLevels)
+        {
+            GameObjectName = gameObjectName;
+            LevelNumber = levelNumber;
+            PrevLevels = prevLevels;
+        }
     }
 
 }

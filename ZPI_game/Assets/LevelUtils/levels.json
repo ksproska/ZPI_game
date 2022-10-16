@@ -1,0 +1,32 @@
+[
+    {
+        "GameObjectName": "bttn1",
+        "LevelNumber": 1,
+        "PrevLevels": null
+    },
+    {
+        "GameObjectName": "bttn2",
+        "LevelNumber": 2,
+        "PrevLevels": [1]
+    },
+    {
+        "GameObjectName": "bttn3",
+        "LevelNumber": 3,
+        "PrevLevels": [2]
+    },
+    {
+        "GameObjectName": "bttn4",
+        "LevelNumber": 4,
+        "PrevLevels": [3]
+    },
+    {
+        "GameObjectName": "bttn5",
+        "LevelNumber": 5,
+        "PrevLevels": [3]
+    },
+    {
+        "GameObjectName": "bttn6",
+        "LevelNumber": 6,
+        "PrevLevels": [4,5]
+    }
+]

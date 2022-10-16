@@ -9,7 +9,7 @@ namespace LevelUtils
     public static class LoadSaveHelper
     {
         //public const int SLOT_NUMBER = 3;
-        public const string JSON_FILE_NAME = "save_slots.json";
+        public const string JSON_FILE_NAME = "..\\..\\..\\save_slots.json";
         public enum SlotNum
         {
             First,
@@ -20,13 +20,16 @@ namespace LevelUtils
         private static List<int>[] slots = GetCompletedLevels();
         private static List<int>[] GetCompletedLevels()
         {
-            string jsonFile = File.ReadAllText("");
+            if (!File.Exists(JSON_FILE_NAME))
+                throw new FileNotFoundException(JSON_FILE_NAME);
+
+            string jsonFile = File.ReadAllText(JSON_FILE_NAME);
             var parsedJson = JsonSerializer.Deserialize<Dictionary<string, List<Dictionary<string, List<int>>>>>(jsonFile);
             return new List<int>[]
             {
                 parsedJson["slots"][0]["levels_completed"],
-                parsedJson["slots"][0]["levels_completed"],
-                parsedJson["slots"][0]["levels_completed"]
+                parsedJson["slots"][1]["levels_completed"],
+                parsedJson["slots"][2]["levels_completed"]
             };
         }
         public static List<int> GetSlot(SlotNum slot)
@@ -58,7 +61,7 @@ namespace LevelUtils
             }
             jsonStructuredDict.Add("slots", listOfSlots);
             string jsonText = JsonSerializer.Serialize(jsonStructuredDict);
-            File.WriteAllText("", jsonText);
+            File.WriteAllText(JSON_FILE_NAME, jsonText);
         }
         public static void CompleteALevel(int LevelName, SlotNum slot)
         {
@@ -86,6 +89,7 @@ namespace LevelUtils
                     slots[2].Add(LevelName);
                     break;
             }
+            SaveGameState();
         }
     }
 }
