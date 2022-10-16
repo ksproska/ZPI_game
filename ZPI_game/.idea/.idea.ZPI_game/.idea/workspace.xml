@@ -4,9 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="roulette selector added">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" afterDir="false" />
+    <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Edu_L01.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Edu_L01.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CreateCodeSnippetToDrop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CreateCodeSnippetToDrop.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/slot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/slot.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/toDrop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/toDrop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragDrop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DragDrop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DropSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +28,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scripts/City.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -41,7 +54,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2020.3.30f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath F:\ZPI_all\game\ZPI_game -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="F:\ZPI_all\game\ZPI_game" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -82,6 +95,9 @@
       <workItem from="1664696110000" duration="6106000" />
       <workItem from="1664994864773" duration="1996000" />
       <workItem from="1665130914083" duration="350000" />
+      <workItem from="1665868266394" duration="776000" />
+      <workItem from="1665869896769" duration="607000" />
+      <workItem from="1665910948877" duration="7252000" />
     </task>
     <task id="LOCAL-00001" summary="correction - linerenderer">
       <created>1664707339053</created>

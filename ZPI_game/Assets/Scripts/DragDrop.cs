@@ -1,10 +1,12 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField] public int id;
+    // [SerializeField] public string contents;
+    [SerializeField] public TextMeshProUGUI TextMeshPro;
     public bool isAtTheRightPosition = false;
     private RectTransform _rectTransform;
     private Canvas _canvas;
@@ -21,7 +23,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void Start()
     {
         _startPos = GetComponent<Transform>().position;
-        Assert.IsTrue(id > 0);
+    }
+
+    public void SetContent(string content)
+    {
+        TextMeshPro.text = content;
     }
 
     public void OnPointerDown(PointerEventData eventData) {}
