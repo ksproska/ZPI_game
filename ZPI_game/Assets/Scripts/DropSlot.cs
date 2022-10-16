@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class DropSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] public string expectedContents;
-    private string _placedContent;
+    public string _placedContent;
 
     public void OnDrop(PointerEventData eventData)
     {

@@ -12,10 +12,10 @@ public class TextLinkHandler : MonoBehaviour, IPointerClickHandler
         int linkIndex = TMP_TextUtilities.FindIntersectingLink(pTextMeshPro, eventData.position, null);
         if (linkIndex != -1) { // was a link clicked?
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
-            details.text = "Details for " + linkInfo.GetLinkText() + ":\n";
+            details.text = "Details for <b>" + linkInfo.GetLinkText() + "</b>:\n";
             string path = Directory.GetCurrentDirectory() + "\\Assets\\DescriptionTexts\\" + linkInfo.GetLinkText() + ".txt";
             string readText = File.ReadAllText(path);
-            details.text += readText;
+            details.text += "> " +readText;
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DropHandler : MonoBehaviour
 {
-    [SerializeField] private Color _colorOk, _colorNotOk;
+    [SerializeField] private Color _colorOk, _colorNotOk, _colorEmpty;
     public bool AreAllCorrect()
     {
         return FindObjectsOfType<DropSlot>().All(ds => ds.IsCorrect());
@@ -20,6 +20,10 @@ public class DropHandler : MonoBehaviour
             if (slot.IsCorrect())
             {
                 slot.GetComponent<Image>().color = _colorOk;
+            }
+            else if (slot._placedContent == "")
+            {
+                slot.GetComponent<Image>().color = _colorEmpty;
             }
             else
             {
