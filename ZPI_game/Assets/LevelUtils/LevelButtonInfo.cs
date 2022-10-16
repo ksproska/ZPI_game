@@ -1,5 +1,8 @@
 
 
+using System.Collections.Generic;
+using System.Linq;
+
 namespace LevelUtils
 {
     public class LevelButtonInfo
