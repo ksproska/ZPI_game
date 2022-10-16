@@ -8,7 +8,6 @@ public class DropSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("dropped");
         if (eventData.pointerDrag != null)
         {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
@@ -17,7 +16,6 @@ public class DropSlot : MonoBehaviour, IDropHandler
             {
                 eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
                 _placedContent = eventData.pointerDrag.GetComponent<DragDrop>().TextMeshPro.text;
-                Debug.Log(_placedContent);
             }
             eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
         }
