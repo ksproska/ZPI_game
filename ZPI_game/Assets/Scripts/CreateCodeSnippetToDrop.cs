@@ -13,7 +13,7 @@ public class CreateCodeSnippetToDrop : MonoBehaviour
             var added = Instantiate(toDropPrefab, gameObject.transform.position, Quaternion.identity, FindObjectOfType<Canvas>().transform);
             var dd = added.GetComponent<DragDrop>();
             dd.SetContent(contents[i]);
-            added.transform.position += Vector3.down * i * 60;
+            added.transform.position += Vector3.down * i * 30;
         }
     }
 }

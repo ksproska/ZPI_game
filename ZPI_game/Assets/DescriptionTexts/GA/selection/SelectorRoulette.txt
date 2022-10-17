@@ -1,0 +1,28 @@
+<color=#a44fff>import</color> random
+<color=#a44fff>from</color> Individual <color=#a44fff>import</color> Individual
+
+<color=#a44fff>class</color> SelectorRoulette:
+    
+    <color=#ffa704>@staticmethod</color>
+    <color=#a44fff>def</color> <color=#ffa704>get_distributed_weight</color>(generation: <color=#ff6600>list</color>[Individual]) -> <color=#ff6600>list</color>:
+        max_score = <color=#ff6600>max</color>(generation, key = <color=#a44fff>lambda</color> x: x.score)
+        reversed_eval = <color=#ff6600>map</color>(<color=#a44fff>lambda</color> x: max_score - x.score + <color=#66c2ff>1</color>, generation) 
+        sum_eval = <color=#ff6600>sum</color>(reversed_eval)
+        eval_percentage = <color=#ff6600>map</color>(<color=#a44fff>lambda</color> x: x/sum_eval, reversed_eval)
+
+        <color=#a44fff>for</color> i in <color=#ff6600>range</color>(<color=#ff6600>len</color>(eval_percentage) - <color=#66c2ff>1</color>):
+            eval_percentage[i+<color=#66c2ff>1</color>] += eval_percentage[i]
+
+        <color=#a44fff>return</color> eval_percentage
+
+    <color=#ffa704>@staticmethod</color>
+    <color=#a44fff>def</color> <color=#ffa704>get_index_for_value</color>(distributed_weights, value):
+        <color=#a44fff>for</color> i in <color=#ff6600>range</color>(<color=#ff6600>len</color>(distributed_weights)):
+            <color=#a44fff>if</color> value <= distributed_weights[i]:
+                <color=#a44fff>return</color> i
+
+    <color=#a44fff>def</color> <color=#ffa704>get</color>(<color=#66c2ff>self</color>, generation):
+        rand_float = random.random()
+        distributed_weights = <color=#66c2ff>self</color>.get_distributed_weight(generation)
+        index = <color=#66c2ff>self</color>.get_index_for_value(distributed_weights, rand_float)
+        <color=#a44fff>return</color> generation[index]

@@ -1,0 +1,37 @@
+<color=#a44fff>import</color> random
+
+
+<color=#a44fff>class</color> CrosserPartialyMatched:
+
+    <color=#ffa704>@staticmethod</color>
+    <color=#a44fff>def</color> <color=#ffa704>cross</color>(parent1: <color=#ff6600>list</color>, parent2: <color=#ff6600>list</color>, start_index: <color=#ff6600>int</color>, segment_length: <color=#ff6600>int</color>):
+        <color=#808080>"""
+        Method returns a child for given parents, start index, and length of a segment.
+        """</color>
+        child = [-<color=#66c2ff>1</color> <color=#a44fff>for</color> i in <color=#ff6600>range</color>(<color=#ff6600>len</color>(parent1))]
+        <color=#a44fff>for</color> i in <color=#ff6600>range</color>(segment_length):
+            index = i + start_index
+            child[index] = parent1[index]
+
+        <color=#a44fff>for</color> i in <color=#ff6600>range</color>(segment_length):
+            index =  i + start_index
+            current_value = parent2[index]
+
+            <color=#a44fff>if</color> current_value not in child:
+                <color=#a44fff>while</color> child[index] != -<color=#66c2ff>1</color>:
+                    index = parent2.index(parent1[index])
+                child[index] = current_value
+
+        <color=#a44fff>for</color> i in <color=#ff6600>range</color>(<color=#ff6600>len</color>(child)):
+            <color=#a44fff>if</color> child[i] == -<color=#66c2ff>1</color>:
+                child[i] = parent2[i]
+
+        <color=#a44fff>return</color> child
+
+    <color=#a44fff>def</color> <color=#ffa704>get</color>(<color=#66c2ff>self</color>, parent1: <color=#ff6600>list</color>, parent2: <color=#ff6600>list</color>):
+        <color=#808080>"""
+        Method returns a child for given parents. Start index and length of a segment are drawnded.
+        """</color>
+        start_inx = random.randrange(<color=#ff6600>len</color>(parent1) - <color=#66c2ff>1</color>)
+        segment_len = random.randrange(<color=#ff6600>len</color>(parent1) - start_inx - <color=#66c2ff>1</color>)
+        <color=#a44fff>return</color> <color=#66c2ff>self</color>.cross(parent1, parent2, start_inx, segment_len)

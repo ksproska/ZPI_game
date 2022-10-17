@@ -1,0 +1,55 @@
+<color=#a44fff>import</color> random
+<color=#a44fff>from</color> DistancesGrid <color=#a44fff>import</color> DistancesGrid
+<color=#a44fff>from</color> Circuit <color=#a44fff>import</color> Circuit
+
+
+<color=#a44fff>class</color> GeneticAlgorithm:
+
+    <color=#a44fff>def</color> __init__(<color=#66c2ff>self</color>, weights_grid: DistancesGrid, generation_size: <color=#ff6600>int</color>, selector,
+                 mutator, mutation_probability: <color=#ff6600>float</color>,
+                 crosser, crossover_probability: <color=#ff6600>float</color>):
+                 
+        <color=#66c2ff>self</color>.weights_grid = weights_grid
+        <color=#66c2ff>self</color>.selector = selector
+        <color=#66c2ff>self</color>.mutator = mutator
+        <color=#66c2ff>self</color>.mutation_probability = mutation_probability
+        <color=#66c2ff>self</color>.crosser = crosser
+        <color=#66c2ff>self</color>.crossover_probability = crossover_probability
+
+        <color=#66c2ff>self</color>.generation = GeneticAlgorithm.get_random_generation(generation_size, weights_grid)
+        <color=#66c2ff>self</color>.best = Circuit.get_best(<color=#66c2ff>self</color>.generation)
+        <color=#66c2ff>self</color>.best_for_iteration = <color=#66c2ff>self</color>.best
+        <color=#66c2ff>self</color>.iteration = <color=#66c2ff>0</color>
+
+    <color=#ffa704>@staticmethod</color>
+    <color=#a44fff>def</color> <color=#ffa704>get_random_generation</color>(generation_size: <color=#ff6600>int</color>, weights_grid: DistancesGrid) -> <color=#ff6600>list</color>[Circuit]:
+        generation = []
+        <color=#a44fff>for</color> i in <color=#ff6600>range</color>(generation_size):
+            generation.append(Circuit.get_random(weights_grid))
+        <color=#a44fff>return</color> generation
+
+    <color=#a44fff>def</color> <color=#ffa704>run_iteration</color>(<color=#66c2ff>self</color>) -> None:
+        <color=#66c2ff>self</color>.set_new_generation()
+        <color=#66c2ff>self</color>.best_for_iteration = Circuit.get_best(<color=#66c2ff>self</color>.generation)
+        <color=#66c2ff>self</color>.iteration += <color=#66c2ff>1</color> 
+
+        <color=#a44fff>if</color> <color=#66c2ff>self</color>.best.score > <color=#66c2ff>self</color>.best_for_iteration.score: 
+            <color=#66c2ff>self</color>.best = <color=#66c2ff>self</color>.best_for_iteration
+
+    <color=#a44fff>def</color> <color=#ffa704>set_new_generation</color>(<color=#66c2ff>self</color>) -> None:
+        next_generation = <color=#ff6600>list</color>()
+        <color=#a44fff>while</color> <color=#ff6600>len</color>(next_generation) < <color=#ff6600>len</color>(<color=#66c2ff>self</color>.generation): 
+            parent1 = <color=#66c2ff>self</color>.selector.get(<color=#66c2ff>self</color>.generation)
+            parent2 = <color=#66c2ff>self</color>.selector.get(<color=#66c2ff>self</color>.generation)
+
+            child_genotype = parent1.city_ids
+            <color=#a44fff>if</color> <color=#66c2ff>self</color>.crossover_probability < random.random():
+                child_genotype = <color=#66c2ff>self</color>.crosser.get(parent1.city_ids, parent2.city_ids)
+
+            <color=#a44fff>if</color> <color=#66c2ff>self</color>.mutation_probability < random.random():
+                child_genotype = <color=#66c2ff>self</color>.mutator.get(child_genotype)
+
+            child = Circuit(child_genotype, <color=#66c2ff>self</color>.weights_grid) 
+            next_generation.append(child) 
+
+        <color=#66c2ff>self</color>.generation = next_generation

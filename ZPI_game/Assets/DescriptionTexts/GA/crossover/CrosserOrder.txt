@@ -1,0 +1,36 @@
+<color=#a44fff>import</color> random
+
+
+<color=#a44fff>class</color> CrosserOrder:
+    <color=#ffa704>@staticmethod</color>
+    <color=#a44fff>def</color> <color=#ffa704>cross</color>(parent1: <color=#ff6600>list</color>, parent2: <color=#ff6600>list</color>, start_index: <color=#ff6600>int</color>, segment_length: <color=#ff6600>int</color>):
+        <color=#808080>"""
+        Method returns a child for given parents and length of a segment.
+        """</color>
+        child = [-<color=#66c2ff>1</color> <color=#a44fff>for</color> i in <color=#ff6600>range</color>(<color=#ff6600>len</color>(parent1))]
+        <color=#a44fff>for</color> i in <color=#ff6600>range</color>(segment_length):
+            index = i + start_index
+            child[index] = parent1[index]
+
+        last_not_contained = <color=#66c2ff>0</color>
+        <color=#a44fff>for</color> i in <color=#ff6600>range</color>(<color=#ff6600>len</color>(child)):
+            <color=#a44fff>if</color> child[i] == -<color=#66c2ff>1</color>:
+                last_not_contained = CrosserOrder.__put_next(child, parent2, i, last_not_contained)
+        <color=#a44fff>return</color> child
+
+    <color=#ffa704>@staticmethod</color>
+    <color=#a44fff>def</color> <color=#ffa704>__put_next</color>(child: <color=#ff6600>list</color>, parent2: <color=#ff6600>list</color>, curr_i: <color=#ff6600>int</color>, last_not_contained: <color=#ff6600>int</color>):
+        <color=#a44fff>for</color> j in <color=#ff6600>range</color>(last_not_contained, <color=#ff6600>len</color>(parent2)):
+            <color=#a44fff>if</color> parent2[j] not in child:
+                child[curr_i] = parent2[j]
+                <color=#a44fff>return</color> j + <color=#66c2ff>1</color>
+        <color=#a44fff>return</color> <color=#ff6600>len</color>(parent2)
+
+    <color=#a44fff>def</color> <color=#ffa704>get</color>(<color=#66c2ff>self</color>, parent1: <color=#ff6600>list</color>, parent2: <color=#ff6600>list</color>):
+        <color=#808080>"""
+        Method returns a child for given parents. Length of a segment to be copied is drawned.
+        """</color>
+        startInx = random.randrange(<color=#ff6600>len</color>(parent1))
+        segmentLen = random.randrange(<color=#ff6600>len</color>(parent1) - startInx - <color=#66c2ff>1</color>)
+
+        <color=#a44fff>return</color> <color=#66c2ff>self</color>.cross(parent1, parent2, startInx, segmentLen)

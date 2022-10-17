@@ -13,9 +13,17 @@ public class TextLinkHandler : MonoBehaviour, IPointerClickHandler
         if (linkIndex != -1) { // was a link clicked?
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
             details.text = "Details for <b>" + linkInfo.GetLinkText() + "</b>:\n";
-            string path = Directory.GetCurrentDirectory() + "\\Assets\\DescriptionTexts\\" + linkInfo.GetLinkText() + ".txt";
-            string readText = File.ReadAllText(path);
-            details.text += "> " +readText;
+            if (linkInfo.GetLinkID() == "") {
+                string path = Directory.GetCurrentDirectory() + "\\Assets\\DescriptionTexts\\" + linkInfo.GetLinkText() + ".txt";
+                string readText = File.ReadAllText(path);
+                details.text += "> " +readText;
+            }
+            else
+            {
+                string path = Directory.GetCurrentDirectory() + "\\Assets\\DescriptionTexts\\GA\\" + linkInfo.GetLinkID() + ".txt";
+                string readText = File.ReadAllText(path);
+                details.text += readText;
+            }
         }
     }
 }

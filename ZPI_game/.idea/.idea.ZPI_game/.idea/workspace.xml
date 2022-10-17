@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="" />
+    <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/education/Scroll View.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/education/Scroll View.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L02.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L02.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L02_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L02_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L04.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L04.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L04.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L04.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreateCodeSnippetToDrop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreateCodeSnippetToDrop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TextLinkHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TextLinkHandler.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,7 +21,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scripts/DropSlot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TextLinkHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -83,6 +91,7 @@
       <workItem from="1665868266394" duration="776000" />
       <workItem from="1665869896769" duration="607000" />
       <workItem from="1665910948877" duration="13873000" />
+      <workItem from="1666033152536" duration="1583000" />
     </task>
     <task id="LOCAL-00001" summary="correction - linerenderer">
       <created>1664707339053</created>
