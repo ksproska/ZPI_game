@@ -29,6 +29,15 @@ public class GoToScene : MonoBehaviour
         StartCoroutine(PlaySoundAndFade(audioSource, fader));
     }
 
+    public void PlaySound()
+    {
+        AudioSource source = Camera.main.gameObject.GetComponent<AudioSource>();
+        if (clip != null && source != null)
+        {
+            source.PlayOneShot(clip);
+        }
+    }
+
     IEnumerator PlaySoundAndGoTo(AudioSource source)
     {
         source.PlayOneShot(clip);
