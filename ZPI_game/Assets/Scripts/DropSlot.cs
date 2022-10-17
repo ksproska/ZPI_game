@@ -1,16 +1,10 @@
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
 public class DropSlot : MonoBehaviour, IDropHandler
 {
-    [SerializeField] public int expectedId;
-    private int _placedId;
-
-    public void Start()
-    {
-        Assert.IsTrue(expectedId > 0);
-    }
+    [SerializeField] public string expectedContents;
+    public string _placedContent;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -20,13 +14,14 @@ public class DropSlot : MonoBehaviour, IDropHandler
                 GetComponent<RectTransform>().anchoredPosition;
             if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
             {
-                _placedId = eventData.pointerDrag.GetComponent<DragDrop>().id;
+                eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
+                _placedContent = eventData.pointerDrag.GetComponent<DragDrop>().TextMeshPro.text;
             }
             eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
         }
     }
     public bool IsCorrect()
     {
-        return expectedId == _placedId;
+        return expectedContents == _placedContent;
     }
 }
