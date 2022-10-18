@@ -8,7 +8,7 @@ namespace LevelUtils
 {
     public static class LoadSaveHelper
     {
-        //public const int SLOT_NUMBER = 3;
+        public const int SLOT_NUMBER = 3;
         public const string JSON_FILE_NAME = "..\\..\\..\\save_slots.json";
         public enum SlotNum
         {
@@ -90,6 +90,29 @@ namespace LevelUtils
                     break;
             }
             SaveGameState();
+        }
+        public static void EraseASlot(SlotNum slotNum)
+        {
+            switch (slotNum)
+            {
+                case SlotNum.First:
+                    slots[0] = new List<int>();
+                    break;
+                case SlotNum.Second:
+                    slots[1] = new List<int>();
+                    break;
+                case SlotNum.Third:
+                    slots[2] = new List<int>();
+                    break;
+            }
+            SaveGameState();
+        }
+        public static void EraseAllSlots()
+        {
+            for(int slotNum = 0; slotNum < SLOT_NUMBER; slotNum++)
+            {
+                slots[slotNum] = new List<int>();
+            }
         }
         public static List<SlotNum> GetOccupiedSlots()
         {
