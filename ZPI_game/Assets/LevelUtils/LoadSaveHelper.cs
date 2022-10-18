@@ -91,6 +91,23 @@ namespace LevelUtils
             }
             SaveGameState();
         }
+        public static List<SlotNum> GetOccupiedSlots()
+        {
+            List<SlotNum> occSlots = new List<SlotNum>();
+            if (slots[0].Count > 0)
+            {
+                occSlots.Add(SlotNum.First);
+            }
+            if (slots[1].Count > 0)
+            {
+                occSlots.Add(SlotNum.Second);
+            }
+            if (slots[2].Count > 0)
+            {
+                occSlots.Add(SlotNum.Third);
+            }
+            return occSlots;
+        }
     }
 }
 

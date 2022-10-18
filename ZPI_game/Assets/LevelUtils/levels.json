@@ -1,31 +1,37 @@
 [
     {
         "GameObjectName": "bttn1",
+        "LevelName": "lvl1",
         "LevelNumber": 1,
         "PrevLevels": null
     },
     {
         "GameObjectName": "bttn2",
+        "LevelName": "lvl2",
         "LevelNumber": 2,
         "PrevLevels": [1]
     },
     {
         "GameObjectName": "bttn3",
+        "LevelName": "lvl3",
         "LevelNumber": 3,
         "PrevLevels": [2]
     },
     {
         "GameObjectName": "bttn4",
+        "LevelName": "lvl4",
         "LevelNumber": 4,
         "PrevLevels": [3]
     },
     {
         "GameObjectName": "bttn5",
+        "LevelName": "lvl5",
         "LevelNumber": 5,
         "PrevLevels": [3]
     },
     {
         "GameObjectName": "bttn6",
+        "LevelName": "lvl6",
         "LevelNumber": 6,
         "PrevLevels": [4,5]
     }

@@ -19,22 +19,27 @@ namespace LevelUtils
             string jsonFile = File.ReadAllText(JSON_FILE_NAME);
 
             var parsedJson = JsonSerializer.Deserialize<List<LevelInfoJson>>(jsonFile);
-            //Console.WriteLine("Is this JSON null?: " + (parsedJson == null));
             List<int> completed = LoadSaveHelper.GetSlot(currSlot);
             Dictionary<int, LevelButtonInfo> idToObjMap = new Dictionary<int, LevelButtonInfo>();
             List<LevelButtonInfo> levelButtons = parsedJson.Select(
                 lvlInfoJson => { 
-                    LevelButtonInfo currLvlInfo = new LevelButtonInfo(lvlInfoJson.GameObjectName, lvlInfoJson.LevelNumber, completed.Contains(lvlInfoJson.LevelNumber), null);
+                    LevelButtonInfo currLvlInfo = new LevelButtonInfo(lvlInfoJson.GameObjectName, lvlInfoJson.LevelName, lvlInfoJson.LevelNumber, completed.Contains(lvlInfoJson.LevelNumber), null);
                     idToObjMap.Add(lvlInfoJson.LevelNumber, currLvlInfo);
                     return currLvlInfo;
                 }).ToList();
             
             levelButtons.ForEach(currLvlInfo => {
-                LevelInfoJson currLvlJson = parsedJson.Where(lvlInfoJson => currLvlInfo.LevelNumber == lvlInfoJson.LevelNumber).First();
+                LevelInfoJson currLvlJson = parsedJson.Where(lvlInfoJson => currLvlInfo.LevelName == lvlInfoJson.LevelName).First();
                 currLvlInfo.PrevLevels = currLvlJson.PrevLevels != null ? currLvlJson.PrevLevels.Select(lvlNum => idToObjMap[lvlNum]).ToList() : null;
                 });
-            //levelButtons.ForEach(elem => Console.WriteLine($"{elem.LevelName} {elem.LevelNumber} {(elem.PrevLevels != null ? elem.PrevLevels.Count : 0)}"));
+            
             return levelButtons;
+        }
+        public static void CompleteALevel(string levelName, LoadSaveHelper.SlotNum slotNum)
+        {
+            LoadSaveHelper.CompleteALevel(ListOfLevels.Where(lvl => lvl.LevelName == levelName).First().LevelNumber, slotNum);
+            List<int> completed = LoadSaveHelper.GetSlot(slotNum);
+            ListOfLevels.ForEach(lvl => lvl.IsFinished = completed.Contains(lvl.LevelNumber));
         }
         public static List<LevelButtonInfo> GetListOfLevels(LoadSaveHelper.SlotNum slotNum)
         {
