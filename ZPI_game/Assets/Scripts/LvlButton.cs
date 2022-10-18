@@ -33,11 +33,10 @@ public class LvlButton : MonoBehaviour
             ActiveStatus = true;
             But.image.sprite = OnSprite;
             checkImage.gameObject.SetActive(true);
+
         }
 
         List<string> prevLevelsNames = LevelMap.GetPrevGameObjectNames(this.name, ActSlot);
-        Debug.Log(prevLevelsNames[0] + this.name);
-
         foreach (var name in prevLevelsNames)
         {
             PrevBut.Add(GameObject.Find(name).GetComponent<LvlButton>());
@@ -81,18 +80,9 @@ public class LvlButton : MonoBehaviour
         {
             LineRenderer lineRenderer = renderersList[DoneLevel.i];
             Vector3[] pathPoints = { this.transform.position, DoneLevel.value.transform.position };
-            Debug.Log(this.transform.position);
             lineRenderer.SetPositions(pathPoints);
 
         }
     }
-
-    public void ChangeImage()
-    {
-        if (ActiveStatus)
-        {
-            IsDone = true;
-            checkImage.gameObject.SetActive(true);
-        }
-    }
+    
 }
