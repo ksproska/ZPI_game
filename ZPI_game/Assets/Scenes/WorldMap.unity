@@ -355,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &193633139
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1437,7 +1437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1098242002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1562,7 +1562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1161884131
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f871a17d43ed3934a93ab2c7646ab5fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01cce28fe072550458f6741eeb77e35c, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1881,7 +1881,7 @@ PrefabInstance:
     - target: {fileID: 3659013736753244139, guid: 494a2b6f3c0cf8f4bbeedd6573a54465, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 057a4e0c922eff64ea8aa96df28b0c43, type: 3}
+      objectReference: {fileID: 21300000, guid: 3640a13bd4efa6c4589c651e50c3d2ca, type: 3}
     - target: {fileID: 3659013736753244142, guid: 494a2b6f3c0cf8f4bbeedd6573a54465, type: 3}
       propertyPath: m_Name
       value: lvl_learn_1
@@ -2209,7 +2209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1678646998
 RectTransform:
   m_ObjectHideFlags: 0
