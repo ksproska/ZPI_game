@@ -11,6 +11,14 @@ namespace LevelUtils
         public const string JSON_FILE_NAME = "..\\..\\..\\levels.json";
         private static LoadSaveHelper.SlotNum currSlot;
         private static List<LevelButtonInfo> ListOfLevels { get; set; }
+        public static void SynchronizeSlotNumber(LoadSaveHelper.SlotNum slotNum)
+        {
+            if (ListOfLevels == null || currSlot != slotNum)
+            {
+                currSlot = slotNum;
+                ListOfLevels = LoadFromJson();
+            }
+        }
         private static List<LevelButtonInfo> LoadFromJson()
         {
             if (!File.Exists(JSON_FILE_NAME))
@@ -37,21 +45,40 @@ namespace LevelUtils
         }
         public static void CompleteALevel(string levelName, LoadSaveHelper.SlotNum slotNum)
         {
+            SynchronizeSlotNumber(slotNum);
             LoadSaveHelper.CompleteALevel(ListOfLevels.Where(lvl => lvl.LevelName == levelName).First().LevelNumber, slotNum);
             List<int> completed = LoadSaveHelper.GetSlot(slotNum);
             ListOfLevels.ForEach(lvl => lvl.IsFinished = completed.Contains(lvl.LevelNumber));
         }
         public static List<LevelButtonInfo> GetListOfLevels(LoadSaveHelper.SlotNum slotNum)
         {
-            if (ListOfLevels != null && currSlot == slotNum)
-            {
-                return ListOfLevels;
-            }
-            currSlot = slotNum;
-            ListOfLevels = LoadFromJson();
+            SynchronizeSlotNumber(slotNum);
             return ListOfLevels;
         }
+        public static bool IsLevelDone(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
+        {
+            SynchronizeSlotNumber(slotNum);
+            return ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().IsFinished;
+        }
+        public static List<string> GetPrevGameObjectNames(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
+        {
+            SynchronizeSlotNumber(slotNum);
+            return ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().PrevLevels.Select(prevLvl => prevLvl.GameObjectName).ToList();
+        }
+    }
+    class LevelInfoJson
+    {
+        public string GameObjectName { get; set; }
+        public string LevelName { get; set; }
+        public int LevelNumber { get; set; }
+        public List<int> PrevLevels { get; set; }
 
+        public LevelInfoJson(string gameObjectName, int levelNumber, List<int> prevLevels)
+        {
+            GameObjectName = gameObjectName;
+            LevelNumber = levelNumber;
+            PrevLevels = prevLevels;
+        }
     }
 }
 
