@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using LevelUtils;
 
 public class LvlButton : MonoBehaviour
 
@@ -13,12 +14,12 @@ public class LvlButton : MonoBehaviour
     public Sprite OffSprite;
     public Sprite OnSprite;
     public Button But;
-    public List<LvlButton> PrevBut;
+    private List<LvlButton> PrevBut = new List<LvlButton>();
 
     public bool ActiveStatus = false;
-    public bool IsDone = false;
+    private bool IsDone = false;
+    private LoadSaveHelper.SlotNum ActSlot = LoadSaveHelper.SlotNum.First;
 
-    private LineRenderer _lineRenderer;
     public Image checkImage;
 
     private List<LineRenderer> renderersList = new List<LineRenderer>();
@@ -26,11 +27,23 @@ public class LvlButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _lineRenderer = GetComponent<LineRenderer>();
-        _lineRenderer.material = lineMaterial;
-        _lineRenderer.positionCount = PrevBut.Count + 1;
+        if(LevelMap.IsLevelDone(this.name, ActSlot))
+        {
+            IsDone = true;
+            ActiveStatus = true;
+            But.image.sprite = OnSprite;
+            checkImage.gameObject.SetActive(true);
+        }
 
-        foreach(var _ in PrevBut)
+        List<string> prevLevelsNames = LevelMap.GetPrevGameObjectNames(this.name, ActSlot);
+        Debug.Log(prevLevelsNames[0] + this.name);
+
+        foreach (var name in prevLevelsNames)
+        {
+            PrevBut.Add(GameObject.Find(name).GetComponent<LvlButton>());
+        }
+
+        foreach (var _ in PrevBut)
         {
             GameObject lineRendererObject =  new GameObject();
             var lineRenderer = lineRendererObject.AddComponent<LineRenderer>();
