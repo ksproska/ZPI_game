@@ -8,7 +8,7 @@ namespace LevelUtils
 {
     public static class LevelMap
     {
-        public const string JSON_FILE_NAME = "..\\..\\..\\levels.json";
+        public const string JSON_FILE_NAME = "Assets/LevelUtils/levels.json";
         private static LoadSaveHelper.SlotNum currSlot;
         private static List<LevelButtonInfo> ListOfLevels { get; set; }
         public static void SynchronizeSlotNumber(LoadSaveHelper.SlotNum slotNum)

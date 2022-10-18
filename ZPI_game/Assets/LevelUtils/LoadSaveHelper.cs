@@ -9,7 +9,7 @@ namespace LevelUtils
     public static class LoadSaveHelper
     {
         public const int SLOT_NUMBER = 3;
-        public const string JSON_FILE_NAME = "..\\..\\..\\save_slots.json";
+        public const string JSON_FILE_NAME = "Assets\\LevelUtils\\save_slots.json";
         public enum SlotNum
         {
             First,

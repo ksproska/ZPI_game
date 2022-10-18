@@ -925,7 +925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &481227281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1460,13 +1460,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 962229085}
+  - component: {fileID: 962229086}
   m_Layer: 5
   m_Name: GameSavesContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &962229085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1491,6 +1492,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 674.6339, y: 347.40164}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &962229086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962229084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fddf7d3fc951aa498272beb128e5a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot1: {fileID: 59429277}
+  slot2: {fileID: 56485910}
+  slot3: {fileID: 1149064649}
+  slotNotUsedImage: {fileID: 21300000, guid: 2b68f31d7db1de749ab0739fe4ecaa44, type: 3}
+  slot1Image: {fileID: 21300000, guid: 89f24d1bfb402704fb4ee8366a8ff8f6, type: 3}
+  slot2Image: {fileID: 21300000, guid: 22583263bcdc922479bf66ea4d59f8ce, type: 3}
+  slot3Image: {fileID: 21300000, guid: f2370985aeba34f44a38f507010aab17, type: 3}
+  image1: {fileID: 2036001544}
+  image2: {fileID: 1726825095}
+  image3: {fileID: 1180861963}
+  text1: {fileID: 856079662}
+  text2: {fileID: 888001185}
+  text3: {fileID: 1159611185}
 --- !u!1 &1069128404
 GameObject:
   m_ObjectHideFlags: 0
