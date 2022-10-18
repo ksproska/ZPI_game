@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 868033083}
   - component: {fileID: 868033082}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DropCreator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252,8 +252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a395a21e4ef5248b805769a4fe2f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toDropPrefab: {fileID: 8151543383315115644, guid: f0fc46b911335a74a99a098ff4b16d9a, type: 3}
-  dropSlot: {fileID: 51125089691554381, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
+  toDropPrefab: {fileID: 8151543383315115644, guid: 97cfbd12858c0c345ab2c9074907fef6, type: 3}
+  staticPrefab: {fileID: 8151543383315115644, guid: 641b8cc65a26b99428f8fabbcf3fa8a0, type: 3}
+  dropSlot: {fileID: 51125089691554381, guid: c73b81088ebfdab408cad7da2caa0df6, type: 3}
 --- !u!4 &868033083
 Transform:
   m_ObjectHideFlags: 0
