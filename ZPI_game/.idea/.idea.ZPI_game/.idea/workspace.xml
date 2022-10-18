@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CreateIntsToDrop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/education/Scroll View.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/education/Scroll View.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L02.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L02.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L02_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L02_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L04.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L04.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L04.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/Edu_L04.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreateCodeSnippetToDrop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreateCodeSnippetToDrop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TextLinkHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TextLinkHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CreateIntsToDrop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TextLinkHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -92,6 +88,7 @@
       <workItem from="1665869896769" duration="607000" />
       <workItem from="1665910948877" duration="13873000" />
       <workItem from="1666033152536" duration="1583000" />
+      <workItem from="1666092211358" duration="1085000" />
     </task>
     <task id="LOCAL-00001" summary="correction - linerenderer">
       <created>1664707339053</created>
