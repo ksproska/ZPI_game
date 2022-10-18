@@ -14,4 +14,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education.unity
     guid: df3b75721910b4c45a2ac74ef1619393
+  - enabled: 1
+    path: Assets/Scenes/WorldMap.unity
+    guid: bb6b9aa54f50fa04a859ed7e70826c40
+  - enabled: 1
+    path: Assets/Scenes/Education/Edu_L01.unity
+    guid: 1f2c2ec628abb6f4b8d2ad6cec5cf6b0
+  - enabled: 1
+    path: Assets/Scenes/Education/Edu_L02.unity
+    guid: 5b3b47dd7ce1ea947b88c11a3d6398e4
+  - enabled: 1
+    path: Assets/Scenes/Education/Edu_L03.unity
+    guid: e26d49e2e7fdd9b48ac844b0f43ec168
+  - enabled: 1
+    path: Assets/Scenes/Education/Edu_L04.unity
+    guid: d16f0e349a773ef4aa8b7d1feb0882a0
+  - enabled: 1
+    path: Assets/Scenes/Education/Edu_L05.unity
+    guid: a3ef89fb44e3d6d4682c9e0f545a6220
+  - enabled: 1
+    path: Assets/Scenes/Education/Edu_L06.unity
+    guid: 98ffd8d16add9c04c9f44d7ffea6e585
+  - enabled: 1
+    path: Assets/Scenes/Education/Edu_L06_2.unity
+    guid: 6baa1116ee54b42498fc97efa0048e34
+  - enabled: 1
+    path: Assets/Scenes/Education/Edu_template.unity
+    guid: 2b0ccfd2be0c0a3458498bcc3c56cff6
   m_configObjects: {}
