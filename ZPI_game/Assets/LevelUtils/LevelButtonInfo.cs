@@ -43,19 +43,6 @@ namespace LevelUtils
 
     }
 
-    public class LevelInfoJson
-    {
-        public string GameObjectName { get; set; }
-        public string LevelName { get; set; }
-        public int LevelNumber { get; set; }
-        public List<int> PrevLevels { get; set; }
-
-        public LevelInfoJson(string gameObjectName, int levelNumber, List<int> prevLevels)
-        {
-            GameObjectName = gameObjectName;
-            LevelNumber = levelNumber;
-            PrevLevels = prevLevels;
-        }
-    }
+    
 
 }
