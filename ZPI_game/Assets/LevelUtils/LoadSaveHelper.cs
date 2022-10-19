@@ -113,6 +113,7 @@ namespace LevelUtils
             {
                 slots[slotNum] = new List<int>();
             }
+            SaveGameState();
         }
         public static List<SlotNum> GetOccupiedSlots()
         {

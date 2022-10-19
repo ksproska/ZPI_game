@@ -30,17 +30,17 @@ namespace LevelUtils
             List<int> completed = LoadSaveHelper.GetSlot(currSlot);
             Dictionary<int, LevelButtonInfo> idToObjMap = new Dictionary<int, LevelButtonInfo>();
             List<LevelButtonInfo> levelButtons = parsedJson.Select(
-                lvlInfoJson => { 
+                lvlInfoJson => {
                     LevelButtonInfo currLvlInfo = new LevelButtonInfo(lvlInfoJson.GameObjectName, lvlInfoJson.LevelName, lvlInfoJson.LevelNumber, completed.Contains(lvlInfoJson.LevelNumber), null);
                     idToObjMap.Add(lvlInfoJson.LevelNumber, currLvlInfo);
                     return currLvlInfo;
                 }).ToList();
-            
+
             levelButtons.ForEach(currLvlInfo => {
                 LevelInfoJson currLvlJson = parsedJson.Where(lvlInfoJson => currLvlInfo.LevelName == lvlInfoJson.LevelName).First();
                 currLvlInfo.PrevLevels = currLvlJson.PrevLevels != null ? currLvlJson.PrevLevels.Select(lvlNum => idToObjMap[lvlNum]).ToList() : null;
-                });
-            
+            });
+
             return levelButtons;
         }
         public static void CompleteALevel(string levelName, LoadSaveHelper.SlotNum slotNum)
@@ -63,7 +63,12 @@ namespace LevelUtils
         public static List<string> GetPrevGameObjectNames(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
-            return ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().PrevLevels.Select(prevLvl => prevLvl.GameObjectName).ToList();
+            List<LevelButtonInfo> prevLevels = ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().PrevLevels;
+            if (prevLevels == null)
+            {
+                return new List<string>();
+            }
+            return prevLevels.Select(prevLvl => prevLvl.GameObjectName).ToList();
         }
     }
     class LevelInfoJson
