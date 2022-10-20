@@ -324,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4235684360003644167, guid: 494a2b6f3c0cf8f4bbeedd6573a54465, type: 3}
       propertyPath: scene
-      value: Edu_l04
+      value: lvl_learn_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 494a2b6f3c0cf8f4bbeedd6573a54465, type: 3}
@@ -492,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5657353785622704556, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: scene
-      value: Edu_l06_2
+      value: lvl_number_5
       objectReference: {fileID: 0}
     - target: {fileID: 6029555408832814571, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: PrevBut
@@ -1018,7 +1018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5657353785622704556, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: scene
-      value: Edu_L03
+      value: lvl_number_2
       objectReference: {fileID: 0}
     - target: {fileID: 6029555408832814571, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: PrevBut
@@ -1268,7 +1268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5657353785622704556, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: scene
-      value: Edu_L02
+      value: lvl_number_1
       objectReference: {fileID: 0}
     - target: {fileID: 6029555408832814571, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: PrevBut
@@ -1924,7 +1924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4235684360003644167, guid: 494a2b6f3c0cf8f4bbeedd6573a54465, type: 3}
       propertyPath: scene
-      value: Edu_L01
+      value: lvl_learn_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 494a2b6f3c0cf8f4bbeedd6573a54465, type: 3}
@@ -2295,7 +2295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5657353785622704556, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: scene
-      value: Edu_l05
+      value: lvl_number_3
       objectReference: {fileID: 0}
     - target: {fileID: 6029555408832814571, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: PrevBut
@@ -2873,7 +2873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5657353785622704556, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: scene
-      value: Edu_l06
+      value: lvl_number_4
       objectReference: {fileID: 0}
     - target: {fileID: 6029555408832814571, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: PrevBut

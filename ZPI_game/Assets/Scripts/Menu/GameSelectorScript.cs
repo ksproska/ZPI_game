@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using CurrentState;
 
 public class GameSelectorScript : MonoBehaviour
 {
@@ -90,6 +91,12 @@ public class GameSelectorScript : MonoBehaviour
                 break;
         }
         return slotNum;
+    }
+
+    public void ChooseSlotNumber(int number)
+    {
+        LoadSaveHelper.SlotNum slotNum =  GetSlotNumber(number);
+        CurrentGameState.CurrentSlot = slotNum;
     }
 
     public void DeleteSave(int saveNumber)

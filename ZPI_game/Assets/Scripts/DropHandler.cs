@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using LevelUtils;
+using CurrentState;
 
 public class DropHandler : MonoBehaviour
 {
@@ -39,6 +41,14 @@ public class DropHandler : MonoBehaviour
         SetCheckColors();
         if (wasCorrect)
         {
+
+            if (!LevelMap.IsLevelDone(CurrentGameState.CurrentLevelName, CurrentGameState.CurrentSlot))
+            {
+                Debug.Log(CurrentGameState.CurrentLevelName);
+                Debug.Log(CurrentGameState.CurrentSlot);
+                LevelMap.CompleteALevel(CurrentGameState.CurrentLevelName, CurrentGameState.CurrentSlot);
+            }
+            CurrentGameState.CurrentLevelName = null;
             GoToScene transporter = new GoToScene();
             transporter.scene = "WorldMap";
             transporter.GoTo();

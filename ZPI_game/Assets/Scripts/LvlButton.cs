@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using LevelUtils;
+using CurrentState;
 
 public class LvlButton : MonoBehaviour
 
@@ -18,7 +19,6 @@ public class LvlButton : MonoBehaviour
 
     public bool ActiveStatus = false;
     private bool IsDone = false;
-    private LoadSaveHelper.SlotNum ActSlot = LoadSaveHelper.SlotNum.First;
 
     public Image checkImage;
 
@@ -27,7 +27,7 @@ public class LvlButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(LevelMap.IsLevelDone(this.name, ActSlot))
+        if(LevelMap.IsLevelDone(this.name, CurrentGameState.CurrentSlot))
         {
             IsDone = true;
             ActiveStatus = true;
@@ -37,11 +37,11 @@ public class LvlButton : MonoBehaviour
         }
 
 
-        List<string> prevLevelsNames = LevelMap.GetPrevGameObjectNames(this.name, ActSlot);
+        List<string> prevLevelsNames = LevelMap.GetPrevGameObjectNames(this.name, CurrentGameState.CurrentSlot);
 
         foreach (var name in prevLevelsNames)
         {
-            if (LevelMap.IsLevelDone(name, ActSlot))
+            if (LevelMap.IsLevelDone(name, CurrentGameState.CurrentSlot))
             {
                 ActiveStatus = true;
             }

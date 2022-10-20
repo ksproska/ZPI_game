@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using CurrentState;
 
 public class GoToScene : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GoToScene : MonoBehaviour
     [SerializeField] AudioClip clip;
     public void GoTo()
     {
+        CurrentGameState.CurrentLevelName = scene;
         SceneManager.LoadScene(scene);
     }
 
@@ -47,6 +49,7 @@ public class GoToScene : MonoBehaviour
 
     IEnumerator PlaySoundAndFade(AudioSource source, SceneFader fader)
     {
+        CurrentGameState.CurrentLevelName = scene;
         source.PlayOneShot(clip);
         return fader.FadeAndLoadScene(SceneFader.FadeDirection.Out, scene);
     }
