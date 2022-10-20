@@ -60,7 +60,8 @@ namespace LevelUtils
                 listOfSlots.Add(jsonDict);
             }
             jsonStructuredDict.Add("slots", listOfSlots);
-            string jsonText = JsonSerializer.Serialize(jsonStructuredDict);
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonText = JsonSerializer.Serialize(jsonStructuredDict, options);
             File.WriteAllText(JSON_FILE_NAME, jsonText);
         }
         public static void CompleteALevel(int LevelName, SlotNum slot)
