@@ -1334,16 +1334,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#a44fff><link>class</link></color> DistancesGrid:\r\n    <color=#a44fff><link>def</link></color>               
-        (<color=#66c2ff><link>self</link></color>, distances_grid: <color=#ff6600><link>list</link></color>[<color=#ff6600><link>list</link></color>]):  
-        \r\n        <color=#66c2ff><link>self</link></color>.distances_grid: <color=#ff6600><link>list</link></color>[<color=#ff6600><link>              
-        </link></color>] = distances_grid   \r\n        <color=#66c2ff><link>self</link></color>.number_of_cities:
-        <color=#ff6600><link>int</link></color> = <color=#ff6600><link>              
-        </link></color>(distances_grid)    \r\n\r\n    <color=#a44fff><link>def</link></color>
-        <color=#ffa704>get_distance</color>(<color=#66c2ff><link>self</link></color>,
-        index1: <color=#ff6600><link>int</link></color>, index2: <color=#ff6600><link>int</link></color>)
-        -> <color=#ff6600><link>               </link></color>:\r\n        <color=#a44fff><link>return</link></color>
-        <color=#66c2ff><link>self</link></color>.               [index1][index2]  "
+      value: "<color=#f5b700><link>class</link></color> <color=#dc0073>DistancesGrid</color>:\r\n   
+        <color=#f5b700><link>def</link></color>                (<color=#01befe><link>self</link></color>,
+        <link=\"DistancesGrid\">distances_grid</link>: <color=#dc0073><link>list</link></color>[<color=#dc0073><link>list</link></color>]):  
+        \r\n        <color=#01befe><link>self</link></color>.<link=\"DistancesGrid\">distances_grid</link>:
+        <color=#dc0073><link>list</link></color>[<color=#dc0073><link>              
+        </link></color>] = <link=\"DistancesGrid\">distances_grid</link>   \r\n       
+        <color=#01befe><link>self</link></color>.number_of_cities: <color=#dc0073><link>int</link></color>
+        = <color=#dc0073><link>               </link></color>(<link=\"DistancesGrid\">distances_grid</link>)   
+        \r\n\r\n    <color=#f5b700><link>def</link></color> <color=#7b3fca>get_distance</color>(<color=#01befe><link>self</link></color>,
+        index1: <color=#dc0073><link>int</link></color>, index2: <color=#dc0073><link>int</link></color>)
+        -> <color=#dc0073><link>               </link></color>:\r\n        <color=#f5b700><link>return</link></color>
+        <color=#01befe><link>self</link></color>.<link=\"DistancesGrid\">              
+        </link>[index1][index2]  \r\n\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_margin.z
