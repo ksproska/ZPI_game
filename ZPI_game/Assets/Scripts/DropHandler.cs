@@ -37,6 +37,12 @@ public class DropHandler : MonoBehaviour
         var wasCorrect = AreAllCorrect();
         Debug.Log("is input correct: " + wasCorrect);
         SetCheckColors();
+        if (wasCorrect)
+        {
+            GoToScene transporter = new GoToScene();
+            transporter.scene = "WorldMap";
+            transporter.GoTo();
+        }
         // SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex ) ;
     }
 }
