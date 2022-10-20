@@ -18,25 +18,25 @@ EditorBuildSettings:
     path: Assets/Scenes/WorldMap.unity
     guid: bb6b9aa54f50fa04a859ed7e70826c40
   - enabled: 1
-    path: Assets/Scenes/Education/Edu_L01.unity
+    path: Assets/Scenes/Education/lvl_learn_1.unity
     guid: 1f2c2ec628abb6f4b8d2ad6cec5cf6b0
   - enabled: 1
-    path: Assets/Scenes/Education/Edu_L02.unity
+    path: Assets/Scenes/Education/lvl_number_1.unity
     guid: 5b3b47dd7ce1ea947b88c11a3d6398e4
   - enabled: 1
-    path: Assets/Scenes/Education/Edu_L03.unity
+    path: Assets/Scenes/Education/lvl_number_2.unity
     guid: e26d49e2e7fdd9b48ac844b0f43ec168
   - enabled: 1
-    path: Assets/Scenes/Education/Edu_L04.unity
+    path: Assets/Scenes/Education/lvl_learn_2.unity
     guid: d16f0e349a773ef4aa8b7d1feb0882a0
   - enabled: 1
-    path: Assets/Scenes/Education/Edu_L05.unity
+    path: Assets/Scenes/Education/lvl_number_3.unity
     guid: a3ef89fb44e3d6d4682c9e0f545a6220
   - enabled: 1
-    path: Assets/Scenes/Education/Edu_L06.unity
+    path: Assets/Scenes/Education/lvl_number_4.unity
     guid: 98ffd8d16add9c04c9f44d7ffea6e585
   - enabled: 1
-    path: Assets/Scenes/Education/Edu_L06_2.unity
+    path: Assets/Scenes/Education/lvl_number_5.unity
     guid: 6baa1116ee54b42498fc97efa0048e34
   - enabled: 1
     path: Assets/Scenes/Education/Edu_template.unity
