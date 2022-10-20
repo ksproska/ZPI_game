@@ -36,10 +36,22 @@ public class LvlButton : MonoBehaviour
 
         }
 
+
         List<string> prevLevelsNames = LevelMap.GetPrevGameObjectNames(this.name, ActSlot);
+
         foreach (var name in prevLevelsNames)
         {
+            if (LevelMap.IsLevelDone(name, ActSlot))
+            {
+                ActiveStatus = true;
+            }
             PrevBut.Add(GameObject.Find(name).GetComponent<LvlButton>());
+
+        }
+
+        if (!ActiveStatus)
+        {
+            But.enabled = false;
         }
 
         foreach (var _ in PrevBut)
@@ -50,6 +62,7 @@ public class LvlButton : MonoBehaviour
             lineRenderer.material = lineMaterial;
             lineRenderer.positionCount = 2;
             lineRenderer.sortingOrder = 1;
+            lineRenderer.startWidth = 0.5f;
             renderersList.Add(lineRenderer);
         }
     }
@@ -84,5 +97,6 @@ public class LvlButton : MonoBehaviour
 
         }
     }
+
     
 }
