@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using CurrentState;
+using LevelUtils;
 
 public class GoToScene : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class GoToScene : MonoBehaviour
             StartCoroutine(PlaySoundAndGoTo(audioSource));
             return;
         }
+        GoTo();
+    }
+
+    public void GoToTitle(){
+        CurrentGameState.CurrentSlot = LoadSaveHelper.SlotNum.First;
         GoTo();
     }
 
