@@ -1,7 +1,10 @@
 {
   "slots": [
     {
-      "levels_completed": []
+      "levels_completed": [
+        1,
+        2
+      ]
     },
     {
       "levels_completed": []

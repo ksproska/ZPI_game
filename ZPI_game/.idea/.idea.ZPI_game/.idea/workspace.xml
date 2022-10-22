@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/LevelUtils/LevelMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelUtils/LevelMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelUtils/levels.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelUtils/levels.json" afterDir="false" />
-    </list>
+    <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="tests for LevelUtils added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/GA/Tests/WeightsGridTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/LevelUtils/LevelMap.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LevelUtils/Tests/LevelMapTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuitGame.cs" root0="FORCE_HIGHLIGHTING" />
@@ -112,7 +110,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665131141973</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="tests for LevelUtils added">
+      <created>1666455044155</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666455044156</updated>
+    </task>
+    <task id="LOCAL-00005" summary="tests for LevelUtils added">
+      <created>1666455058213</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666455058213</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +149,7 @@
     <MESSAGE value="correction - linerenderer" />
     <MESSAGE value="changing simulation parameters works" />
     <MESSAGE value="roulette selector added" />
-    <option name="LAST_COMMIT_MESSAGE" value="roulette selector added" />
+    <MESSAGE value="tests for LevelUtils added" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests for LevelUtils added" />
   </component>
 </project>
