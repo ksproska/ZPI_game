@@ -18,7 +18,7 @@ namespace GA
                     return new MutatorPartialReverser<T>();
             }
 
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // To nie lepiej w defaulcie?
         }
 
         public static Dictionary<string, MutationType> GetTypeToNameMap()

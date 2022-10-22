@@ -4,8 +4,9 @@ using System.Linq;
 
 namespace GA
 {
-    public class Individual
+    public class Individual // Można dodać interfejs z metodami GetRandom, GetBest, bo sam Individual może być różnie implementowany
     {
+        // nazewnictwo zmiennych niezgodne z konwencją
         public readonly List<int> Genotype;
         public readonly double Score;
         private static readonly Random Random = new Random();

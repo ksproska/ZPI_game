@@ -2,7 +2,7 @@
 {
     public class GaPrettifier<T>: IGaPrettifier
     {
-        private IGeneticAlgorithm<T> _geneticAlgorithm;
+        private IGeneticAlgorithm<T> _geneticAlgorithm; // Można dać readonly
         private const int padding = 8;
 
         public GaPrettifier(IGeneticAlgorithm<T> geneticAlgorithm)

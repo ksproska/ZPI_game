@@ -6,7 +6,7 @@ namespace GA
 {
     public class SelectorTournament : ISelector
     {
-        private double SizePercentage;
+        private double SizePercentage; // nazewnictwo zmiennej niezgodne z konwencją
         
         public static Individual GetTournament(List<Individual> generation, int size) {
             var selectedIndexes = SelectionCommonMethods.GetRandom(generation.Count, size);
@@ -28,6 +28,8 @@ namespace GA
                 throw new Exception("Not enough params passed");
             }
             // TODO other exceptions
+            // Pytanie, czy nie lepiej rzucić tutaj ArgumentException, sprawdzając, czy parameters.Length == GetArgs().Length
+            // Jeżeli SizePercentage nie jest z zakresu (0, 1), można rzucić ArgumentOutOfRangeException
             SizePercentage = parameters[0];
         }
 

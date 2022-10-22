@@ -5,12 +5,14 @@ namespace GA
 {
     public class WeightsGrid
     {
-        private List<List<double>> _weights;
+        private List<List<double>> _weights; // Nie lepiej przechowywać macierzy wag jako dwuwymiarowa tablica/tablica tablic?
         public int Size { get; }
 
         public WeightsGrid(List<List<double>> grid)
         {
             _weights = grid;
+
+            // Wydzieliłbym dodatkowe metody do walidacji, np. ValidateOnDiagonal, ValidateSize, ValidateSymetry 
             for (int i = grid.Count - 1; i >= 0; i--)
             {
                 if (grid[i].Count != grid.Count)
