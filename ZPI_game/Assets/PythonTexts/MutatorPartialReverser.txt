@@ -1,0 +1,24 @@
+<color=#dc0073><link="from">from</link></color> random <color=#dc0073><link="import">import</link></color> randrange
+<color=#dc0073><link="from">from</link></color> copy <color=#dc0073><link="import">import</link></color> deepcopy
+<color=#dc0073><link="from">from</link></color> Circuit <color=#dc0073><link="import">import</link></color> Circuit
+
+
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>MutatorPartialReverser</color>:
+
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>mutate</color>(city_ids: <color=#dc0073><link="list">list</link></color>[<color=#dc0073><link="int">int</link></color>], start_index: <color=#dc0073><link="int">int</link></color>, end_index: <color=#dc0073><link="int">int</link></color>) -> <color=#dc0073><link="list">list</link></color>[<color=#dc0073><link="int">int</link></color>]:
+        city_ids_copy =                (city_ids)  
+        length = end_index - start_index + <color=#ffffff>1</color> \
+            <color=#f5b700><link="if">if</link></color> end_index < start_index \
+            <color=#f5b700><link="else">else</link></color> (end_index - start_index + <color=#ffffff>1</color> + <color=#dc0073><link="len">len</link></color>(city_ids_copy)) % <color=#dc0073><link="len">len</link></color>(city_ids_copy)
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(length // <color=#ffffff>2</color>):
+            index1 = (                + i)                 <color=#dc0073><link="len">len</link></color>(city_ids_copy)  
+            index2 = (                - i + <color=#dc0073><link="len">len</link></color>(city_ids_copy))                 <color=#dc0073><link="len">len</link></color>(city_ids_copy)  
+            city_ids_copy[index1], city_ids_copy[index2]                 \
+                city_ids_copy[index2], city_ids_copy[index1]  
+        <color=#f5b700><link="return">return</link></color> city_ids_copy
+
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get</color>(<color=#01befe><link="self">self</link></color>, city_ids: <color=#dc0073><link="list">list</link></color>[<color=#dc0073><link="int">int</link></color>]) -> <color=#dc0073><link="list">list</link></color>[<color=#dc0073><link="int">int</link></color>]:
+        start_index =                (<color=#ffffff>0</color>, <color=#dc0073><link="len">len</link></color>(city_ids))  
+        end_index = randrange(<color=#ffffff>0</color>, <color=#dc0073><link="len">len</link></color>(city_ids))
+        <color=#f5b700><link="return">return</link></color> <color=#01befe><link="self">self</link></color>.mutate(city_ids, start_index, end_index)

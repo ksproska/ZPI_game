@@ -1,0 +1,14 @@
+<color=#dc0073><link="import">import</link></color> random
+<color=#dc0073><link="from">from</link></color> Circuit <color=#dc0073><link="import">import</link></color> Circuit
+
+
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>SelectorTournament</color>:
+
+    <color=#f5b700><link="def">def</link></color> __init__(<color=#01befe><link="self">self</link></color>, size_percentage):
+        <color=#01befe><link="self">self</link></color>.size_percentage = size_percentage
+
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get</color>(<color=#01befe><link="self">self</link></color>, generation: <color=#dc0073><link="list">list</link></color>) -> Circuit:  
+        tournament_size = <color=#dc0073><link="int">int</link></color>(<color=#dc0073><link="len">len</link></color>(generation) * <color=#01befe><link="self">self</link></color>.size_percentage)
+        selectedIndexes = random.               (<color=#dc0073><link="range">               </link></color>(<color=#dc0073><link="len">len</link></color>(generation)), tournament_size)  
+        selected = [generation[i] <color=#f5b700><link="for">               </link></color> i                 selectedIndexes]  
+        <color=#f5b700><link="return">return</link></color> <color=#dc0073><link="min">               </link></color>(selected, key=<color=#f5b700><link="lambda">lambda</link></color> x: x.score)  

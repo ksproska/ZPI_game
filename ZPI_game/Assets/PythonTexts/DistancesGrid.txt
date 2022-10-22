@@ -5,11 +5,3 @@
 
     <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_distance</color>(<color=#01befe><link="self">self</link></color>, index1: <color=#dc0073><link="int">int</link></color>, index2: <color=#dc0073><link="int">int</link></color>) -> <color=#dc0073><link="float">               </link></color>:
         <color=#f5b700><link="return">return</link></color> <color=#01befe><link="self">self</link></color>.<link="DistancesGrid">               </link>[index1][index2]  
-
-
-
-__init__
-list
-len
-float
-distances_grid

@@ -1,0 +1,30 @@
+<color=#dc0073><link="import">import</link></color> random
+
+
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>CrosserPartialyMatched</color>:
+
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>cross</color>(parent1: <color=#dc0073><link="list">list</link></color>, parent2: <color=#dc0073><link="list">list</link></color>, start_index: <color=#dc0073><link="int">int</link></color>, segment_length: <color=#dc0073><link="int">int</link></color>):
+        child = [                <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(<color=#dc0073><link="len">len</link></color>(parent1))]  
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(start_index, segment_length):
+            child[i] =                [i]  
+
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(segment_length):
+            index = i + start_index
+                            = parent2[index]  
+
+            <color=#f5b700><link="if">if</link></color> value not in                :  
+                <color=#f5b700><link="while">while</link></color> child[index] is not None:
+                    index =                .index(parent1[index])  
+                child[index] = value
+
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(<color=#dc0073><link="len">len</link></color>(child)):
+            <color=#f5b700><link="if">if</link></color> child[i] is None:
+                child[i] = parent2[i]
+
+        <color=#f5b700><link="return">return</link></color> child
+
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get</color>(<color=#01befe><link="self">self</link></color>, parent1: <color=#dc0073><link="list">list</link></color>, parent2: <color=#dc0073><link="list">list</link></color>):
+        start_inx = random.               (<color=#dc0073><link="len">len</link></color>(parent1) - <color=#ffffff>1</color>)  
+        segment_len = random.randrange(<color=#dc0073><link="len">len</link></color>(parent1) - start_inx - <color=#ffffff>1</color>)
+        <color=#f5b700><link="return">return</link></color> <color=#01befe><link="self">self</link></color>.               (parent1, parent2, start_inx, segment_len)  

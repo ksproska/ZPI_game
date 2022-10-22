@@ -43,25 +43,3 @@
 
         <color=#f5b700><link="if">if</link></color> <color=#01befe><link="self">self</link></color>.best.                > <color=#01befe><link="self">self</link></color>.best_for_iteration.               :  
             <color=#01befe><link="self">self</link></color>.best = <color=#01befe><link="self">self</link></color>.best_for_iteration
-
-
-
-get_random
-weights_grid
-get_best
-selector
-generation
-selector
-generation
-city_ids
-crosser
-mutator
-Circuit
-child_genotype
-weights_grid
-append
-next_generation
-get_best
-+=
-score
-score

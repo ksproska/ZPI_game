@@ -1,0 +1,28 @@
+<color=#dc0073><link="import">import</link></color> random
+<color=#dc0073><link="from">from</link></color> Individual <color=#dc0073><link="import">import</link></color> Individual
+
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>SelectorRoulette</color>:
+    
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_distributed_weight</color>(generation: <color=#dc0073><link="list">list</link></color>[Individual]) -> <color=#dc0073><link="list">list</link></color>:
+        max_score = <color=#dc0073><link="max">max</link></color>(generation, key = <color=#f5b700><link="lambda">lambda</link></color> x: x.score)
+        reversed_eval = <color=#dc0073><link="map">map</link></color>(<color=#f5b700><link="lambda">lambda</link></color> x: max_score - x.score + <color=#ffffff>1</color>, generation) 
+        sum_eval = <color=#dc0073><link="sum">sum</link></color>(reversed_eval)
+        eval_percentage = <color=#dc0073><link="map">map</link></color>(<color=#f5b700><link="lambda">lambda</link></color> x: x/sum_eval, reversed_eval)
+
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(<color=#dc0073><link="len">len</link></color>(eval_percentage) - <color=#ffffff>1</color>):
+            eval_percentage[i+<color=#ffffff>1</color>] += eval_percentage[i]
+
+        <color=#f5b700><link="return">return</link></color> eval_percentage
+
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_index_for_value</color>(distributed_weights, value):
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(<color=#dc0073><link="len">len</link></color>(distributed_weights)):
+            <color=#f5b700><link="if">if</link></color> value <= distributed_weights[i]:
+                <color=#f5b700><link="return">return</link></color> i
+
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get</color>(<color=#01befe><link="self">self</link></color>, generation):
+        rand_float = random.random()
+        distributed_weights = <color=#01befe><link="self">self</link></color>.get_distributed_weight(generation)
+        index = <color=#01befe><link="self">self</link></color>.get_index_for_value(distributed_weights, rand_float)
+        <color=#f5b700><link="return">return</link></color> generation[index]

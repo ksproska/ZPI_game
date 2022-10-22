@@ -1,0 +1,30 @@
+<color=#dc0073><link="import">import</link></color> random
+
+
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>CrosserOrder</color>:
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>cross</color>(parent1: <color=#dc0073><link="list">list</link></color>, parent2: <color=#dc0073><link="list">list</link></color>, start_index: <color=#dc0073><link="int">int</link></color>, segment_length: <color=#dc0073><link="int">int</link></color>):
+        child = [-<color=#ffffff>1</color> <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(<color=#dc0073><link="len">len</link></color>(parent1))]
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(segment_length):
+            index = i + start_index
+            child[index] = parent1[index]
+
+        last_not_contained = <color=#ffffff>0</color>
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(<color=#dc0073><link="len">len</link></color>(child)):
+            <color=#f5b700><link="if">if</link></color> child[i] == -<color=#ffffff>1</color>:
+                last_not_contained = CrosserOrder.__put_next(child, parent2, i, last_not_contained)
+        <color=#f5b700><link="return">return</link></color> child
+
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>__put_next</color>(child: <color=#dc0073><link="list">list</link></color>, parent2: <color=#dc0073><link="list">list</link></color>, curr_i: <color=#dc0073><link="int">int</link></color>, last_not_contained: <color=#dc0073><link="int">int</link></color>):
+        <color=#f5b700><link="for">for</link></color> j in <color=#dc0073><link="range">range</link></color>(last_not_contained, <color=#dc0073><link="len">len</link></color>(parent2)):
+            <color=#f5b700><link="if">if</link></color> parent2[j] not in child:
+                child[curr_i] = parent2[j]
+                <color=#f5b700><link="return">return</link></color> j + <color=#ffffff>1</color>
+        <color=#f5b700><link="return">return</link></color> <color=#dc0073><link="len">len</link></color>(parent2)
+
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get</color>(<color=#01befe><link="self">self</link></color>, parent1: <color=#dc0073><link="list">list</link></color>, parent2: <color=#dc0073><link="list">list</link></color>):
+        startInx = random.randrange(<color=#dc0073><link="len">len</link></color>(parent1))
+        segmentLen = random.randrange(<color=#dc0073><link="len">len</link></color>(parent1) - startInx - <color=#ffffff>1</color>)
+
+        <color=#f5b700><link="return">return</link></color> <color=#01befe><link="self">self</link></color>.cross(parent1, parent2, startInx, segmentLen)

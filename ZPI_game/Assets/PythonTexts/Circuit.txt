@@ -25,12 +25,3 @@
     <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
     <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_best</color>(members: <color=#dc0073><link="list">list</link></color>):
         <color=#f5b700><link="return">return</link></color> <color=#dc0073><link="max">max</link></color>(members, key=<color=#f5b700><link="lambda">               </link></color> x: x.score)  
-
-
-
-get_score
-for
-%
-range
-shuffle
-lambda
