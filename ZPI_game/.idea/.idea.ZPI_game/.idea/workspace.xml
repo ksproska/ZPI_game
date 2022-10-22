@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/CurrentState/CurrentState.asmdef" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/CurrentState/Tests/CurrentGameStateTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/CurrentState/Tests/CurrentStateTests.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CurrentState/CurrentGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CurrentState/CurrentGameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelUtils/LevelMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelUtils/LevelMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelUtils/levels.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelUtils/levels.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +15,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/GA/Tests/WeightsGridTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LevelUtils/Tests/LevelMapTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuitGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.31/UnityEditor.TestRunner/GUI/Views/EditModeTestListGUI.cs" root0="SKIP_HIGHLIGHTING" />
