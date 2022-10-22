@@ -1,7 +1,7 @@
 <color=#dc0073><link="import">import</link></color> random
 <color=#dc0073><link="from">from</link></color> DistancesGrid <color=#dc0073><link="import">import</link></color> DistancesGrid
-<color=#dc0073><link="from">from</link></color> Circuit <color=#dc0073><link="import">import</link></color> Circuit
-<color=#dc0073><link="from">from</link></color> GA_PY.Circuit <color=#dc0073><link="import">import</link></color> Circuit
+<color=#dc0073><link="from">from</link></color> <link="Circuit">Circuit</link> <color=#dc0073><link="import">import</link></color> <link="Circuit">Circuit</link>
+<color=#dc0073><link="from">from</link></color> GA_PY.<link="Circuit">Circuit</link> <color=#dc0073><link="import">import</link></color> <link="Circuit">Circuit</link>
 
 
 <color=#f5b700><link="class">class</link></color> <color=#dc0073>GeneticAlgorithm</color>:
@@ -17,8 +17,8 @@
         <color=#01befe><link="self">self</link></color>.crosser = crosser
         <color=#01befe><link="self">self</link></color>.crossover_probability = crossover_probability
 
-        <color=#01befe><link="self">self</link></color>.generation = [Circuit.               (               ) <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(generation_size)]  
-        <color=#01befe><link="self">self</link></color>.best = Circuit.               (<color=#01befe><link="self">self</link></color>.generation)  
+        <color=#01befe><link="self">self</link></color>.generation = [<link="Circuit">Circuit</link>.               (               ) <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(generation_size)]  
+        <color=#01befe><link="self">self</link></color>.best = <link="Circuit">Circuit</link>.               (<color=#01befe><link="self">self</link></color>.generation)  
         <color=#01befe><link="self">self</link></color>.best_for_iteration = <color=#01befe><link="self">self</link></color>.best
         <color=#01befe><link="self">self</link></color>.iteration = <color=#ffffff>0</color>
 
@@ -35,10 +35,10 @@
             <color=#f5b700><link="if">if</link></color> <color=#01befe><link="self">self</link></color>.mutation_probability < random.random():
                 child_genotype = <color=#01befe><link="self">self</link></color>.               .get(child_genotype)  
 
-            child =                (               , <color=#01befe><link="self">self</link></color>.               )  
+            child = <link="Circuit">               </link>(               , <color=#01befe><link="self">self</link></color>.               )  
             next_generation.               (child)  
         <color=#01befe><link="self">self</link></color>.generation =                  
-        <color=#01befe><link="self">self</link></color>.best_for_iteration = Circuit.               (<color=#01befe><link="self">self</link></color>.generation)  
+        <color=#01befe><link="self">self</link></color>.best_for_iteration = <link="Circuit">Circuit</link>.               (<color=#01befe><link="self">self</link></color>.generation)  
         <color=#01befe><link="self">self</link></color>.iteration                 <color=#ffffff>1</color>  
 
         <color=#f5b700><link="if">if</link></color> <color=#01befe><link="self">self</link></color>.best.                > <color=#01befe><link="self">self</link></color>.best_for_iteration.               :  

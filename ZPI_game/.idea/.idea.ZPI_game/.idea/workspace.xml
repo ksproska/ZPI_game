@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="new text files for gaps and descriptions + automatic code update">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/education/DetailsDisplay.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/education/DetailsDisplay.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ShowOrHide.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ShowOrHide.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/education/Scroll View.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/education/Scroll View.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_learn_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_learn_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_learn_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_learn_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/Circuit.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/Circuit.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/GeneticAlgorithm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/GeneticAlgorithm.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/MutatorPartialReverser.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/MutatorPartialReverser.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/SelectorRoulette.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/SelectorRoulette.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/SelectorTournament.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/SelectorTournament.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_4.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Education/TextLinkHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Education/TextLinkHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

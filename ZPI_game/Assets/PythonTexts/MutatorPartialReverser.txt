@@ -1,6 +1,6 @@
 <color=#dc0073><link="from">from</link></color> random <color=#dc0073><link="import">import</link></color> randrange
 <color=#dc0073><link="from">from</link></color> copy <color=#dc0073><link="import">import</link></color> deepcopy
-<color=#dc0073><link="from">from</link></color> Circuit <color=#dc0073><link="import">import</link></color> Circuit
+<color=#dc0073><link="from">from</link></color> <link="Circuit">Circuit</link> <color=#dc0073><link="import">import</link></color> <link="Circuit">Circuit</link>
 
 
 <color=#f5b700><link="class">class</link></color> <color=#dc0073>MutatorPartialReverser</color>:

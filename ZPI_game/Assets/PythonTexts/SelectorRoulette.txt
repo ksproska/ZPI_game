@@ -1,10 +1,10 @@
 <color=#dc0073><link="import">import</link></color> random
-<color=#dc0073><link="from">from</link></color> Individual <color=#dc0073><link="import">import</link></color> Individual
+<color=#dc0073><link="from">from</link></color> <link="Individual">Individual</link> <color=#dc0073><link="import">import</link></color> <link="Individual">Individual</link>
 
 <color=#f5b700><link="class">class</link></color> <color=#dc0073>SelectorRoulette</color>:
     
     <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
-    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_distributed_weight</color>(generation: <color=#dc0073><link="list">list</link></color>[Individual]) -> <color=#dc0073><link="list">list</link></color>:
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_distributed_weight</color>(generation: <color=#dc0073><link="list">list</link></color>[<link="Individual">Individual</link>]) -> <color=#dc0073><link="list">list</link></color>:
         max_score = <color=#dc0073><link="max">max</link></color>(generation, key = <color=#f5b700><link="lambda">lambda</link></color> x: x.score)
         reversed_eval = <color=#dc0073><link="map">map</link></color>(<color=#f5b700><link="lambda">lambda</link></color> x: max_score - x.score + <color=#ffffff>1</color>, generation) 
         sum_eval = <color=#dc0073><link="sum">sum</link></color>(reversed_eval)

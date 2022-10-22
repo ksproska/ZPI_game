@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 81.20001
+      value: 16.3
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 63.1
+      value: -1.8000135
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -506,9 +506,9 @@ RectTransform:
   - {fileID: 1471165120}
   - {fileID: 1570696760}
   - {fileID: 1196129659}
+  - {fileID: 16910020}
   - {fileID: 1634717321}
   - {fileID: 1459729393}
-  - {fileID: 16910020}
   - {fileID: 6420813507850211096}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -595,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 80.100006
+      value: 15.199994
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -701,7 +701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 96.600006
+      value: 31.7
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -812,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 97.40001
+      value: 32.499996
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -918,7 +918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 127.90001
+      value: 62.999985
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1271,7 +1271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573037, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573037, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1396,7 +1396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493945075900873945, guid: 31aef63cb9f6f33489809e038c64a647, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8493945075900873945, guid: 31aef63cb9f6f33489809e038c64a647, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1485,17 +1485,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#a44fff><link>class</link></color> SelectorTournament:\r\n\r\n   
-        <color=#a44fff><link>def</link></color> __init__(<color=#66c2ff><link>self</link></color>,
-        size_percentage):\r\n        <color=#66c2ff><link>self</link></color>.size_percentage
-        = size_percentage\r\n\r\n    <color=#a44fff><link>def</link></color> <color=#ffa704>get</color>(<color=#66c2ff><link>self</link></color>,
-        generation: <color=#ff6600><link>list</link></color>) ->                : 
-        \r\n        tournament_size = <color=#ff6600><link>int</link></color>(<color=#ff6600><link>len</link></color>(generation)
-        * <color=#66c2ff><link>self</link></color>.size_percentage)\r\n        selectedIndexes
-        = random.               (<color=#ff6600><link>               </link></color>(<color=#ff6600><link>len</link></color>(generation)),
-        tournament_size)  \r\n        selected = [generation[i] <color=#a44fff><link>              
-        </link></color> i                 selectedIndexes]  \r\n        <color=#a44fff><link>return</link></color>
-        <color=#ff6600><link>               </link></color>(selected, key=<color=#a44fff><link>lambda</link></color>
+      value: "<color=#dc0073><link=\"import\">import</link></color> random\r\n<color=#dc0073><link=\"from\">from</link></color>
+        Circuit <color=#dc0073><link=\"import\">import</link></color> Circuit\r\n\r\n\r\n<color=#f5b700><link=\"class\">class</link></color>
+        <color=#dc0073>SelectorTournament</color>:\r\n\r\n    <color=#f5b700><link=\"def\">def</link></color>
+        __init__(<color=#01befe><link=\"self\">self</link></color>, size_percentage):\r\n       
+        <color=#01befe><link=\"self\">self</link></color>.size_percentage = size_percentage\r\n\r\n   
+        <color=#f5b700><link=\"def\">def</link></color> <color=#7b3fca>get</color>(<color=#01befe><link=\"self\">self</link></color>,
+        generation: <color=#dc0073><link=\"list\">list</link></color>) -> Circuit: 
+        \r\n        tournament_size = <color=#dc0073><link=\"int\">int</link></color>(<color=#dc0073><link=\"len\">len</link></color>(generation)
+        * <color=#01befe><link=\"self\">self</link></color>.size_percentage)\r\n       
+        selectedIndexes = random.               (<color=#dc0073><link=\"range\">              
+        </link></color>(<color=#dc0073><link=\"len\">len</link></color>(generation)),
+        tournament_size)  \r\n        selected = [generation[i] <color=#f5b700><link=\"for\">              
+        </link></color> i                 selectedIndexes]  \r\n        <color=#f5b700><link=\"return\">return</link></color>
+        <color=#dc0073><link=\"min\">               </link></color>(selected, key=<color=#f5b700><link=\"lambda\">lambda</link></color>
         x: x.score)  \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209430, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
