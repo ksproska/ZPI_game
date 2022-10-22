@@ -47,14 +47,6 @@ public class SlidingComponent : MonoBehaviour
             x -= ammount;
             yield return null;
         }
-        //float currentTime = 0;
-        //while(currentTime < time)
-        //{
-        //    currentTime += Time.deltaTime;
-        //    var position = rectTransform.anchoredPosition;
-        //    rectTransform.anchoredPosition = new Vector3(position.x - ammount, position.y);
-        //    yield return null;
-        //}
     }
 
     private IEnumerator SlideInLoop(float ammount)
