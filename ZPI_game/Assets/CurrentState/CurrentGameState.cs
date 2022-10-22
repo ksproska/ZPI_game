@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Text.Json;
 using System.IO;
+using System.Text.Json;
 using LevelUtils;
 
 namespace CurrentState
 {
     public static class CurrentGameState
     {
-        public const string JSON_FILE_NAME = "Assets\\CurrentState\\user_settings.json";
+        public const string JSON_FILE_NAME = "..\\..\\..\\user_settings.json";
         private static bool _isMusicOn;
         private static float _musicVolume;
         private static bool _areEffectsOn;
@@ -87,7 +87,7 @@ namespace CurrentState
             _effectsVolume = userSettings.EffectsVolume;
         }
     }
-    class UserSettingsJson
+    public class UserSettingsJson
     {
         public bool MusicOn { get; set; }
         public float MusicVolume { get; set; }
