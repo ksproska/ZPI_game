@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MenuContainer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [NonSerialized] private List<SlidingComponent> components;
+
+    private void Start()
     {
-        
+        components = new List<SlidingComponent>(GetComponentsInChildren<SlidingComponent>());
+    }
+    public void SlideOutComponents()
+    {
+        StartCoroutine(SlideOutDelta(0.1f));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SlideOutDelta(float time)
     {
-        
+        foreach(var component in components)
+        {
+            component.SlideOut();
+            yield return new WaitForSeconds(time);
+        }
     }
 }

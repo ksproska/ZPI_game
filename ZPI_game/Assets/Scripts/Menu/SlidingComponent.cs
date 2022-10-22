@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class SlidingComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private RectTransform rectTransform;
+
+    private void Start()
     {
-        
+        rectTransform = GetComponent<RectTransform>();
+    }
+    public void SlideOut()
+    {
+        StartCoroutine(SlideLoop(-10, 2));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SlideLoop(float ammount, float time)
     {
-        
+        float currentTime = 0;
+        while(currentTime < time)
+        {
+            currentTime += Time.deltaTime;
+            var position = rectTransform.position;
+            rectTransform.position = new Vector3(position.x + ammount, position.y, position.z);
+            print(rectTransform.position);
+            yield return null;
+        }
     }
 }

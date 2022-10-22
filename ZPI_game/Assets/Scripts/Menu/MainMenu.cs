@@ -11,4 +11,20 @@ public class MainMenu : MonoBehaviour
 
     [NonSerialized] private int currentContainer = 0;
     [NonSerialized] private int screenWidth;
+
+    public void SpeedUp()
+    {
+        backgroundHandler.SpeedUp();
+    }
+
+    public void SlideOut()
+    {
+        containers[0].SlideOutComponents();
+    }
+
+    public void QuitApp()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
 }
