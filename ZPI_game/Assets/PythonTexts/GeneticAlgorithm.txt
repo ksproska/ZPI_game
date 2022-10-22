@@ -1,0 +1,67 @@
+<color=#dc0073><link="import">import</link></color> random
+<color=#dc0073><link="from">from</link></color> DistancesGrid <color=#dc0073><link="import">import</link></color> DistancesGrid
+<color=#dc0073><link="from">from</link></color> Circuit <color=#dc0073><link="import">import</link></color> Circuit
+<color=#dc0073><link="from">from</link></color> GA_PY.Circuit <color=#dc0073><link="import">import</link></color> Circuit
+
+
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>GeneticAlgorithm</color>:
+
+    <color=#f5b700><link="def">def</link></color> __init__(<color=#01befe><link="self">self</link></color>, weights_grid: DistancesGrid, generation_size: <color=#dc0073><link="int">int</link></color>, selector,
+                 mutator, mutation_probability: <color=#dc0073><link="float">float</link></color>,
+                 crosser, crossover_probability: <color=#dc0073><link="float">float</link></color>):
+
+        <color=#01befe><link="self">self</link></color>.weights_grid = weights_grid
+        <color=#01befe><link="self">self</link></color>.selector = selector
+        <color=#01befe><link="self">self</link></color>.mutator = mutator
+        <color=#01befe><link="self">self</link></color>.mutation_probability = mutation_probability
+        <color=#01befe><link="self">self</link></color>.crosser = crosser
+        <color=#01befe><link="self">self</link></color>.crossover_probability = crossover_probability
+
+        <color=#01befe><link="self">self</link></color>.generation = [Circuit.               (               ) <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(generation_size)]  
+        <color=#01befe><link="self">self</link></color>.best = Circuit.               (<color=#01befe><link="self">self</link></color>.generation)  
+        <color=#01befe><link="self">self</link></color>.best_for_iteration = <color=#01befe><link="self">self</link></color>.best
+        <color=#01befe><link="self">self</link></color>.iteration = <color=#ffffff>0</color>
+
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>run_iteration</color>(<color=#01befe><link="self">self</link></color>):
+        next_generation = <color=#dc0073><link="list">list</link></color>()
+        <color=#f5b700><link="while">while</link></color> <color=#dc0073><link="len">len</link></color>(next_generation) < <color=#dc0073><link="len">len</link></color>(<color=#01befe><link="self">self</link></color>.generation):
+            parent1 = <color=#01befe><link="self">self</link></color>.               .get(<color=#01befe><link="self">self</link></color>.               )  
+            parent2 = <color=#01befe><link="self">self</link></color>.               .get(<color=#01befe><link="self">self</link></color>.               )  
+
+            child_genotype = parent1.                 
+            <color=#f5b700><link="if">if</link></color> <color=#01befe><link="self">self</link></color>.crossover_probability < random.random():
+                child_genotype = <color=#01befe><link="self">self</link></color>.               .get(parent1.city_ids, parent2.city_ids)  
+
+            <color=#f5b700><link="if">if</link></color> <color=#01befe><link="self">self</link></color>.mutation_probability < random.random():
+                child_genotype = <color=#01befe><link="self">self</link></color>.               .get(child_genotype)  
+
+            child =                (               , <color=#01befe><link="self">self</link></color>.               )  
+            next_generation.               (child)  
+        <color=#01befe><link="self">self</link></color>.generation =                  
+        <color=#01befe><link="self">self</link></color>.best_for_iteration = Circuit.               (<color=#01befe><link="self">self</link></color>.generation)  
+        <color=#01befe><link="self">self</link></color>.iteration                 <color=#ffffff>1</color>  
+
+        <color=#f5b700><link="if">if</link></color> <color=#01befe><link="self">self</link></color>.best.                > <color=#01befe><link="self">self</link></color>.best_for_iteration.               :  
+            <color=#01befe><link="self">self</link></color>.best = <color=#01befe><link="self">self</link></color>.best_for_iteration
+
+
+
+get_random
+weights_grid
+get_best
+selector
+generation
+selector
+generation
+city_ids
+crosser
+mutator
+Circuit
+child_genotype
+weights_grid
+append
+next_generation
+get_best
++=
+score
+score

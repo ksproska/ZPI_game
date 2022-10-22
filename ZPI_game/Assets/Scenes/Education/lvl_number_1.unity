@@ -217,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 144.2
+      value: 79.50007
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -408,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -61.000107
+      value: -125.700035
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -636,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -46
+      value: -110.69993
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -754,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 48.09996
+      value: -16.599968
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -872,7 +872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -140.30006
+      value: -205
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1095,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 63.09992
+      value: -1.6000099
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1514,32 +1514,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1093333678}
     m_Modifications:
+    - target: {fileID: 8404408643262910086, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
+      propertyPath: filename
+      value: Circuit
+      objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#a44fff><link>class</link></color> Circuit:\r\n\r\n    <color=#a44fff><link>def</link></color>
-        __init__(<color=#66c2ff><link>self</link></color>, city_ids: <color=#ff6600><link>list</link></color>[<color=#ff6600><link>int</link></color>],
+      value: "<color=#dc0073><link=\"from\">from</link></color> random <color=#dc0073><link=\"import\">import</link></color>
+        shuffle\r\n<color=#dc0073><link=\"from\">from</link></color> DistancesGrid
+        <color=#dc0073><link=\"import\">import</link></color> DistancesGrid\r\n\r\n\r\n<color=#f5b700><link=\"class\">class</link></color>
+        <color=#dc0073>Circuit</color>:\r\n\r\n    <color=#f5b700><link=\"def\">def</link></color>
+        __init__(<color=#01befe><link=\"self\">self</link></color>, city_ids: <color=#dc0073><link=\"list\">list</link></color>[<color=#dc0073><link=\"int\">int</link></color>],
         <link=\"DistancesGrid\">distances_grid</link>: DistancesGrid):\r\n       
-        <color=#66c2ff><link>self</link></color>.city_ids = city_ids\r\n        <color=#66c2ff><link>self</link></color>.score
-        = Circuit.               (city_ids, <link=\"DistancesGrid\">distances_grid</link>) 
-        \r\n\r\n    <color=#ffa704><link>@staticmethod</link></color>\r\n    <color=#a44fff><link>def</link></color>
-        <color=#ffa704>get_score</color>(city_ids: <color=#ff6600><link>list</link></color>[<color=#ff6600><link>int</link></color>],
-        <link=\"DistancesGrid\">distances_grid</link>: DistancesGrid) -> <color=#ff6600><link>float</link></color>:\r\n       
-        sum_distances = <color=#66c2ff>0.0</color>\r\n        <color=#a44fff><link>              
-        </link></color> city_id in <color=#ff6600><link>range</link></color>(<color=#ff6600><link>len</link></color>(city_ids)): 
-        \r\n            city_id_next = (city_id + <color=#66c2ff>1</color>)                
-        <color=#ff6600><link>len</link></color>(city_ids)  \r\n            sum_distances
-        += <link=\"DistancesGrid\">distances_grid</link>.get_distance(city_ids[city_id],
-        city_ids[city_id_next])\r\n        <color=#a44fff><link>return</link></color>
-        sum_distances\r\n\r\n    <color=#ffa704><link>@staticmethod</link></color>\r\n   
-        <color=#a44fff><link>def</link></color> <color=#ffa704>get_random</color>(<link=\"DistancesGrid\">distances_grid</link>:
-        DistancesGrid):\r\n        random_genotype = <color=#ff6600><link>list</link></color>(<color=#ff6600><link>              
+        <color=#01befe><link=\"self\">self</link></color>.city_ids = city_ids\r\n       
+        <color=#01befe><link=\"self\">self</link></color>.score = Circuit.              
+        (city_ids, <link=\"DistancesGrid\">distances_grid</link>)  \r\n\r\n    <color=#ffa704><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
+        <color=#f5b700><link=\"def\">def</link></color> <color=#7b3fca>get_score</color>(city_ids:
+        <color=#dc0073><link=\"list\">list</link></color>[<color=#dc0073><link=\"int\">int</link></color>],
+        <link=\"DistancesGrid\">distances_grid</link>: DistancesGrid) -> <color=#dc0073><link=\"float\">float</link></color>:\r\n       
+        sum_distances = <color=#ffffff>0.0</color>\r\n        <color=#f5b700><link=\"for\">              
+        </link></color> city_id in <color=#dc0073><link=\"range\">range</link></color>(<color=#dc0073><link=\"len\">len</link></color>(city_ids)): 
+        \r\n            city_id_next = (city_id + <color=#ffffff>1</color>)                
+        <color=#dc0073><link=\"len\">len</link></color>(city_ids)  \r\n           
+        sum_distances += <link=\"DistancesGrid\">distances_grid</link>.get_distance(city_ids[city_id],
+        city_ids[city_id_next])\r\n        <color=#f5b700><link=\"return\">return</link></color>
+        sum_distances\r\n\r\n    <color=#ffa704><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
+        <color=#f5b700><link=\"def\">def</link></color> <color=#7b3fca>get_random</color>(<link=\"DistancesGrid\">distances_grid</link>:
+        DistancesGrid):\r\n        random_genotype = <color=#dc0073><link=\"list\">list</link></color>(<color=#dc0073><link=\"range\">              
         </link></color>(<link=\"DistancesGrid\">distances_grid</link>.number_of_cities)) 
-        \r\n                       (random_genotype)  \r\n        <color=#a44fff><link>return</link></color>
+        \r\n                       (random_genotype)  \r\n        <color=#f5b700><link=\"return\">return</link></color>
         Circuit(random_genotype, <link=\"DistancesGrid\">distances_grid</link>)\r\n\r\n   
-        <color=#ffa704><link>@staticmethod</link></color>\r\n    <color=#a44fff><link>def</link></color>
-        <color=#ffa704>get_best</color>(members: <color=#ff6600><link>list</link></color>):\r\n       
-        <color=#a44fff><link>return</link></color> <color=#ff6600><link>max</link></color>(members,
-        key=<color=#a44fff><link>               </link></color> x: x.score)  \r\n\r\n"
+        <color=#ffa704><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
+        <color=#f5b700><link=\"def\">def</link></color> <color=#7b3fca>get_best</color>(members:
+        <color=#dc0073><link=\"list\">list</link></color>):\r\n        <color=#f5b700><link=\"return\">return</link></color>
+        <color=#dc0073><link=\"max\">max</link></color>(members, key=<color=#f5b700><link=\"lambda\">              
+        </link></color> x: x.score)  "
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_fontSizeBase

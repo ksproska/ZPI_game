@@ -1,0 +1,36 @@
+<color=#dc0073><link="from">from</link></color> random <color=#dc0073><link="import">import</link></color> shuffle
+<color=#dc0073><link="from">from</link></color> DistancesGrid <color=#dc0073><link="import">import</link></color> DistancesGrid
+
+
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>Circuit</color>:
+
+    <color=#f5b700><link="def">def</link></color> __init__(<color=#01befe><link="self">self</link></color>, city_ids: <color=#dc0073><link="list">list</link></color>[<color=#dc0073><link="int">int</link></color>], <link="DistancesGrid">distances_grid</link>: DistancesGrid):
+        <color=#01befe><link="self">self</link></color>.city_ids = city_ids
+        <color=#01befe><link="self">self</link></color>.score = Circuit.               (city_ids, <link="DistancesGrid">distances_grid</link>)  
+
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_score</color>(city_ids: <color=#dc0073><link="list">list</link></color>[<color=#dc0073><link="int">int</link></color>], <link="DistancesGrid">distances_grid</link>: DistancesGrid) -> <color=#dc0073><link="float">float</link></color>:
+        sum_distances = <color=#ffffff>0.0</color>
+        <color=#f5b700><link="for">               </link></color> city_id in <color=#dc0073><link="range">range</link></color>(<color=#dc0073><link="len">len</link></color>(city_ids)):  
+            city_id_next = (city_id + <color=#ffffff>1</color>)                 <color=#dc0073><link="len">len</link></color>(city_ids)  
+            sum_distances += <link="DistancesGrid">distances_grid</link>.get_distance(city_ids[city_id], city_ids[city_id_next])
+        <color=#f5b700><link="return">return</link></color> sum_distances
+
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_random</color>(<link="DistancesGrid">distances_grid</link>: DistancesGrid):
+        random_genotype = <color=#dc0073><link="list">list</link></color>(<color=#dc0073><link="range">               </link></color>(<link="DistancesGrid">distances_grid</link>.number_of_cities))  
+                       (random_genotype)  
+        <color=#f5b700><link="return">return</link></color> Circuit(random_genotype, <link="DistancesGrid">distances_grid</link>)
+
+    <color=#ffa704><link="@staticmethod">@staticmethod</link></color>
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_best</color>(members: <color=#dc0073><link="list">list</link></color>):
+        <color=#f5b700><link="return">return</link></color> <color=#dc0073><link="max">max</link></color>(members, key=<color=#f5b700><link="lambda">               </link></color> x: x.score)  
+
+
+
+get_score
+for
+%
+range
+shuffle
+lambda

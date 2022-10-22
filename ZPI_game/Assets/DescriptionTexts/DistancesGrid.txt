@@ -1,0 +1,22 @@
+<color=#f5b700>class</color> <color=#dc0073>DistancesGrid</color>:
+    <color=#808080>"""
+    Class stores distances between cities as a grid each to each, example:
+    [
+        [0, 1, 4, 2],
+        [1, 0, 3, 6],
+        [4, 3, 0, 8],
+        [2, 6, 8, 0]
+    ]
+    """</color>
+    <color=#f5b700>def</color> __init__(<color=#01befe>self</color>, distances_grid: <color=#dc0073>list</color>[<color=#dc0073>list</color>]):   
+        <color=#01befe>self</color>.distances_grid: <color=#dc0073>list</color>[<color=#dc0073>list</color>] = distances_grid   
+        <color=#01befe>self</color>.number_of_cities: <color=#dc0073>int</color> = <color=#dc0073>len</color>(distances_grid)    
+
+    <color=#f5b700>def</color> <color=#7b3fca>get_distance</color>(<color=#01befe>self</color>, index1: <color=#dc0073>int</color>, index2: <color=#dc0073>int</color>) -> <color=#dc0073>float</color>:   
+        <color=#808080>"""
+        Method returns distance between two cites, where cities are represented by index <0, x>, example:
+        get_weight(0, 1) = 1
+        get_weight(1, 0) = 1
+        get_weight(2, 2) = 0
+        """</color>
+        <color=#f5b700>return</color> <color=#01befe>self</color>.distances_grid[index1][index2]  
