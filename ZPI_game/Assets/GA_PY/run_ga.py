@@ -1,9 +1,11 @@
+import math
 from time import sleep
 from GeneticAlgorithm import GeneticAlgorithm
 from DistancesGrid import DistancesGrid
 from selection.SelectorTournament import SelectorTournament
 from mutation.MutatorPartialReverser import MutatorPartialReverser
 from crossover.CrosserPartiallyMatched import CrosserPartialyMatched
+import unittest
 
 weights_example = [
     [0, 107, 241, 190, 124, 80, 316, 76, 152, 157, 283, 133, 113, 297, 228, 129, 348, 276, 188, 150, 65, 341, 184, 67, 221, 169, 108, 45, 167], 
@@ -37,19 +39,21 @@ weights_example = [
     [167, 79, 77, 205, 97, 185, 435, 243, 111, 163, 322, 238, 206, 288, 243, 275, 319, 253, 281, 135, 108, 332, 342, 218, 350, 39, 263, 199, 0]
 ]
 
-if __name__ == "__main__":
-    weights_grid = DistancesGrid(weights_example)
-    selector = SelectorTournament(0.7)
-    ga = GeneticAlgorithm(weights_grid, 
-        generation_size=10, 
-        selector=selector, 
-        mutator=MutatorPartialReverser(),
-        mutation_probability=0.2, 
-        crosser=CrosserPartialyMatched(),
-        crossover_probability=0.89)
-    
-    while True:
-        ga.run_iteration()
-        print(" Best ->  " + str(ga.best.score))
-        sleep(0.2)
 
+class TestGeneticAlgorithm(unittest.TestCase):
+    def test_GA(self):
+        weights_grid = DistancesGrid(weights_example)
+        selector = SelectorTournament(0.7)
+        ga = GeneticAlgorithm(weights_grid,
+                              generation_size=10,
+                              selector=selector,
+                              mutator=MutatorPartialReverser(),
+                              mutation_probability=0.2,
+                              crosser=CrosserPartialyMatched(),
+                              crossover_probability=0.89)
+
+        prev = math.inf
+        for i in range(1000):
+            ga.run_iteration()
+            self.assertLessEqual(ga.best.score, prev)
+            prev = ga.best.score

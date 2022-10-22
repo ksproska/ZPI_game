@@ -1,7 +1,6 @@
 import random
 from DistancesGrid import DistancesGrid
 from Circuit import Circuit
-from GA_PY.Circuit import Circuit
 
 
 class GeneticAlgorithm:

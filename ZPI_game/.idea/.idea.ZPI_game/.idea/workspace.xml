@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="new text files for gaps and descriptions + automatic code update">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/Circuit.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/Circuit.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/GeneticAlgorithm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/GeneticAlgorithm.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/MutatorPartialReverser.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/MutatorPartialReverser.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/SelectorRoulette.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/SelectorRoulette.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PythonTexts/SelectorTournament.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PythonTexts/SelectorTournament.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelUtils/save_slots.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelUtils/save_slots.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Education/lvl_number_3.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +21,7 @@
     <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/LevelUtils/LevelMap.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LevelUtils/Tests/LevelMapTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scenes/Education/lvl_learn_1.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scenes/Education/lvl_number_3.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuitGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ShowOrHide.cs" root0="FORCE_HIGHLIGHTING" />
