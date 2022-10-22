@@ -8,7 +8,6 @@ public class ParalaxBackgroundHandler : MonoBehaviour
     [NonSerialized] public List<BackgroundScroller> layers;
     private float current = 0;
 
-    // scrollSpeed * 10 - 200
 
     private void Start()
     {
@@ -22,6 +21,6 @@ public class ParalaxBackgroundHandler : MonoBehaviour
 
     public void SpeedUp()
     {
-        layers.ForEach(l => l.SpeedUpForTime(l.scrollSpeed * 10 - 200, 0.25f));
+        layers.ForEach(l => l.SpeedUpForTime(l.scrollSpeed * 10 - 200, 0.6f));
     }
 }
