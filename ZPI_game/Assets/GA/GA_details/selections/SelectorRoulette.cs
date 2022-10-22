@@ -6,7 +6,7 @@ namespace GA
 {
     public class SelectorRoulette : ISelector
     {
-        private static readonly Random Random = new Random();
+        private static readonly Random Random = new Random(); // nazewnictwo zmiennej niezgodne z konwencją
 
         public static List<double> GetDistributedWeights(List<Individual> generation)
         {
@@ -31,7 +31,7 @@ namespace GA
                     return i;
                 }
             }
-            throw new InvalidOperationException();
+            throw new InvalidOperationException(); // A nie powinno tu być czegoś oznaczającego, że argument jest zły?
         }
 
         public Individual Get(List<Individual> generation)

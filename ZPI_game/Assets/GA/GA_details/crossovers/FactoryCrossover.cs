@@ -20,7 +20,7 @@ namespace GA
                     return new CrosserOrder();
             }
 
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // To nie lepiej w defaulcie?
         }
 
         public static Dictionary<string, CrossoverType> GetTypeToNameMap()

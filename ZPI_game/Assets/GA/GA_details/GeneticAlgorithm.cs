@@ -5,7 +5,7 @@ namespace GA
 {
     public class GeneticAlgorithm : IGeneticAlgorithm<int>
     {
-        private static readonly Random Random = new Random();
+        private static readonly Random Random = new Random(); // nazewnictwo zmiennej niezgodne z konwencją
         
         private readonly WeightsGrid _weightsGrid;
         private List<Individual> _generation;

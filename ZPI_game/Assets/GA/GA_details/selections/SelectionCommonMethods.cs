@@ -6,7 +6,7 @@ namespace GA
 {
     public abstract class SelectionCommonMethods
     {
-        private static readonly Random Random = new Random();
+        private static readonly Random Random = new Random(); // nazewnictwo zmiennej niezgodne z konwencją
         public static HashSet<int> GetRandom(int max, int len) {
             HashSet<int> selected = new HashSet<int>();
             while (len > selected.Count) {

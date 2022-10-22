@@ -4,7 +4,7 @@ namespace GA.mutations
 {
     public class MutatorPartialReverser<T> : IMutator<T>
     {
-        private static readonly Random Random = new Random();
+        private static readonly Random Random = new Random(); // nazewnictwo zmiennej niezgodne z konwencją
         public static List<T> ReversePartOrder(List<T> genotype, int startInx, int endInx)
         {
             var genotypeCopy = new List<T>(genotype);
@@ -13,6 +13,9 @@ namespace GA.mutations
             {
                 len = (endInx - startInx + 1 + genotypeCopy.Count) % genotypeCopy.Count;
             }
+            /**
+                to można chyba tak var len = endInx - startInx + 1 ? startInx <= endInx : (endInx - startInx + 1 + genotypeCopy.Count) % genotypeCopy.Count
+            **/
             for (int i = 0; i < len / 2; i++)
             {
                 var inx1 = (startInx + i) % genotype.Count;
