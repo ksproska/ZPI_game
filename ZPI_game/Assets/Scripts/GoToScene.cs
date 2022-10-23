@@ -57,6 +57,6 @@ public class GoToScene : MonoBehaviour
     {
         CurrentGameState.CurrentLevelName = scene;
         source.PlayOneShot(clip);
-        return fader.FadeAndLoadScene(SceneFader.FadeDirection.Out, scene);
+        return fader.FadeAndLoadScene(SceneFader.FadeDirection.Out, scene, fader.fadeOutMusic);
     }
 }

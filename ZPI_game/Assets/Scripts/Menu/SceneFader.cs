@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CurrentState;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class SceneFader : MonoBehaviour
     #region FIELDS
     [SerializeField] RawImage fadeImage;
     [SerializeField] float fadeSpeed;
+    [SerializeField] private AudioSource source;
+    [SerializeField] public bool fadeOutMusic;
     [SerializeField] public enum FadeDirection
     {
         In,
@@ -29,7 +32,7 @@ public class SceneFader : MonoBehaviour
     #endregion
 
     #region FADE
-    private IEnumerator Fade(FadeDirection fadeDirection)
+    private IEnumerator Fade(FadeDirection fadeDirection, bool withMusic = false)
     {
         fadeImage.gameObject.SetActive(true);
         float alpha = (fadeDirection == FadeDirection.In) ? 1 : 0;
@@ -37,9 +40,14 @@ public class SceneFader : MonoBehaviour
 
         if(fadeDirection == FadeDirection.In)
         {
+            var maxVolume = source.volume;
             while(alpha >= fadeEndValue)
             {
                 SetImageColor(ref alpha, fadeDirection);
+                if (withMusic)
+                {
+                    source.volume = Mathf.Lerp(0, maxVolume, alpha);
+                }
                 yield return null;
             }
             fadeImage.enabled = false;
@@ -47,9 +55,14 @@ public class SceneFader : MonoBehaviour
         else
         {
             fadeImage.enabled = true;
+            var maxVolume = CurrentGameState.MusicVolume;
             while(alpha <= fadeEndValue)
             {
                 SetImageColor(ref alpha, fadeDirection);
+                if (withMusic)
+                {
+                    source.volume = Mathf.Lerp(maxVolume, 0, alpha);
+                }
                 yield return null;
             }
         }
@@ -57,9 +70,9 @@ public class SceneFader : MonoBehaviour
     #endregion
 
     #region HELPERS
-    public IEnumerator FadeAndLoadScene(FadeDirection fadeDirection, string sceneName)
+    public IEnumerator FadeAndLoadScene(FadeDirection fadeDirection, string sceneName, bool fadeAudio = false)
     {
-        yield return Fade(fadeDirection);
+        yield return Fade(fadeDirection, fadeAudio);
         SceneManager.LoadScene(sceneName);
     }
     private void SetImageColor(ref float alpha, FadeDirection fadeDirection)

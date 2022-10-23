@@ -2,6 +2,7 @@ using LevelUtils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CurrentState;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
@@ -10,8 +11,22 @@ public class MainMenu : MonoBehaviour
     [SerializeField] public List<MenuContainer> containers;
 
 
-    [NonSerialized] private int currentContainer = 0;
+    [NonSerialized] private int currentContainer;
     [NonSerialized] private int screenWidth;
+
+    private void Start()
+    {
+        var source = GetComponent<AudioSource>();
+        source.volume = CurrentGameState.MusicVolume;
+        if (CurrentGameState.IsMusicOn)
+        {
+            source.Play();
+        }
+        else
+        {
+            source.Pause();
+        }
+    }
 
     public void SpeedUp()
     {
