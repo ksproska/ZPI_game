@@ -43,6 +43,7 @@ public class MenuContainer : MonoBehaviour
 
     private IEnumerator SlideOutDelta(float time)
     {
+        components.ForEach(c => c.SetMenuComponentEnabled(false));
         foreach(var component in components)
         {
             component.SlideOut();
@@ -59,6 +60,7 @@ public class MenuContainer : MonoBehaviour
 
     private IEnumerator SlideInDelta(float time)
     {
+        components.ForEach(c => c.SetMenuComponentEnabled(false));
         foreach (var component in components)
         {
             component.SlideIn();

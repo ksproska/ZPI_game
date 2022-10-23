@@ -86,5 +86,6 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void DeleteSave()
     {
         LoadSaveHelper.EraseASlot(slotNumber);
+        HasSavedGame(false);
     }
 }

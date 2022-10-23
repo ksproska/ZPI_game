@@ -39,7 +39,6 @@ public class SlidingComponent : MonoBehaviour
 
     private IEnumerator SlideOutLoop(float ammount)
     {
-        SetMenuComponentEnabled(false);
         var x = rectTransform.anchoredPosition.x;
         while (x > -screenOffset)
         {
@@ -51,7 +50,6 @@ public class SlidingComponent : MonoBehaviour
 
     private IEnumerator SlideInLoop(float ammount)
     {
-        SetMenuComponentEnabled(false);
         var x = rectTransform.anchoredPosition.x;
         while (x > targetPosition.x)
         {
@@ -63,7 +61,7 @@ public class SlidingComponent : MonoBehaviour
         SetMenuComponentEnabled(true);
     }
 
-    private void SetMenuComponentEnabled(bool isEnabled)
+    public void SetMenuComponentEnabled(bool isEnabled)
     {
         IMenuActive elem = GetComponent<IMenuActive>();
         if (elem != null)

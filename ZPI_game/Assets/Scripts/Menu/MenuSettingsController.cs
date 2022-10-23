@@ -34,7 +34,7 @@ public class MenuSettingsController : MonoBehaviour
         }
         else
         {
-            source.Pause();
+            source.Stop();
         }
     }
 
@@ -66,7 +66,7 @@ public class MenuSettingsController : MonoBehaviour
         }
         else
         {
-            source.Pause();
+            source.Stop();
         }
     }
 
