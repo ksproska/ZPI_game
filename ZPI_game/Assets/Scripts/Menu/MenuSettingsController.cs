@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using CurrentState;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class MenuSettingsController : MonoBehaviour
 {
@@ -73,6 +72,6 @@ public class MenuSettingsController : MonoBehaviour
 
     public void OnEffectsToggleChange(bool isOn)
     {
-        musicToggle.isOn = isOn;
+        effectsToggle.isOn = isOn;
     }
 }

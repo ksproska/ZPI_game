@@ -24,6 +24,15 @@ public class BackgroundScroller : MonoBehaviour
         mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
     }
 
+    private (float, float) GetObjectSize()
+    {
+        var p1 = gameObject.transform.TransformPoint(0, 0, 0);
+        var p2 = gameObject.transform.TransformPoint(1, 1, 0);
+        var w = p2.x - p1.x;
+        var h = p2.y - p1.y;
+        return (h, w);
+    }
+
     public void SpeedUpForTime(float speed, float time)
     {
         StartCoroutine(SpeedUp(speed, time));
