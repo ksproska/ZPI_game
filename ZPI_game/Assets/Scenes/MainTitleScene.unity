@@ -2467,7 +2467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8232820683151731132, guid: c6587194a2281e747a2c9062d459d379, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: GoTo
+      value: FadeOutScene
       objectReference: {fileID: 0}
     - target: {fileID: 8232820683151731132, guid: c6587194a2281e747a2c9062d459d379, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
