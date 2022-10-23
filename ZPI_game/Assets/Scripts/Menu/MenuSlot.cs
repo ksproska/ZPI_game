@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using LevelUtils;
 using CurrentState;
+using UnityEngine.Events;
+
 
 public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IMenuActive
 {
@@ -20,7 +22,7 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private string enabledSlotName;
     [SerializeField] private string disabledSlotName;
 
-    [NonSerialized] private bool isEnabled = false;
+    [NonSerialized] private bool isEnabled;
 
     public bool IsEnabled => isEnabled;
 
@@ -79,5 +81,10 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void SetCurrentSlot()
     {
         CurrentGameState.CurrentSlot = slotNumber;
+    }
+
+    public void DeleteSave()
+    {
+        LoadSaveHelper.EraseASlot(slotNumber);
     }
 }

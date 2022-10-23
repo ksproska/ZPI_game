@@ -5,8 +5,7 @@ using System;
 
 public class ParalaxBackgroundHandler : MonoBehaviour
 {
-    [NonSerialized] public List<BackgroundScroller> layers;
-    private float current = 0;
+    [NonSerialized] private List<BackgroundScroller> layers;
 
 
     private void Start()
@@ -14,13 +13,13 @@ public class ParalaxBackgroundHandler : MonoBehaviour
         layers = new List<BackgroundScroller>(GetComponentsInChildren<BackgroundScroller>());
     }
 
-    private void Update()
-    {
-        
-    }
-
     public void SpeedUp()
     {
-        layers.ForEach(l => l.SpeedUpForTime(l.scrollSpeed * 10 - 200, 0.6f));
+        SpeedUpForTime(0.6f);
+    }
+
+    public void SpeedUpForTime(float time)
+    {
+        layers.ForEach(l => l.SpeedUpForTime(l.scrollSpeed * 10 - 200, time));
     }
 }

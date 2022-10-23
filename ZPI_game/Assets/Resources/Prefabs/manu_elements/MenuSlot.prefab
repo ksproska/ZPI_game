@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 8232820683151731132}
   - component: {fileID: 8232820683151731135}
   - component: {fileID: 8759414518016354145}
+  - component: {fileID: 6651958163587997282}
   m_Layer: 5
   m_Name: MenuSlot
   m_TagString: Untagged
@@ -215,6 +216,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6651958163587997282}
+        m_TargetAssemblyTypeName: GoToScene, Assembly-CSharp
+        m_MethodName: FadeOutScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8232820683151731135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +262,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 0}
+--- !u!114 &6651958163587997282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8232820683151731121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57773a060312f4748992205869847a9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: WorldMap
+  clip: {fileID: 0}
 --- !u!1 &8232820683184716406
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +474,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8232820683327813909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8232820683151731135}
+        m_TargetAssemblyTypeName: MenuSlot, Assembly-CSharp
+        m_MethodName: DeleteSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8232820683350956020
 GameObject:
   m_ObjectHideFlags: 0

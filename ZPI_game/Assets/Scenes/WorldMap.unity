@@ -2829,7 +2829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57773a060312f4748992205869847a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: TitleScene
+  scene: MainTitleScene
   clip: {fileID: 0}
 --- !u!1001 &1780793315
 PrefabInstance:

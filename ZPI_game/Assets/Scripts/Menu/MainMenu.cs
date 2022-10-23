@@ -18,6 +18,11 @@ public class MainMenu : MonoBehaviour
         backgroundHandler.SpeedUp();
     }
 
+    public void SpeedUpfForTime(float time)
+    {
+        backgroundHandler.SpeedUpForTime(time);
+    }
+
     public void SlideOut(int nextContainer)
     {
         containers[currentContainer].SlideOutComponents();
