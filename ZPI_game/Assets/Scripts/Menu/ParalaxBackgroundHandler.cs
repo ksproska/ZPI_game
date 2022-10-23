@@ -7,11 +7,11 @@ public class ParalaxBackgroundHandler : MonoBehaviour
 {
     [NonSerialized] private List<BackgroundScroller> layers;
 
-
     private void Start()
     {
         layers = new List<BackgroundScroller>(GetComponentsInChildren<BackgroundScroller>());
         var cameraPosition = Camera.main.transform.position;
+        transform.position = new Vector3(cameraPosition.x, cameraPosition.y, 0);
     }
 
     public void SpeedUp()
