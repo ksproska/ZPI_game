@@ -9,15 +9,17 @@ using System;
 
 public class WorldMapHandler : MonoBehaviour
 {
+
+    System.Random rnd = new System.Random();
     private float prevTime;
     private float glitchRandom;
     public Image map;
-    public Sprite glithched;
+    public Sprite[] glithched;
+    public AudioClip[] audioGlitches;
     public int glitchBeginningLevel;
     public GameObject wires;
     [SerializeField] private AudioSource source;
     private int glitchLevel;
-    private float glithprobability;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,7 @@ public class WorldMapHandler : MonoBehaviour
 
         if (Time.time - prevTime > 1.0f )
         {
-            if(glitchRandom < glitchLevel * 0.01f)
+            if(glitchRandom < glitchLevel * 0.05f)
             {
                 StartCoroutine(glitch());
             }
@@ -43,22 +45,24 @@ public class WorldMapHandler : MonoBehaviour
 
     IEnumerator glitch()
     {
+        int glithNumber = rnd.Next(0, 2);
+        source.clip = audioGlitches[glithNumber];
         source.Play();
         Sprite notGlithched = map.sprite;
 
-        map.sprite = glithched;
+        map.sprite = glithched[glithNumber];
         wires.SetActive(false);
         yield return new WaitForSeconds(0.05f);
         map.sprite = notGlithched;
         wires.SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        map.sprite = glithched;
+        map.sprite = glithched[glithNumber];
         wires.SetActive(false);
         yield return new WaitForSeconds(0.01f);
         map.sprite = notGlithched;
         wires.SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        map.sprite = glithched;
+        map.sprite = glithched[glithNumber];
         wires.SetActive(false);
         yield return new WaitForSeconds(0.25f);
         map.sprite = notGlithched;
