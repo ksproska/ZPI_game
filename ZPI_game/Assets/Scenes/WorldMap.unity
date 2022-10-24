@@ -363,7 +363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5083918204745743682, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5083918204745743682, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1276,6 +1276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 1217242184}
   glithched: {fileID: 21300000, guid: c2e48cfe6245a1545aa2ba096cae17c6, type: 3}
+  glitchBeginningLevel: 5
   wires: {fileID: 565920794}
   source: {fileID: 1196359754}
 --- !u!1001 &1226499166
@@ -1465,9 +1466,9 @@ RectTransform:
   - {fileID: 128140331}
   - {fileID: 1603544456}
   - {fileID: 1823308828}
-  - {fileID: 1459724965}
   - {fileID: 209153715}
   - {fileID: 1917142347}
+  - {fileID: 1459724965}
   m_Father: {fileID: 1485968639}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1569,7 +1570,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1417647127}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2192,7 +2193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7911959558350106381, guid: 0f196da6cf9f6b64593361040c75dcf1, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7911959558350106381, guid: 0f196da6cf9f6b64593361040c75dcf1, type: 3}
       propertyPath: m_AnchorMax.x

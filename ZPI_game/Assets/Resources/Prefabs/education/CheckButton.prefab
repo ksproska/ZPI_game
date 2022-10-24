@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8493945075900873948}
   - component: {fileID: 8493945075900873947}
   - component: {fileID: 8493945075900873946}
-  - component: {fileID: 1291312379835872638}
+  - component: {fileID: 3627561839651557017}
   m_Layer: 5
   m_Name: CheckButton
   m_TagString: Untagged
@@ -151,8 +151,8 @@ MonoBehaviour:
   _colorOk: {r: 0.013342788, g: 0.3679245, b: 0, a: 1}
   _colorNotOk: {r: 0.49056602, g: 0, b: 0, a: 1}
   _colorEmpty: {r: 0, g: 0.048290554, b: 0.41509432, a: 1}
-  transporter: {fileID: 1291312379835872638}
---- !u!114 &1291312379835872638
+  transporter: {fileID: 3627561839651557017}
+--- !u!114 &3627561839651557017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
