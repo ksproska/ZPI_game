@@ -91,20 +91,41 @@ def color(content):
     return result_code
 
 
+def split_into_two_files(filepath):
+    content = get_content_from_file(filepath)
+    lines = content.splitlines()
+    break_fun_name = 'run_iteration'
+    break_found = False
+    file1, file2 = '', ''
+    for line in lines:
+        if break_fun_name in line:
+            break_found = True
+        if not break_found:
+            file1 += line + '\n'
+        else:
+            file2 += line + "\n"
+    file1 = file1.split('\n\n\n')[1]
+    return file1, file2
+
+
 def main():
     paths = get_file_paths_ending_with_py()
     for path in paths:
         content = get_content_from_file(str(path))
         print_all_tokens_dictionary(content)
 
-        filename_gaped = "../PythonTexts/" + str(path.split('\\')[-1]).replace("py", "txt")
-        filename_descriptions = "../DescriptionTexts/" + str(path.split('\\')[-1]).replace("py", "txt")
+        filename_gaped = "../PythonTexts/" + str(path.split('/')[-1]).replace("py", "txt")
+        filename_descriptions = "../DescriptionTexts/" + str(path.split('/')[-1]).replace("py", "txt")
 
         content_colored_and_gaped, _ = color_link_and_gap(content)
         content_colored = color(content)
 
         write_to_file(filename_gaped, content_colored_and_gaped)
         write_to_file(filename_descriptions, content_colored)
+
+        f1, f2 = split_into_two_files("../PythonTexts/GeneticAlgorithm.txt")
+        write_to_file("../PythonTexts/GeneticAlgorithm1.txt", f1)
+        write_to_file("../PythonTexts/GeneticAlgorithm2.txt", f2)
 
 
 if __name__ == '__main__':

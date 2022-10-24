@@ -1,0 +1,18 @@
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>GeneticAlgorithm</color>:
+
+    <color=#f5b700><link="def">def</link></color> __init__(<color=#01befe><link="self">self</link></color>, weights_grid: DistancesGrid, generation_size: <color=#dc0073><link="int">int</link></color>, selector,
+                 mutator, mutation_probability: <color=#dc0073><link="float">float</link></color>,
+                 crosser, crossover_probability: <color=#dc0073><link="float">float</link></color>):
+
+        <color=#01befe><link="self">self</link></color>.weights_grid = weights_grid
+        <color=#01befe><link="self">self</link></color>.selector = selector
+        <color=#01befe><link="self">self</link></color>.mutator = mutator
+        <color=#01befe><link="self">self</link></color>.mutation_probability = mutation_probability
+        <color=#01befe><link="self">self</link></color>.crosser = crosser
+        <color=#01befe><link="self">self</link></color>.crossover_probability = crossover_probability
+
+        <color=#01befe><link="self">self</link></color>.generation = [<link="Circuit">Circuit</link>.               (               ) <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(generation_size)]  
+        <color=#01befe><link="self">self</link></color>.best = <link="Circuit">Circuit</link>.               (<color=#01befe><link="self">self</link></color>.generation)  
+        <color=#01befe><link="self">self</link></color>.best_for_iteration = <color=#01befe><link="self">self</link></color>.best
+        <color=#01befe><link="self">self</link></color>.iteration = <color=#ffffff>0</color>
+
