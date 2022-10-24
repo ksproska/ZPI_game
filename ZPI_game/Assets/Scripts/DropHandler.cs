@@ -9,6 +9,7 @@ using CurrentState;
 public class DropHandler : MonoBehaviour
 {
     [SerializeField] private Color _colorOk, _colorNotOk, _colorEmpty;
+    [SerializeField] GoToScene transporter;
     public bool AreAllCorrect()
     {
         return FindObjectsOfType<DropSlot>().All(ds => ds.IsCorrect());
@@ -41,7 +42,8 @@ public class DropHandler : MonoBehaviour
         SetCheckColors();
         if (wasCorrect)
         {
-
+            Debug.Log(CurrentGameState.CurrentLevelName);
+            Debug.Log(CurrentGameState.CurrentSlot);
             if (!LevelMap.IsLevelDone(CurrentGameState.CurrentLevelName, CurrentGameState.CurrentSlot))
             {
                 Debug.Log(CurrentGameState.CurrentLevelName);
@@ -49,7 +51,6 @@ public class DropHandler : MonoBehaviour
                 LevelMap.CompleteALevel(CurrentGameState.CurrentLevelName, CurrentGameState.CurrentSlot);
             }
             CurrentGameState.CurrentLevelName = null;
-            GoToScene transporter = new GoToScene();
             transporter.scene = "WorldMap";
             transporter.GoTo();
         }

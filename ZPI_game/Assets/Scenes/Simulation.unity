@@ -5709,8 +5709,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1860789809}
   m_HandleRect: {fileID: 1860789808}
   m_Direction: 2
-  m_Value: 0.9999997
-  m_Size: 0.40438646
+  m_Value: 1
+  m_Size: 0.40438655
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7985,7 +7985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57773a060312f4748992205869847a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: TitleScene
+  scene: WorldMap
   clip: {fileID: 0}
 --- !u!114 &2024613718
 MonoBehaviour:
