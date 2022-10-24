@@ -1,6 +1,6 @@
 {
   "MusicOn": true,
-  "MusicVolume": 1,
-  "EffectsOn": true,
-  "EffectsVolume": 0.114850141
+  "MusicVolume": 0.5,
+  "EffectsOn": false,
+  "EffectsVolume": 0.5
 }

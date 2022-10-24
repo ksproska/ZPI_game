@@ -8,6 +8,7 @@ namespace CurrentState
     public static class CurrentGameState
     {
         public const string JSON_FILE_NAME = "Assets\\LevelUtils\\user_settings.json";
+        public const string JSON_FILE_NAME_TESTS = "Assets\\LevelUtils\\Tests\\user_settings.json";
         private static bool _isMusicOn;
         private static float _musicVolume;
         private static bool _areEffectsOn;
