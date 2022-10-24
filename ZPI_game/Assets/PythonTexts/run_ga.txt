@@ -1,9 +1,11 @@
+<color=#dc0073><link="import">import</link></color> math
 <color=#dc0073><link="from">from</link></color> time <color=#dc0073><link="import">import</link></color> sleep
 <color=#dc0073><link="from">from</link></color> GeneticAlgorithm <color=#dc0073><link="import">import</link></color> GeneticAlgorithm
 <color=#dc0073><link="from">from</link></color> DistancesGrid <color=#dc0073><link="import">import</link></color> DistancesGrid
 <color=#dc0073><link="from">from</link></color> selection.SelectorTournament <color=#dc0073><link="import">import</link></color> SelectorTournament
 <color=#dc0073><link="from">from</link></color> mutation.MutatorPartialReverser <color=#dc0073><link="import">import</link></color> MutatorPartialReverser
 <color=#dc0073><link="from">from</link></color> crossover.CrosserPartiallyMatched <color=#dc0073><link="import">import</link></color> CrosserPartialyMatched
+<color=#dc0073><link="import">import</link></color> unittest
 
 weights_example = [
     [<color=#ffffff>0</color>, <color=#ffffff>107</color>, <color=#ffffff>241</color>, <color=#ffffff>190</color>, <color=#ffffff>124</color>, <color=#ffffff>80</color>, <color=#ffffff>316</color>, <color=#ffffff>76</color>, <color=#ffffff>152</color>, <color=#ffffff>157</color>, <color=#ffffff>283</color>, <color=#ffffff>133</color>, <color=#ffffff>113</color>, <color=#ffffff>297</color>, <color=#ffffff>228</color>, <color=#ffffff>129</color>, <color=#ffffff>348</color>, <color=#ffffff>276</color>, <color=#ffffff>188</color>, <color=#ffffff>150</color>, <color=#ffffff>65</color>, <color=#ffffff>341</color>, <color=#ffffff>184</color>, <color=#ffffff>67</color>, <color=#ffffff>221</color>, <color=#ffffff>169</color>, <color=#ffffff>108</color>, <color=#ffffff>45</color>, <color=#ffffff>167</color>], 
@@ -37,18 +39,21 @@ weights_example = [
     [<color=#ffffff>167</color>, <color=#ffffff>79</color>, <color=#ffffff>77</color>, <color=#ffffff>205</color>, <color=#ffffff>97</color>, <color=#ffffff>185</color>, <color=#ffffff>435</color>, <color=#ffffff>243</color>, <color=#ffffff>111</color>, <color=#ffffff>163</color>, <color=#ffffff>322</color>, <color=#ffffff>238</color>, <color=#ffffff>206</color>, <color=#ffffff>288</color>, <color=#ffffff>243</color>, <color=#ffffff>275</color>, <color=#ffffff>319</color>, <color=#ffffff>253</color>, <color=#ffffff>281</color>, <color=#ffffff>135</color>, <color=#ffffff>108</color>, <color=#ffffff>332</color>, <color=#ffffff>342</color>, <color=#ffffff>218</color>, <color=#ffffff>350</color>, <color=#ffffff>39</color>, <color=#ffffff>263</color>, <color=#ffffff>199</color>, <color=#ffffff>0</color>]
 ]
 
-<color=#f5b700><link="if">if</link></color> __name__ == "__main__":
-    weights_grid = DistancesGrid(weights_example)
-    selector = SelectorTournament(<color=#ffffff>0.7</color>)
-    ga = GeneticAlgorithm(weights_grid, 
-        generation_size=<color=#ffffff>10</color>, 
-        selector=selector, 
-        mutator=MutatorPartialReverser(),
-        mutation_probability=<color=#ffffff>0.2</color>, 
-        crosser=CrosserPartialyMatched(),
-        crossover_probability=<color=#ffffff>0.89</color>)
-    
-    <color=#f5b700><link="while">while</link></color> True:
-        ga.run_iteration()
-        <color=#dc0073><link="print">print</link></color>(" Best ->  " + <color=#dc0073><link="str">str</link></color>(ga.best.score))
-        sleep(<color=#ffffff>0.2</color>)
+
+<color=#f5b700><link="class">class</link></color> <color=#dc0073>TestGeneticAlgorithm</color>(unittest.TestCase):
+    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>test_GA</color>(<color=#01befe><link="self">self</link></color>):
+        weights_grid = DistancesGrid(weights_example)
+        selector = SelectorTournament(<color=#ffffff>0.7</color>)
+        ga = GeneticAlgorithm(weights_grid,
+                              generation_size=<color=#ffffff>10</color>,
+                              selector=selector,
+                              mutator=MutatorPartialReverser(),
+                              mutation_probability=<color=#ffffff>0.2</color>,
+                              crosser=CrosserPartialyMatched(),
+                              crossover_probability=<color=#ffffff>0.89</color>)
+
+        prev = math.inf
+        <color=#f5b700><link="for">for</link></color> i in <color=#dc0073><link="range">range</link></color>(<color=#ffffff>1000</color>):
+            ga.run_iteration()
+            <color=#01befe><link="self">self</link></color>.assertLessEqual(ga.best.score, prev)
+            prev = ga.best.score

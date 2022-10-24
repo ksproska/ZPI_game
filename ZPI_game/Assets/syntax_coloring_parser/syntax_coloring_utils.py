@@ -12,9 +12,9 @@ def get_file_paths_ending_with_py():
     main_dir = "../GA_PY"
     directories = [
         main_dir,
-        f'{main_dir}\\crossover',
-        f'{main_dir}\\mutation',
-        f'{main_dir}\\selection'
+        f'{main_dir}/crossover',
+        f'{main_dir}/mutation',
+        f'{main_dir}/selection'
     ]
     paths = []
     for directory in directories:
