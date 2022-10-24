@@ -34,11 +34,17 @@ namespace LevelUtils
             levelList[0][5].PrevLevels = new List<LevelButtonInfo>() { levelList[0][3], levelList[0][4] };
             return levelList;
         }
+        [SetUp]
+        public static void Init()
+        {
+            LoadSaveHelper.LoadTestConfiguration();
+            LevelMap.LoadTestConfiguration(LoadSaveHelper.SlotNum.Third);
+        }
         [Test, Order(1)]
         public static void GetListOfLevelsTest()
         {
             var testCase = new TestCase(GetTestConfig());
-            
+
             List<LevelButtonInfo> lvlInfos = LevelMap.GetListOfLevels(LoadSaveHelper.SlotNum.Third);
             
             CollectionAssert.AreEquivalent(testCase.levelList[0], lvlInfos);

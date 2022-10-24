@@ -10,6 +10,7 @@ namespace LevelUtils
     {
         public const int SLOT_NUMBER = 3;
         public const string JSON_FILE_NAME = "Assets\\LevelUtils\\save_slots.json";
+        public const string JSON_FILE_NAME_TESTS = "Assets\\LevelUtils\\Tests\\save_slots.json";
         public enum SlotNum
         {
             First,
@@ -17,13 +18,13 @@ namespace LevelUtils
             Third
         }
 
-        private static List<int>[] slots = GetCompletedLevels();
-        private static List<int>[] GetCompletedLevels()
+        private static List<int>[] slots = GetCompletedLevels(JSON_FILE_NAME);
+        private static List<int>[] GetCompletedLevels(string filePath)
         {
-            if (!File.Exists(JSON_FILE_NAME))
-                throw new FileNotFoundException(JSON_FILE_NAME);
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException(filePath);
 
-            string jsonFile = File.ReadAllText(JSON_FILE_NAME);
+            string jsonFile = File.ReadAllText(filePath);
             var parsedJson = JsonSerializer.Deserialize<Dictionary<string, List<Dictionary<string, List<int>>>>>(jsonFile);
             return new List<int>[]
             {
@@ -31,6 +32,10 @@ namespace LevelUtils
                 parsedJson["slots"][1]["levels_completed"],
                 parsedJson["slots"][2]["levels_completed"]
             };
+        }
+        public static void LoadTestConfiguration()
+        {
+            slots = GetCompletedLevels(JSON_FILE_NAME_TESTS);
         }
         public static List<int> GetSlot(SlotNum slot)
         {

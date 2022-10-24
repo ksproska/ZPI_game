@@ -9,22 +9,28 @@ namespace LevelUtils
     public static class LevelMap
     {
         public const string JSON_FILE_NAME = "Assets/LevelUtils/levels.json";
+        public const string JSON_FILE_NAME_TESTS = "Assets/LevelUtils/Tests/levels.json";
         private static LoadSaveHelper.SlotNum currSlot;
         private static List<LevelButtonInfo> ListOfLevels { get; set; }
+        public static void LoadTestConfiguration(LoadSaveHelper.SlotNum slotNum)
+        {
+            currSlot = slotNum;
+            ListOfLevels = LoadFromJson(JSON_FILE_NAME_TESTS);
+        }
         public static void SynchronizeSlotNumber(LoadSaveHelper.SlotNum slotNum)
         {
             if (ListOfLevels == null || currSlot != slotNum)
             {
                 currSlot = slotNum;
-                ListOfLevels = LoadFromJson();
+                ListOfLevels = LoadFromJson(JSON_FILE_NAME);
             }
         }
-        private static List<LevelButtonInfo> LoadFromJson()
+        private static List<LevelButtonInfo> LoadFromJson(string filePath)
         {
-            if (!File.Exists(JSON_FILE_NAME))
-                throw new FileNotFoundException(JSON_FILE_NAME);
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException(filePath);
 
-            string jsonFile = File.ReadAllText(JSON_FILE_NAME);
+            string jsonFile = File.ReadAllText(filePath);
 
             var parsedJson = JsonSerializer.Deserialize<List<LevelInfoJson>>(jsonFile);
             List<int> completed = LoadSaveHelper.GetSlot(currSlot);

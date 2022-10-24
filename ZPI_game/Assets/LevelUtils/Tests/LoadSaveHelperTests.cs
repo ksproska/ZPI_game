@@ -25,6 +25,7 @@ namespace LevelUtils
         [SetUp]
         public static void Init()
         {
+            LoadSaveHelper.LoadTestConfiguration();
             LoadSaveHelper.EraseAllSlots();
         }
         [Test]
