@@ -3261,7 +3261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7332894473652052963, guid: 0f196da6cf9f6b64593361040c75dcf1, type: 3}
       propertyPath: scene
-      value: Edu_template
+      value: Simulation
       objectReference: {fileID: 0}
     - target: {fileID: 7911959558350106378, guid: 0f196da6cf9f6b64593361040c75dcf1, type: 3}
       propertyPath: m_Name
