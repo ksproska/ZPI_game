@@ -20,13 +20,18 @@ public class WorldMapHandler : MonoBehaviour
     public GameObject wires;
     [SerializeField] private AudioSource source;
     private int glitchLevel;
+    private int timeDelay;
     // Start is called before the first frame update
     void Start()
     {
-        var donelevels = (LevelMap.Instance.GetListOfLevels(CurrentGameState.Instance.CurrentSlot).Where(level => level.IsFinished));
-        var glitchLevel = Math.Max(0, donelevels.Max(level => level.LevelNumber) - glitchBeginningLevel);
+        var donelevels = (LevelMap.GetListOfLevels(CurrentGameState.CurrentSlot).Where(level => level.IsFinished).ToList());
+        if(donelevels.Count != 0)
+        {
+            glitchLevel = Math.Max(0, donelevels.Max(level => level.LevelNumber) - glitchBeginningLevel);
+        }
         prevTime = Time.time;
-        source.volume = CurrentGameState.Instance.EffectsVolume;
+        source.volume = CurrentGameState.EffectsVolume;
+        timeDelay = rnd.Next(10, 20);
     }
 
     // Update is called once per frame
@@ -34,13 +39,15 @@ public class WorldMapHandler : MonoBehaviour
     {
         glitchRandom = UnityEngine.Random.Range(0.0f, 1.0f);
 
-        if (Time.time - prevTime > 1.0f )
+        if (glitchLevel > 0)
         {
-            if(glitchRandom < glitchLevel * 0.05f)
+            if(Time.time - prevTime > timeDelay - glitchLevel)
             {
                 StartCoroutine(glitch());
+                prevTime = Time.time;
+                timeDelay = rnd.Next(10, 20);
             }
-            prevTime = Time.time;
+
         }
     }
 
