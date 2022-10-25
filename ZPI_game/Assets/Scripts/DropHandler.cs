@@ -42,15 +42,15 @@ public class DropHandler : MonoBehaviour
         SetCheckColors();
         if (wasCorrect)
         {
-            Debug.Log(CurrentGameState.CurrentLevelName);
-            Debug.Log(CurrentGameState.CurrentSlot);
-            if (!LevelMap.IsLevelDone(CurrentGameState.CurrentLevelName, CurrentGameState.CurrentSlot))
+
+            if (!LevelMap.Instance.IsLevelDone(CurrentGameState.Instance.CurrentLevelName, CurrentGameState.Instance.CurrentSlot))
             {
-                Debug.Log(CurrentGameState.CurrentLevelName);
-                Debug.Log(CurrentGameState.CurrentSlot);
-                LevelMap.CompleteALevel(CurrentGameState.CurrentLevelName, CurrentGameState.CurrentSlot);
+                Debug.Log(CurrentGameState.Instance.CurrentLevelName);
+                Debug.Log(CurrentGameState.Instance.CurrentSlot);
+                LevelMap.Instance.CompleteALevel(CurrentGameState.Instance.CurrentLevelName, CurrentGameState.Instance.CurrentSlot);
             }
-            CurrentGameState.CurrentLevelName = null;
+            CurrentGameState.Instance.CurrentLevelName = null;
+            GoToScene transporter = new GoToScene();
             transporter.scene = "WorldMap";
             transporter.GoTo();
         }

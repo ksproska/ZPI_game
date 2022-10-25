@@ -37,7 +37,7 @@ public class GameSelectorScript : MonoBehaviour
 
     private void SetupGameSlots()
     {
-        enabledSlots = LoadSaveHelper.GetOccupiedSlots();
+        enabledSlots = LoadSaveHelper.Instance.GetOccupiedSlots();
         if (enabledSlots.Contains(LoadSaveHelper.SlotNum.First))
         {
             image1.sprite = slot1Image;
@@ -96,14 +96,14 @@ public class GameSelectorScript : MonoBehaviour
     public void ChooseSlotNumber(int number)
     {
         LoadSaveHelper.SlotNum slotNum =  GetSlotNumber(number);
-        CurrentGameState.CurrentSlot = slotNum;
+        CurrentGameState.Instance.CurrentSlot = slotNum;
     }
 
     public void DeleteSave(int saveNumber)
     {
         Debug.Log("Delete");
         var slotNum = GetSlotNumber(saveNumber);
-        LoadSaveHelper.EraseASlot(slotNum);
+        LoadSaveHelper.Instance.EraseASlot(slotNum);
         SetupGameSlots();
     }
 

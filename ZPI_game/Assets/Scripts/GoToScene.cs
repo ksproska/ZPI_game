@@ -10,7 +10,7 @@ public class GoToScene : MonoBehaviour
     [SerializeField] AudioClip clip;
     public void GoTo()
     {
-        CurrentGameState.CurrentLevelName = scene;
+        CurrentGameState.Instance.CurrentLevelName = scene;
         SceneManager.LoadScene(scene);
     }
 
@@ -26,7 +26,7 @@ public class GoToScene : MonoBehaviour
     }
 
     public void GoToTitle(){
-        CurrentGameState.CurrentSlot = LoadSaveHelper.SlotNum.First;
+        CurrentGameState.Instance.CurrentSlot = LoadSaveHelper.SlotNum.First;
         GoTo();
     }
 
@@ -55,7 +55,7 @@ public class GoToScene : MonoBehaviour
 
     IEnumerator PlaySoundAndFade(AudioSource source, SceneFader fader)
     {
-        CurrentGameState.CurrentLevelName = scene;
+        CurrentGameState.Instance.CurrentLevelName = scene;
         source.PlayOneShot(clip);
         return fader.FadeAndLoadScene(SceneFader.FadeDirection.Out, scene, fader.fadeOutMusic);
     }

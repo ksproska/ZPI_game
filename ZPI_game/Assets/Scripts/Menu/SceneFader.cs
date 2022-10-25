@@ -55,7 +55,7 @@ public class SceneFader : MonoBehaviour
         else
         {
             fadeImage.enabled = true;
-            var maxVolume = CurrentGameState.MusicVolume;
+            var maxVolume = CurrentGameState.Instance.MusicVolume;
             while(alpha <= fadeEndValue)
             {
                 SetImageColor(ref alpha, fadeDirection);

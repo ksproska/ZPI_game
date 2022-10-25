@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-
+using UnityEngine;
 
 namespace LevelUtils
 {
-    public static class LoadSaveHelper
+    public class LoadSaveHelper : MonoBehaviour
     {
         public const int SLOT_NUMBER = 3;
-        public const string JSON_FILE_NAME = "Assets\\LevelUtils\\save_slots.json";
+        public const string JSON_FILE_NAME = "/LevelUtils/save_slots.json";
         public const string JSON_FILE_NAME_TESTS = "Assets\\LevelUtils\\Tests\\save_slots.json";
         public enum SlotNum
         {
@@ -17,9 +17,23 @@ namespace LevelUtils
             Second,
             Third
         }
-
-        private static List<int>[] slots = GetCompletedLevels(JSON_FILE_NAME);
-        private static List<int>[] GetCompletedLevels(string filePath)
+        public static LoadSaveHelper Instance { get; set; }
+        private List<int>[] _slots;
+        private bool _isTestConfig = false;
+        void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            _slots = GetCompletedLevels(Application.persistentDataPath + JSON_FILE_NAME);
+        }
+        private List<int>[] GetCompletedLevels(string filePath)
         {
             if (!File.Exists(filePath))
                 throw new FileNotFoundException(filePath);
@@ -33,32 +47,33 @@ namespace LevelUtils
                 parsedJson["slots"][2]["levels_completed"]
             };
         }
-        public static void LoadTestConfiguration()
+        public void LoadTestConfiguration()
         {
-            slots = GetCompletedLevels(JSON_FILE_NAME_TESTS);
+            _slots = GetCompletedLevels(JSON_FILE_NAME_TESTS);
+            _isTestConfig = true;
         }
-        public static List<int> GetSlot(SlotNum slot)
+        public List<int> GetSlot(SlotNum slot)
         {
             List<int> result = null;
             switch (slot)
             {
                 case SlotNum.First:
-                    result = slots[0];
+                    result = _slots[0];
                     break;
                 case SlotNum.Second:
-                    result = slots[1];
+                    result = _slots[1];
                     break;
                 case SlotNum.Third:
-                    result = slots[2];
+                    result = _slots[2];
                     break;
             }
             return result;
         }
-        public static void SaveGameState()
+        public void SaveGameState()
         {
             var jsonStructuredDict = new Dictionary<string, List<Dictionary<string, List<int>>>>();
             var listOfSlots = new List<Dictionary<string, List<int>>>();
-            foreach(List<int> levels in slots)
+            foreach(List<int> levels in _slots)
             {
                 var jsonDict = new Dictionary<string, List<int>>();
                 jsonDict.Add("levels_completed", levels);
@@ -67,72 +82,75 @@ namespace LevelUtils
             jsonStructuredDict.Add("slots", listOfSlots);
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
             string jsonText = JsonSerializer.Serialize(jsonStructuredDict, options);
-            File.WriteAllText(JSON_FILE_NAME, jsonText);
+            if (_isTestConfig)
+                File.WriteAllText(JSON_FILE_NAME_TESTS, jsonText);
+            else
+                File.WriteAllText(Application.persistentDataPath + JSON_FILE_NAME, jsonText);
         }
-        public static void CompleteALevel(int LevelName, SlotNum slot)
+        public void CompleteALevel(int LevelName, SlotNum slot)
         {
             switch (slot)
             {
                 case SlotNum.First:
-                    if (slots[0].Contains(LevelName))
+                    if (_slots[0].Contains(LevelName))
                     {
                         throw new ArgumentException("Level is already completed!!");
                     }
-                    slots[0].Add(LevelName);
+                    _slots[0].Add(LevelName);
                     break;
                 case SlotNum.Second:
-                    if (slots[1].Contains(LevelName))
+                    if (_slots[1].Contains(LevelName))
                     {
                         throw new ArgumentException("Level is already completed!!");
                     }
-                    slots[1].Add(LevelName);
+                    _slots[1].Add(LevelName);
                     break;
                 case SlotNum.Third:
-                    if (slots[2].Contains(LevelName))
+                    if (_slots[2].Contains(LevelName))
                     {
                         throw new ArgumentException("Level is already completed!!");
                     }
-                    slots[2].Add(LevelName);
+                    _slots[2].Add(LevelName);
                     break;
             }
             SaveGameState();
         }
-        public static void EraseASlot(SlotNum slotNum)
+        public void EraseASlot(SlotNum slotNum)
         {
             switch (slotNum)
             {
                 case SlotNum.First:
-                    slots[0] = new List<int>();
+                    _slots[0] = new List<int>();
                     break;
                 case SlotNum.Second:
-                    slots[1] = new List<int>();
+                    _slots[1] = new List<int>();
                     break;
                 case SlotNum.Third:
-                    slots[2] = new List<int>();
+                    _slots[2] = new List<int>();
                     break;
             }
             SaveGameState();
         }
-        public static void EraseAllSlots()
+        public void EraseAllSlots()
         {
             for(int slotNum = 0; slotNum < SLOT_NUMBER; slotNum++)
             {
-                slots[slotNum] = new List<int>();
+                _slots[slotNum] = new List<int>();
             }
             SaveGameState();
         }
-        public static List<SlotNum> GetOccupiedSlots()
+        public List<SlotNum> GetOccupiedSlots()
         {
             List<SlotNum> occSlots = new List<SlotNum>();
-            if (slots[0].Count > 0)
+            if (_slots[0].Count > 0)
             {
                 occSlots.Add(SlotNum.First);
             }
-            if (slots[1].Count > 0)
+            if (_slots[1].Count > 0)
             {
                 occSlots.Add(SlotNum.Second);
             }
-            if (slots[2].Count > 0)
+            if (_slots[2].Count > 0)
             {
                 occSlots.Add(SlotNum.Third);
             }

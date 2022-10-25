@@ -28,7 +28,7 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Awake()
     {
-        var enabledSlots = LoadSaveHelper.GetOccupiedSlots();
+        var enabledSlots = LoadSaveHelper.Instance.GetOccupiedSlots();
         if (enabledSlots.Contains(slotNumber))
         {
             HasSavedGame(true);
@@ -80,12 +80,12 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SetCurrentSlot()
     {
-        CurrentGameState.CurrentSlot = slotNumber;
+        CurrentGameState.Instance.CurrentSlot = slotNumber;
     }
 
     public void DeleteSave()
     {
-        LoadSaveHelper.EraseASlot(slotNumber);
+        LoadSaveHelper.Instance.EraseASlot(slotNumber);
         HasSavedGame(false);
     }
 }
