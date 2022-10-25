@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 namespace LevelUtils
@@ -33,10 +34,30 @@ namespace LevelUtils
             }
             _slots = GetCompletedLevels(Application.persistentDataPath + JSON_FILE_NAME);
         }
+        private void CreateDefSlots(string filePath)
+        {
+            List<List<int>> emptySlots = new List<List<int>>() { new List<int>(), new List<int>(), new List<int>() };
+
+            var jsonStructuredDict = new Dictionary<string, List<Dictionary<string, List<int>>>>();
+            var listOfSlots = new List<Dictionary<string, List<int>>>();
+            foreach (List<int> levels in emptySlots)
+            {
+                var jsonDict = new Dictionary<string, List<int>>();
+                jsonDict.Add("levels_completed", levels);
+                listOfSlots.Add(jsonDict);
+            }
+            jsonStructuredDict.Add("slots", listOfSlots);
+
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonStringSlots = JsonSerializer.Serialize(jsonStructuredDict, options);
+            File.WriteAllText(filePath, jsonStringSlots);
+        }
         private List<int>[] GetCompletedLevels(string filePath)
         {
+            new FileInfo(filePath).Directory.Create();
+
             if (!File.Exists(filePath))
-                throw new FileNotFoundException(filePath);
+                CreateDefSlots(filePath);
 
             string jsonFile = File.ReadAllText(filePath);
             var parsedJson = JsonSerializer.Deserialize<Dictionary<string, List<Dictionary<string, List<int>>>>>(jsonFile);

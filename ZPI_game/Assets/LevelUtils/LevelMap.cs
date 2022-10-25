@@ -39,10 +39,25 @@ namespace LevelUtils
                 ListOfLevels = LoadFromJson(Application.persistentDataPath + JSON_FILE_NAME);
             }
         }
+        private void CreateLevelMap(string filePath)
+        {
+            List<LevelInfoJson> defLevelButtonInfos = new List<LevelInfoJson>() {new LevelInfoJson("lvl_learn_1", "lvl_learn_1", 1, null),
+                    new LevelInfoJson("lvl_number_1", "lvl_number_1", 2, new List<int>() {1}),
+                    new LevelInfoJson("lvl_number_2","lvl_number_2", 3, new List<int>() {2}),
+                    new LevelInfoJson("lvl_learn_2","lvl_learn_2", 4, new List<int>() {3}), new LevelInfoJson("lvl_number_3", "lvl_number_3", 5, new List<int>() {4}),
+                    new LevelInfoJson("lvl_number_4", "lvl_number_4", 6, new List<int>() {4}),
+                    new LevelInfoJson("lvl_number_5", "lvl_number_5", 7, new List<int>() {5, 6}),
+                    new LevelInfoJson("lvl_cutscene_1", "lvl_cutscene_1", 8, new List<int>() {7})};
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonLevelButtonInfos = JsonSerializer.Serialize(defLevelButtonInfos, options);
+            File.WriteAllText(filePath, jsonLevelButtonInfos);
+        }
         private List<LevelButtonInfo> LoadFromJson(string filePath)
         {
+            new FileInfo(filePath).Directory.Create();
+
             if (!File.Exists(filePath))
-                throw new FileNotFoundException(filePath);
+                CreateLevelMap(filePath);
 
             string jsonFile = File.ReadAllText(filePath);
 
@@ -97,6 +112,14 @@ namespace LevelUtils
         public string LevelName { get; set; }
         public int LevelNumber { get; set; }
         public List<int> PrevLevels { get; set; }
+
+        public LevelInfoJson(string gameObjectName, string levelName, int levelNumber, List<int> prevLevels)
+        {
+            GameObjectName = gameObjectName;
+            LevelName = levelName;
+            LevelNumber = levelNumber;
+            PrevLevels = prevLevels;
+        }
     }
 }
 

@@ -33,10 +33,18 @@ namespace CurrentState
             _areEffectsOn = userSettings.EffectsOn;
             _effectsVolume = userSettings.EffectsVolume;
         }
+        private void CreateDefUsrSettFile(string configFilePath)
+        {
+            UserSettingsJson userSettings = new UserSettingsJson(true, 0.5f, true, 0.5f);
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonStringUS = JsonSerializer.Serialize(userSettings, options);
+            File.WriteAllText(configFilePath, jsonStringUS);
+        }
         private UserSettingsJson GetUserSettings(string configFilePath)
         {
+            new FileInfo(configFilePath).Directory.Create();
             if (!File.Exists(configFilePath))
-                throw new FileNotFoundException(configFilePath);
+                CreateDefUsrSettFile(configFilePath);
             string jsonFile = File.ReadAllText(configFilePath);
             return JsonSerializer.Deserialize<UserSettingsJson>(jsonFile);
         }
