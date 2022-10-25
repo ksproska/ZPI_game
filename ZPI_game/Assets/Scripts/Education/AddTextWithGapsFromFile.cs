@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
-//using UnityEditor;
+// using UnityEditor;
 using UnityEngine;
 
 public class AddTextWithGapsFromFile : MonoBehaviour
@@ -13,7 +13,7 @@ public class AddTextWithGapsFromFile : MonoBehaviour
         string path = Directory.GetCurrentDirectory() + $"\\Assets\\PythonTexts\\{filename}.txt";
         string readText = File.ReadAllText(path);
         var textmesh = gameObject.GetComponent<TextMeshProUGUI>();
-        //EditorUtility.SetDirty(textmesh);
+        // EditorUtility.SetDirty(textmesh);
         textmesh.text = readText;
     }
 }

@@ -9,6 +9,7 @@ using CurrentState;
 public class DropHandler : MonoBehaviour
 {
     [SerializeField] private Color _colorOk, _colorNotOk, _colorEmpty;
+    [SerializeField] GoToScene transporter;
     public bool AreAllCorrect()
     {
         return FindObjectsOfType<DropSlot>().All(ds => ds.IsCorrect());
