@@ -24,13 +24,13 @@ public class WorldMapHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var donelevels = (LevelMap.GetListOfLevels(CurrentGameState.CurrentSlot).Where(level => level.IsFinished).ToList());
+        var donelevels = LevelMap.Instance.GetListOfLevels(CurrentGameState.Instance.CurrentSlot).Where(level => level.IsFinished).ToList();
         if(donelevels.Count != 0)
         {
             glitchLevel = Math.Max(0, donelevels.Max(level => level.LevelNumber) - glitchBeginningLevel);
         }
         prevTime = Time.time;
-        source.volume = CurrentGameState.EffectsVolume;
+        source.volume = CurrentGameState.Instance.EffectsVolume;
         timeDelay = rnd.Next(10, 20);
     }
 
