@@ -1,7 +1,6 @@
 <color=#dc0073>import</color> random
 <color=#dc0073>from</color> DistancesGrid <color=#dc0073>import</color> DistancesGrid
 <color=#dc0073>from</color> Circuit <color=#dc0073>import</color> Circuit
-<color=#dc0073>from</color> GA_PY.Circuit <color=#dc0073>import</color> Circuit
 
 
 <color=#f5b700>class</color> <color=#dc0073>GeneticAlgorithm</color>:

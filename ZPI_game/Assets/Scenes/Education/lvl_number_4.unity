@@ -1126,6 +1126,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1093333678}
     m_Modifications:
+    - target: {fileID: 8404408643262910086, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
+      propertyPath: filename
+      value: GeneticAlgorithm1
+      objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
       value: "<color=#a44fff><link>class</link></color> GeneticAlgorithm:\r\n\r\n   
