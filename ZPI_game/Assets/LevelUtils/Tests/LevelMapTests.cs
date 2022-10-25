@@ -1,8 +1,10 @@
-﻿// using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace LevelUtils
 {
@@ -17,7 +19,7 @@ namespace LevelUtils
                 this.levelList = levelList;
             }
         }
-        private static List<List<LevelButtonInfo>> GetTestConfig()
+        private List<List<LevelButtonInfo>> GetTestConfig()
         {
             var levelList = new List<List<LevelButtonInfo>>()
             {
@@ -34,54 +36,71 @@ namespace LevelUtils
             levelList[0][5].PrevLevels = new List<LevelButtonInfo>() { levelList[0][3], levelList[0][4] };
             return levelList;
         }
-        [SetUp]
-        public static void Init()
+        private void SetUpLevelUtilsObjects()
         {
-            LoadSaveHelper.LoadTestConfiguration();
-            LevelMap.LoadTestConfiguration(LoadSaveHelper.SlotNum.Third);
+            GameObject go = new GameObject();
+            LevelMap levelMap = go.AddComponent<LevelMap>();
+            LevelMap.Instance = levelMap;
+            LoadSaveHelper loadSaveHelper = go.AddComponent<LoadSaveHelper>();
+            LoadSaveHelper.Instance = loadSaveHelper;
+            loadSaveHelper.LoadTestConfiguration();
+            levelMap.LoadTestConfiguration(LoadSaveHelper.SlotNum.Third);
         }
-        [Test, Order(1)]
-        public static void GetListOfLevelsTest()
+        [UnityTest, Order(1)]
+        public IEnumerator GetListOfLevelsTest()
         {
+            SetUpLevelUtilsObjects();
+
             var testCase = new TestCase(GetTestConfig());
 
-            List<LevelButtonInfo> lvlInfos = LevelMap.GetListOfLevels(LoadSaveHelper.SlotNum.Third);
-            
+            List<LevelButtonInfo> lvlInfos = LevelMap.Instance.GetListOfLevels(LoadSaveHelper.SlotNum.Third);
             CollectionAssert.AreEquivalent(testCase.levelList[0], lvlInfos);
+            yield return null;
+
+            
         }
-        [Test, Order(3)]
-        public static void IsLevelDoneTest()
+        [UnityTest, Order(3)]
+        public IEnumerator IsLevelDoneTest()
         {
-            List<LevelButtonInfo> lvlInfos = LevelMap.GetListOfLevels(LoadSaveHelper.SlotNum.Third);
-            foreach(LevelButtonInfo lvlButtonInfo in lvlInfos)
+            SetUpLevelUtilsObjects();
+
+            List<LevelButtonInfo> lvlInfos = LevelMap.Instance.GetListOfLevels(LoadSaveHelper.SlotNum.Third);
+            foreach (LevelButtonInfo lvlButtonInfo in lvlInfos)
             {
-                Assert.AreEqual(lvlButtonInfo.IsFinished, LevelMap.IsLevelDone(lvlButtonInfo.GameObjectName, LoadSaveHelper.SlotNum.Third));
+                Assert.AreEqual(lvlButtonInfo.IsFinished, LevelMap.Instance.IsLevelDone(lvlButtonInfo.GameObjectName, LoadSaveHelper.SlotNum.Third));
             }
+            yield return null;
         }
-        [Test, Order(1)]
-        public static void GetPrevGameObjectNamesTest()
+        [UnityTest, Order(1)]
+        public IEnumerator GetPrevGameObjectNamesTest()
         {
+            SetUpLevelUtilsObjects();
+
             var testCase = new TestCase(GetTestConfig());
             foreach (LevelButtonInfo lvl in testCase.levelList[0])
             {
-                LevelMap.GetPrevGameObjectNames(lvl.GameObjectName, LoadSaveHelper.SlotNum.Third).
-                    ForEach(lvlName => Assert.Contains(lvlName, LevelMap.GetListOfLevels(LoadSaveHelper.SlotNum.Third).Select(lvl => lvl.GameObjectName).ToList()));
+                LevelMap.Instance.GetPrevGameObjectNames(lvl.GameObjectName, LoadSaveHelper.SlotNum.Third).
+                    ForEach(lvlName => Assert.Contains(lvlName, LevelMap.Instance.GetListOfLevels(LoadSaveHelper.SlotNum.Third).Select(lvl => lvl.GameObjectName).ToList()));
             }
+            yield return null;
         }
-        [Test, Order(2)]
-        public static void CompleteALevelTest()
+        [UnityTest, Order(2)]
+        public IEnumerator CompleteALevelTest()
         {
-            LoadSaveHelper.EraseAllSlots();
-            List<LevelButtonInfo> lvlInfos = LevelMap.GetListOfLevels(LoadSaveHelper.SlotNum.Third);
+            SetUpLevelUtilsObjects();
+
+            LoadSaveHelper.Instance.EraseAllSlots();
+            List<LevelButtonInfo> lvlInfos = LevelMap.Instance.GetListOfLevels(LoadSaveHelper.SlotNum.Third);
             Assert.AreEqual(false, lvlInfos[0].IsFinished);
-            LevelMap.CompleteALevel(lvlInfos[0].LevelName, LoadSaveHelper.SlotNum.Third);
+            LevelMap.Instance.CompleteALevel(lvlInfos[0].LevelName, LoadSaveHelper.SlotNum.Third);
             Assert.AreEqual(true, lvlInfos[0].IsFinished);
-            Assert.Throws<ArgumentException>(() => LevelMap.CompleteALevel(lvlInfos[0].LevelName, LoadSaveHelper.SlotNum.Third));
+            Assert.Throws<ArgumentException>(() => LevelMap.Instance.CompleteALevel(lvlInfos[0].LevelName, LoadSaveHelper.SlotNum.Third));
+            yield return null;
         }
-        [TearDown]
+        [UnityTearDown]
         public void Cleanup()
         {
-            LoadSaveHelper.EraseAllSlots();
+            LoadSaveHelper.Instance.EraseAllSlots();
         }
     }
 }

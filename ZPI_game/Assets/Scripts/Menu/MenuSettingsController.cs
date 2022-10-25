@@ -18,12 +18,12 @@ public class MenuSettingsController : MonoBehaviour
 
     private void Start()
     {
-        musicVolumeSlider.value = CurrentGameState.MusicVolume;
+        musicVolumeSlider.value = CurrentGameState.Instance.MusicVolume;
         musicVolumeText.text = $"{(int)(musicVolumeSlider.value * 100)}%";
-        effectsVolumeSlider.value = CurrentGameState.EffectsVolume;
+        effectsVolumeSlider.value = CurrentGameState.Instance.EffectsVolume;
         effectsVolumeText.text = $"{(int)(effectsVolumeSlider.value * 100)}%";
-        musicToggle.isOn = CurrentGameState.IsMusicOn;
-        effectsToggle.isOn = CurrentGameState.AreEffectsOn;
+        musicToggle.isOn = CurrentGameState.Instance.IsMusicOn;
+        effectsToggle.isOn = CurrentGameState.Instance.AreEffectsOn;
         source.volume = musicVolumeSlider.value;
         if (musicToggle.isOn)
         {
@@ -40,10 +40,10 @@ public class MenuSettingsController : MonoBehaviour
 
     public void SaveChanges()
     {
-        CurrentGameState.MusicVolume = musicVolumeSlider.value;
-        CurrentGameState.EffectsVolume = effectsVolumeSlider.value;
-        CurrentGameState.IsMusicOn = musicToggle.isOn;
-        CurrentGameState.AreEffectsOn = effectsToggle.isOn;
+        CurrentGameState.Instance.MusicVolume = musicVolumeSlider.value;
+        CurrentGameState.Instance.EffectsVolume = effectsVolumeSlider.value;
+        CurrentGameState.Instance.IsMusicOn = musicToggle.isOn;
+        CurrentGameState.Instance.AreEffectsOn = effectsToggle.isOn;
     }
 
     public void OnMusicVolumeChange(float volume)

@@ -3,29 +3,43 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using UnityEngine;
 
 namespace LevelUtils
 {
-    public static class LevelMap
+    public class LevelMap : MonoBehaviour
     {
-        public const string JSON_FILE_NAME = "Assets/LevelUtils/levels.json";
+        public const string JSON_FILE_NAME = "/LevelUtils/levels.json";
         public const string JSON_FILE_NAME_TESTS = "Assets/LevelUtils/Tests/levels.json";
-        private static LoadSaveHelper.SlotNum currSlot;
-        private static List<LevelButtonInfo> ListOfLevels { get; set; }
-        public static void LoadTestConfiguration(LoadSaveHelper.SlotNum slotNum)
+        private LoadSaveHelper.SlotNum _currSlot;
+        private List<LevelButtonInfo> ListOfLevels { get; set; }
+        public static LevelMap Instance { get; set; }
+        void Awake()
         {
-            currSlot = slotNum;
-            ListOfLevels = LoadFromJson(JSON_FILE_NAME_TESTS);
-        }
-        public static void SynchronizeSlotNumber(LoadSaveHelper.SlotNum slotNum)
-        {
-            if (ListOfLevels == null || currSlot != slotNum)
+            if (Instance != null && Instance != this)
             {
-                currSlot = slotNum;
-                ListOfLevels = LoadFromJson(JSON_FILE_NAME);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
             }
         }
-        private static List<LevelButtonInfo> LoadFromJson(string filePath)
+        public void LoadTestConfiguration(LoadSaveHelper.SlotNum slotNum)
+        {
+            _currSlot = slotNum;
+            ListOfLevels = LoadFromJson(JSON_FILE_NAME_TESTS);
+        }
+        public void SynchronizeSlotNumber(LoadSaveHelper.SlotNum slotNum)
+        {
+            if (ListOfLevels == null || _currSlot != slotNum)
+            {
+                _currSlot = slotNum;
+                ListOfLevels = LoadFromJson(Application.persistentDataPath + JSON_FILE_NAME);
+            }
+        }
+        private List<LevelButtonInfo> LoadFromJson(string filePath)
         {
             if (!File.Exists(filePath))
                 throw new FileNotFoundException(filePath);
@@ -33,7 +47,7 @@ namespace LevelUtils
             string jsonFile = File.ReadAllText(filePath);
 
             var parsedJson = JsonSerializer.Deserialize<List<LevelInfoJson>>(jsonFile);
-            List<int> completed = LoadSaveHelper.GetSlot(currSlot);
+            List<int> completed = LoadSaveHelper.Instance.GetSlot(_currSlot);
             Dictionary<int, LevelButtonInfo> idToObjMap = new Dictionary<int, LevelButtonInfo>();
             List<LevelButtonInfo> levelButtons = parsedJson.Select(
                 lvlInfoJson => {
@@ -49,24 +63,24 @@ namespace LevelUtils
 
             return levelButtons;
         }
-        public static void CompleteALevel(string levelName, LoadSaveHelper.SlotNum slotNum)
+        public void CompleteALevel(string levelName, LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
-            LoadSaveHelper.CompleteALevel(ListOfLevels.Where(lvl => lvl.LevelName == levelName).First().LevelNumber, slotNum);
-            List<int> completed = LoadSaveHelper.GetSlot(slotNum);
+            LoadSaveHelper.Instance.CompleteALevel(ListOfLevels.Where(lvl => lvl.LevelName == levelName).First().LevelNumber, slotNum);
+            List<int> completed = LoadSaveHelper.Instance.GetSlot(slotNum);
             ListOfLevels.ForEach(lvl => lvl.IsFinished = completed.Contains(lvl.LevelNumber));
         }
-        public static List<LevelButtonInfo> GetListOfLevels(LoadSaveHelper.SlotNum slotNum)
+        public List<LevelButtonInfo> GetListOfLevels(LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
             return ListOfLevels;
         }
-        public static bool IsLevelDone(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
+        public bool IsLevelDone(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
             return ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().IsFinished;
         }
-        public static List<string> GetPrevGameObjectNames(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
+        public List<string> GetPrevGameObjectNames(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
             List<LevelButtonInfo> prevLevels = ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().PrevLevels;

@@ -17,8 +17,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         var source = GetComponent<AudioSource>();
-        source.volume = CurrentGameState.MusicVolume;
-        if (CurrentGameState.IsMusicOn)
+        source.volume = CurrentGameState.Instance.MusicVolume;
+        if (CurrentGameState.Instance.IsMusicOn)
         {
             source.Play();
         }
@@ -53,6 +53,6 @@ public class MainMenu : MonoBehaviour
 
     public void DeleteSave(LoadSaveHelper.SlotNum slotNumber)
     {
-        LoadSaveHelper.EraseASlot(slotNumber);
+        LoadSaveHelper.Instance.EraseASlot(slotNumber);
     }
 }

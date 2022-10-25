@@ -27,7 +27,7 @@ public class LvlButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(LevelMap.IsLevelDone(this.name, CurrentGameState.CurrentSlot))
+        if(LevelMap.Instance.IsLevelDone(this.name, CurrentGameState.Instance.CurrentSlot))
         {
             IsDone = true;
             ActiveStatus = true;
@@ -37,11 +37,11 @@ public class LvlButton : MonoBehaviour
         }
 
 
-        List<string> prevLevelsNames = LevelMap.GetPrevGameObjectNames(this.name, CurrentGameState.CurrentSlot);
+        List<string> prevLevelsNames = LevelMap.Instance.GetPrevGameObjectNames(this.name, CurrentGameState.Instance.CurrentSlot);
 
         foreach (var name in prevLevelsNames)
         {
-            if (LevelMap.IsLevelDone(name, CurrentGameState.CurrentSlot))
+            if (LevelMap.Instance.IsLevelDone(name, CurrentGameState.Instance.CurrentSlot))
             {
                 ActiveStatus = true;
             }

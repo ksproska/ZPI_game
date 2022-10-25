@@ -2,34 +2,57 @@
 using System.IO;
 using System.Text.Json;
 using LevelUtils;
+using UnityEngine;
 
 namespace CurrentState
 {
-    public static class CurrentGameState
+    public class CurrentGameState : MonoBehaviour
     {
-        public const string JSON_FILE_NAME = "Assets\\LevelUtils\\user_settings.json";
-        public const string JSON_FILE_NAME_TESTS = "Assets\\LevelUtils\\Tests\\user_settings.json";
-        private static bool _isMusicOn;
-        private static float _musicVolume;
-        private static bool _areEffectsOn;
-        private static float _effectsVolume;
-        private static UserSettingsJson GetUserSettings()
+        public const string JSON_FILE_NAME = "\\CurrentState\\user_settings.json";
+        public const string JSON_FILE_NAME_TESTS = "Assets\\CurrentState\\Tests\\user_settings.json";
+        private bool _isMusicOn;
+        private float _musicVolume;
+        private bool _areEffectsOn;
+        private float _effectsVolume;
+        private bool _isTestConfig = false;
+        public static CurrentGameState Instance { get; set; }
+        void Awake()
         {
-            if (!File.Exists(JSON_FILE_NAME))
-                throw new FileNotFoundException(JSON_FILE_NAME);
-            string jsonFile = File.ReadAllText(JSON_FILE_NAME);
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            UserSettingsJson userSettings = GetUserSettings(Application.persistentDataPath + JSON_FILE_NAME);
+            _isMusicOn = userSettings.MusicOn;
+            _musicVolume = userSettings.MusicVolume;
+            _areEffectsOn = userSettings.EffectsOn;
+            _effectsVolume = userSettings.EffectsVolume;
+        }
+        private UserSettingsJson GetUserSettings(string configFilePath)
+        {
+            if (!File.Exists(configFilePath))
+                throw new FileNotFoundException(configFilePath);
+            string jsonFile = File.ReadAllText(configFilePath);
             return JsonSerializer.Deserialize<UserSettingsJson>(jsonFile);
         }
-        private static void SaveUserSettings()
+        private void SaveUserSettings()
         {
             UserSettingsJson userSettings = new UserSettingsJson(_isMusicOn, _musicVolume, _areEffectsOn, _effectsVolume);
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
             string jsonStringUS = JsonSerializer.Serialize(userSettings, options);
-            File.WriteAllText(JSON_FILE_NAME, jsonStringUS);
+            if (_isTestConfig)
+                File.WriteAllText(JSON_FILE_NAME_TESTS, jsonStringUS);
+            else
+                File.WriteAllText(Application.persistentDataPath + JSON_FILE_NAME, jsonStringUS);
         }
-        public static LoadSaveHelper.SlotNum CurrentSlot { get; set; }
-        public static string CurrentLevelName { get; set; }
-        public static bool IsMusicOn
+        public LoadSaveHelper.SlotNum CurrentSlot { get; set; }
+        public string CurrentLevelName { get; set; }
+        public bool IsMusicOn
         {
             get { return _isMusicOn; }
             set
@@ -38,7 +61,7 @@ namespace CurrentState
                 SaveUserSettings();
             }
         }
-        public static float MusicVolume
+        public float MusicVolume
         {
             get { return _musicVolume; }
             set
@@ -54,7 +77,7 @@ namespace CurrentState
                 SaveUserSettings();
             }
         }
-        public static bool AreEffectsOn
+        public bool AreEffectsOn
         {
             get { return _areEffectsOn; }
             set
@@ -63,7 +86,7 @@ namespace CurrentState
                 SaveUserSettings();
             }
         }
-        public static float EffectsVolume
+        public float EffectsVolume
         {
             get { return _effectsVolume; }
             set
@@ -79,9 +102,10 @@ namespace CurrentState
                 SaveUserSettings();
             }
         }
-        static CurrentGameState()
+        public void LoadTestConfiguration()
         {
-            UserSettingsJson userSettings = GetUserSettings();
+            _isTestConfig = true;
+            UserSettingsJson userSettings = GetUserSettings(JSON_FILE_NAME_TESTS);
             _isMusicOn = userSettings.MusicOn;
             _musicVolume = userSettings.MusicVolume;
             _areEffectsOn = userSettings.EffectsOn;
