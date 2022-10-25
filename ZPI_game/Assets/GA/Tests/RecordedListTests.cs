@@ -18,12 +18,11 @@ namespace Assets.GA.Tests
             list.Add(1);
             list.Add(2);
             list.Add(3);
-            Assert.AreEqual(4, list.History.Count);
-            Assert.AreEqual(0, list.InitState.Count);
-            CollectionAssert.AreEqual(list.InitState, new List<int>());
-            CollectionAssert.AreEqual(new List<int>(new int[] { 1 }), list.History[1]);
-            CollectionAssert.AreEqual(new List<int>(new int[] { 1, 2 }), list.History[2]);
-            CollectionAssert.AreEqual(new List<int>(new int[] { 1, 2, 3 }), list.History[3]);
+            Assert.AreEqual(3, list.History.Count);
+            Assert.AreEqual((0, 1), list.History[0]);
+            Assert.AreEqual((1, 2), list.History[1]);
+            Assert.AreEqual((2, 3), list.History[2]);
+            CollectionAssert.AreEqual(new List<int>(new int[] { 1, 2, 3 }), list.CurrentState);
         }
 
         [Test]
@@ -33,10 +32,8 @@ namespace Assets.GA.Tests
             List<int> listToAdd = new List<int>(new int[] { 1, 2, 3 });
             list.AddRange(listToAdd);
 
-            Assert.AreEqual(2, list.History.Count);
+            Assert.AreEqual(3, list.History.Count);
             CollectionAssert.AreEqual(new List<int>(new int[] { 1, 2, 3, 4, 1, 2, 3 }), list.CurrentState);
-            CollectionAssert.AreEqual(new List<int>(new int[] { 1, 2, 3, 4 }), list.InitState);
-            Assert.AreEqual(4, list.InitState.Count);
             Assert.AreEqual(7, list.CurrentState.Count);
         }
 
@@ -44,15 +41,43 @@ namespace Assets.GA.Tests
         public static void GetHistoryDifferenceTest()
         {
             RecordedList<int> list = new RecordedList<int>(new int[] { 1, 2, 3, 4 });
-            list[0] = 7;
+            list[0] = 1;
             list[0] = 2;
             list.Add(5);
             list.AddRange(new List<int>(new int[] { 6, 7 }));
             List<(int, int)> expected = new List<(int, int)>(new (int, int)[]
             {
-                (0, 7), (0, 2), (4, 5), (5, 6), (6, 7)
+                (0, 1), (0, 2), (4, 5), (5, 6), (6, 7)
             });
-            CollectionAssert.AreEqual(expected, list.GetHistoryDifference());
+            CollectionAssert.AreEqual(expected, list.History);
+        }
+
+        [Test]
+        public static void SwapElementsWithTuplesTest()
+        {
+            RecordedList<int> list = new RecordedList<int>(new int[] { 1, 2, 3 });
+            (list[0], list[1]) = (list[1], list[0]);
+            Assert.AreEqual(2, list.History.Count);
+            CollectionAssert.AreEqual(new (int, int)[] {(0, 2), (1, 1) }, list.History);
+        }
+
+        [Test]
+        public static void GetFullHistoryTest()
+        {
+            RecordedList<int> list = new RecordedList<int>(new int[] { 1, 2, 3, 4, 5});
+            list.Add(6);
+            list[0] = 10;
+            list[2] = 3;
+            CollectionAssert.AreEqual(new List<(int, int)>(new (int, int)[]
+            {
+                (5, 6), (0, 10), (2, 3), (1, 2), (3, 4), (4, 5)
+            }), list.GetFullHistory());
+
+            list[0] = 1;
+            CollectionAssert.AreEqual(new List<(int, int)>(new (int, int)[]
+            {
+                (5, 6), (0, 10), (2, 3), (0, 1), (1, 2), (3, 4), (4, 5)
+            }), list.GetFullHistory());
         }
     }
 }
