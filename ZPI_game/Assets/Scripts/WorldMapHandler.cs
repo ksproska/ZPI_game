@@ -53,7 +53,7 @@ public class WorldMapHandler : MonoBehaviour
 
     IEnumerator glitch()
     {
-        int glithNumber = rnd.Next(0, 2);
+        int glithNumber = rnd.Next(0, audioGlitches.Count());
         source.clip = audioGlitches[glithNumber];
         source.Play();
         Sprite notGlithched = map.sprite;

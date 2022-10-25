@@ -1348,9 +1348,11 @@ MonoBehaviour:
   glithched:
   - {fileID: 21300000, guid: c2e48cfe6245a1545aa2ba096cae17c6, type: 3}
   - {fileID: 21300000, guid: 028f1e1aa31eef349be32cf750c4373c, type: 3}
+  - {fileID: 21300000, guid: 820067d4cbad6f144bcbd09ec0351581, type: 3}
   audioGlitches:
   - {fileID: 8300000, guid: 6c639aeaf48f3c4459deb9e1d8c4234c, type: 3}
-  - {fileID: 8300000, guid: 39eac9321e830a940ae61c971dec8a8e, type: 3}
+  - {fileID: 8300000, guid: 6c639aeaf48f3c4459deb9e1d8c4234c, type: 3}
+  - {fileID: 8300000, guid: 6c639aeaf48f3c4459deb9e1d8c4234c, type: 3}
   glitchBeginningLevel: 5
   wires: {fileID: 565920794}
   source: {fileID: 1196359754}
