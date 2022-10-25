@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainTitleScene.unity
+    guid: 0db08a0f28361454c8c10e008d958b7e
   - enabled: 0
     path: Assets/Scenes/TitleScene.unity
     guid: 8ff1c3d35077c5f44b7f63c092e3ac42
@@ -44,7 +47,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education/Edu_template.unity
     guid: 2b0ccfd2be0c0a3458498bcc3c56cff6
-  - enabled: 1
-    path: Assets/Scenes/MainTitleScene.unity
-    guid: 0db08a0f28361454c8c10e008d958b7e
   m_configObjects: {}
