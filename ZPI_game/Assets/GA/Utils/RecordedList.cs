@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Assets.GA.Utils
 {
-    class RecordedList<T>
+    public class RecordedList<T>
     {
         private List<List<T>> history;
         private List<T> currentState;
+
+        public List<T> InitState => history[0];
+        public List<List<T>> History => history;
+        public List<T> CurrentState => currentState;
+
+        public static DummyRecordedList<T> Dummy => new DummyRecordedList<T>();
 
         public RecordedList()
         {
@@ -31,11 +37,31 @@ namespace Assets.GA.Utils
             get => currentState[index];
         }
 
+        public void Add(T elem)
+        {
+            currentState.Add(elem);
+            AddToHistory();
+        }
+
+        public void AddRange(IEnumerable<T> args)
+        {
+            currentState.AddRange(args);
+        }
+
         private void SetElementAt(int index, T element)
         {
             currentState[index] = element;
-            var newState = new List<T>(currentState);
-            history.Add(newState);
+            AddToHistory();
         }
+
+        private void AddToHistory()
+        {
+            history.Add(new List<T>(currentState));
+        }
+    }
+
+    public class DummyRecordedList<T>: RecordedList<T>
+    {
+
     }
 }
