@@ -10,6 +10,11 @@
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 
+/app.config
+/Assets/LevelUtils/*.json
+/ZPI_game/Packages/NUnit3.13.3/*
+/ZPI_game/ProjectSettings/ProjectSettings.asset
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
