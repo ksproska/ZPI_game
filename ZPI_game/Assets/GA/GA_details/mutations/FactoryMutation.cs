@@ -10,7 +10,7 @@ namespace GA
     }
     public abstract class FactoryMutation
     {
-        public static IMutator<T> Get<T>(MutationType mutationType)
+        public static IMutator<T> Get<T>(MutationType mutationType) where T: IComparable
         {
             switch (mutationType)
             {
