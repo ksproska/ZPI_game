@@ -56,7 +56,8 @@ public class GoToScene : MonoBehaviour
     IEnumerator PlaySoundAndFade(AudioSource source, SceneFader fader)
     {
         CurrentGameState.Instance.CurrentLevelName = scene;
-        source.PlayOneShot(clip);
+        if (clip != null)
+            source.PlayOneShot(clip);
         return fader.FadeAndLoadScene(SceneFader.FadeDirection.Out, scene, fader.fadeOutMusic);
     }
 }
