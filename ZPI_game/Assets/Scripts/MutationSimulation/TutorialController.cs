@@ -25,6 +25,9 @@ public class TutorialController : MonoBehaviour
 
     private int currentStep;
     private Stack<GameObject> tutorialStack;
+
+    private GameObject slider;
+    private GameObject target;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,17 @@ public class TutorialController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(slider != null && target != null)
+        {
+            if(slider.transform.position != target.transform.position)
+            {
+                slider.transform.position = Vector3.MoveTowards(slider.transform.position, target.transform.position, Time.deltaTime*500);
+            }
+            else{
+                slider = null;
+                target = null;
+            }
+        }
         
     }
 
@@ -81,15 +95,11 @@ public class TutorialController : MonoBehaviour
             var drops = gridCreator.allTutorialDrops;
             var (slot, value) = gridCreator.steps[currentStep];
             var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
-            //GameObject staticAdded = Instantiate(staticPrefab, slots[slot].transform.position, Quaternion.identity,
-            //        tutorialCanvas.transform);
-            Debug.Log(drop.transform.position);
-            Debug.Log(slots[slot].transform.position);
 
-            drop.transform.position = slots[slot].transform.position;
+            slider = drop;
+            target = slots[slot];
+            //drop.transform.position = slots[slot].transform.position;
 
-            Debug.Log(drop.transform.position);
-            Debug.Log(slots[slot].transform.position);
 
             tutorialStack.Push(drop);
             currentStep += 1;
@@ -104,7 +114,11 @@ public class TutorialController : MonoBehaviour
             var drop = tutorialStack.Pop();
             var statics = gridCreator.allTutorialStatics;
             var singleStatic = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{drop.GetComponent<TextMeshProUGUI>().text}").First();
-            drop.transform.position = singleStatic.transform.position;
+
+            slider = drop;
+            target = singleStatic;
+            //drop.transform.position = singleStatic.transform.position;
+
             currentStep -= 1;
         }
     }

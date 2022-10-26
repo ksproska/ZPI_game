@@ -390,7 +390,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 218962953}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 868033084}
+        m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+        m_MethodName: PreviousStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &218962953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +495,7 @@ MonoBehaviour:
   toDropPrefab: {fileID: 8151543383315115644, guid: 97cfbd12858c0c345ab2c9074907fef6, type: 3}
   staticPrefab: {fileID: 8151543383315115644, guid: 641b8cc65a26b99428f8fabbcf3fa8a0, type: 3}
   dropSlot: {fileID: 51125089691554381, guid: c73b81088ebfdab408cad7da2caa0df6, type: 3}
+  staticDropSlot: {fileID: 2802800165413832587, guid: d1e7916644e436f4f9c0b4edf73bd090, type: 3}
 --- !u!4 &868033083
 Transform:
   m_ObjectHideFlags: 0
@@ -511,6 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropHandler: {fileID: 1584916702}
+  staticPrefab: {fileID: 2802800165413832587, guid: d1e7916644e436f4f9c0b4edf73bd090, type: 3}
   levelButton: {fileID: 1043215065}
   tutorialButton: {fileID: 1805020173}
   checkButton: {fileID: 1584916699}
@@ -1035,7 +1049,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1208840996}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 868033084}
+        m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+        m_MethodName: NextStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1208840996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,7 +1500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Try for yourself
+  m_text: I get it now
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e672f24731045d140814257759dded9b, type: 2}
   m_sharedMaterial: {fileID: -6675679401320595008, guid: e672f24731045d140814257759dded9b, type: 2}
