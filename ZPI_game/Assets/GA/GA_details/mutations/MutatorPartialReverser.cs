@@ -18,16 +18,14 @@ namespace GA.mutations
             if (endInx < startInx)
             {
                 len = (endInx - startInx + 1 + genotypeCopy.Count) % genotypeCopy.Count;
-            }
-            /**
-                to można chyba tak var len = endInx - startInx + 1 ? startInx <= endInx : (endInx - startInx + 1 + genotypeCopy.Count) % genotypeCopy.Count
-            **/
+            } //to można chyba tak var len = endInx - startInx + 1 ? startInx <= endInx : (endInx - startInx + 1 + genotypeCopy.Count) % genotypeCopy.Count\
+            
             for (int i = 0; i < (len + 1) / 2; i++)
             {
                 var inx1 = (startInx + i) % genotype.Count;
                 var inx2 = (endInx - i + genotypeCopy.Count) % genotype.Count;
                 (genotypeCopy[inx1], genotypeCopy[inx2]) = (genotypeCopy[inx2], genotypeCopy[inx1]);
-                if (!(recordedList is DummyRecordedList<T>))
+                if (recordedList is not DummyRecordedList<T>)
                 {
                     (recordedList[inx1], recordedList[inx2]) = (recordedList[inx2], recordedList[inx1]);
                 }
