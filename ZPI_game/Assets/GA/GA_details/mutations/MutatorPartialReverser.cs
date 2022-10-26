@@ -22,7 +22,7 @@ namespace GA.mutations
             /**
                 to można chyba tak var len = endInx - startInx + 1 ? startInx <= endInx : (endInx - startInx + 1 + genotypeCopy.Count) % genotypeCopy.Count
             **/
-            for (int i = 0; i < len / 2; i++)
+            for (int i = 0; i < (len + 1) / 2; i++)
             {
                 var inx1 = (startInx + i) % genotype.Count;
                 var inx2 = (endInx - i + genotypeCopy.Count) % genotype.Count;

@@ -12,6 +12,20 @@ namespace GA.Tests
     class RecordedListTests
     {
         [Test]
+        public static void GetElementTest()
+        {
+            var list = new RecordedList<int>(new[] { 1, 2, 3, 4 });
+            Assert.AreEqual(1, list[0]);
+            Assert.AreEqual(2, list[1]);
+            Assert.AreEqual(3, list[2]);
+            Assert.AreEqual(4, list[3]);
+            Assert.Catch(typeof(ArgumentOutOfRangeException), () =>
+            {
+                var _ = list[5];
+            });
+        }
+        
+        [Test]
         public static void AddElementsTest()
         {
             RecordedList<int> list = new RecordedList<int>();
@@ -78,6 +92,21 @@ namespace GA.Tests
             {
                 (5, 6), (0, 10), (2, 3), (0, 1), (1, 2), (3, 4), (4, 5)
             }), list.GetFullHistory());
+        }
+
+        [Test]
+        public static void ElementSetToThSameValueTest()
+        {
+            var list = new RecordedList<int>(new[] { 1, 2, 3, 4 });
+            list[0] = 1;
+            list[0] = 1;
+            list[1] = 2;
+            list[0] = 1;
+            CollectionAssert.AreEqual(new [] {(0, 1), (0, 1), (1, 2), (0, 1)}, list.History);
+            CollectionAssert.AreEqual(new []
+            {
+                (0, 1), (0, 1), (1, 2), (0, 1), (2, 3), (3, 4)
+            }, list.GetFullHistory());
         }
     }
 }
