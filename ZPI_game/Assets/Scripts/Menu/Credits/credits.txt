@@ -1,5 +1,5 @@
 <b>TITLE</b>
-<size=40>TRAVELLING STUDENT</size>
+<size=40>DECAY CITY CHAIN</size>
 
 <b>AUTHORS</b>
 Kamila Sproska

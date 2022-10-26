@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.GA.Tests
+namespace GA.Tests
 {
     [TestFixture]
     class RecordedListTests
@@ -22,7 +22,7 @@ namespace Assets.GA.Tests
             Assert.AreEqual((0, 1), list.History[0]);
             Assert.AreEqual((1, 2), list.History[1]);
             Assert.AreEqual((2, 3), list.History[2]);
-            CollectionAssert.AreEqual(new List<int>(new int[] { 1, 2, 3 }), list.CurrentState);
+            CollectionAssert.AreEqual(new List<int>(new [] { 1, 2, 3 }), list.CurrentState);
         }
 
         [Test]

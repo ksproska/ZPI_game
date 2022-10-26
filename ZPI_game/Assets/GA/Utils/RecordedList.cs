@@ -26,11 +26,11 @@ namespace Assets.GA.Utils
         /// </summary>
         public List<(int, T)> History => history;
         /// <summary>
-        /// Retrurns the current state of the list.
+        /// Returns the current state of the list.
         /// </summary>
         public List<T> CurrentState => currentState;
 
-        public static DummyRecordedList<T> Dummy => new DummyRecordedList<T>();
+        public static DummyRecordedList<T> Dummy => new();
 
         ///<summary>Creates an empty recorded list. Initial state is
         ///saved in history.</summary>
@@ -106,37 +106,6 @@ namespace Assets.GA.Utils
             }
             return ret;
         }
-
-        //private List<(int, T)> GetSingleDifference(int historyStartIndex)
-        //{
-        //    var ret = new List<(int, T)>();
-        //    var his1 = history[historyStartIndex];
-        //    var his2 = history[historyStartIndex + 1];
-
-        //    for(int i = 0; i < his1.Count; i++)
-        //    {
-        //        if (his1[i].CompareTo(his2[i]) != 0)
-        //        {
-        //            ret.Add((i, his2[i]));
-        //        }
-        //    }
-        //    if(his2.Count > his1.Count)
-        //    {
-        //        for(int i = 0; i < his2.Count - his1.Count; i++)
-        //        {
-        //            ret.Add((i + his1.Count, his2[i + his1.Count]));
-        //        }
-        //    }
-
-        //    return ret;
-        //}
-
-        //private void AddToHistory()
-        //{
-        //    List<T> newList = new List<T>();
-        //    newList.AddRange(currentState);
-        //    history.Add(newList);
-        //}
     }
 
     public class DummyRecordedList<T>: RecordedList<T> where T: IComparable
