@@ -21,8 +21,8 @@ public class CreateIntsToDrop : MonoBehaviour
     [NonSerialized] public List<GameObject> allTutorialStatics = new();
     [NonSerialized] public List<GameObject> allTutorialDrops = new();
 
-    private int beginIndex;
-    private int endIndex;
+    [NonSerialized] public int beginIndex;
+    [NonSerialized] public int endIndex;
     private List<int> beginGenome; 
     private List<int> endGenome;
     [NonSerialized] public List<(int, int)> steps;
@@ -40,15 +40,15 @@ public class CreateIntsToDrop : MonoBehaviour
         {
             var slot = Instantiate(dropSlot, gameObject.transform.position, Quaternion.identity,
                 levelCanvas.transform);
-            slot.transform.position += new Vector3(300 + i * 125, -120 * 2, 0);
+            slot.transform.position += new Vector3(-6 + i * 1.25f, -2.3f, 0);
             DropSlot ds = slot.GetComponent<DropSlot>();
-            ds.expectedContents = $"{beginGenome[i]}";
+            ds.expectedContents = $"{endGenome[i]}";
 
             var staticAdded = Instantiate(staticPrefab, gameObject.transform.position, Quaternion.identity,
                 levelCanvas.transform);
             var staticDd = staticAdded.GetComponent<TextMeshProUGUI>();
             staticDd.text = $"{beginGenome[i]}";
-            staticAdded.transform.position += new Vector3(300 + i * 125, 120 * 2, 0);
+            staticAdded.transform.position += new Vector3(-6 + i * 1.25f, 2.3f, 0);
         }
         for (int i = 0; i < 10; i++)
         {
@@ -57,7 +57,7 @@ public class CreateIntsToDrop : MonoBehaviour
                 levelCanvas.transform);
             var dd = drop.GetComponent<DragDrop>();
             dd.SetContent($"{beginGenome[i]}");
-            drop.transform.position += new Vector3(300 + i * 125, 120 * 2, 0);
+            drop.transform.position += new Vector3(-6 + i * 1.25f, 2.3f, 0);
 
         }
     }
@@ -68,12 +68,12 @@ public class CreateIntsToDrop : MonoBehaviour
         do
         {
             endIndex = rnd.Next(0, 9);
-        } while (endIndex == beginIndex);
+        } while (endIndex - beginIndex == 0 || endIndex - beginIndex == -1);
 
         beginGenome = Enumerable.Range(0, 10).OrderBy(elem => rnd.Next()).ToList();
         RecordedList<int> recordedMutation = new(beginGenome);
         endGenome = MutatorPartialReverser<int>.ReversePartOrder(beginGenome, beginIndex, endIndex, ref recordedMutation);
-        steps = recordedMutation.GetFullHistory();
+        steps = recordedMutation.GetFullHistory().Distinct().ToList();
     }
 
 
@@ -87,7 +87,7 @@ public class CreateIntsToDrop : MonoBehaviour
         {
             var slot = Instantiate(dropSlot, gameObject.transform.position, Quaternion.identity,
                 tutorialCanvas.transform);
-            slot.transform.position += new Vector3(300 + i * 125, -120 * 2 , 0);
+            slot.transform.position += new Vector3(-6 + i * 1.25f, -2.3f, 0);
             DropSlot ds = slot.GetComponent<DropSlot>();
             ds.expectedContents = $"{endGenome[i]}";
             allTutorialSlots.Add(slot);
@@ -96,7 +96,7 @@ public class CreateIntsToDrop : MonoBehaviour
                 tutorialCanvas.transform);
             var staticDd = staticAdded.GetComponent<TextMeshProUGUI>();
             staticDd.text = $"{beginGenome[i]}";
-            staticAdded.transform.position += new Vector3(300 + i * 125, 120 * 2, 0);
+            staticAdded.transform.position += new Vector3(-6 + i * 1.25f, 2.3f, 0);
             allTutorialStatics.Add(staticAdded);
         }
         for (int i = 0; i < 10; i++)
@@ -106,7 +106,7 @@ public class CreateIntsToDrop : MonoBehaviour
                 tutorialCanvas.transform);
             var dd = drop.GetComponent<TextMeshProUGUI>();
             dd.text = $"{beginGenome[i]}";
-            drop.transform.position += new Vector3(300 + i * 125, 120 * 2, 0);
+            drop.transform.position += new Vector3(-6 + i * 1.25f, 2.3f, 0);
             allTutorialDrops.Add(drop);
 
         }
