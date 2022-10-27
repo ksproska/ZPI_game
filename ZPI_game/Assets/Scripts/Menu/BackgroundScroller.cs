@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BackgroundScroller : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class BackgroundScroller : MonoBehaviour
     [Range(-10f, 10f)]
     public float scrollSpeed = -0.5f;
 
+    //[SerializeField] private Renderer renderer;
+
     private float offset;
     private float startupSpeed;
     [NonSerialized] private Material mat;
     void Start()
     {
-        mat = GetComponent<Renderer>().material;
+        mat = GetComponent<Image>().material;
         startupSpeed = scrollSpeed;
     }
 

@@ -11,16 +11,18 @@ public class CreditsScroller : MonoBehaviour
     [SerializeField] public TextMeshProUGUI credits;
     [SerializeField] private float speed;
     private Vector3 startPosition;
-    private const string CREDITS_PATH = "Assets\\Scripts\\Menu\\Credits\\credits.txt";
+    private string creditsText = "EMPTY";
 
     private void Awake()
     {
         startPosition = transform.position;
+        //creditsText = Resources.Load<TextAsset>("Resources/Credits/credits").text;
+        Debug.Log(creditsText);
     }
 
     private void Start()
     {
-        credits.text = File.ReadAllText(CREDITS_PATH);
+        credits.text = creditsText;
     }
 
     private void OnEnable()
