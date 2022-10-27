@@ -11,8 +11,8 @@ public class DropSlot : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
-                GetComponent<RectTransform>().anchoredPosition;
+            eventData.pointerDrag.GetComponent<RectTransform>().position =
+                GetComponent<RectTransform>().position;
             if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
             {
                 eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;

@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
+using System;
+using TMPro;
+
+public class GenomSlotsCreator : MonoBehaviour
+{
+    [SerializeField] private GameObject prefab;
+
+    [NonSerialized] public List<int> valueList;
+    [NonSerialized] public List<GameObject> geneList = new();
+    public bool initialize; 
+    void Start()
+    {
+        if (initialize)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var staticAdded = Instantiate(prefab, gameObject.transform.position, Quaternion.identity,
+                    transform);
+                staticAdded.transform.position += new Vector3(i * 1.25f, 0, 0);
+                geneList.Add(staticAdded);
+            }
+
+        }
+    }
+
+    public void CreateSlots(List<int> input)
+    {
+        geneList = new();
+        for (int i = 0; i < 10; i++)
+        {
+            var staticAdded = Instantiate(prefab, gameObject.transform.position, Quaternion.identity,
+                transform);
+            staticAdded.transform.position += new Vector3(i * 1.25f, 0, 0);
+            staticAdded.GetComponent<DropSlot>().expectedContents = $"{input[i]}";
+            geneList.Add(staticAdded);
+        }
+    }
+
+
+    public void FillGenome(List<int> input)
+    {
+        for (int i = 0; i < geneList.Count; i++)
+        {
+            geneList[i].GetComponent<DropSlot>().expectedContents = $"{input[i]}";
+        }
+    }
+}

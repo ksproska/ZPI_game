@@ -23,43 +23,14 @@ public class CreateIntsToDrop : MonoBehaviour
 
     [NonSerialized] public int beginIndex;
     [NonSerialized] public int endIndex;
-    private List<int> beginGenome; 
-    private List<int> endGenome;
+    [NonSerialized] public List<int> beginGenome;
+    [NonSerialized] public List<int> endGenome;
     [NonSerialized] public List<(int, int)> steps;
 
     public void Start()
     {
         InitializeMutationList();
 
-        
-        
-
-
-        GameObject levelCanvas = GameObject.Find("LevelCanvas"); 
-        for (int i = 0; i < 10; i++)
-        {
-            var slot = Instantiate(dropSlot, gameObject.transform.position, Quaternion.identity,
-                levelCanvas.transform);
-            slot.transform.position += new Vector3(-6 + i * 1.25f, -2.3f, 0);
-            DropSlot ds = slot.GetComponent<DropSlot>();
-            ds.expectedContents = $"{endGenome[i]}";
-
-            var staticAdded = Instantiate(staticPrefab, gameObject.transform.position, Quaternion.identity,
-                levelCanvas.transform);
-            var staticDd = staticAdded.GetComponent<TextMeshProUGUI>();
-            staticDd.text = $"{beginGenome[i]}";
-            staticAdded.transform.position += new Vector3(-6 + i * 1.25f, 2.3f, 0);
-        }
-        for (int i = 0; i < 10; i++)
-        {
-
-            var drop = Instantiate(toDropPrefab, gameObject.transform.position, Quaternion.identity,
-                levelCanvas.transform);
-            var dd = drop.GetComponent<DragDrop>();
-            dd.SetContent($"{beginGenome[i]}");
-            drop.transform.position += new Vector3(-6 + i * 1.25f, 2.3f, 0);
-
-        }
     }
 
     private void InitializeMutationList()
