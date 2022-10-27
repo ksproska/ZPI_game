@@ -5,14 +5,11 @@ using System;
 
 public class ParalaxBackgroundHandler : MonoBehaviour
 {
-    [NonSerialized] private List<BackgroundScroller> layers;
+    [SerializeField] private List<BackgroundScroller> layers;
 
     private void Start()
     {
-        layers = new List<BackgroundScroller>(GetComponentsInChildren<BackgroundScroller>());
-        var cameraPosition = Camera.main.transform.position;
-        transform.position = new Vector3(cameraPosition.x, cameraPosition.y, 0);
-        Debug.Log(Application.persistentDataPath);
+        //layers = new List<BackgroundScroller>(FindObjectsOfType<BackgroundScroller>());
     }
 
     public void SpeedUp()

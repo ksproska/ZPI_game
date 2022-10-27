@@ -1,0 +1,33 @@
+<b>TITLE</b>
+<size=40>DECAY CITY CHAIN</size>
+
+<b>AUTHORS</b>
+Kamila Sproska
+Maciej Futyma
+Witold Frącek
+Jakub Jastrzębski
+
+<b>PROMOTER</b>
+dr hab. inż. Kazimierz Choroś
+
+<b>PROMOTER SUPPORT</b>
+dr inż. Bogumiła Hnatkowska
+dr inż. Adrainna Kozierkiewicz
+
+
+<b>GRAPHICS</b>
+Witold Frącek
+Maciej Futyma
+
+<b>THE EXPERIENCE</b>
+Jakub Jastrzębksi
+
+<b>EMOTIONAL SUPPORT</b>
+Kamila Sproska
+The magic of friendship
+
+<b>EMOTIONAL DAMAGE</b>
+PWR
+
+<b>SPECIAL THANKS</b>
+Supportive <s>friends</s> people
