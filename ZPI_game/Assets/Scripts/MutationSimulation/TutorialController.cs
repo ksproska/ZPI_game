@@ -14,6 +14,9 @@ public class TutorialController : MonoBehaviour
     public GameObject levelButton;
     public GameObject tutorialButton;
     public GameObject checkButton;
+    public TextMeshProUGUI StartingIndexTextContainer;
+    public TextMeshProUGUI EndingIndexTextContainer;
+
 
     public CreateIntsToDrop gridCreator;
 
@@ -26,6 +29,8 @@ public class TutorialController : MonoBehaviour
     private int currentStep;
     private Stack<GameObject> tutorialStack;
 
+    [SerializeField] private Material lineMaterial;
+
     private GameObject slider;
     private GameObject target;
     // Start is called before the first frame update
@@ -33,6 +38,9 @@ public class TutorialController : MonoBehaviour
     {
         currentStep = 0;
         tutorialStack = new();
+        StartingIndexTextContainer.text = $"Starting index: {gridCreator.beginIndex}";
+        EndingIndexTextContainer.text = $"Ending index: {gridCreator.endIndex}";
+        
     }
 
     // Update is called once per frame
@@ -42,11 +50,14 @@ public class TutorialController : MonoBehaviour
         {
             if(slider.transform.position != target.transform.position)
             {
-                slider.transform.position = Vector3.MoveTowards(slider.transform.position, target.transform.position, Time.deltaTime*500);
+                slider.transform.position = Vector3.MoveTowards(slider.transform.position, target.transform.position, Time.deltaTime*5);
             }
             else{
+                slider.GetComponent<LineRenderer>().enabled = false;
                 slider = null;
                 target = null;
+                previousButton.GetComponent<Button>().enabled = true;
+                nextButton.GetComponent<Button>().enabled = true;
             }
         }
         
@@ -84,6 +95,7 @@ public class TutorialController : MonoBehaviour
         levelButton.SetActive(false);
         nextButton.SetActive(false);
         previousButton.SetActive(false);
+        currentStep = 0;
 
     }
 
@@ -91,10 +103,16 @@ public class TutorialController : MonoBehaviour
     {
         if(currentStep < gridCreator.steps.Count)
         {
+            previousButton.GetComponent<Button>().enabled = false;
+            nextButton.GetComponent<Button>().enabled = false;
             var slots = gridCreator.allTutorialSlots;
             var drops = gridCreator.allTutorialDrops;
             var (slot, value) = gridCreator.steps[currentStep];
             var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
+            LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
+            lineRenderer.enabled = true;
+            Vector3[] pathPoints = { drop.transform.position - new Vector3(0,0.63f), slots[slot].transform.position + new Vector3(0, 0.63f) };
+            lineRenderer.SetPositions(pathPoints);
 
             slider = drop;
             target = slots[slot];
@@ -111,9 +129,16 @@ public class TutorialController : MonoBehaviour
     {
         if (currentStep > 0)
         {
+            previousButton.GetComponent<Button>().enabled = false;
+            nextButton.GetComponent<Button>().enabled = false;
             var drop = tutorialStack.Pop();
             var statics = gridCreator.allTutorialStatics;
             var singleStatic = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{drop.GetComponent<TextMeshProUGUI>().text}").First();
+
+            LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
+            Vector3[] pathPoints = {drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
+            lineRenderer.SetPositions(pathPoints);
+            lineRenderer.enabled = true;
 
             slider = drop;
             target = singleStatic;
