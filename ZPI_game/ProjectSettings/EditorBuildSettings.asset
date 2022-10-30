@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education/Edu_template.unity
     guid: 2b0ccfd2be0c0a3458498bcc3c56cff6
+  - enabled: 1
+    path: Assets/Scenes/Curscenes/StoryBeginning.unity
+    guid: 2ad462aff665bd94f8b62fad5973073f
   m_configObjects: {}

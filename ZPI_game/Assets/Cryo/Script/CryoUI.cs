@@ -27,47 +27,7 @@ public class CryoUI : MonoBehaviour
     float delta = 2;
     int index = 0;
 
-    void Start()
-    {
-        var dialog = new List<string>() {
-            "Stop saying that your life is a joke!",
-            "It's painfull...",
-            "Besides, jokes are supposed to have a meaning",
-        };
-        SetupDialog(dialog);
-        StartDialog();
-    }
-
-    void Update()
-    {
-        seconds += Time.deltaTime;
-        if (seconds > delta)
-        {
-            seconds = 0;
-            if (index == 0)
-            {
-                SetBothEyesTypes(EyeType.EyeBig);
-                SetBothEyesDirection(EyeDirection.DownRight);
-                SetMouthType(MouthType.Confused);
-                index += 1;
-            }
-            else if (index == 1)
-            {
-                SetBothEyesTypes(EyeType.Angry);
-                SetMouthType(MouthType.Angry);
-                index += 1;
-            }
-            else
-            {
-                SetBothEyesTypes(EyeType.Wink);
-                SetMouthType(MouthType.Sad);
-                //SetRightEyeDirection(EyeDirection.UpRight);
-                index = 0;
-            }
-        }
-    }
-
-    public Sprite GetEyeGraphic(EyeType eyeType)
+    private Sprite GetEyeGraphic(EyeType eyeType)
     {
         switch (eyeType)
         {
@@ -221,12 +181,17 @@ public class CryoUI : MonoBehaviour
         chatPanel.SetActive(show);
     }
 
+    public IEnumerator SetDialogBoxActiveAfter(float time, bool isActive)
+    {
+        yield return new WaitForSeconds(time);
+        chatPanel.SetActive(isActive);
+    }
+
     public void Say(string text, int fontSize = 15)
     {
         chatText.text = text;
         chatText.fontSize = fontSize;
         ShowDialogBox(true);
-        chatButton.gameObject.SetActive(false);
     }
 
     public void SetupDialog(List<string> dialogSequence, string buttonText = "Next")

@@ -9,13 +9,20 @@ public class CutsceneElement : MonoBehaviour
 {
     private ICutscenePlayable playable;
 
-    private void Start()
+    private void Awake()
     {
         playable = GetComponent<ICutscenePlayable>();
     }
 
+    private void Start()
+    {
+        //playable = GetComponent<ICutscenePlayable>();
+    }
+
     public IEnumerator Play()
     {
-        yield return StartCoroutine(playable.Play());
+        //playable ??= GetComponent<ICutscenePlayable>();
+        if(playable != null)
+            yield return StartCoroutine(playable.Play());
     }
 }

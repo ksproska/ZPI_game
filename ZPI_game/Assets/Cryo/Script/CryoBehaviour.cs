@@ -19,40 +19,6 @@ public class CryoBehaviour : MonoBehaviour
     float delta = 2;
     int index = 0;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        seconds += Time.deltaTime;
-        if (seconds > delta)
-        {
-            seconds = 0;
-            if (index == 0)
-            {
-                SetBothEyesTypes(EyeType.EyeBig);
-                SetBothEyesDirection(EyeDirection.DownRight);
-                SetMouthType(MouthType.Confused);
-                index += 1;
-            }
-            else if (index == 1)
-            {
-                SetBothEyesTypes(EyeType.Angry);
-                SetMouthType(MouthType.Angry);
-                index += 1;
-            }
-            else
-            {
-                SetBothEyesTypes(EyeType.Wink);
-                SetMouthType(MouthType.Sad);
-                //SetRightEyeDirection(EyeDirection.UpRight);
-                index = 0;
-            }
-        }
-    }
-
     public Sprite GetEyeGraphic(EyeType eyeType)
     {
         switch(eyeType)

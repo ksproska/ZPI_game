@@ -22,13 +22,16 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private string enabledSlotName;
     [SerializeField] private string disabledSlotName;
 
+    [NonSerialized] private GoToScene goToScene;
     [NonSerialized] private bool isEnabled;
+    [NonSerialized] private bool hasSavedSlots;
 
     public bool IsEnabled => isEnabled;
 
     private void Awake()
     {
         var enabledSlots = LoadSaveHelper.Instance.GetOccupiedSlots();
+        goToScene = GetComponent<GoToScene>();
         if (enabledSlots.Contains(slotNumber))
         {
             HasSavedGame(true);
@@ -65,6 +68,7 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void HasSavedGame(bool isSaved)
     {
+        hasSavedSlots = isSaved;
         binButton.gameObject.SetActive(isSaved);
         if(isSaved)
         {
@@ -87,5 +91,17 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         LoadSaveHelper.Instance.EraseASlot(slotNumber);
         HasSavedGame(false);
+    }
+
+    public void GoToScene()
+    {
+        if (hasSavedSlots)
+        {
+            goToScene.FadeOutScene();
+            return;
+        }
+
+        goToScene.scene = "StoryBeginning";
+        goToScene.FadeOutScene();
     }
 }

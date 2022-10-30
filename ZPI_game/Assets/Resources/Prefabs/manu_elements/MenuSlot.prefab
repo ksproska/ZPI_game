@@ -216,9 +216,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6651958163587997282}
-        m_TargetAssemblyTypeName: GoToScene, Assembly-CSharp
-        m_MethodName: FadeOutScene
+      - m_Target: {fileID: 8232820683151731135}
+        m_TargetAssemblyTypeName: MenuSlot, Assembly-CSharp
+        m_MethodName: GoToScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
