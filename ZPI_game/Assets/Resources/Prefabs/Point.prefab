@@ -30,7 +30,7 @@ RectTransform:
   m_GameObject: {fileID: 5355582023921786786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -9.2548065}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1377e43ffa841b547b85a9acee81b6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineMaterial: {fileID: 2100000, guid: 017d187b6e330aa4793b0c06ce3e18de, type: 2}
+  lineMaterial: {fileID: 2100000, guid: 68a85f9e45ec55347a075f0347c766a0, type: 2}
 --- !u!120 &5355582023921786784
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.24390602
         inSlope: 0
         outSlope: 0
         tangentMode: 0

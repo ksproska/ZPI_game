@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/GA/Tests/LabeledRecordedListTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GA/Tests/LabeledRecordedListTest.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GA/Utils/LabeledRecordedList.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/GA/Utils/LabeledRecordedList.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/Tests/RecordedListTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/Tests/RecordedListTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/Utils/RecordedList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/Utils/RecordedList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/Credits/credits.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Credits/credits.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GA/GA_details/GaPrettifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GA_details/GaPrettifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/GaSimulator/add.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/GaSimulator/add.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/GaSimulator/bin.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/GaSimulator/bin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Point.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Point.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,23 +30,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Programy\Unity\2021.3.11f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath F:\ZPI_all\game\ZPI_game -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="F:\ZPI_all\game\ZPI_game" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -97,6 +94,7 @@
       <workItem from="1666092211358" duration="1085000" />
       <workItem from="1666515621097" duration="3317000" />
       <workItem from="1666799364613" duration="6048000" />
+      <workItem from="1667151102435" duration="1866000" />
     </task>
     <task id="LOCAL-00001" summary="correction - linerenderer">
       <created>1664707339053</created>

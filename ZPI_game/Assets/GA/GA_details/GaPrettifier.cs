@@ -1,9 +1,11 @@
-﻿namespace GA
+﻿using System;
+using System.Collections;
+
+namespace GA
 {
     public class GaPrettifier<T>: IGaPrettifier
     {
         private IGeneticAlgorithm<T> _geneticAlgorithm; // Można dać readonly
-        private const int padding = 8;
 
         public GaPrettifier(IGeneticAlgorithm<T> geneticAlgorithm)
         {
@@ -21,10 +23,10 @@
         {
             if (_geneticAlgorithm.WasNewBestDiscovered())
             {
-                return $"{_geneticAlgorithm.GetIterationNumber(), padding}" +
-                       $"\t{$"{_geneticAlgorithm.GetBestScore():0.00}", padding}" +
-                       $"\t{$"{_geneticAlgorithm.GetDecreasePercentage():0.00}%", padding}" +
-                       $"\t{_geneticAlgorithm.NumbOfIterationsSincePrevChange(), padding}" + "\n";
+                return $"{_geneticAlgorithm.GetIterationNumber(), 11}" +
+                       $"\t{$"{_geneticAlgorithm.GetBestScore():0.00}", 7}" +
+                       $"\t{$"{_geneticAlgorithm.GetDecreasePercentage():0.00}%", 8}" +
+                       $"\t{_geneticAlgorithm.NumbOfIterationsSincePrevChange(), 3}" + "\n";
             }
 
             return "";
@@ -32,7 +34,7 @@
 
         public string GetIterationLogHeader()
         {
-            return $"{"ITERATION", padding}\t{"BEST", padding}\t{"DECREASE", padding}\t{"GAP", padding}\n";
+            return $"{"ITERATION", 11}\t{"BEST", 7}\t{"DECREASE", 8}\t{"GAP", 3}\n";
         }
     }
 }
