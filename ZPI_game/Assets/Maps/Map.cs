@@ -7,14 +7,14 @@ namespace Maps
     public class Map
     {
         public int? MapId { get; set; }
-        public string? CreatorName { get; set; }
+        public int? CreatorId { get; set; }
         public DateTime? CreationDate { get; set; }
         public List<Point> Points { get; set; }
-        public Map(List<Point> points, int? mapId = null, string? creatorName = null, DateTime? creationDate = null)
+        public Map(List<Point> points, int? mapId = null, int? creatorId = null, DateTime? creationDate = null)
         {
             Points = points;
             MapId = mapId;
-            CreatorName = creatorName;
+            CreatorId = creatorId;
             CreationDate = CreationDate;
         }
     }
