@@ -16,7 +16,7 @@ namespace Cutscenes.SpecificCutscenes
         [SerializeField] private GameObject chatPanel;
         [SerializeField] private CryoUI cryo;
         private List<string> textLines;
-        private int currentIndex = 0;
+        private int currentIndex = 1;
 
         private void Awake()
         {
@@ -61,10 +61,7 @@ namespace Cutscenes.SpecificCutscenes
             yield return new WaitForSeconds(0.5f);
             audioSource.Play();
             yield return new WaitForSeconds(1.5f);
-            chatPanel.SetActive(true);
-            yield return NextLine(1);
-            currentIndex += 1;
-            
+            HumanSay();
             yield return new WaitForSeconds(8f);
             HumanSay();
             yield return new WaitForSeconds(8f);
