@@ -16,8 +16,7 @@ public class CreditsScroller : MonoBehaviour
     private void Awake()
     {
         startPosition = transform.position;
-        //creditsText = Resources.Load<TextAsset>("Resources/Credits/credits").text;
-        Debug.Log(creditsText);
+        creditsText = Resources.Load<TextAsset>("Credits/credits").text;
     }
 
     private void Start()
