@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Cutscenes/CutsceneFileReader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Cutscenes/CutsceneFileReader.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Cutscenes/ICutscenePlayable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Cutscenes/ICutscenePlayable.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GA/GA_details/GaPrettifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GA/GA_details/GaPrettifier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/GaSimulator/add.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/GaSimulator/add.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/GaSimulator/bin.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/GaSimulator/bin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Point.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Point.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/Credits/CreditsScroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/Credits/CreditsScroller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu/SceneFader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Menu/SceneFader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Programy\Unity\2021.3.11f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath F:\ZPI_all\game\ZPI_game -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="F:\ZPI_all\game\ZPI_game" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -94,7 +98,9 @@
       <workItem from="1666092211358" duration="1085000" />
       <workItem from="1666515621097" duration="3317000" />
       <workItem from="1666799364613" duration="6048000" />
-      <workItem from="1667151102435" duration="1866000" />
+      <workItem from="1666812411824" duration="2838000" />
+      <workItem from="1666815431950" duration="89000" />
+      <workItem from="1667134923555" duration="7874000" />
     </task>
     <task id="LOCAL-00001" summary="correction - linerenderer">
       <created>1664707339053</created>

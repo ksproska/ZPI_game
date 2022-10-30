@@ -32,7 +32,7 @@ public class SceneFader : MonoBehaviour
     #endregion
 
     #region FADE
-    private IEnumerator Fade(FadeDirection fadeDirection, bool withMusic = false)
+    public IEnumerator Fade(FadeDirection fadeDirection, bool withMusic = false)
     {
         fadeImage.gameObject.SetActive(true);
         float alpha = (fadeDirection == FadeDirection.In) ? 1 : 0;
