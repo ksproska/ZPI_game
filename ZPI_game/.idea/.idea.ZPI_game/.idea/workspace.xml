@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3260cb82-711a-4a21-94eb-5e50ab735905" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Simulation/CityCalculations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Simulation/CityHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Simulation/RunGa.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZPI_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/main_menu/Materials/city_layer3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cutscenes/SpecificCutscenes/IntroductionRegrets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cutscenes/SpecificCutscenes/IntroductionRegrets.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GoToScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GoToScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Simulation.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneHandler.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +19,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scenes/Simulation.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://F:/ZPI_all/game/ZPI_game/Assets/Scenes/Simulation.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DropHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Simulation/ChangePlayButtonSprite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Simulation/CityCalculations.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Simulation/CityHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Simulation/RunGa.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.31/UnityEditor.TestRunner/GUI/Views/EditModeTestListGUI.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">

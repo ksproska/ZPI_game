@@ -2150,15 +2150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879b2ac0754e75b4bae13ff0459fd973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 811502109}
-  history: {fileID: 1014004306}
-  _deltaTime: 0.1
+  generationSize: {fileID: 1553942388}
   selection: {fileID: 205008542}
   crossover: {fileID: 613754336}
   mutation: {fileID: 1228518329}
   crossoverProbability: {fileID: 1872342998}
   mutationProbability: {fileID: 117775623}
-  generationSize: {fileID: 1553942388}
+  textBox: {fileID: 811502109}
+  history: {fileID: 1014004306}
 --- !u!4 &700489790
 Transform:
   m_ObjectHideFlags: 0
@@ -3079,7 +3078,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 70053332}
   m_HandleRect: {fileID: 595950146}
   m_Direction: 0
-  m_MinValue: 0.01
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.1
@@ -4919,7 +4918,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 700489789}
         m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
-        m_MethodName: setRunning
+        m_MethodName: StartStop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4954,7 +4953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18039216, g: 0.31764707, b: 0.2509804, a: 1}
+  m_Color: {r: 0.18039216, g: 0.31764707, b: 0.2509804, a: 0.54901963}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5605,7 +5604,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1860789809}
   m_HandleRect: {fileID: 1860789808}
   m_Direction: 2
-  m_Value: 1.0000012
+  m_Value: 1.0000014
   m_Size: 0.4043865
   m_NumberOfSteps: 0
   m_OnValueChanged:
