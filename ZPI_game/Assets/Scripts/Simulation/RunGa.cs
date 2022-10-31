@@ -13,6 +13,7 @@ public class RunGa : MonoBehaviour
     [SerializeField] private Slider crossoverProbability, mutationProbability;
     [SerializeField] Text currentDetails;
     [SerializeField] Text history;
+    [SerializeField] private DrawGraph _graph;
     
     private List<City> _allCities;
 
@@ -67,6 +68,7 @@ public class RunGa : MonoBehaviour
                 _lastUpdate = 0;
                 currentDetails.text = _gaPrettifier.GetCurrentIterationLog();
                 history.text += _gaPrettifier.GetCurrentIterationLogIfNewBestFound();
+                _graph.AddPointAndUpdate(_ga.GetIterationNumber(), (float)_ga.GetBestScore());
                 var bestGenome = _ga.GetBestGenotype();
                 CityHandler.DrawLines(bestGenome, _allCities);
                 _ga.RunIteration();
@@ -78,7 +80,13 @@ public class RunGa : MonoBehaviour
     {
         if (!_isRunning)
         {
-            _allCities = CityHandler.GetAllCities();
+            _graph.RemoveAllPoints();
+            var newCities = CityHandler.GetAllCities();
+            if (newCities.Count != _allCities.Count)
+            {
+                _graph.ClearBest();
+            }
+            _allCities = newCities;
             SetGa();
         }
         _isRunning = !_isRunning;
