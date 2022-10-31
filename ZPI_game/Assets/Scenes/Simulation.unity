@@ -936,7 +936,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &364541701
 GameObject:
@@ -2130,34 +2130,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 700489790}
-  - component: {fileID: 700489789}
+  - component: {fileID: 700489791}
   m_Layer: 0
-  m_Name: SceneHandler
+  m_Name: SimulationHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &700489789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700489788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879b2ac0754e75b4bae13ff0459fd973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generationSize: {fileID: 1553942388}
-  selection: {fileID: 205008542}
-  crossover: {fileID: 613754336}
-  mutation: {fileID: 1228518329}
-  crossoverProbability: {fileID: 1872342998}
-  mutationProbability: {fileID: 117775623}
-  textBox: {fileID: 811502109}
-  history: {fileID: 1014004306}
 --- !u!4 &700489790
 Transform:
   m_ObjectHideFlags: 0
@@ -2169,11 +2149,30 @@ Transform:
   m_LocalPosition: {x: 400, y: 400, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1298924309}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &700489791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700489788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178aa62c147a69b41bf7d246e6c43c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generationSize: {fileID: 1553942388}
+  selection: {fileID: 205008542}
+  crossover: {fileID: 613754336}
+  mutation: {fileID: 1228518329}
+  crossoverProbability: {fileID: 1872342998}
+  mutationProbability: {fileID: 117775623}
+  currentDetails: {fileID: 811502109}
+  history: {fileID: 1014004306}
 --- !u!1 &743832557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,12 +3080,12 @@ MonoBehaviour:
   m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.1
+  m_Value: 0.4
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700489789}
-        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
+      - m_Target: {fileID: 700489791}
+        m_TargetAssemblyTypeName: RunGa, Assembly-CSharp
         m_MethodName: SetSpeed
         m_Mode: 0
         m_Arguments:
@@ -4469,7 +4468,7 @@ RectTransform:
   - {fileID: 1978361803}
   - {fileID: 2024613716}
   - {fileID: 1410582943}
-  m_Father: {fileID: 700489790}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4916,8 +4915,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700489789}
-        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
+      - m_Target: {fileID: 700489791}
+        m_TargetAssemblyTypeName: RunGa, Assembly-CSharp
         m_MethodName: StartStop
         m_Mode: 1
         m_Arguments:
@@ -5604,7 +5603,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1860789809}
   m_HandleRect: {fileID: 1860789808}
   m_Direction: 2
-  m_Value: 1.0000014
+  m_Value: 0.99999875
   m_Size: 0.4043865
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6624,7 +6623,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1729394312
 GameObject:
@@ -6903,7 +6902,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1794708317
 MonoBehaviour:
@@ -8202,7 +8201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00053250755}
+  m_AnchoredPosition: {x: 0, y: 0.0005038437}
   m_SizeDelta: {x: 0, y: 659.206}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2111441671
