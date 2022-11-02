@@ -78,7 +78,43 @@ namespace Cutscenes.SpecificCutscenes
             CryoSay();
             yield return new WaitForSeconds(4f);
             HumanSay();
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3f); // Huh, what is this!
+            CryoSay();
+            yield return new WaitForSeconds(6f);
+            HumanSay();
+            yield return new WaitForSeconds(6f);
+            cryo.SetBothEyesTypes(EyeType.Sad);
+            cryo.SetMouthType(MouthType.Confused);
+            CryoSay();
+            yield return new WaitForSeconds(2f);
+            HumanSay();
+            yield return new WaitForSeconds(6f);
+            cryo.SetBothEyesTypes(EyeType.Eye);
+            CryoSay(); // oh
+            yield return new WaitForSeconds(2f);
+            CryoSay();
+            yield return new WaitForSeconds(6f);
+            HumanSay();
+            yield return new WaitForSeconds(5f); // I could use a hand
+            cryo.SetBothEyesTypes(EyeType.Eye);
+            cryo.SetMouthType(MouthType.Smile);
+            CryoSay();
+            yield return new WaitForSeconds(7f);
+            HumanSay();
+            yield return new WaitForSeconds(2f);
+            CryoSay();
+            yield return new WaitForSeconds(6f);
+            cryo.SetBothEyesTypes(EyeType.EyeSmall);
+            cryo.SetMouthType(MouthType.Smile);
+            CryoSay();
+            yield return new WaitForSeconds(5f);
+            HumanSay();
+            yield return new WaitForSeconds(1f);
+            cryo.SetRightEyeType(EyeType.Wink);
+            cryo.SetLeftEyeType(EyeType.Eye);
+            cryo.SetMouthType(MouthType.Smile);
+            CryoSay();
+            yield return new WaitForSeconds(3f);
         }
     }
 }
