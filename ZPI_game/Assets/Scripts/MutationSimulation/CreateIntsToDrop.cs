@@ -42,7 +42,7 @@ public class CreateIntsToDrop : MonoBehaviour
         } while (endIndex - beginIndex == 0 || endIndex - beginIndex == -1);
 
         beginGenome = Enumerable.Range(0, 10).OrderBy(elem => rnd.Next()).ToList();
-        RecordedList<int> recordedMutation = new(beginGenome);
+        LabeledRecordedList<int> recordedMutation = new(beginGenome);
         endGenome = MutatorPartialReverser<int>.ReversePartOrder(beginGenome, beginIndex, endIndex, ref recordedMutation);
         steps = recordedMutation.GetFullHistory().Distinct().ToList();
     }

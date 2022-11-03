@@ -75,7 +75,7 @@ public class TutorialController : MonoBehaviour
         } while (endIndex - beginIndex == 0 || endIndex - beginIndex == -1);
 
         beginGenome = staticsListPrefab.GetComponent<GenomCreator>().genomeList;
-        RecordedList<int> recordedMutation = new(beginGenome);
+        LabeledRecordedList<int> recordedMutation = new(beginGenome);
         endGenome = MutatorPartialReverser<int>.ReversePartOrder(beginGenome, beginIndex, endIndex, ref recordedMutation);
         steps = recordedMutation.GetFullHistory().Distinct().ToList();
 
