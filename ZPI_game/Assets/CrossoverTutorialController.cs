@@ -55,7 +55,7 @@ public class CrossoverTutorialController : MonoBehaviour
     [NonSerialized] public List<int> parent1Genome;
     [NonSerialized] public List<int> parent2Genome;
     [NonSerialized] public List<int> childGenome;
-    [NonSerialized] public List<(int, int)> steps;
+    [NonSerialized] public List<(int, int, int)> steps;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +66,8 @@ public class CrossoverTutorialController : MonoBehaviour
 
         levelSlotsList.GetComponent<GenomSlotsCreator>().FillGenome(childGenome);
 
+
+        childGenome = new List<int>(new int[10]);
 
 
     }
@@ -78,7 +80,7 @@ public class CrossoverTutorialController : MonoBehaviour
         parent1Genome = parent1StaticsList.GetComponent<GenomCreator>().genomeList;
         parent2Genome = parent2StaticsList.GetComponent<GenomCreator>().genomeList;
 
-        LabeledRecordedList<int> recordedCrossing = new();
+        LabeledRecordedList<int, int> recordedCrossing = new(childGenome);
         childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength);
         steps = recordedCrossing.GetFullHistory().Distinct().ToList();
 
@@ -218,7 +220,7 @@ public class CrossoverTutorialController : MonoBehaviour
             nextButton.GetComponent<Button>().enabled = false;
             var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
             var drops = parent1tutorialDropsList.GetComponent<GenomCreator>().geneList;
-            var (slot, value) = steps[currentStep];
+            var (slot, value, parent) = steps[currentStep];
             var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
             LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
             lineRenderer.enabled = true;
