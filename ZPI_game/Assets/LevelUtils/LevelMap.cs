@@ -41,13 +41,16 @@ namespace LevelUtils
         }
         private void CreateLevelMap(string filePath)
         {
-            List<LevelInfoJson> defLevelButtonInfos = new List<LevelInfoJson>() {new LevelInfoJson("lvl_learn_1", "lvl_learn_1", 1, null),
-                    new LevelInfoJson("lvl_number_1", "lvl_number_1", 2, new List<int>() {1}),
-                    new LevelInfoJson("lvl_number_2","lvl_number_2", 3, new List<int>() {2}),
-                    new LevelInfoJson("lvl_learn_2","lvl_learn_2", 4, new List<int>() {3}), new LevelInfoJson("lvl_number_3", "lvl_number_3", 5, new List<int>() {4}),
-                    new LevelInfoJson("lvl_number_4", "lvl_number_4", 6, new List<int>() {4}),
-                    new LevelInfoJson("lvl_number_5", "lvl_number_5", 7, new List<int>() {5, 6}),
-                    new LevelInfoJson("lvl_cutscene_1", "lvl_cutscene_1", 8, new List<int>() {7})};
+            List<LevelInfoJson> defLevelButtonInfos = new List<LevelInfoJson>() {
+                    new LevelInfoJson("StoryBeginning", "StoryBeginning", 1, null),
+                    new LevelInfoJson("lvl_learn_1", "lvl_learn_1", 2, new List<int>() {1}),
+                    new LevelInfoJson("lvl_number_1", "lvl_number_1", 3, new List<int>() {2}),
+                    new LevelInfoJson("lvl_number_2","lvl_number_2", 4, new List<int>() {3}),
+                    new LevelInfoJson("lvl_learn_2","lvl_learn_2", 5, new List<int>() {4}),
+                    new LevelInfoJson("lvl_number_3", "lvl_number_3", 6, new List<int>() {5}),
+                    new LevelInfoJson("lvl_number_4", "lvl_number_4", 7, new List<int>() {5}),
+                    new LevelInfoJson("lvl_number_5", "lvl_number_5", 8, new List<int>() {6, 7}),
+                    new LevelInfoJson("lvl_cutscene_1", "lvl_cutscene_1", 9, new List<int>() {8})};
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
             string jsonLevelButtonInfos = JsonSerializer.Serialize(defLevelButtonInfos, options);
             File.WriteAllText(filePath, jsonLevelButtonInfos);

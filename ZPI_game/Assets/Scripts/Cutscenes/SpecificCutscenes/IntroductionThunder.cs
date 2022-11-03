@@ -16,36 +16,27 @@ public class IntroductionThunder : MonoBehaviour, ICutscenePlayable
 
     private void Awake()
     {
-        var allText = Resources.Load<TextAsset>($"Cutscenes/beginning").text;
-        textLines = CutsceneFileReader.GetTextSequence(allText);
-        text.text = "";
-        text.color = Color.white;
+        text.canvasRenderer.SetAlpha(0);
     }
     
-    public IEnumerator NextLine(float fadeTime)
+    public IEnumerator ShowText(float fadeTime)
     {
-        text.CrossFadeAlpha(0, fadeTime, true);
-        currentIndex += 1;
-        yield return new WaitForSeconds(fadeTime);
-        text.text = textLines[currentIndex];
         text.CrossFadeAlpha(1, fadeTime, true);
+        yield return new WaitForSeconds(3);
+        text.CrossFadeAlpha(0, fadeTime, true);
         yield return new WaitForSeconds(fadeTime);
     }
 
     public IEnumerator Play()
     {
+        text.canvasRenderer.SetAlpha(0);
         audioSource.clip = audioClip;
         audioSource.Play();
         fader.canvasRenderer.SetAlpha(0);
         fader.CrossFadeAlpha(0.5f, 2, true);
         yield return new WaitForSeconds(1);
         text.CrossFadeAlpha(1, 1, true);
-        text.canvasRenderer.SetAlpha(0);
-        text.fontStyle = FontStyle.Italic;
-        currentIndex = -1;
-        yield return NextLine(2);
-        yield return new WaitForSeconds(3);
-        text.CrossFadeAlpha(0, 2, true);
+        yield return ShowText(2);
         fader.CrossFadeAlpha(0, 2, true);
         yield return new WaitForSeconds(1f);
         while (audioSource.volume > 0)
