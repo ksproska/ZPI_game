@@ -232,7 +232,15 @@ public class CrossoverTutorialController : MonoBehaviour
             var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
             LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
             lineRenderer.enabled = true;
-            Vector3[] pathPoints = { drop.transform.position - new Vector3(0, 0.63f), slots[slot].transform.position + new Vector3(0, 0.63f) };
+            Vector3[] pathPoints;
+            if (parent == 0)
+            {
+                pathPoints = new Vector3[2] { drop.transform.position - new Vector3(0, 0.63f), slots[slot].transform.position + new Vector3(0, 0.63f)};
+            }
+            else
+            {
+                pathPoints = new Vector3[2] { drop.transform.position + new Vector3(0, 0.63f), slots[slot].transform.position - new Vector3(0, 0.63f) };
+            }
             lineRenderer.SetPositions(pathPoints);
             slider = drop;
             target = slots[slot];
@@ -258,7 +266,6 @@ public class CrossoverTutorialController : MonoBehaviour
             if (parent == 0)
             {
                 statics = parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList;
-
             }
             else
             {
@@ -267,6 +274,14 @@ public class CrossoverTutorialController : MonoBehaviour
             var singleStatic = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{drop.GetComponent<TextMeshProUGUI>().text}").First(); ;
             LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
             Vector3[] pathPoints = { drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
+            if (parent == 0)
+            {
+                pathPoints = new Vector3[2] { drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
+            }
+            else
+            {
+                pathPoints = new Vector3[2] { drop.transform.position - new Vector3(0, 0.63f), singleStatic.transform.position + new Vector3(0, 0.63f) };
+            }
             lineRenderer.SetPositions(pathPoints);
             lineRenderer.enabled = true;
 
