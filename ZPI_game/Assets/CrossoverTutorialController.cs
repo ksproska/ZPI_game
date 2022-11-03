@@ -61,13 +61,13 @@ public class CrossoverTutorialController : MonoBehaviour
     {
         currentStep = 0;
         tutorialStack = new();
+        childGenome = new List<int>(new int[10]);
         CalculateNextCrossing();
 
 
         levelSlotsList.GetComponent<GenomSlotsCreator>().FillGenome(childGenome);
 
 
-        childGenome = new List<int>(new int[10]);
 
 
     }
@@ -81,7 +81,7 @@ public class CrossoverTutorialController : MonoBehaviour
         parent2Genome = parent2StaticsList.GetComponent<GenomCreator>().genomeList;
 
         LabeledRecordedList<int, int> recordedCrossing = new(childGenome);
-        childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength);
+        childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing);
         steps = recordedCrossing.GetFullHistory().Distinct().ToList();
 
         startingIndexTextContainer.text = $"Starting index: {beginIndex}";
@@ -219,14 +219,21 @@ public class CrossoverTutorialController : MonoBehaviour
             previousButton.GetComponent<Button>().enabled = false;
             nextButton.GetComponent<Button>().enabled = false;
             var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
-            var drops = parent1tutorialDropsList.GetComponent<GenomCreator>().geneList;
+            List<GameObject> drops;
             var (slot, value, parent) = steps[currentStep];
+            if (parent == 0)
+            {
+                drops = parent1tutorialDropsList.GetComponent<GenomCreator>().geneList;
+            }
+            else
+            {
+                drops = parent2tutorialDropsList.GetComponent<GenomCreator>().geneList;
+            }
             var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
             LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
             lineRenderer.enabled = true;
             Vector3[] pathPoints = { drop.transform.position - new Vector3(0, 0.63f), slots[slot].transform.position + new Vector3(0, 0.63f) };
             lineRenderer.SetPositions(pathPoints);
-
             slider = drop;
             target = slots[slot];
             //drop.transform.position = slots[slot].transform.position;
@@ -242,12 +249,22 @@ public class CrossoverTutorialController : MonoBehaviour
     {
         if (currentStep > 0)
         {
+            currentStep -= 1;
+            var (_, _, parent) = steps[currentStep];
             previousButton.GetComponent<Button>().enabled = false;
             nextButton.GetComponent<Button>().enabled = false;
+            List<GameObject> statics;
             var drop = tutorialStack.Pop();
-            var statics = parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList;
-            var singleStatic = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{drop.GetComponent<TextMeshProUGUI>().text}").First();
+            if (parent == 0)
+            {
+                statics = parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList;
 
+            }
+            else
+            {
+                statics = parent2tutorialStaticsList.GetComponent<GenomCreator>().geneList;
+            }
+            var singleStatic = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{drop.GetComponent<TextMeshProUGUI>().text}").First(); ;
             LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
             Vector3[] pathPoints = { drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
             lineRenderer.SetPositions(pathPoints);
@@ -257,7 +274,6 @@ public class CrossoverTutorialController : MonoBehaviour
             target = singleStatic;
             //drop.transform.position = singleStatic.transform.position;
 
-            currentStep -= 1;
         }
     }
 }
