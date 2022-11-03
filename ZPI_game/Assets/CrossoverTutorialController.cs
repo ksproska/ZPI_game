@@ -6,9 +6,9 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 using Assets.GA.Utils;
-using GA.mutations;
+using GA;
 
-public class TutorialController : MonoBehaviour
+public class CrossoverTutorialController : MonoBehaviour
 {
     System.Random rnd = new System.Random();
 
@@ -18,21 +18,24 @@ public class TutorialController : MonoBehaviour
     public GameObject levelButton;
     public GameObject tutorialButton;
     public GameObject checkButton;
-    public TextMeshProUGUI StartingIndexTextContainer;
-    public TextMeshProUGUI EndingIndexTextContainer;
-
-
+    public TextMeshProUGUI startingIndexTextContainer;
+    public TextMeshProUGUI segmentLengthTextContainer;
 
     public GameObject tutorialContainer;
     public GameObject levelContainer;
 
-    public GameObject slotListPrefab;
-    public GameObject dropsListPrefab;
-    public GameObject staticsListPrefab;
+    public GameObject parent1DropsList;
+    public GameObject parent2DropsList;
+    public GameObject parent1StaticsList;
+    public GameObject parent2StaticsList;
+    public GameObject levelSlotsList;
+
 
     public GameObject tutorialSlotsList;
-    public GameObject tutorialDropsList;
-    public GameObject tutorialStaticsList;
+    public GameObject parent1tutorialDropsList;
+    public GameObject parent2tutorialDropsList;
+    public GameObject parent1tutorialStaticsList;
+    public GameObject parent2tutorialStaticsList;
 
 
     public GameObject nextButton;
@@ -48,9 +51,10 @@ public class TutorialController : MonoBehaviour
 
 
     [NonSerialized] public int beginIndex;
-    [NonSerialized] public int endIndex;
-    [NonSerialized] public List<int> beginGenome;
-    [NonSerialized] public List<int> endGenome;
+    [NonSerialized] public int segmentLength;
+    [NonSerialized] public List<int> parent1Genome;
+    [NonSerialized] public List<int> parent2Genome;
+    [NonSerialized] public List<int> childGenome;
     [NonSerialized] public List<(int, int)> steps;
     // Start is called before the first frame update
     void Start()
@@ -60,39 +64,39 @@ public class TutorialController : MonoBehaviour
         CalculateNextCrossing();
 
 
-        slotListPrefab.GetComponent<GenomSlotsCreator>().FillGenome(endGenome);
-        
+        levelSlotsList.GetComponent<GenomSlotsCreator>().FillGenome(childGenome);
+
 
 
     }
 
     void CalculateNextCrossing()
     {
-        beginIndex = rnd.Next(0, 9);
-        do
-        {
-            endIndex = rnd.Next(0, 9);
-        } while (endIndex - beginIndex == 0 || endIndex - beginIndex == -1);
+        beginIndex = rnd.Next(0, 8);
+        segmentLength = rnd.Next(1, 9-beginIndex-1);
 
-        beginGenome = staticsListPrefab.GetComponent<GenomCreator>().genomeList;
-        LabeledRecordedList<int> recordedMutation = new(beginGenome);
-        endGenome = MutatorPartialReverser<int>.ReversePartOrder(beginGenome, beginIndex, endIndex, ref recordedMutation);
-        steps = recordedMutation.GetFullHistory().Distinct().ToList();
+        parent1Genome = parent1StaticsList.GetComponent<GenomCreator>().genomeList;
+        parent2Genome = parent2StaticsList.GetComponent<GenomCreator>().genomeList;
 
-        StartingIndexTextContainer.text = $"Starting index: {beginIndex}";
-        EndingIndexTextContainer.text = $"Ending index: {endIndex}";
+        LabeledRecordedList<int> recordedCrossing = new();
+        childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength);
+        steps = recordedCrossing.GetFullHistory().Distinct().ToList();
+
+        startingIndexTextContainer.text = $"Starting index: {beginIndex}";
+        segmentLengthTextContainer.text = $"Segment length: {segmentLength}";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(slider != null && target != null)
+        if (slider != null && target != null)
         {
-            if(slider.transform.position != target.transform.position)
+            if (slider.transform.position != target.transform.position)
             {
-                slider.transform.position = Vector3.MoveTowards(slider.transform.position, target.transform.position, Time.deltaTime*5);
+                slider.transform.position = Vector3.MoveTowards(slider.transform.position, target.transform.position, Time.deltaTime * 5);
             }
-            else{
+            else
+            {
                 slider.GetComponent<LineRenderer>().enabled = false;
                 slider = null;
                 target = null;
@@ -100,7 +104,7 @@ public class TutorialController : MonoBehaviour
                 nextButton.GetComponent<Button>().enabled = true;
             }
         }
-        
+
     }
 
     public void TutorialButtonActivation()
@@ -119,9 +123,11 @@ public class TutorialController : MonoBehaviour
 
         levelContainer.SetActive(false);
         tutorialContainer.SetActive(true);
-        tutorialDropsList.GetComponent<GenomCreator>().CreateNewGenom();
-        tutorialStaticsList.GetComponent<GenomCreator>().CreateNewGenom();
-        tutorialSlotsList.GetComponent<GenomSlotsCreator>().CreateSlots(endGenome);
+        parent1tutorialDropsList.GetComponent<GenomCreator>().CreateNewGenom();
+        parent1tutorialStaticsList.GetComponent<GenomCreator>().CreateNewGenom(); 
+        parent2tutorialDropsList.GetComponent<GenomCreator>().CreateNewGenom();
+        parent2tutorialStaticsList.GetComponent<GenomCreator>().CreateNewGenom();
+        tutorialSlotsList.GetComponent<GenomSlotsCreator>().CreateSlots(childGenome);
         tutorialButton.SetActive(false);
         checkButton.SetActive(false);
         levelButton.SetActive(true);
@@ -133,11 +139,16 @@ public class TutorialController : MonoBehaviour
     {
         DestroyTutorialGrid();
 
-        staticsListPrefab.GetComponent<GenomCreator>().InitializeGenome();
-        staticsListPrefab.GetComponent<GenomCreator>().CreateNewGenom();
-        dropsListPrefab.GetComponent<GenomCreator>().CreateNewGenom();
+        parent1StaticsList.GetComponent<GenomCreator>().InitializeGenome();
+        parent1StaticsList.GetComponent<GenomCreator>().CreateNewGenom();
+        parent1DropsList.GetComponent<GenomCreator>().CreateNewGenom();
+        
+        parent2StaticsList.GetComponent<GenomCreator>().InitializeGenome();
+        parent2StaticsList.GetComponent<GenomCreator>().CreateNewGenom();
+        parent2DropsList.GetComponent<GenomCreator>().CreateNewGenom();
+
         CalculateNextCrossing();
-        slotListPrefab.GetComponent<GenomSlotsCreator>().CreateSlots(endGenome);
+        levelSlotsList.GetComponent<GenomSlotsCreator>().CreateSlots(childGenome);
 
         levelContainer.SetActive(true);
         tutorialContainer.SetActive(false);
@@ -157,11 +168,19 @@ public class TutorialController : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        foreach (Transform child in tutorialDropsList.transform)
+        foreach (Transform child in parent1tutorialDropsList.transform)
         {
             Destroy(child.gameObject);
         }
-        foreach (Transform child in tutorialStaticsList.transform)
+        foreach (Transform child in parent2tutorialDropsList.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in parent1tutorialStaticsList.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in parent2tutorialStaticsList.transform)
         {
             Destroy(child.gameObject);
         }
@@ -169,15 +188,23 @@ public class TutorialController : MonoBehaviour
 
     private void DestroylevelGrid()
     {
-        foreach (Transform child in dropsListPrefab.transform)
+        foreach (Transform child in parent1DropsList.transform)
         {
             Destroy(child.gameObject);
         }
-        foreach (Transform child in slotListPrefab.transform)
+        foreach (Transform child in parent2DropsList.transform)
         {
             Destroy(child.gameObject);
         }
-        foreach (Transform child in staticsListPrefab.transform)
+        foreach (Transform child in levelSlotsList.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in parent1StaticsList.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in parent2StaticsList.transform)
         {
             Destroy(child.gameObject);
         }
@@ -185,17 +212,17 @@ public class TutorialController : MonoBehaviour
 
     public void NextStep()
     {
-        if(currentStep < steps.Count)
+        if (currentStep < steps.Count)
         {
             previousButton.GetComponent<Button>().enabled = false;
             nextButton.GetComponent<Button>().enabled = false;
             var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
-            var drops = tutorialDropsList.GetComponent<GenomCreator>().geneList;
+            var drops = parent1tutorialDropsList.GetComponent<GenomCreator>().geneList;
             var (slot, value) = steps[currentStep];
             var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
             LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
             lineRenderer.enabled = true;
-            Vector3[] pathPoints = { drop.transform.position - new Vector3(0,0.63f), slots[slot].transform.position + new Vector3(0, 0.63f) };
+            Vector3[] pathPoints = { drop.transform.position - new Vector3(0, 0.63f), slots[slot].transform.position + new Vector3(0, 0.63f) };
             lineRenderer.SetPositions(pathPoints);
 
             slider = drop;
@@ -216,11 +243,11 @@ public class TutorialController : MonoBehaviour
             previousButton.GetComponent<Button>().enabled = false;
             nextButton.GetComponent<Button>().enabled = false;
             var drop = tutorialStack.Pop();
-            var statics = tutorialStaticsList.GetComponent<GenomCreator>().geneList;
+            var statics = parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList;
             var singleStatic = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{drop.GetComponent<TextMeshProUGUI>().text}").First();
 
             LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
-            Vector3[] pathPoints = {drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
+            Vector3[] pathPoints = { drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
             lineRenderer.SetPositions(pathPoints);
             lineRenderer.enabled = true;
 
@@ -231,6 +258,4 @@ public class TutorialController : MonoBehaviour
             currentStep -= 1;
         }
     }
-
-
 }
