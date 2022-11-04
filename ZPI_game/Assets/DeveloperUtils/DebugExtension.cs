@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace DeveloperUtils
@@ -28,14 +31,14 @@ namespace DeveloperUtils
         /// <summary>
         /// Extension method that converts a list to a string that is shown in debug.
         /// </summary>
-        /// <param name="list">A list to be debugged</param>
-        /// <param name="sep">A separator delimiting list elements</param>
+        /// <param name="list">a list to be debugged</param>
+        /// <param name="sep">a separator delimiting list elements</param>
         /// <typeparam name="T">Any type</typeparam>
-        public static void DebugString<T>(this List<T> list, string sep = ", ")
+        public static void DebugString<T>([NotNull] this List<T> list, string sep = ", ")
         {
-            var str = "";
-            list.ForEach(elem => str += elem + sep);
-            UnityEngine.Debug.Log(str.Substring(0, str.Length - sep.Length));
+            if (list == null) throw new ArgumentNullException(nameof(list));
+            var str = string.Join(sep, list);
+            UnityEngine.Debug.Log(str);
         }
 
         /// <summary>
