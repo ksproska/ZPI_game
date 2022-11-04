@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cutscenes;
+using Cutscenes.SpecificCutscenes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,5 +25,13 @@ public class CutsceneElement : MonoBehaviour
         //playable ??= GetComponent<ICutscenePlayable>();
         if(playable != null)
             yield return StartCoroutine(playable.Play());
+    }
+
+    public void SaveCutscene()
+    {
+        if(playable is IntroductionRegrets regrets)
+        {
+            regrets.SaveCutscene();
+        }
     }
 }

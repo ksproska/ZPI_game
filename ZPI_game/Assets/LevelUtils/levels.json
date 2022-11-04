@@ -1,50 +1,56 @@
 [
     {
-        "GameObjectName": "lvl_learn_1",
-        "LevelName": "lvl_learn_1",
+        "GameObjectName": "StoryBeginning",
+        "LevelName": "StoryBeginning",
         "LevelNumber": 1,
         "PrevLevels": null
     },
     {
-        "GameObjectName": "lvl_number_1",
-        "LevelName": "lvl_number_1",
+        "GameObjectName": "lvl_learn_1",
+        "LevelName": "lvl_learn_1",
         "LevelNumber": 2,
         "PrevLevels": [1]
     },
     {
-        "GameObjectName": "lvl_number_2",
-        "LevelName": "lvl_number_2",
+        "GameObjectName": "lvl_number_1",
+        "LevelName": "lvl_number_1",
         "LevelNumber": 3,
         "PrevLevels": [2]
     },
     {
-        "GameObjectName": "lvl_learn_2",
-        "LevelName": "lvl_learn_2",
+        "GameObjectName": "lvl_number_2",
+        "LevelName": "lvl_number_2",
         "LevelNumber": 4,
         "PrevLevels": [3]
     },
     {
-        "GameObjectName": "lvl_number_3",
-        "LevelName": "lvl_number_3",
+        "GameObjectName": "lvl_learn_2",
+        "LevelName": "lvl_learn_2",
         "LevelNumber": 5,
         "PrevLevels": [4]
     },
     {
+        "GameObjectName": "lvl_number_3",
+        "LevelName": "lvl_number_3",
+        "LevelNumber": 6,
+        "PrevLevels": [5]
+    },
+    {
         "GameObjectName": "lvl_number_4",
         "LevelName": "lvl_number_4",
-        "LevelNumber": 6,
-        "PrevLevels": [4]
+        "LevelNumber": 7,
+        "PrevLevels": [5]
     },
     {
         "GameObjectName": "lvl_number_5",
         "LevelName": "lvl_number_5",
-        "LevelNumber": 7,
-        "PrevLevels": [5, 6]
+        "LevelNumber": 8,
+        "PrevLevels": [6, 7]
     },
     {
         "GameObjectName": "lvl_cutscene_1",
         "LevelName": "lvl_cutscene_1",
-        "LevelNumber": 8,
-        "PrevLevels": [7]
+        "LevelNumber": 9,
+        "PrevLevels": [8]
     }
 ]
