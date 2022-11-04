@@ -20,9 +20,9 @@ namespace Maps
     }
     public struct Point
     {
-        public float X { get; set; }
-        public float Y { get; set; }
-        public Point(float x, float y)
+        public int X { get; set; }
+        public int Y { get; set; }
+        public Point(int x, int y)
         {
             X = x;
             Y = y;
