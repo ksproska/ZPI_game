@@ -8,6 +8,16 @@ routes = Blueprint('routes', __name__)
 def hello_world():
     return '<p>Hello, World!</p>'
 
+@routes.route('/api/maps')
+def get_maps():
+    maps = ReadQueries.get_maps()
+    return jsonify(Schemas.maps_schema.dump(maps))
+
+@routes.route('/api/map/<int:map_id>')
+def get_map(map_id):
+    map = ReadQueries.get_map(map_id)
+    return jsonify(Schemas.map_schema.dump(map))
+
 @routes.route('/api/map_ids')
 def get_map_ids():
     maps = ReadQueries.get_maps()
