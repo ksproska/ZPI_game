@@ -45,6 +45,48 @@ namespace Webserver
                 return null;
             }
         }
+        public static async Task<List<Map>> GetMaps()
+        {
+            using UnityWebRequest wr = new UnityWebRequest("http://localhost:5000/api/maps", "GET");
+            wr.downloadHandler = new DownloadHandlerBuffer();
+
+            var asyncOperation = wr.SendWebRequest();
+
+            while (!asyncOperation.isDone)
+            {
+                await Task.Yield();
+            }
+            if (wr.result == UnityWebRequest.Result.Success)
+            {
+                string jsonResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
+                return JsonSerializer.Deserialize<List<Map>>(jsonResp);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static async Task<Map> GetMap(int mapId)
+        {
+            using UnityWebRequest wr = new UnityWebRequest($"http://localhost:5000/api/map/{mapId}", "GET");
+            wr.downloadHandler = new DownloadHandlerBuffer();
+
+            var asyncOperation = wr.SendWebRequest();
+
+            while (!asyncOperation.isDone)
+            {
+                await Task.Yield();
+            }
+            if (wr.result == UnityWebRequest.Result.Success)
+            {
+                string jsonResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
+                return JsonSerializer.Deserialize<Map>(jsonResp);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static async Task<List<Point>> GetMapsPoints(int mapId)
         {
             using UnityWebRequest wr = new UnityWebRequest($"http://localhost:5000/api/points/{mapId}", "GET");
