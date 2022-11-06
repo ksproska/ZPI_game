@@ -1,9 +1,12 @@
 
+using Extensions;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelUtils
 {
@@ -54,6 +57,31 @@ namespace LevelUtils
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
             string jsonLevelButtonInfos = JsonSerializer.Serialize(defLevelButtonInfos, options);
             File.WriteAllText(filePath, jsonLevelButtonInfos);
+        }
+        private List<LevelButtonInfo> LoadLevels()
+        {
+            List<Scene> scenes = GetScenes().Where(scn => scn.IsNavigableFromMap()).ToList();
+            List<int> completed = LoadSaveHelper.Instance.GetSlot(_currSlot);
+            List<LevelButtonInfo> levelInfos = scenes.Select(scn => new LevelButtonInfo(scn.GetClearName(), scn.GetClearName(), scn.GetSceneNumber(), true, null)).ToList();
+            levelInfos.ForEach(lvlInfo => lvlInfo.IsFinished = completed.Contains(lvlInfo.LevelNumber));
+            levelInfos.Join(scenes, levelInf => levelInf.LevelName, scn => scn.GetClearName(), (levelInf, scn) => new { LevelInfo = levelInf, Scene = scn }).ToList().
+                ForEach(elem => {
+                    List<int> prevLevelNums = elem.Scene.GetPreviousLevels();
+                    elem.LevelInfo.PrevLevels = levelInfos.Where(lvlInfo => prevLevelNums.Contains(lvlInfo.LevelNumber)).ToList();
+                });
+            return levelInfos;
+        }
+        private List<Scene> GetScenes()
+        {
+            List<Scene> scenes = new List<Scene>();
+            foreach (var scene in EditorBuildSettings.scenes)
+            {
+                if (scene.enabled)
+                {
+                    scenes.Add(SceneManager.GetSceneByPath(scene.path));
+                }
+            }
+            return scenes;
         }
         private List<LevelButtonInfo> LoadFromJson(string filePath)
         {
