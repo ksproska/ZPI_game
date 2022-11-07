@@ -57,7 +57,7 @@ def create_user():
     except IntegrityError as i_err:
         return f'{i_err.statement}', 409
     usr = CreateQueries.create_user(usr)
-    return str(usr.user_id), 200
+    return 'User created', 200
 
 
 def get_routes():
