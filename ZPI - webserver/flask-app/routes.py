@@ -6,6 +6,9 @@ from db_models import Users
 from db_queries import ReadQueries, CreateQueries
 from client_data_validator import ClientDataValidator
 from database_validator import DatabaseValidator
+from hashlib import sha256
+from hmac import compare_digest
+
 
 routes = Blueprint('routes', __name__)
 
@@ -58,6 +61,24 @@ def create_user():
         return f'{i_err.statement}', 409
     usr = CreateQueries.create_user(usr)
     return 'User created', 200
+
+@routes.route('/api/auth', methods=['POST'])
+def authenticate_user():
+    user_creds_serialized = request.json
+    try:
+        ClientDataValidator.validate_user_creds(user_creds_serialized)
+    except ValidationError as v_err:
+        return f'{v_err.messages[0]}', 409
+    usr = ReadQueries.get_user(user_creds_serialized['Email'])
+    if usr is None:
+        return 'User with this email address and password couldn\'t be found!', 401
+    sha_engine = sha256()
+    sha_engine.update(user_creds_serialized['Password'].encode(encoding='utf-8'))
+    pass_sha = sha_engine.hexdigest()
+    if not compare_digest(pass_sha, usr.password):
+        return 'User with this email address and password couldn\'t be found!', 401
+
+    return jsonify(Schemas.user_schema.dump(usr)), 200
 
 
 def get_routes():
