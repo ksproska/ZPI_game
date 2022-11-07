@@ -6,7 +6,8 @@ namespace GA
 {
     public enum MutationType
     {
-        PartialReverser
+        RSM,
+        Thrors
     }
     public abstract class FactoryMutation
     {
@@ -14,8 +15,10 @@ namespace GA
         {
             switch (mutationType)
             {
-                case MutationType.PartialReverser:
-                    return new MutatorPartialReverser<T>();
+                case MutationType.RSM:
+                    return new MutatorReverseSequence<T>();
+                case MutationType.Thrors:
+                    return new MutatorThrors<T>();
             }
 
             throw new NotImplementedException(); // To nie lepiej w defaulcie?
@@ -25,7 +28,8 @@ namespace GA
         {
             return new Dictionary<string, MutationType>()
             {
-                { "Reverse random part of genotype", MutationType.PartialReverser }
+                { "RSM", MutationType.RSM },
+                { "Thrors", MutationType.Thrors },
             };
         }
     }

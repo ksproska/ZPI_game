@@ -5051,6 +5051,7 @@ GameObject:
   - component: {fileID: 1410582945}
   - component: {fileID: 1410582944}
   - component: {fileID: 1410582947}
+  - component: {fileID: 1410582948}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5147,6 +5148,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1410582948}
+        m_TargetAssemblyTypeName: DisableEnabeObjects, Assembly-CSharp
+        m_MethodName: DisableEnable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1410582945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5200,6 +5213,27 @@ MonoBehaviour:
   play: {fileID: 21300000, guid: 378e80e6725a18545aaec12b05de1dac, type: 3}
   pause: {fileID: 21300000, guid: 878b3ed6095a7b841b8096d0572e7c85, type: 3}
   image: {fileID: 651527168}
+--- !u!114 &1410582948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410582942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1df034579180a71b0f9141fb58bb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 205008542}
+  - {fileID: 613754336}
+  - {fileID: 1228518329}
+  - {fileID: 1872342998}
+  - {fileID: 117775623}
+  - {fileID: 1553942388}
+  - {fileID: 1093015964}
+  areDisabled: 0
 --- !u!1001 &1447193206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5811,7 +5845,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1860789809}
   m_HandleRect: {fileID: 1860789808}
   m_Direction: 2
-  m_Value: 0.99999905
+  m_Value: 0.9999989
   m_Size: 0.11297531
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6638,10 +6672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3589da78cff950747b8abcfc1d9449ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8568719466107635506, guid: a1c4b85240d891047a95ae14671f8e17, type: 3}
-  graph: {fileID: 1606933754}
-  leftCorner: {fileID: 1025438041}
-  rightCorner: {fileID: 1055070995}
 --- !u!1 &1611249347
 GameObject:
   m_ObjectHideFlags: 0
@@ -8330,6 +8360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: WorldMap
   clip: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &2024613718
 MonoBehaviour:
   m_ObjectHideFlags: 0

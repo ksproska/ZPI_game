@@ -33,7 +33,7 @@ namespace GA
                 selector.SetArgs(0.3);
                 var ga = new GeneticAlgorithm(grid, generationSize, 
                     selector,
-                    new MutatorPartialReverser<int>(), 0.3,
+                    new MutatorReverseSequence<int>(), 0.3,
                     new CrosserPartiallyMatched(), 0.3
                     );
         
