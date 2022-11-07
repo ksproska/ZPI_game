@@ -26,7 +26,6 @@ public class GenomSlotsCreator : MonoBehaviour
                 staticAdded.transform.position += new Vector3(i * 1.25f, 0, 0);
                 geneList.Add(staticAdded);
             }
-
         }
     }
 
@@ -48,6 +47,7 @@ public class GenomSlotsCreator : MonoBehaviour
 
     public void FillGenome(List<int> input)
     {
+        Debug.Log(geneList.Count);
         for (int i = 0; i < geneList.Count; i++)
         {
             geneList[i].GetComponent<DropSlot>().expectedContents = $"{input[i]}";
