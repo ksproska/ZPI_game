@@ -596,7 +596,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlotGenome
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8745078801489820351, guid: 226587b2a7a813d45ac8fca29db7410d, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 51125089691554381, guid: c73b81088ebfdab408cad7da2caa0df6, type: 3}
+    m_RemovedComponents:
+    - {fileID: 3366902945951418827, guid: 226587b2a7a813d45ac8fca29db7410d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 226587b2a7a813d45ac8fca29db7410d, type: 3}
 --- !u!224 &764204223 stripped
 RectTransform:
@@ -1507,7 +1512,7 @@ PrefabInstance:
     - target: {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: otherGenome
       value: 
-      objectReference: {fileID: 264384114875051857}
+      objectReference: {fileID: 0}
     - target: {fileID: 2446375855545767843, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1608,7 +1613,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DropGenome
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 2802800165413832587, guid: d1e7916644e436f4f9c0b4edf73bd090, type: 3}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: otherGenome
+      value: 
+      objectReference: {fileID: 264384114875051858}
+    m_RemovedComponents:
+    - {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
 --- !u!224 &1346892369 stripped
 RectTransform:
@@ -1833,7 +1847,7 @@ PrefabInstance:
     - target: {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: otherGenome
       value: 
-      objectReference: {fileID: 264384114875051857}
+      objectReference: {fileID: 0}
     - target: {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: initializeGrid
       value: 1
@@ -1926,7 +1940,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: GenomeDrops
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 8151543383315115644, guid: 97cfbd12858c0c345ab2c9074907fef6, type: 3}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: otherGenome
+      value: 
+      objectReference: {fileID: 264384114875051858}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: initializeGrid
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
 --- !u!1 &1584916699
 GameObject:
@@ -1982,7 +2009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57773a060312f4748992205869847a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 
+  scene: WorldMap
   clip: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!114 &1584916702
@@ -2294,7 +2321,7 @@ PrefabInstance:
     - target: {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: otherGenome
       value: 
-      objectReference: {fileID: 264384114875051857}
+      objectReference: {fileID: 0}
     - target: {fileID: 2446375855545767843, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2395,7 +2422,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: StaticGenome
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 8151543383315115644, guid: 641b8cc65a26b99428f8fabbcf3fa8a0, type: 3}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: otherGenome
+      value: 
+      objectReference: {fileID: 264384114875051858}
+    m_RemovedComponents:
+    - {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
 --- !u!224 &1841469733 stripped
 RectTransform:
@@ -2910,22 +2946,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: GenomeStatics
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 8151543383315115644, guid: 641b8cc65a26b99428f8fabbcf3fa8a0, type: 3}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: initializeGrid
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: initializeGenome
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
 --- !u!224 &264384114875051856 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2446375855545767843, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
   m_PrefabInstance: {fileID: 264384114875051855}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &264384114875051857 stripped
+--- !u!114 &264384114875051858 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -7595837519226928128, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
   m_PrefabInstance: {fileID: 264384114875051855}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879905751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5f259d779e494a47825c26f8f1a1236, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c77d425bdcf77c429df0b7517a06a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4437517193794206066
@@ -3031,5 +3080,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GenomeSlots
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8745078801489820351, guid: 226587b2a7a813d45ac8fca29db7410d, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 51125089691554381, guid: c73b81088ebfdab408cad7da2caa0df6, type: 3}
+    - target: {fileID: 8745078801489820351, guid: 226587b2a7a813d45ac8fca29db7410d, type: 3}
+      propertyPath: initialize
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3366902945951418827, guid: 226587b2a7a813d45ac8fca29db7410d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 226587b2a7a813d45ac8fca29db7410d, type: 3}

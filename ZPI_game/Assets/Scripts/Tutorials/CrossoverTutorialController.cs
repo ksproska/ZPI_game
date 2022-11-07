@@ -74,8 +74,8 @@ public class CrossoverTutorialController : MonoBehaviour
 
     void CalculateNextCrossing()
     {
-        beginIndex = rnd.Next(0, 8);
-        segmentLength = rnd.Next(1, 9-beginIndex-1);
+        beginIndex = rnd.Next(0, 7);
+        segmentLength = rnd.Next(2, 9-beginIndex-1);
 
         parent1Genome = parent1StaticsList.GetComponent<GenomCreator>().genomeList;
         parent2Genome = parent2StaticsList.GetComponent<GenomCreator>().genomeList;
