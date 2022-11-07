@@ -28,6 +28,7 @@ namespace CurrentState
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
             }
+            CurrentUserId = -1;
             UserSettings userSettings = GetUserSettings();
             _isMusicOn = userSettings.MusicOn;
             _musicVolume = userSettings.MusicVolume;
@@ -92,6 +93,8 @@ namespace CurrentState
         }
         public LoadSaveHelper.SlotNum CurrentSlot { get; set; }
         public string CurrentLevelName { get; set; }
+        public int CurrentUserId { get; set; }
+        public string CurrentUserNickname { get; set; }
         
         public bool IsMusicOn
         {
