@@ -6,7 +6,8 @@ namespace GA
     public enum CrossoverType
     {
         PartiallyMatched,
-        Order
+        Order,
+        Cycle
     }
     public class FactoryCrossover
     {
@@ -18,6 +19,8 @@ namespace GA
                     return new CrosserPartiallyMatched();
                 case CrossoverType.Order:
                     return new CrosserOrder();
+                case CrossoverType.Cycle:
+                    return new CrosserCycle();
             }
 
             throw new NotImplementedException(); // To nie lepiej w defaulcie?
@@ -29,6 +32,7 @@ namespace GA
             {
                 { "PMX", CrossoverType.PartiallyMatched },
                 { "OX", CrossoverType.Order},
+                { "CX", CrossoverType.Cycle},
             };
         }
     }
