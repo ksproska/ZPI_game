@@ -53,12 +53,12 @@ def create_user():
     try:
         ClientDataValidator.validate_user(user_serialized)
     except ValidationError as v_err:
-        return f'{v_err.messages[0]}', 409
+        return f'{v_err.messages[0]}', 400
     usr = Users(user_serialized['Email'], user_serialized['Nickname'], user_serialized['Password'])
     try:
         DatabaseValidator.unique_usr_validation(usr)
     except IntegrityError as i_err:
-        return f'{i_err.statement}', 409
+        return f'{i_err.statement}', 400
     usr = CreateQueries.create_user(usr)
     return 'User created', 200
 
@@ -68,7 +68,7 @@ def authenticate_user():
     try:
         ClientDataValidator.validate_user_creds(user_creds_serialized)
     except ValidationError as v_err:
-        return f'{v_err.messages[0]}', 409
+        return f'{v_err.messages[0]}', 400
     usr = ReadQueries.get_user(user_creds_serialized['Email'])
     if usr is None:
         return 'User with this email address and password couldn\'t be found!', 401
