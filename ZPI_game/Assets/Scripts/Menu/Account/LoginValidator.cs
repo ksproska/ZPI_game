@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Webserver;
 
 namespace Assets.Scripts.Menu.Account
 {
@@ -18,29 +19,63 @@ namespace Assets.Scripts.Menu.Account
         [SerializeField] private TextMeshProUGUI passwordText;
         [SerializeField] private Text passwordValidationText;
 
-        [SerializeField] private GameObject connectionInfoFrame;
-
-        private Regex emailRegex;
+        [SerializeField] private ConnectionErrorBox errorInfoFrame;
 
 
         private void Start()
         {
-            emailRegex = new(@"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*
-                             @((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$");
             loginValidationText.text = "";
             passwordValidationText.text = "";
         }
 
-        public void SendData()
+        public async void SendData()
         {
             var login = loginText.text;
             var password = passwordText.text;
-            // SomeController.SendData(login, password);
-            bool hasInternetConnection = false;
-            if(!hasInternetConnection)
+            User user = new(login, password);
+            var (unityResponse, serverString) = await Auth.AuthenticateUser(user);
+            switch(unityResponse)
             {
-                connectionInfoFrame.SetActive(true);
+                case UnityEngine.Networking.UnityWebRequest.Result.Success:
+                    OnSuccess();
+                    break;
+                case UnityEngine.Networking.UnityWebRequest.Result.ConnectionError:
+                    OnConnectionError();
+                    break;
+                case UnityEngine.Networking.UnityWebRequest.Result.DataProcessingError:
+                    OnDataProcessingError();
+                    break;
+                case UnityEngine.Networking.UnityWebRequest.Result.ProtocolError: // bad username and password
+                    OnProtocolError();
+                    break;
             }
+        }
+
+        private void OnSuccess()
+        {
+            errorInfoFrame.SetCryoEyeType(Cryo.Script.EyeType.Happy);
+            errorInfoFrame.SetCryoMouthType(Cryo.Script.MouthType.Smile);
+            errorInfoFrame.SetErrorText("You have been logged in successfully!");
+
+        }
+
+        private void OnConnectionError()
+        {
+            errorInfoFrame.SetCryoEyeType(Cryo.Script.EyeType.Sad);
+            errorInfoFrame.SetCryoMouthType(Cryo.Script.MouthType.Confused);
+            errorInfoFrame.SetErrorText("No nternet connection. Please check your internet connection or try again later.");
+            errorInfoFrame.gameObject.SetActive(true);
+        }
+
+        private void OnProtocolError()
+        {
+            loginValidationText.text = "Username or password is not correct.";
+            passwordValidationText.text = "Username or password is not correct.";
+        }
+
+        private void OnDataProcessingError()
+        {
+
         }
 
     }

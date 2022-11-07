@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Webserver;
 
 namespace Assets.Scripts.Menu.Account
 {
@@ -56,7 +57,7 @@ namespace Assets.Scripts.Menu.Account
             var name = nameText.text;
             var login = loginText.text;
             var password = passwordText.text;
-
+            User user = new(login, name, password);
             // CreateAccount(name, login, valid)
             accountCreatedText.text = "Hooray! Your account has been successfully created!";
             cryo.SetBothEyesTypes(Cryo.Script.EyeType.Happy);
@@ -70,7 +71,7 @@ namespace Assets.Scripts.Menu.Account
             loginValidationText.text = "";
             if (!emailRegex.IsMatch(email))
             {
-                loginValidationText.text = "Incorrect email format";
+                loginValidationText.text = "Incorrect email format.";
                 return false;
             }
             return true;
@@ -83,7 +84,7 @@ namespace Assets.Scripts.Menu.Account
             passwordValidationText.text = "";
             if (password.Length < 12)
             {
-                passwordValidationText.text = "Password should have at least 12 characters";
+                passwordValidationText.text = "Password should have at least 12 characters.";
                 return false;
             }
             if(password != confirmPassword)
@@ -100,7 +101,7 @@ namespace Assets.Scripts.Menu.Account
             nameValidationText.text = "";
             if (name.Trim().Length < 3)
             {
-                nameValidationText.text = "Name should have at least 3 characters";
+                nameValidationText.text = "Name should have at least 3 characters.";
                 return false;
             }
             return true;

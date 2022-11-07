@@ -150,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &65822835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2043,7 +2043,7 @@ MonoBehaviour:
   loginValidationText: {fileID: 1400891229}
   passwordText: {fileID: 264402849}
   passwordValidationText: {fileID: 178475314}
-  connectionInfoFrame: {fileID: 916152740}
+  errorInfoFrame: {fileID: 0}
 --- !u!224 &572246599 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
@@ -3149,7 +3149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &916152741
 RectTransform:
   m_ObjectHideFlags: 0
