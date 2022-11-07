@@ -52,6 +52,8 @@ public class TutorialController : MonoBehaviour
     [NonSerialized] public List<int> beginGenome;
     [NonSerialized] public List<int> endGenome;
     [NonSerialized] public List<(int, int)> steps;
+
+    [SerializeField] private List<Color> colors;
     // Start is called before the first frame update
     void Start()
     {
@@ -191,6 +193,7 @@ public class TutorialController : MonoBehaviour
             nextButton.GetComponent<Button>().enabled = false;
             var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
             var drops = tutorialDropsList.GetComponent<GenomCreator>().geneList;
+            ColorCells();
             var (slot, value) = steps[currentStep];
             var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
             LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
@@ -213,6 +216,9 @@ public class TutorialController : MonoBehaviour
     {
         if (currentStep > 0)
         {
+            currentStep -= 2;
+            ColorCells();
+            currentStep += 1;
             previousButton.GetComponent<Button>().enabled = false;
             nextButton.GetComponent<Button>().enabled = false;
             var drop = tutorialStack.Pop();
@@ -228,7 +234,46 @@ public class TutorialController : MonoBehaviour
             target = singleStatic;
             //drop.transform.position = singleStatic.transform.position;
 
-            currentStep -= 1;
+        }
+    }
+
+    private void ColorCells()
+    {
+        var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
+        var statics = tutorialStaticsList.GetComponent<GenomCreator>().geneList;
+        int previousCells;
+        if (currentStep >= 2)
+        {
+            previousCells = 3;
+        }
+        else
+        {
+            previousCells = currentStep + 1;
+        }
+
+        foreach(var step in slots)
+        {
+            var image = step.GetComponent<Image>();
+            var tempColor = Color.black;
+            tempColor.a = 0.4f;
+            image.color = tempColor;
+        }
+
+        foreach(var step in statics)
+        {
+            var image = step.GetComponentInChildren<Image>();
+            Color tempColor = new();
+            tempColor.a = 0f;
+            image.color = tempColor;
+        }
+
+        for(int i = 0; i < previousCells; i++)
+        {
+            var (slot, value) = steps[currentStep-i];
+            var staticElem = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
+            var slotElem = slots[slot];
+            staticElem.GetComponentInChildren<Image>().color = colors[i];
+            slotElem.GetComponent<Image>().color = colors[i];
         }
     }
 

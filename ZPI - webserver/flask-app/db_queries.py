@@ -10,6 +10,10 @@ class ReadQueries():
     def get_points(map_id):
         return Points.query.filter(Points.map_id == map_id)
     
+    @staticmethod
+    def get_map(map_id):
+        return Maps.query.filter(Maps.map_id == map_id).first()
+    
 class CreateQueries():
 
     db_con = get_db()

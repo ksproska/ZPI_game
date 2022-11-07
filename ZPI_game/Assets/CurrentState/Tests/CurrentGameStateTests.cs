@@ -58,7 +58,7 @@ namespace CurrentState
             CurrentGameState.Instance.AreEffectsOn = userSettingsTC.effectsOn;
             CurrentGameState.Instance.EffectsVolume = userSettingsTC.effectsVolume;
             string jsonFile = File.ReadAllText(CurrentGameState.JSON_FILE_NAME_TESTS);
-            UserSettingsJson savedFile = JsonSerializer.Deserialize<UserSettingsJson>(jsonFile);
+            UserSettings savedFile = JsonSerializer.Deserialize<UserSettings>(jsonFile);
             Assert.AreEqual(userSettingsTC.musicOn, savedFile.MusicOn);
             Assert.AreEqual(userSettingsTC.musicVolume, savedFile.MusicVolume);
             Assert.AreEqual(userSettingsTC.effectsOn, savedFile.EffectsOn);
@@ -71,7 +71,7 @@ namespace CurrentState
 
             yield return null;
 
-            UserSettingsJson defUserSettings = new UserSettingsJson(true, 0.5f, false, 0.5f);
+            UserSettings defUserSettings = new UserSettings(true, 0.5f, false, 0.5f);
             string defSettingsJson = JsonSerializer.Serialize(defUserSettings);
             File.WriteAllText(CurrentGameState.JSON_FILE_NAME_TESTS, defSettingsJson);
         }

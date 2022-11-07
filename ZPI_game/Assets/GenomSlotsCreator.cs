@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 using TMPro;
+using UnityEngine.UI;
 
 public class GenomSlotsCreator : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class GenomSlotsCreator : MonoBehaviour
             {
                 var staticAdded = Instantiate(prefab, gameObject.transform.position, Quaternion.identity,
                     transform);
+                var index = staticAdded.GetComponentInChildren<Text>();
+                index.text = $"{i}";
                 staticAdded.transform.position += new Vector3(i * 1.25f, 0, 0);
                 geneList.Add(staticAdded);
             }
@@ -34,6 +37,8 @@ public class GenomSlotsCreator : MonoBehaviour
         {
             var staticAdded = Instantiate(prefab, gameObject.transform.position, Quaternion.identity,
                 transform);
+            var index = staticAdded.GetComponentInChildren<Text>();
+            index.text = $"{i}";
             staticAdded.transform.position += new Vector3(i * 1.25f, 0, 0);
             staticAdded.GetComponent<DropSlot>().expectedContents = $"{input[i]}";
             geneList.Add(staticAdded);

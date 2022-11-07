@@ -8,8 +8,9 @@ namespace CurrentState
 {
     public class CurrentGameState : MonoBehaviour
     {
-        public const string JSON_FILE_NAME = "\\CurrentState\\user_settings.json";
         public const string JSON_FILE_NAME_TESTS = "Assets\\CurrentState\\Tests\\user_settings.json";
+        public const int TRUE = 1;
+        public const int FALSE = 0;
         private bool _isMusicOn;
         private float _musicVolume;
         private bool _areEffectsOn;
@@ -27,39 +28,71 @@ namespace CurrentState
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
             }
-            UserSettingsJson userSettings = GetUserSettings(Application.persistentDataPath + JSON_FILE_NAME);
+            UserSettings userSettings = GetUserSettings();
             _isMusicOn = userSettings.MusicOn;
             _musicVolume = userSettings.MusicVolume;
             _areEffectsOn = userSettings.EffectsOn;
             _effectsVolume = userSettings.EffectsVolume;
         }
-        private void CreateDefUsrSettFile(string configFilePath)
+        private void CreateDefUsrSett()
         {
-            UserSettingsJson userSettings = new UserSettingsJson(true, 0.5f, true, 0.5f);
+            PlayerPrefs.SetInt("MusicOn", TRUE);
+            PlayerPrefs.SetFloat("MusicVolume", 0.5f);
+            PlayerPrefs.SetInt("EffectsOn", TRUE);
+            PlayerPrefs.SetFloat("EffectsVolume", 0.5f);
+        }
+        private void CreateDefUsrSettFile()
+        {
+            UserSettings userSettings = new UserSettings(true, 0.5f, true, 0.5f);
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
             string jsonStringUS = JsonSerializer.Serialize(userSettings, options);
-            File.WriteAllText(configFilePath, jsonStringUS);
+            File.WriteAllText(JSON_FILE_NAME_TESTS, jsonStringUS);
         }
-        private UserSettingsJson GetUserSettings(string configFilePath)
+        private UserSettings GetUserSettingsForTests()
         {
-            new FileInfo(configFilePath).Directory.Create();
-            if (!File.Exists(configFilePath))
-                CreateDefUsrSettFile(configFilePath);
-            string jsonFile = File.ReadAllText(configFilePath);
-            return JsonSerializer.Deserialize<UserSettingsJson>(jsonFile);
+            new FileInfo(JSON_FILE_NAME_TESTS).Directory.Create();
+            if (!File.Exists(JSON_FILE_NAME_TESTS))
+                CreateDefUsrSettFile();
+            string jsonFile = File.ReadAllText(JSON_FILE_NAME_TESTS);
+            return JsonSerializer.Deserialize<UserSettings>(jsonFile);
+        }
+        private UserSettings GetUserSettings()
+        {
+            
+            if (!ArePlayerPrefsSet())
+                CreateDefUsrSett();
+            return new UserSettings (
+                    PlayerPrefs.GetInt("MusicOn") == TRUE,
+                    PlayerPrefs.GetFloat("MusicVolume"),
+                    PlayerPrefs.GetInt("EffectsOn") == TRUE,
+                    PlayerPrefs.GetFloat("EffectsVolume")
+                );
+        }
+        private bool ArePlayerPrefsSet()
+        {
+            return PlayerPrefs.HasKey("MusicOn") && PlayerPrefs.HasKey("MusicVolume") && PlayerPrefs.HasKey("EffectsOn") && PlayerPrefs.HasKey("EffectsVolume");
         }
         private void SaveUserSettings()
         {
-            UserSettingsJson userSettings = new UserSettingsJson(_isMusicOn, _musicVolume, _areEffectsOn, _effectsVolume);
-            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-            string jsonStringUS = JsonSerializer.Serialize(userSettings, options);
+            UserSettings userSettings = new UserSettings(_isMusicOn, _musicVolume, _areEffectsOn, _effectsVolume);
+            
             if (_isTestConfig)
+            {
+                JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+                string jsonStringUS = JsonSerializer.Serialize(userSettings, options);
                 File.WriteAllText(JSON_FILE_NAME_TESTS, jsonStringUS);
+            }  
             else
-                File.WriteAllText(Application.persistentDataPath + JSON_FILE_NAME, jsonStringUS);
+            {
+                PlayerPrefs.SetInt("MusicOn", userSettings.MusicOn ? TRUE : FALSE);
+                PlayerPrefs.SetFloat("MusicVolume", userSettings.MusicVolume);
+                PlayerPrefs.SetInt("EffectsOn", userSettings.EffectsOn ? TRUE : FALSE);
+                PlayerPrefs.SetFloat("EffectsVolume", userSettings.EffectsVolume);
+            }
         }
         public LoadSaveHelper.SlotNum CurrentSlot { get; set; }
         public string CurrentLevelName { get; set; }
+        
         public bool IsMusicOn
         {
             get { return _isMusicOn; }
@@ -113,20 +146,20 @@ namespace CurrentState
         public void LoadTestConfiguration()
         {
             _isTestConfig = true;
-            UserSettingsJson userSettings = GetUserSettings(JSON_FILE_NAME_TESTS);
+            UserSettings userSettings = GetUserSettingsForTests();
             _isMusicOn = userSettings.MusicOn;
             _musicVolume = userSettings.MusicVolume;
             _areEffectsOn = userSettings.EffectsOn;
             _effectsVolume = userSettings.EffectsVolume;
         }
     }
-    public class UserSettingsJson
+    public class UserSettings
     {
         public bool MusicOn { get; set; }
         public float MusicVolume { get; set; }
         public bool EffectsOn { get; set; }
         public float EffectsVolume { get; set; }
-        public UserSettingsJson(bool musicOn, float musicVolume, bool effectsOn, float effectsVolume)
+        public UserSettings(bool musicOn, float musicVolume, bool effectsOn, float effectsVolume)
         {
             MusicOn = musicOn;
             MusicVolume = musicVolume;

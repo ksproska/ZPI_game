@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using System;
 using TMPro;
+using UnityEngine.UI;
 
 public class GenomCreator : MonoBehaviour
 {
@@ -45,6 +46,10 @@ public class GenomCreator : MonoBehaviour
             var staticAdded = Instantiate(prefab, gameObject.transform.position, Quaternion.identity,
                 transform);
             staticAdded.transform.position += new Vector3(i * 1.25f, 0, 0);
+            var index = staticAdded.GetComponentInChildren<Text>();
+            if (index != null) {
+                index.text = $"{i}";
+            }
             if (initializeGenome)
             {
                 var staticDd = staticAdded.GetComponent<TextMeshProUGUI>();

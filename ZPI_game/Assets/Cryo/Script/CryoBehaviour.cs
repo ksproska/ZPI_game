@@ -15,9 +15,9 @@ public class CryoBehaviour : MonoBehaviour
     EyeType currentLeftEyeType;
     EyeType currentRightEyeType;
 
-    float seconds = 0;
-    float delta = 2;
-    int index = 0;
+    //float seconds = 0;
+    //float delta = 2;
+    //int index = 0;
 
     public Sprite GetEyeGraphic(EyeType eyeType)
     {

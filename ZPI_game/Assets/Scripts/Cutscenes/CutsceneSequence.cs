@@ -12,7 +12,7 @@ public class CutsceneSequence : MonoBehaviour
 
     private void Start()
     {
-        cutsceneElements = new List<CutsceneElement>(GetComponentsInChildren<CutsceneElement>(true));
+        cutsceneElements = new List<CutsceneElement>(GetComponentsInChildren<CutsceneElement>());
         cutsceneElements.ForEach(elem => elem.gameObject.SetActive(false));
         StartCoroutine(Play());
     }
