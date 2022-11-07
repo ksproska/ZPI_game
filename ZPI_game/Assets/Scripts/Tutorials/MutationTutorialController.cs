@@ -8,7 +8,7 @@ using System;
 using Assets.GA.Utils;
 using GA.mutations;
 
-public class TutorialController : MonoBehaviour
+public class MutationTutorialController : MonoBehaviour
 {
     System.Random rnd = new System.Random();
 
@@ -61,11 +61,7 @@ public class TutorialController : MonoBehaviour
         tutorialStack = new();
         CalculateNextCrossing();
 
-
         slotListPrefab.GetComponent<GenomSlotsCreator>().FillGenome(endGenome);
-        
-
-
     }
 
     void CalculateNextCrossing()

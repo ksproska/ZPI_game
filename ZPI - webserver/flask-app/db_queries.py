@@ -1,3 +1,5 @@
+import re
+from sqlalchemy import exc
 from db_models import *
 
 class ReadQueries():
@@ -31,5 +33,12 @@ class CreateQueries():
             point = Points(map.map_id, pts['X'], pts['Y'])
             CreateQueries.db_con.session.add(point)
         CreateQueries.db_con.session.commit()
+    
+    @staticmethod
+    def create_user(usr):
+        CreateQueries.db_con.session.add(usr)
+        CreateQueries.db_con.session.commit()
+        return usr
+
 
         

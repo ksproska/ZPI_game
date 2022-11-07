@@ -8,6 +8,8 @@ TagManager:
   - Line
   - GapedCode
   - CodeDetails
+  - Check
+  - Paralaxa
   layers:
   - Default
   - TransparentFX
