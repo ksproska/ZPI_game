@@ -15,7 +15,7 @@ namespace GA
             for (int j = testcases.Count - 1; j >= 0; j--)
             {
                 var ga = GeneticAlgorithmProxy.Get(testcases[j].Weights, 30,
-                    MutationType.PartialReverser, 0.3,
+                    MutationType.RSM, 0.3,
                     CrossoverType.PartiallyMatched, 0.3,
                     SelectionType.Tournament, 0.3
                 );

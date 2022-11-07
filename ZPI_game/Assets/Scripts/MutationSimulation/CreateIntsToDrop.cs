@@ -43,7 +43,7 @@ public class CreateIntsToDrop : MonoBehaviour
 
         beginGenome = Enumerable.Range(0, 10).OrderBy(elem => rnd.Next()).ToList();
         RecordedList<int> recordedMutation = new(beginGenome);
-        endGenome = MutatorPartialReverser<int>.ReversePartOrder(beginGenome, beginIndex, endIndex, ref recordedMutation);
+        endGenome = MutatorReverseSequence<int>.ReversePartOrder(beginGenome, beginIndex, endIndex, ref recordedMutation);
         steps = recordedMutation.GetFullHistory().Distinct().ToList();
     }
 

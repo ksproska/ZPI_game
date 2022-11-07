@@ -46,7 +46,7 @@ namespace GA
             };
             foreach (var testCase in testCases)
             {
-                var actual = MutatorPartialReverser<int>.ReversePartOrder(testCase.Genotype, testCase.StartInx, testCase.EndInx);
+                var actual = MutatorReverseSequence<int>.ReversePartOrder(testCase.Genotype, testCase.StartInx, testCase.EndInx);
                 Assert.IsTrue(actual.SequenceEqual(testCase.Expected));
             }
         }

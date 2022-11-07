@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 namespace GA.mutations
 {
-    public class MutatorPartialReverser<T> : IMutator<T> where T: IComparable
+    public class MutatorReverseSequence<T> : IMutator<T> where T: IComparable
     {
         private static readonly Random Random = new Random(); // nazewnictwo zmiennej niezgodne z konwencją
         public static List<T> ReversePartOrder(List<T> genotype, int startInx, int endInx)
