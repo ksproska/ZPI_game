@@ -18,8 +18,8 @@ class ClientDataValidator():
         elif len(usr_serialized['Email']) > 200:
             raise ex.ValidationError('Email address too long!')
         
-        if len(usr_serialized['Password']) < 10:
-            raise ex.ValidationError('Password should be at least 10 characters long!')
+        if len(usr_serialized['Password']) < 12:
+            raise ex.ValidationError('Password should be at least 12 characters long!')
         
         if len(usr_serialized['Nickname']) > 30:
             raise ex.ValidationError('Nickname can be maximally 30 characters long!')
