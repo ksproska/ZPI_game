@@ -13,16 +13,11 @@ public class CrossoverTutorialController : MonoBehaviour
     System.Random rnd = new System.Random();
 
 
-    public DropHandler dropHandler;
+    public TutorialHandler tutorialHandler;
 
-    public GameObject levelButton;
-    public GameObject tutorialButton;
-    public GameObject checkButton;
     public TextMeshProUGUI startingIndexTextContainer;
     public TextMeshProUGUI segmentLengthTextContainer;
 
-    public GameObject tutorialContainer;
-    public GameObject levelContainer;
 
     public GameObject parent1DropsList;
     public GameObject parent2DropsList;
@@ -42,12 +37,8 @@ public class CrossoverTutorialController : MonoBehaviour
     public GameObject previousButton;
 
     private int currentStep;
-    private Stack<GameObject> tutorialStack;
 
-    [SerializeField] private Material lineMaterial;
 
-    private GameObject slider;
-    private GameObject target;
 
 
     [NonSerialized] public int beginIndex;
@@ -60,22 +51,16 @@ public class CrossoverTutorialController : MonoBehaviour
     void Start()
     {
         currentStep = 0;
-        tutorialStack = new();
         childGenome = new List<int>(new int[10]);
         CalculateNextCrossing();
 
-
         levelSlotsList.GetComponent<GenomSlotsCreator>().FillGenome(childGenome);
-
-
-
-
     }
 
     void CalculateNextCrossing()
     {
         beginIndex = rnd.Next(0, 7);
-        segmentLength = rnd.Next(2, 9-beginIndex-1);
+        segmentLength = rnd.Next(2, 9 - beginIndex - 1);
 
         parent1Genome = parent1StaticsList.GetComponent<GenomCreator>().genomeList;
         parent2Genome = parent2StaticsList.GetComponent<GenomCreator>().genomeList;
@@ -88,58 +73,24 @@ public class CrossoverTutorialController : MonoBehaviour
         segmentLengthTextContainer.text = $"Segment length: {segmentLength}";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (slider != null && target != null)
-        {
-            if (slider.transform.position != target.transform.position)
-            {
-                slider.transform.position = Vector3.MoveTowards(slider.transform.position, target.transform.position, Time.deltaTime * 5);
-            }
-            else
-            {
-                slider.GetComponent<LineRenderer>().enabled = false;
-                slider = null;
-                target = null;
-                previousButton.GetComponent<Button>().enabled = true;
-                nextButton.GetComponent<Button>().enabled = true;
-            }
-        }
-
-    }
-
-    public void TutorialButtonActivation()
-    {
-        if (!dropHandler.AreAllCorrect())
-        {
-            tutorialButton.SetActive(true);
-        }
-    }
-
-
-
     public void CreateTutorial()
     {
-        DestroylevelGrid();
+        tutorialHandler.DestroyGrid(parent1StaticsList, parent1DropsList, parent2StaticsList,  parent2DropsList, levelSlotsList);
 
-        levelContainer.SetActive(false);
-        tutorialContainer.SetActive(true);
         parent1tutorialDropsList.GetComponent<GenomCreator>().CreateNewGenom();
         parent1tutorialStaticsList.GetComponent<GenomCreator>().CreateNewGenom(); 
+
         parent2tutorialDropsList.GetComponent<GenomCreator>().CreateNewGenom();
         parent2tutorialStaticsList.GetComponent<GenomCreator>().CreateNewGenom();
+
         tutorialSlotsList.GetComponent<GenomSlotsCreator>().CreateSlots(childGenome);
-        tutorialButton.SetActive(false);
-        checkButton.SetActive(false);
-        levelButton.SetActive(true);
-        nextButton.SetActive(true);
-        previousButton.SetActive(true);
+
+        tutorialHandler.ActivateTutorial();
     }
 
     public void LeaveTutorial()
     {
-        DestroyTutorialGrid();
+        tutorialHandler.DestroyGrid(parent1tutorialDropsList, parent1tutorialStaticsList, parent2tutorialDropsList, parent2tutorialStaticsList, tutorialSlotsList);
 
         parent1StaticsList.GetComponent<GenomCreator>().InitializeGenome();
         parent1StaticsList.GetComponent<GenomCreator>().CreateNewGenom();
@@ -152,104 +103,37 @@ public class CrossoverTutorialController : MonoBehaviour
         CalculateNextCrossing();
         levelSlotsList.GetComponent<GenomSlotsCreator>().CreateSlots(childGenome);
 
-        levelContainer.SetActive(true);
-        tutorialContainer.SetActive(false);
-        tutorialButton.SetActive(true);
-        checkButton.SetActive(true);
-        levelButton.SetActive(false);
-        nextButton.SetActive(false);
-        previousButton.SetActive(false);
+        tutorialHandler.DeactivateTutorial();
         currentStep = 0;
-        tutorialStack = new();
 
-    }
-
-    private void DestroyTutorialGrid()
-    {
-        foreach (Transform child in tutorialSlotsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in parent1tutorialDropsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in parent2tutorialDropsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in parent1tutorialStaticsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in parent2tutorialStaticsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-    }
-
-    private void DestroylevelGrid()
-    {
-        foreach (Transform child in parent1DropsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in parent2DropsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in levelSlotsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in parent1StaticsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in parent2StaticsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
     }
 
     public void NextStep()
     {
         if (currentStep < steps.Count)
         {
-            previousButton.GetComponent<Button>().enabled = false;
-            nextButton.GetComponent<Button>().enabled = false;
             var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
             List<GameObject> drops;
+            List<GameObject> statics;
             var (slot, value, parent) = steps[currentStep];
+            bool dropIsAboveSlot;
             if (parent == 0)
             {
                 drops = parent1tutorialDropsList.GetComponent<GenomCreator>().geneList;
+                statics = parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList;
+                dropIsAboveSlot = true;
             }
             else
             {
+                dropIsAboveSlot = false;
                 drops = parent2tutorialDropsList.GetComponent<GenomCreator>().geneList;
+                statics = parent2tutorialStaticsList.GetComponent<GenomCreator>().geneList;
             }
-            var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
-            LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
-            lineRenderer.enabled = true;
-            Vector3[] pathPoints;
-            if (parent == 0)
-            {
-                pathPoints = new Vector3[2] { drop.transform.position - new Vector3(0, 0.63f), slots[slot].transform.position + new Vector3(0, 0.63f)};
-            }
-            else
-            {
-                pathPoints = new Vector3[2] { drop.transform.position + new Vector3(0, 0.63f), slots[slot].transform.position - new Vector3(0, 0.63f) };
-            }
-            lineRenderer.SetPositions(pathPoints);
-            slider = drop;
-            target = slots[slot];
-            //drop.transform.position = slots[slot].transform.position;
+            tutorialHandler.Next(value, slot, slots, drops, statics, dropIsAboveSlot);
 
-
-            tutorialStack.Push(drop);
             currentStep += 1;
-
+            tutorialHandler.ColorCells(parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList, parent2tutorialStaticsList.GetComponent<GenomCreator>().geneList, slots);
+  
         }
     }
 
@@ -258,36 +142,10 @@ public class CrossoverTutorialController : MonoBehaviour
         if (currentStep > 0)
         {
             currentStep -= 1;
-            var (_, _, parent) = steps[currentStep];
-            previousButton.GetComponent<Button>().enabled = false;
-            nextButton.GetComponent<Button>().enabled = false;
-            List<GameObject> statics;
-            var drop = tutorialStack.Pop();
-            if (parent == 0)
-            {
-                statics = parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList;
-            }
-            else
-            {
-                statics = parent2tutorialStaticsList.GetComponent<GenomCreator>().geneList;
-            }
-            var singleStatic = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{drop.GetComponent<TextMeshProUGUI>().text}").First(); ;
-            LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
-            Vector3[] pathPoints = { drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
-            if (parent == 0)
-            {
-                pathPoints = new Vector3[2] { drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
-            }
-            else
-            {
-                pathPoints = new Vector3[2] { drop.transform.position - new Vector3(0, 0.63f), singleStatic.transform.position + new Vector3(0, 0.63f) };
-            }
-            lineRenderer.SetPositions(pathPoints);
-            lineRenderer.enabled = true;
-
-            slider = drop;
-            target = singleStatic;
-            //drop.transform.position = singleStatic.transform.position;
+            var (slot, value, parent) = steps[currentStep];
+            bool dropIsAboveSlot = (parent == 0);
+            tutorialHandler.Previous(dropIsAboveSlot);
+            tutorialHandler.ColorCells(parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList, parent2tutorialStaticsList.GetComponent<GenomCreator>().geneList, tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList);
 
         }
     }

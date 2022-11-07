@@ -47,10 +47,12 @@ public class GenomSlotsCreator : MonoBehaviour
 
     public void FillGenome(List<int> input)
     {
-        Debug.Log(geneList.Count);
         for (int i = 0; i < geneList.Count; i++)
         {
             geneList[i].GetComponent<DropSlot>().expectedContents = $"{input[i]}";
+            geneList[i].GetComponent<DropSlot>()._placedContent = $"";
         }
     }
+
+
 }

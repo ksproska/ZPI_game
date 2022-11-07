@@ -13,11 +13,8 @@ public class MutationTutorialController : MonoBehaviour
     System.Random rnd = new System.Random();
 
 
-    public DropHandler dropHandler;
+    public TutorialHandler tutorialHandler;
 
-    public GameObject levelButton;
-    public GameObject tutorialButton;
-    public GameObject checkButton;
     public TextMeshProUGUI StartingIndexTextContainer;
     public TextMeshProUGUI EndingIndexTextContainer;
 
@@ -35,16 +32,9 @@ public class MutationTutorialController : MonoBehaviour
     public GameObject tutorialStaticsList;
 
 
-    public GameObject nextButton;
-    public GameObject previousButton;
 
     private int currentStep;
-    private Stack<GameObject> tutorialStack;
 
-    [SerializeField] private Material lineMaterial;
-
-    private GameObject slider;
-    private GameObject target;
 
 
     [NonSerialized] public int beginIndex;
@@ -53,12 +43,10 @@ public class MutationTutorialController : MonoBehaviour
     [NonSerialized] public List<int> endGenome;
     [NonSerialized] public List<(int, int)> steps;
 
-    [SerializeField] private List<Color> colors;
     // Start is called before the first frame update
     void Start()
     {
         currentStep = 0;
-        tutorialStack = new();
         CalculateNextCrossing();
 
         slotListPrefab.GetComponent<GenomSlotsCreator>().FillGenome(endGenome);
@@ -81,128 +69,43 @@ public class MutationTutorialController : MonoBehaviour
         EndingIndexTextContainer.text = $"Ending index: {endIndex}";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(slider != null && target != null)
-        {
-            if(slider.transform.position != target.transform.position)
-            {
-                slider.transform.position = Vector3.MoveTowards(slider.transform.position, target.transform.position, Time.deltaTime*5);
-            }
-            else{
-                slider.GetComponent<LineRenderer>().enabled = false;
-                slider = null;
-                target = null;
-                previousButton.GetComponent<Button>().enabled = true;
-                nextButton.GetComponent<Button>().enabled = true;
-            }
-        }
-        
-    }
-
-    public void TutorialButtonActivation()
-    {
-        if (!dropHandler.AreAllCorrect())
-        {
-            tutorialButton.SetActive(true);
-        }
-    }
-
-
 
     public void CreateTutorial()
     {
-        DestroylevelGrid();
+        tutorialHandler.DestroyGrid(staticsListPrefab, dropsListPrefab, slotListPrefab);
 
-        levelContainer.SetActive(false);
-        tutorialContainer.SetActive(true);
         tutorialDropsList.GetComponent<GenomCreator>().CreateNewGenom();
         tutorialStaticsList.GetComponent<GenomCreator>().CreateNewGenom();
         tutorialSlotsList.GetComponent<GenomSlotsCreator>().CreateSlots(endGenome);
-        tutorialButton.SetActive(false);
-        checkButton.SetActive(false);
-        levelButton.SetActive(true);
-        nextButton.SetActive(true);
-        previousButton.SetActive(true);
+
+        tutorialHandler.ActivateTutorial();
     }
 
     public void LeaveTutorial()
     {
-        DestroyTutorialGrid();
+        tutorialHandler.DestroyGrid(tutorialDropsList, tutorialStaticsList, tutorialSlotsList);
 
         staticsListPrefab.GetComponent<GenomCreator>().InitializeGenome();
         staticsListPrefab.GetComponent<GenomCreator>().CreateNewGenom();
         dropsListPrefab.GetComponent<GenomCreator>().CreateNewGenom();
+
         CalculateNextCrossing();
         slotListPrefab.GetComponent<GenomSlotsCreator>().CreateSlots(endGenome);
 
-        levelContainer.SetActive(true);
-        tutorialContainer.SetActive(false);
-        tutorialButton.SetActive(true);
-        checkButton.SetActive(true);
-        levelButton.SetActive(false);
-        nextButton.SetActive(false);
-        previousButton.SetActive(false);
+        tutorialHandler.DeactivateTutorial();
         currentStep = 0;
-        tutorialStack = new();
-
-    }
-
-    private void DestroyTutorialGrid()
-    {
-        foreach (Transform child in tutorialSlotsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in tutorialDropsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in tutorialStaticsList.transform)
-        {
-            Destroy(child.gameObject);
-        }
-    }
-
-    private void DestroylevelGrid()
-    {
-        foreach (Transform child in dropsListPrefab.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in slotListPrefab.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in staticsListPrefab.transform)
-        {
-            Destroy(child.gameObject);
-        }
     }
 
     public void NextStep()
     {
         if(currentStep < steps.Count)
         {
-            previousButton.GetComponent<Button>().enabled = false;
-            nextButton.GetComponent<Button>().enabled = false;
             var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
             var drops = tutorialDropsList.GetComponent<GenomCreator>().geneList;
-            ColorCells();
+            var statics = tutorialStaticsList.GetComponent<GenomCreator>().geneList;
             var (slot, value) = steps[currentStep];
-            var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
-            LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
-            lineRenderer.enabled = true;
-            Vector3[] pathPoints = { drop.transform.position - new Vector3(0,0.63f), slots[slot].transform.position + new Vector3(0, 0.63f) };
-            lineRenderer.SetPositions(pathPoints);
-
-            slider = drop;
-            target = slots[slot];
-            //drop.transform.position = slots[slot].transform.position;
-
-
-            tutorialStack.Push(drop);
+            tutorialHandler.Next(value, slot, slots, drops, statics, true);
+            tutorialHandler.ColorCells(slots, statics);
             currentStep += 1;
 
         }
@@ -212,66 +115,13 @@ public class MutationTutorialController : MonoBehaviour
     {
         if (currentStep > 0)
         {
-            currentStep -= 2;
-            ColorCells();
-            currentStep += 1;
-            previousButton.GetComponent<Button>().enabled = false;
-            nextButton.GetComponent<Button>().enabled = false;
-            var drop = tutorialStack.Pop();
+            
             var statics = tutorialStaticsList.GetComponent<GenomCreator>().geneList;
-            var singleStatic = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{drop.GetComponent<TextMeshProUGUI>().text}").First();
-
-            LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();
-            Vector3[] pathPoints = {drop.transform.position + new Vector3(0, 0.63f), singleStatic.transform.position - new Vector3(0, 0.63f) };
-            lineRenderer.SetPositions(pathPoints);
-            lineRenderer.enabled = true;
-
-            slider = drop;
-            target = singleStatic;
+            var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
+            tutorialHandler.Previous(true);
+            tutorialHandler.ColorCells(slots, statics);
             //drop.transform.position = singleStatic.transform.position;
-
+            currentStep -= 1;
         }
     }
-
-    private void ColorCells()
-    {
-        var slots = tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList;
-        var statics = tutorialStaticsList.GetComponent<GenomCreator>().geneList;
-        int previousCells;
-        if (currentStep >= 2)
-        {
-            previousCells = 3;
-        }
-        else
-        {
-            previousCells = currentStep + 1;
-        }
-
-        foreach(var step in slots)
-        {
-            var image = step.GetComponent<Image>();
-            var tempColor = Color.black;
-            tempColor.a = 0.4f;
-            image.color = tempColor;
-        }
-
-        foreach(var step in statics)
-        {
-            var image = step.GetComponentInChildren<Image>();
-            Color tempColor = new();
-            tempColor.a = 0f;
-            image.color = tempColor;
-        }
-
-        for(int i = 0; i < previousCells; i++)
-        {
-            var (slot, value) = steps[currentStep-i];
-            var staticElem = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{value}").First();
-            var slotElem = slots[slot];
-            staticElem.GetComponentInChildren<Image>().color = colors[i];
-            slotElem.GetComponent<Image>().color = colors[i];
-        }
-    }
-
-
 }
