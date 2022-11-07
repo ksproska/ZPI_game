@@ -16,11 +16,16 @@ class MapSchema(fl_marsh.Schema):
     CreationDate = fields.Date(attribute='creation_date')
     Points = fl_marsh.Nested(PointSchema, many=True, attribute='points')
 
+class UserSchema(fl_marsh.Schema):
+    class Meta:
+        fields = ('user_id', 'nickname')
+
 class Schemas():
     point_schema = PointSchema()
     points_schema = PointSchema(many=True)
     map_schema = MapSchema()
     maps_schema = MapSchema(many=True)
+    user_schema = UserSchema()
 
 def get_marshmallow():
     return fl_marsh

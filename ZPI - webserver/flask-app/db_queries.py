@@ -1,4 +1,3 @@
-import re
 from sqlalchemy import exc
 from db_models import *
 
@@ -16,6 +15,10 @@ class ReadQueries():
     def get_map(map_id):
         return Maps.query.filter(Maps.map_id == map_id).first()
     
+    @staticmethod
+    def get_user(email):
+        return Users.query.filter(Users.email == email).first()
+
 class CreateQueries():
 
     db_con = get_db()
