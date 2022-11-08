@@ -6,23 +6,11 @@ using System;
 public class MenuContainer : MonoBehaviour
 {
     [NonSerialized] private List<SlidingComponent> components;
-    //[NonSerialized] private List<IMenuActive> menuactives;
-
 
     private void Awake()
     {
         components = new List<SlidingComponent>(GetComponentsInChildren<SlidingComponent>());
-        //menuactives = new List<IMenuActive>(GetComponentsInChildren<IMenuActive>());
     }
-    //private void Start()
-    //{
-    //    components = new List<SlidingComponent>(GetComponentsInChildren<SlidingComponent>());
-    //}
-
-    //private void OnEnable()
-    //{
-    //    components = new List<SlidingComponent>(GetComponentsInChildren<SlidingComponent>());
-    //}
 
     public void BeforeSlideSettings()
     {
@@ -31,10 +19,6 @@ public class MenuContainer : MonoBehaviour
         {
             component.Offset();
         }
-        //foreach(var ma in menuactives)
-        //{
-        //    ma.SetEnabled(false);
-        //}
     }
     public void SlideOutComponents()
     {
