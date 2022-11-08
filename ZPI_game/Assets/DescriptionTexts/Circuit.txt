@@ -1,36 +1,36 @@
-<color=#dc0073>from</color> random <color=#dc0073>import</color> shuffle
-<color=#dc0073>from</color> DistancesGrid <color=#dc0073>import</color> DistancesGrid
+<color=#006e05>from</color> random <color=#006e05>import</color> shuffle
+<color=#006e05>from</color> DistancesGrid <color=#006e05>import</color> DistancesGrid
 
 
-<color=#f5b700>class</color> <color=#dc0073>Circuit</color>:
-    <color=#808080>"""
+<color=#aaf502>class</color> <color=#006e05>Circuit</color>:
+    <color=#648068>"""
     Class representing our road and it's score (how good it is). 
     Each city is given an unrepeatable index, therefore our road (here called genotype) 
     is represented as a list of those indexes.
     """</color>
 
-    <color=#f5b700>def</color> __init__(<color=#01befe>self</color>, city_ids: <color=#dc0073>list</color>[<color=#dc0073>int</color>], distances_grid: DistancesGrid):
-        <color=#01befe>self</color>.city_ids = city_ids
-        <color=#01befe>self</color>.score = Circuit.get_score(city_ids, distances_grid)  
+    <color=#aaf502>def</color> __init__(<color=#188600>self</color>, city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], distances_grid: DistancesGrid):
+        <color=#188600>self</color>.city_ids = city_ids
+        <color=#188600>self</color>.score = Circuit.get_score(city_ids, distances_grid)  
 
-    <color=#ffa704>@staticmethod</color>
-    <color=#f5b700>def</color> <color=#7b3fca>get_score</color>(city_ids: <color=#dc0073>list</color>[<color=#dc0073>int</color>], distances_grid: DistancesGrid) -> <color=#dc0073>float</color>:
-        <color=#808080>"""
+    <color=#9fff00>@staticmethod</color>
+    <color=#aaf502>def</color> <color=#7b3fca>get_score</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], distances_grid: DistancesGrid) -> <color=#006e05>float</color>:
+        <color=#648068>"""
         Method calculates the length of an entire road - for each id we take the following id,
         retreve distance between those cities and sum all the distances together.
         """</color>
-        sum_distances = <color=#ffffff>0.0</color>
-        <color=#f5b700>for</color> city_id in <color=#dc0073>range</color>(<color=#dc0073>len</color>(city_ids)):  
-            city_id_next = (city_id + <color=#ffffff>1</color>) % <color=#dc0073>len</color>(city_ids)  
+        sum_distances = <color=#89b68b>0.0</color>
+        <color=#aaf502>for</color> city_id in <color=#006e05>range</color>(<color=#006e05>len</color>(city_ids)):  
+            city_id_next = (city_id + <color=#89b68b>1</color>) % <color=#006e05>len</color>(city_ids)  
             sum_distances += distances_grid.get_distance(city_ids[city_id], city_ids[city_id_next])
-        <color=#f5b700>return</color> sum_distances
+        <color=#aaf502>return</color> sum_distances
 
-    <color=#ffa704>@staticmethod</color>
-    <color=#f5b700>def</color> <color=#7b3fca>get_random</color>(distances_grid: DistancesGrid):
-        random_genotype = <color=#dc0073>list</color>(<color=#dc0073>range</color>(distances_grid.number_of_cities))  
+    <color=#9fff00>@staticmethod</color>
+    <color=#aaf502>def</color> <color=#7b3fca>get_random</color>(distances_grid: DistancesGrid):
+        random_genotype = <color=#006e05>list</color>(<color=#006e05>range</color>(distances_grid.number_of_cities))  
         shuffle(random_genotype)  
-        <color=#f5b700>return</color> Circuit(random_genotype, distances_grid)
+        <color=#aaf502>return</color> Circuit(random_genotype, distances_grid)
 
-    <color=#ffa704>@staticmethod</color>
-    <color=#f5b700>def</color> <color=#7b3fca>get_best</color>(members: <color=#dc0073>list</color>):
-        <color=#f5b700>return</color> <color=#dc0073>max</color>(members, key=<color=#f5b700>lambda</color> x: x.score)  
+    <color=#9fff00>@staticmethod</color>
+    <color=#aaf502>def</color> <color=#7b3fca>get_best</color>(members: <color=#006e05>list</color>):
+        <color=#aaf502>return</color> <color=#006e05>max</color>(members, key=<color=#aaf502>lambda</color> x: x.score)  
