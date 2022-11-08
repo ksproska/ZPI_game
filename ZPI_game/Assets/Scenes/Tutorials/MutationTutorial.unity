@@ -753,6 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868033083}
   - component: {fileID: 868033084}
+  - component: {fileID: 868033085}
   m_Layer: 0
   m_Name: SceneHandler
   m_TagString: Untagged
@@ -787,10 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72665c9cfb03e8344be7f7f058d8499b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropHandler: {fileID: 1584916702}
-  levelButton: {fileID: 1043215065}
-  tutorialButton: {fileID: 1805020173}
-  checkButton: {fileID: 1584916699}
+  tutorialHandler: {fileID: 868033085}
   StartingIndexTextContainer: {fileID: 952290365}
   EndingIndexTextContainer: {fileID: 792551798}
   tutorialContainer: {fileID: 1438350421}
@@ -801,9 +799,26 @@ MonoBehaviour:
   tutorialSlotsList: {fileID: 2079496837}
   tutorialDropsList: {fileID: 1891411575}
   tutorialStaticsList: {fileID: 1477416685}
+--- !u!114 &868033085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868033081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6945188c02634b54193e3f5adbea3ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropHandler: {fileID: 1584916707}
+  levelButton: {fileID: 1043215065}
+  tutorialButton: {fileID: 1805020173}
+  checkButton: {fileID: 1584916699}
+  tutorialContainer: {fileID: 1438350421}
+  levelContainer: {fileID: 1683632139}
   nextButton: {fileID: 1208840994}
   previousButton: {fileID: 218962951}
-  lineMaterial: {fileID: 2100000, guid: 2e4f0aba97623344dab984739a2dded7, type: 2}
   colors:
   - {r: 0.5518868, g: 1, b: 0.9083256, a: 0.5882353}
   - {r: 0, g: 0.93359566, b: 1, a: 0.5882353}
@@ -1966,9 +1981,9 @@ GameObject:
   - component: {fileID: 1584916700}
   - component: {fileID: 1584916705}
   - component: {fileID: 1584916703}
-  - component: {fileID: 1584916702}
   - component: {fileID: 1584916701}
   - component: {fileID: 1584916706}
+  - component: {fileID: 1584916707}
   m_Layer: 5
   m_Name: CheckButton
   m_TagString: Untagged
@@ -2012,22 +2027,6 @@ MonoBehaviour:
   scene: WorldMap
   clip: {fileID: 0}
   audioSource: {fileID: 0}
---- !u!114 &1584916702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584916699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc62649d48867314093fc9820feb17c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _colorOk: {r: 0.013342788, g: 0.3679245, b: 0, a: 1}
-  _colorNotOk: {r: 0.49056602, g: 0, b: 0, a: 1}
-  _colorEmpty: {r: 0, g: 0.048290554, b: 0.41509432, a: 1}
-  transporter: {fileID: 1584916701}
 --- !u!114 &1584916703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,8 +2071,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1584916702}
-        m_TargetAssemblyTypeName: DropHandler, Assembly-CSharp
+      - m_Target: {fileID: 1584916707}
+        m_TargetAssemblyTypeName: ErrorColoring, Assembly-CSharp
         m_MethodName: HandleAreAllCorrect
         m_Mode: 1
         m_Arguments:
@@ -2084,8 +2083,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 868033084}
-        m_TargetAssemblyTypeName: TutorialController, Assembly-CSharp
+      - m_Target: {fileID: 868033085}
+        m_TargetAssemblyTypeName: TutorialHandler, Assembly-CSharp
         m_MethodName: TutorialButtonActivation
         m_Mode: 1
         m_Arguments:
@@ -2134,6 +2133,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1584916707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584916699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7f09f9251d819428c5b6565597b8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorOk: {r: 0.011764707, g: 0.36862746, b: 0, a: 1}
+  _colorNotOk: {r: 0.4901961, g: 0, b: 0, a: 1}
+  _colorEmpty: {r: 0, g: 0.04705883, b: 0.4156863, a: 1}
+  transporter: {fileID: 0}
 --- !u!1 &1683632139
 GameObject:
   m_ObjectHideFlags: 0

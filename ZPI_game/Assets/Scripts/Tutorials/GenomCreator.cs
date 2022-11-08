@@ -77,4 +77,13 @@ public class GenomCreator : MonoBehaviour
         }
     }
 
+    public void ReloadGenome()
+    {
+        if (otherGenome)
+        {
+            genomeList = otherGenome.genomeList;
+        }
+        FillGenome(genomeList);
+    }
+
 }

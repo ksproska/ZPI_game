@@ -1377,6 +1377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 740283599}
   - component: {fileID: 740283600}
+  - component: {fileID: 740283601}
   m_Layer: 0
   m_Name: SceneHandler
   m_TagString: Untagged
@@ -1411,14 +1412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7593c9439d3964c854e69543af68c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropHandler: {fileID: 1878203859}
-  levelButton: {fileID: 1932102723}
-  tutorialButton: {fileID: 549518801}
-  checkButton: {fileID: 1878203855}
+  tutorialHandler: {fileID: 740283601}
   startingIndexTextContainer: {fileID: 2120007784}
   segmentLengthTextContainer: {fileID: 430650583}
-  tutorialContainer: {fileID: 2033811533}
-  levelContainer: {fileID: 2008274415}
   parent1DropsList: {fileID: 343740426}
   parent2DropsList: {fileID: 1928733540}
   parent1StaticsList: {fileID: 1223022368}
@@ -1431,7 +1427,30 @@ MonoBehaviour:
   parent2tutorialStaticsList: {fileID: 931856983}
   nextButton: {fileID: 913109692}
   previousButton: {fileID: 1754627226}
-  lineMaterial: {fileID: 2100000, guid: 2e4f0aba97623344dab984739a2dded7, type: 2}
+--- !u!114 &740283601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740283595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6945188c02634b54193e3f5adbea3ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropHandler: {fileID: 1878203862}
+  levelButton: {fileID: 1932102723}
+  tutorialButton: {fileID: 549518801}
+  checkButton: {fileID: 1878203855}
+  tutorialContainer: {fileID: 2033811533}
+  levelContainer: {fileID: 2008274415}
+  nextButton: {fileID: 913109692}
+  previousButton: {fileID: 1754627226}
+  colors:
+  - {r: 0.5518868, g: 1, b: 0.9083256, a: 0.5882353}
+  - {r: 0, g: 0.93359566, b: 1, a: 0.5882353}
+  - {r: 0, g: 0.57776237, b: 1, a: 0.5882353}
 --- !u!1 &804754471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,9 +2980,9 @@ GameObject:
   - component: {fileID: 1878203856}
   - component: {fileID: 1878203861}
   - component: {fileID: 1878203860}
-  - component: {fileID: 1878203859}
   - component: {fileID: 1878203858}
   - component: {fileID: 1878203857}
+  - component: {fileID: 1878203862}
   m_Layer: 5
   m_Name: CheckButton
   m_TagString: Untagged
@@ -3037,22 +3056,6 @@ MonoBehaviour:
   scene: WorldMap
   clip: {fileID: 0}
   audioSource: {fileID: 0}
---- !u!114 &1878203859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878203855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc62649d48867314093fc9820feb17c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _colorOk: {r: 0.013342788, g: 0.3679245, b: 0, a: 1}
-  _colorNotOk: {r: 0.49056602, g: 0, b: 0, a: 1}
-  _colorEmpty: {r: 0, g: 0.048290554, b: 0.41509432, a: 1}
-  transporter: {fileID: 1878203858}
 --- !u!114 &1878203860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3097,8 +3100,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1878203859}
-        m_TargetAssemblyTypeName: DropHandler, Assembly-CSharp
+      - m_Target: {fileID: 1878203862}
+        m_TargetAssemblyTypeName: ErrorColoring, Assembly-CSharp
         m_MethodName: HandleAreAllCorrect
         m_Mode: 1
         m_Arguments:
@@ -3109,8 +3112,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 740283600}
-        m_TargetAssemblyTypeName: CrossoverTutorialController, Assembly-CSharp
+      - m_Target: {fileID: 740283601}
+        m_TargetAssemblyTypeName: TutorialHandler, Assembly-CSharp
         m_MethodName: TutorialButtonActivation
         m_Mode: 1
         m_Arguments:
@@ -3129,6 +3132,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878203855}
   m_CullTransparentMesh: 1
+--- !u!114 &1878203862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878203855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7f09f9251d819428c5b6565597b8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorOk: {r: 0.011764707, g: 0.36862746, b: 0, a: 1}
+  _colorNotOk: {r: 0.4901961, g: 0, b: 0, a: 1}
+  _colorEmpty: {r: 0, g: 0.04705883, b: 0.4156863, a: 1}
+  transporter: {fileID: 1878203858}
 --- !u!1001 &1887235844
 PrefabInstance:
   m_ObjectHideFlags: 0
