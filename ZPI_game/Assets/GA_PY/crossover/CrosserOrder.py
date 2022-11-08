@@ -7,14 +7,14 @@ class CrosserOrder:
         """
         Method returns a child for given parents and length of a segment.
         """
-        child = [-1 for _ in range(len(parent1))]
+        child = [None for _ in range(len(parent1))]
         for i in range(segment_length):
             index = i + start_index
             child[index] = parent1[index]
 
         last_not_contained = 0
         for i in range(len(child)):
-            if child[i] == -1:
+            if child[i] is None:
                 last_not_contained = CrosserOrder.__put_next(child, parent2, i, last_not_contained)
         return child
 
@@ -31,6 +31,6 @@ class CrosserOrder:
         Method returns a child for given parents. Length of a segment to be copied is drawned.
         """
         startInx = random.randrange(len(parent1))
-        segmentLen = random.randrange(len(parent1) - startInx - 1)
+        segmentLen = random.randrange(max(len(parent1) - startInx - 1, 1))
 
         return self.cross(parent1, parent2, startInx, segmentLen)

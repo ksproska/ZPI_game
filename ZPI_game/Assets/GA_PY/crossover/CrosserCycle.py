@@ -1,11 +1,11 @@
 import random
 
 
-class CrosserOrder:
+class CrosserCycle:
     @staticmethod
     def cross(parent1: list, parent2: list):
-        cycles = CrosserOrder.__get_cycles(parent1, parent2)
-        child = CrosserOrder.__copy_from_parents(cycles, parent1, parent2)
+        cycles = CrosserCycle.__get_cycles(parent1, parent2)
+        child = CrosserCycle.__copy_from_parents(cycles, parent1, parent2)
         return child
 
     @staticmethod
@@ -13,7 +13,7 @@ class CrosserOrder:
         cycles: list[list[int]] = []
         current_inx = 0
         collected_indexes = {current_inx}
-        while len(collected_indexes) != len(parent1) + 1:
+        while len(collected_indexes) != len(parent1):
             cycle_beginning: int = parent1[current_inx]
             current_cycle: list[int] = [current_inx]
 
