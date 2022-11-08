@@ -150,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &65822835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1829,7 +1829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1837,7 +1837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchorMin.y
@@ -1881,11 +1881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -55.1
+      value: 0.000015259
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 23.5
+      value: 24.5
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1905,7 +1905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371946129356856250, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_Text
-      value: BACK
+      value: OK
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6342261197552886260, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
@@ -2043,7 +2043,8 @@ MonoBehaviour:
   loginValidationText: {fileID: 1400891229}
   passwordText: {fileID: 264402849}
   passwordValidationText: {fileID: 178475314}
-  errorInfoFrame: {fileID: 0}
+  errorInfoFrame: {fileID: 916152742}
+  cryo: {fileID: 1714060584}
 --- !u!224 &572246599 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
@@ -3149,7 +3150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &916152741
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5618,8 +5619,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -89.277, y: -155}
-  m_SizeDelta: {x: 142.9861, y: 67.679}
+  m_AnchoredPosition: {x: -89.27699, y: -124.26}
+  m_SizeDelta: {x: 142.9861, y: 129.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1695707289
 MonoBehaviour:
@@ -5643,10 +5644,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -7136,6 +7137,10 @@ PrefabInstance:
     - target: {fileID: 4236080274164770286, guid: 431b24b01045c5545ba0b82218237ad8, type: 3}
       propertyPath: m_Name
       value: MovingBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236080274164770286, guid: 431b24b01045c5545ba0b82218237ad8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 431b24b01045c5545ba0b82218237ad8, type: 3}
