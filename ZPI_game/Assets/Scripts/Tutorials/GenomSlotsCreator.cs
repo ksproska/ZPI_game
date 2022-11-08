@@ -44,6 +44,15 @@ public class GenomSlotsCreator : MonoBehaviour
         }
     }
 
+    public void FillExpectedParents(List<int> parents)
+    {
+        for (int i = 0; i < geneList.Count; i++)
+        {
+            print(parents[i]);
+            geneList[i].GetComponent<DropSlot>().expectedParent = parents[i];
+        }
+    }
+
 
     public void FillGenome(List<int> input)
     {

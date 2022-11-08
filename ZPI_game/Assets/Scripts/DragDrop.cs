@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private Canvas _canvas;
     public CanvasGroup canvasGroup;
     private Vector3 _startPos;
+    [NonSerialized] public int parent;
+
 
     private void Awake()
     {
@@ -29,6 +32,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void SetContent(string content)
     {
         TextMeshPro.text = content;
+    }
+    public void SetParent(int parent)
+    {
+        this.parent = parent;
     }
 
     public void OnPointerDown(PointerEventData eventData) {}
@@ -65,6 +72,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
                 DropSlot dropslot = FindObjectsOfType<DropSlot>().Where(ds => ds.transform.position == GetComponent<RectTransform>().position).First();
                 dropslot.SetContent(eventData.pointerDrag.GetComponent<DragDrop>().TextMeshPro.text);
+                dropslot.SetParent(eventData.pointerDrag.GetComponent<DragDrop>().parent);
             }
         }
 
