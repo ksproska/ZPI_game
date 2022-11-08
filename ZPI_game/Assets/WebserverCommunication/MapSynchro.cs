@@ -42,7 +42,7 @@ namespace Webserver
             }
             else
             {
-                return null;
+                return new List<int>();
             }
         }
         public static async Task<List<Map>> GetMaps()
@@ -63,7 +63,7 @@ namespace Webserver
             }
             else
             {
-                return null;
+                return new List<Map>();
             }
         }
         public static async Task<Map> GetMap(int mapId)
@@ -106,7 +106,7 @@ namespace Webserver
             }
             else
             {
-                return null;
+                return new List<Point>();
             }
         }
     }
