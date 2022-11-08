@@ -1,7 +1,9 @@
 import math
-from time import sleep
 from GeneticAlgorithm import GeneticAlgorithm
 from DistancesGrid import DistancesGrid
+from crossover.CrosserCycle import CrosserCycle
+from crossover.CrosserOrder import CrosserOrder
+from mutation.MutatorThrors import MutatorThrors
 from selection.SelectorRoulette import SelectorRoulette
 from selection.SelectorTournament import SelectorTournament
 from mutation.MutatorPartialReverser import MutatorPartialReverser
@@ -44,17 +46,20 @@ weights_example = [
 class TestGeneticAlgorithm(unittest.TestCase):
     def test_GA(self):
         weights_grid = DistancesGrid(weights_example)
-        selector = SelectorRoulette()
-        ga = GeneticAlgorithm(weights_grid,
-                              generation_size=10,
-                              selector=selector,
-                              mutator=MutatorPartialReverser(),
-                              mutation_probability=0.2,
-                              crosser=CrosserPartialyMatched(),
-                              crossover_probability=0.89)
+        for selector in [SelectorRoulette(), SelectorTournament(0.1)]:
+            for crosser in [CrosserPartialyMatched(), CrosserCycle(), CrosserOrder()]:
+                for mutator in [MutatorPartialReverser(), MutatorThrors()]:
+                    iterations = 1000
+                    ga = GeneticAlgorithm(weights_grid,
+                                          generation_size=10,
+                                          selector=selector,
+                                          mutator=mutator,
+                                          mutation_probability=0.2,
+                                          crosser=crosser,
+                                          crossover_probability=0.89)
 
-        prev = math.inf
-        for i in range(1000):
-            ga.run_iteration()
-            self.assertLessEqual(ga.best.score, prev)
-            prev = ga.best.score
+                    prev = math.inf
+                    for i in range(iterations):
+                        ga.run_iteration()
+                        self.assertLessEqual(ga.best.score, prev)
+                        prev = ga.best.score
