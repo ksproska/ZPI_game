@@ -1,17 +1,19 @@
 import random
-from Individual import Individual
+
+from Circuit import Circuit
+
 
 class SelectorRoulette:
-    
+
     @staticmethod
-    def get_distributed_weight(generation: list[Individual]) -> list:
-        max_score = max(generation, key = lambda x: x.score)
-        reversed_eval = map(lambda x: max_score - x.score + 1, generation) 
+    def get_distributed_weight(generation: list[Circuit]) -> list:
+        max_score = max(generation, key=lambda x: x.score)
+        reversed_eval = [max_score.score - x.score + 1 for x in generation]
         sum_eval = sum(reversed_eval)
-        eval_percentage = map(lambda x: x/sum_eval, reversed_eval)
+        eval_percentage = [x / sum_eval for x in reversed_eval]
 
         for i in range(len(eval_percentage) - 1):
-            eval_percentage[i+1] += eval_percentage[i]
+            eval_percentage[i + 1] += eval_percentage[i]
 
         return eval_percentage
 

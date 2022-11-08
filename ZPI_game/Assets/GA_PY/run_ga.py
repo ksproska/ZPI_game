@@ -2,6 +2,7 @@ import math
 from time import sleep
 from GeneticAlgorithm import GeneticAlgorithm
 from DistancesGrid import DistancesGrid
+from selection.SelectorRoulette import SelectorRoulette
 from selection.SelectorTournament import SelectorTournament
 from mutation.MutatorPartialReverser import MutatorPartialReverser
 from crossover.CrosserPartiallyMatched import CrosserPartialyMatched
@@ -43,7 +44,7 @@ weights_example = [
 class TestGeneticAlgorithm(unittest.TestCase):
     def test_GA(self):
         weights_grid = DistancesGrid(weights_example)
-        selector = SelectorTournament(0.7)
+        selector = SelectorRoulette()
         ga = GeneticAlgorithm(weights_grid,
                               generation_size=10,
                               selector=selector,

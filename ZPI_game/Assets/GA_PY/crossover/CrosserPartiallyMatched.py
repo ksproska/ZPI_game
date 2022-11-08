@@ -8,7 +8,7 @@ class CrosserPartialyMatched:
         """
         Method returns a child for given parents, start index, and length of a segment.
         """
-        child = [None for i in range(len(parent1))]  # None
+        child = [None for _ in range(len(parent1))]  # None
         for i in range(start_index, segment_length):
             child[i] = parent1[i]  # parent1
 
