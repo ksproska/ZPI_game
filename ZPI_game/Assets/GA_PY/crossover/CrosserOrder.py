@@ -7,7 +7,7 @@ class CrosserOrder:
         """
         Method returns a child for given parents and length of a segment.
         """
-        child = [-1 for i in range(len(parent1))]
+        child = [-1 for _ in range(len(parent1))]
         for i in range(segment_length):
             index = i + start_index
             child[index] = parent1[index]
