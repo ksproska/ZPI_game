@@ -39,7 +39,7 @@ namespace LevelUtils
             if (ListOfLevels == null || _currSlot != slotNum)
             {
                 _currSlot = slotNum;
-                ListOfLevels = LoadFromJson(Application.persistentDataPath + JSON_FILE_NAME);
+                ListOfLevels = LoadLevels(); // LoadFromJson(Application.persistentDataPath + JSON_FILE_NAME);
             }
         }
         private void CreateLevelMap(string filePath)
