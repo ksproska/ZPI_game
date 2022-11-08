@@ -23,7 +23,7 @@ namespace Webserver
             {
                 await Task.Yield();
             }
-            string srvResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
+            string srvResp = wr.downloadHandler.data != null ? Encoding.UTF8.GetString(wr.downloadHandler.data) : "";
             return (wr.result, srvResp);
         }
         public static async Task<(UnityWebRequest.Result, string)> AuthenticateUser(User user)
@@ -39,7 +39,7 @@ namespace Webserver
             {
                 await Task.Yield();
             }
-            string srvResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
+            string srvResp = wr.downloadHandler.data != null ? Encoding.UTF8.GetString(wr.downloadHandler.data) : "";
             return (wr.result, srvResp);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeveloperUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,18 +22,31 @@ namespace Assets.Scripts.Menu.Account
 
         [SerializeField] private ConnectionErrorBox errorInfoFrame;
 
+        [SerializeField] private CryoUI cryo;
+
 
         private void Start()
         {
             loginValidationText.text = "";
             passwordValidationText.text = "";
+            errorInfoFrame.gameObject.SetActive(false);
+        }
+
+        private void OnDisable()
+        {
+            errorInfoFrame.gameObject.SetActive(false);
         }
 
         public async void SendData()
         {
+            var menuActives = new List<IMenuActive>(GetComponentsInChildren<IMenuActive>());
+            menuActives.DebugLoop();
+            menuActives.ForEach(m => m.SetEnabled(false));
             var login = loginText.text;
             var password = passwordText.text;
             User user = new(login, password);
+            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Wink);
+            cryo.SetMouthType(Cryo.Script.MouthType.Confused);
             var (unityResponse, serverString) = await Auth.AuthenticateUser(user);
             switch(unityResponse)
             {
@@ -49,6 +63,9 @@ namespace Assets.Scripts.Menu.Account
                     OnProtocolError();
                     break;
             }
+            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Eye);
+            cryo.SetMouthType(Cryo.Script.MouthType.Smile);
+            menuActives.ForEach(m => m.SetEnabled(true));
         }
 
         private void OnSuccess()
@@ -56,7 +73,7 @@ namespace Assets.Scripts.Menu.Account
             errorInfoFrame.SetCryoEyeType(Cryo.Script.EyeType.Happy);
             errorInfoFrame.SetCryoMouthType(Cryo.Script.MouthType.Smile);
             errorInfoFrame.SetErrorText("You have been logged in successfully!");
-
+            errorInfoFrame.gameObject.SetActive(true);
         }
 
         private void OnConnectionError()

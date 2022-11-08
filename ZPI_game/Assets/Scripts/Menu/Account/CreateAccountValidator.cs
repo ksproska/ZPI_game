@@ -41,7 +41,7 @@ namespace Assets.Scripts.Menu.Account
             accountCreatedText.text = "";
         }
 
-        public void SendData()
+        public async void SendData()
         {
             bool isNameOk = IsNameLocallyValid();
             bool isEmailOk = IsEmailLoccalyValid();
@@ -58,11 +58,48 @@ namespace Assets.Scripts.Menu.Account
             var login = loginText.text;
             var password = passwordText.text;
             User user = new(login, name, password);
-            // CreateAccount(name, login, valid)
+            var (unityResponse, serverString) = await Auth.AuthenticateUser(user);
+            switch (unityResponse)
+            {
+                case UnityEngine.Networking.UnityWebRequest.Result.Success:
+                    OnSuccess();
+                    break;
+                case UnityEngine.Networking.UnityWebRequest.Result.ConnectionError:
+                    OnConnectionError();
+                    break;
+                case UnityEngine.Networking.UnityWebRequest.Result.DataProcessingError:
+                    OnDataProcessingError();
+                    break;
+                case UnityEngine.Networking.UnityWebRequest.Result.ProtocolError: // bad username and password
+                    OnProtocolError();
+                    break;
+            }
+        }
+
+        private void OnSuccess()
+        {
             accountCreatedText.text = "Hooray! Your account has been successfully created!";
             cryo.SetBothEyesTypes(Cryo.Script.EyeType.Happy);
             cryo.SetMouthType(Cryo.Script.MouthType.Smile);
             StartCoroutine(SetCryoToNormal());
+        }
+
+        private void OnConnectionError()
+        {
+            accountCreatedText.text = "It seems you have no connection. Please try again later.";
+            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Sad);
+            cryo.SetMouthType(Cryo.Script.MouthType.Confused);
+            StartCoroutine(SetCryoToNormal());
+        }
+
+        private void OnDataProcessingError()
+        {
+
+        }
+
+        private void OnProtocolError()
+        {
+
         }
 
         public bool IsEmailLoccalyValid()

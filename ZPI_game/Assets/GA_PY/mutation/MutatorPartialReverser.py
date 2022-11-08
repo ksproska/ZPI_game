@@ -1,6 +1,5 @@
 from random import randrange
 from copy import deepcopy
-from Circuit import Circuit
 
 
 class MutatorPartialReverser:
