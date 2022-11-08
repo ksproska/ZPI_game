@@ -9,23 +9,14 @@ namespace DeveloperUtils
     public static class DebugExtension
     {
         /// <summary>
-        /// Extension method for <c>type string</c>.
+        /// Extension method for <c>type T</c>.
         /// <code>arg.Debug() = Debug.Log(arg)</code>
         /// </summary>
         /// <param name="arg">String to print in debug mode.</param>
-        public static void Debug(this string arg)
+        /// <typeparam name="T">Any type</typeparam>
+        public static void Debug<T>(this T arg)
         {
             UnityEngine.Debug.Log(arg);
-        }
-
-        /// <summary>
-        /// Extension method for <c>type GameObject</c>.
-        /// <code>obj.Debug() = Debug.Log(obj)</code>
-        /// </summary>
-        /// <param name="obj">GameObject to print in debug mode.</param>
-        public static void Debug(this GameObject obj)
-        {
-            UnityEngine.Debug.Log(obj);
         }
 
         /// <summary>
