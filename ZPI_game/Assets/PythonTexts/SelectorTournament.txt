@@ -1,14 +1,14 @@
-<color=#dc0073><link="import">import</link></color> random
-<color=#dc0073><link="from">from</link></color> <link="Circuit">Circuit</link> <color=#dc0073><link="import">import</link></color> <link="Circuit">Circuit</link>
+<color=#006e05><link="import">import</link></color> random
+<color=#006e05><link="from">from</link></color> <link="Circuit">Circuit</link> <color=#006e05><link="import">import</link></color> <link="Circuit">Circuit</link>
 
 
-<color=#f5b700><link="class">class</link></color> <color=#dc0073>SelectorTournament</color>:
+<color=#aaf502><link="class">class</link></color> <color=#006e05>SelectorTournament</color>:
 
-    <color=#f5b700><link="def">def</link></color> __init__(<color=#01befe><link="self">self</link></color>, size_percentage):
-        <color=#01befe><link="self">self</link></color>.size_percentage = size_percentage
+    <color=#aaf502><link="def">def</link></color> __init__(<color=#188600><link="self">self</link></color>, size_percentage):
+        <color=#188600><link="self">self</link></color>.size_percentage = size_percentage
 
-    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get</color>(<color=#01befe><link="self">self</link></color>, generation: <color=#dc0073><link="list">list</link></color>) -> <link="Circuit">               </link>:  
-        tournament_size = <color=#dc0073><link="int">int</link></color>(<color=#dc0073><link="len">len</link></color>(generation) * <color=#01befe><link="self">self</link></color>.size_percentage)
-        selectedIndexes = random.               (<color=#dc0073><link="range">               </link></color>(<color=#dc0073><link="len">len</link></color>(generation)), tournament_size)  
-        selected = [generation[i] <color=#f5b700><link="for">               </link></color> i                 selectedIndexes]  
-        <color=#f5b700><link="return">return</link></color> <color=#dc0073><link="min">               </link></color>(selected, key=<color=#f5b700><link="lambda">lambda</link></color> x: x.score)  
+    <color=#aaf502><link="def">def</link></color> <color=#7b3fca>get</color>(<color=#188600><link="self">self</link></color>, generation: <color=#006e05><link="list">list</link></color>) -> <link="Circuit">               </link>:  
+        tournament_size = <color=#006e05><link="int">int</link></color>(<color=#006e05><link="len">len</link></color>(generation) * <color=#188600><link="self">self</link></color>.size_percentage)
+        selectedIndexes = random.               (<color=#006e05><link="range">               </link></color>(<color=#006e05><link="len">len</link></color>(generation)), tournament_size)  
+        selected = [generation[i] <color=#aaf502><link="for">               </link></color> i                 selectedIndexes]  
+        <color=#aaf502><link="return">return</link></color> <color=#006e05><link="min">               </link></color>(selected, key=<color=#aaf502><link="lambda">lambda</link></color> x: x.score)  

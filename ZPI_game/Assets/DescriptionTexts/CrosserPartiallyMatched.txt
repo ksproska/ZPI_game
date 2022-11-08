@@ -1,36 +1,36 @@
-<color=#dc0073>import</color> random
+<color=#006e05>import</color> random
 
 
-<color=#f5b700>class</color> <color=#dc0073>CrosserPartialyMatched</color>:
+<color=#aaf502>class</color> <color=#006e05>CrosserPartialyMatched</color>:
 
-    <color=#ffa704>@staticmethod</color>
-    <color=#f5b700>def</color> <color=#7b3fca>cross</color>(parent1: <color=#dc0073>list</color>, parent2: <color=#dc0073>list</color>, start_index: <color=#dc0073>int</color>, segment_length: <color=#dc0073>int</color>):
-        <color=#808080>"""
+    <color=#9fff00>@staticmethod</color>
+    <color=#aaf502>def</color> <color=#7b3fca>cross</color>(parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>, start_index: <color=#006e05>int</color>, segment_length: <color=#006e05>int</color>):
+        <color=#648068>"""
         Method returns a child for given parents, start index, and length of a segment.
         """</color>
-        child = [None <color=#f5b700>for</color> i in <color=#dc0073>range</color>(<color=#dc0073>len</color>(parent1))]  
-        <color=#f5b700>for</color> i in <color=#dc0073>range</color>(start_index, segment_length):
+        child = [None <color=#aaf502>for</color> _ in <color=#006e05>range</color>(<color=#006e05>len</color>(parent1))]  
+        <color=#aaf502>for</color> i in <color=#006e05>range</color>(start_index, segment_length):
             child[i] = parent1[i]  
 
-        <color=#f5b700>for</color> i in <color=#dc0073>range</color>(segment_length):
+        <color=#aaf502>for</color> i in <color=#006e05>range</color>(segment_length):
             index = i + start_index
             value = parent2[index]  
 
-            <color=#f5b700>if</color> value not in child:  
-                <color=#f5b700>while</color> child[index] is not None:
+            <color=#aaf502>if</color> value not in child:  
+                <color=#aaf502>while</color> child[index] is not None:
                     index = parent2.index(parent1[index])  
                 child[index] = value
 
-        <color=#f5b700>for</color> i in <color=#dc0073>range</color>(<color=#dc0073>len</color>(child)):
-            <color=#f5b700>if</color> child[i] is None:
+        <color=#aaf502>for</color> i in <color=#006e05>range</color>(<color=#006e05>len</color>(child)):
+            <color=#aaf502>if</color> child[i] is None:
                 child[i] = parent2[i]
 
-        <color=#f5b700>return</color> child
+        <color=#aaf502>return</color> child
 
-    <color=#f5b700>def</color> <color=#7b3fca>get</color>(<color=#01befe>self</color>, parent1: <color=#dc0073>list</color>, parent2: <color=#dc0073>list</color>):
-        <color=#808080>"""
+    <color=#aaf502>def</color> <color=#7b3fca>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>):
+        <color=#648068>"""
         Method returns a child for given parents. Start index and length of a segment are drawnded.
         """</color>
-        start_inx = random.randrange(<color=#dc0073>len</color>(parent1) - <color=#ffffff>1</color>)  
-        segment_len = random.randrange(<color=#dc0073>len</color>(parent1) - start_inx - <color=#ffffff>1</color>)
-        <color=#f5b700>return</color> <color=#01befe>self</color>.cross(parent1, parent2, start_inx, segment_len)  
+        start_inx = random.randrange(<color=#006e05>len</color>(parent1) - <color=#89b68b>1</color>)  
+        segment_len = random.randrange(<color=#006e05>len</color>(parent1) - start_inx - <color=#89b68b>1</color>)
+        <color=#aaf502>return</color> <color=#188600>self</color>.cross(parent1, parent2, start_inx, segment_len)  

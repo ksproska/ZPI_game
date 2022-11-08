@@ -11,18 +11,18 @@ COMMENT_DOC = 'Token.Literal.String.Doc'
 COMMENT_SINGLE = 'Token.Comment.Single'
 
 COLORS_DICT = {
-    "Token.Keyword":                "#f5b700",
-    'Token.Literal.Number.Integer': "#ffffff",
-    'Token.Literal.Number.Float':   "#ffffff",
-    'Token.Name.Builtin.Pseudo':    "#01befe",
+    "Token.Keyword":                "#aaf502",
+    'Token.Literal.Number.Integer': "#89b68b",
+    'Token.Literal.Number.Float':   "#89b68b",
+    'Token.Name.Builtin.Pseudo':    "#188600",
     # 'Token.Operator': "#ffff00",
-    'Token.Name.Decorator':         "#ffa704",
+    'Token.Name.Decorator':         "#9fff00",
     'Token.Name.Function':          "#7b3fca",
-    'Token.Name.Builtin':           "#dc0073",
-    'Token.Keyword.Namespace':      "#dc0073",
+    'Token.Name.Builtin':           "#006e05",
+    'Token.Keyword.Namespace':      "#006e05",
     # "Token.Comment.Single": "#404040",
-    'Token.Literal.String.Doc':     "#808080",
-    'Token.Name.Class':             '#dc0073'
+    'Token.Literal.String.Doc':     "#648068",
+    'Token.Name.Class':             '#006e05'
 }
 
 LINK_TOKEN_LIST = [

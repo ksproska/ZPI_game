@@ -40,7 +40,6 @@ namespace Assets.Scripts.Menu.Account
         public async void SendData()
         {
             var menuActives = new List<IMenuActive>(GetComponentsInChildren<IMenuActive>());
-            menuActives.DebugLoop();
             menuActives.ForEach(m => m.SetEnabled(false));
             var login = loginText.text;
             var password = passwordText.text;

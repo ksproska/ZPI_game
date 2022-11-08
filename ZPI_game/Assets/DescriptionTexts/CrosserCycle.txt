@@ -1,0 +1,46 @@
+<color=#006e05>import</color> random
+
+
+<color=#aaf502>class</color> <color=#006e05>CrosserCycle</color>:
+    <color=#9fff00>@staticmethod</color>
+    <color=#aaf502>def</color> <color=#7b3fca>cross</color>(parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>):
+        cycles = CrosserCycle.__get_cycles(parent1, parent2)
+        child = CrosserCycle.__copy_from_parents(cycles, parent1, parent2)
+        <color=#aaf502>return</color> child
+
+    <color=#9fff00>@staticmethod</color>
+    <color=#aaf502>def</color> <color=#7b3fca>__get_cycles</color>(parent1, parent2):
+        cycles: <color=#006e05>list</color>[<color=#006e05>list</color>[<color=#006e05>int</color>]] = []
+        current_inx = <color=#89b68b>0</color>
+        collected_indexes = {current_inx}
+        <color=#aaf502>while</color> <color=#006e05>len</color>(collected_indexes) != <color=#006e05>len</color>(parent1):
+            cycle_beginning: <color=#006e05>int</color> = parent1[current_inx]
+            current_cycle: <color=#006e05>list</color>[<color=#006e05>int</color>] = [current_inx]
+
+            <color=#aaf502>while</color> True:
+                next_inx = parent1.index(parent2[current_cycle[-<color=#89b68b>1</color>]])
+                current_cycle.append(next_inx)
+                collected_indexes.add(next_inx)
+
+                <color=#aaf502>if</color> parent1[current_cycle[-<color=#89b68b>1</color>]] == cycle_beginning:
+                    current_cycle.pop()
+                    <color=#aaf502>break</color>
+            cycles.append(current_cycle)
+
+            <color=#aaf502>while</color> current_inx in collected_indexes:
+                current_inx += <color=#89b68b>1</color>
+        <color=#aaf502>return</color> cycles
+
+    <color=#9fff00>@staticmethod</color>
+    <color=#aaf502>def</color> <color=#7b3fca>__copy_from_parents</color>(cycles, parent1, parent2):
+        child = [None <color=#aaf502>for</color> _ in <color=#006e05>range</color>(<color=#006e05>len</color>(parent1))]
+        <color=#aaf502>for</color> i, cycle in <color=#006e05>enumerate</color>(cycles):
+            <color=#aaf502>for</color> index in cycle:
+                <color=#aaf502>if</color> i % <color=#89b68b>2</color> == <color=#89b68b>0</color>:
+                    child[index] = parent1[index]
+                <color=#aaf502>else</color>:
+                    child[index] = parent2[index]
+        <color=#aaf502>return</color> child
+
+    <color=#aaf502>def</color> <color=#7b3fca>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>):
+        <color=#aaf502>return</color> <color=#188600>self</color>.cross(parent1, parent2)

@@ -1,0 +1,19 @@
+<color=#006e05><link="import">import</link></color> random
+<color=#006e05><link="from">from</link></color> copy <color=#006e05><link="import">import</link></color> deepcopy
+
+
+<color=#aaf502><link="class">class</link></color> <color=#006e05>MutatorThrors</color>:
+
+    <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
+    <color=#aaf502><link="def">def</link></color> <color=#7b3fca>mutate</color>(city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], indexes: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
+        city_ids_copy =                (city_ids)  
+        last = city_ids[indexes[-<color=#89b68b>1</color>]]
+        <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">               </link></color>(<color=#006e05><link="len">len</link></color>(indexes) - <color=#89b68b>1</color>):  
+            city_ids_copy[indexes[i + <color=#89b68b>1</color>]] = city_ids[indexes[i]]
+        city_ids_copy[indexes[<color=#89b68b>0</color>]] = last
+        <color=#aaf502><link="return">return</link></color> city_ids_copy
+
+    <color=#aaf502><link="def">def</link></color> <color=#7b3fca>get</color>(<color=#188600><link="self">self</link></color>, city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
+        size = random.               (<color=#89b68b>2</color>, <color=#006e05><link="len">len</link></color>(city_ids) - <color=#89b68b>1</color>)  
+        indexes = random.               (<color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(city_ids)), size)  
+        <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.mutate(city_ids, indexes)

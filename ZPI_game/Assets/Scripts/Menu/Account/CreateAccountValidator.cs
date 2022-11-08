@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeveloperUtils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,8 @@ namespace Assets.Scripts.Menu.Account
                 StartCoroutine(SetCryoToNormal());
                 return;
             }
+            var menuActives = new List<IMenuActive>(GetComponentsInChildren<IMenuActive>());
+            menuActives.ForEach(m => m.SetEnabled(false));
 
             var name = nameText.text;
             var login = loginText.text;
@@ -74,6 +77,7 @@ namespace Assets.Scripts.Menu.Account
                     OnProtocolError();
                     break;
             }
+            menuActives.ForEach(m => m.SetEnabled(true));
         }
 
         private void OnSuccess()
@@ -136,7 +140,7 @@ namespace Assets.Scripts.Menu.Account
         {
             var name = nameText.text;
             nameValidationText.text = "";
-            if (name.Trim().Length < 3)
+            if (name.Trim().Length < 4)
             {
                 nameValidationText.text = "Name should have at least 3 characters.";
                 return false;

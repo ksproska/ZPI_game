@@ -1,0 +1,19 @@
+<color=#006e05>import</color> random
+<color=#006e05>from</color> copy <color=#006e05>import</color> deepcopy
+
+
+<color=#aaf502>class</color> <color=#006e05>MutatorThrors</color>:
+
+    <color=#9fff00>@staticmethod</color>
+    <color=#aaf502>def</color> <color=#7b3fca>mutate</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], indexes: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+        city_ids_copy = deepcopy(city_ids)  
+        last = city_ids[indexes[-<color=#89b68b>1</color>]]
+        <color=#aaf502>for</color> i in <color=#006e05>range</color>(<color=#006e05>len</color>(indexes) - <color=#89b68b>1</color>):  
+            city_ids_copy[indexes[i + <color=#89b68b>1</color>]] = city_ids[indexes[i]]
+        city_ids_copy[indexes[<color=#89b68b>0</color>]] = last
+        <color=#aaf502>return</color> city_ids_copy
+
+    <color=#aaf502>def</color> <color=#7b3fca>get</color>(<color=#188600>self</color>, city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+        size = random.randrange(<color=#89b68b>2</color>, <color=#006e05>len</color>(city_ids) - <color=#89b68b>1</color>)  
+        indexes = random.sample(<color=#006e05>range</color>(<color=#006e05>len</color>(city_ids)), size)  
+        <color=#aaf502>return</color> <color=#188600>self</color>.mutate(city_ids, indexes)

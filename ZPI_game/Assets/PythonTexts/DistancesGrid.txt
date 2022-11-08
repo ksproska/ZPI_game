@@ -1,7 +1,7 @@
-<color=#f5b700><link="class">class</link></color> <color=#dc0073>DistancesGrid</color>:
-    <color=#f5b700><link="def">def</link></color>                (<color=#01befe><link="self">self</link></color>, <link="DistancesGrid">distances_grid</link>: <color=#dc0073><link="list">list</link></color>[<color=#dc0073><link="list">list</link></color>]):   
-        <color=#01befe><link="self">self</link></color>.<link="DistancesGrid">distances_grid</link>: <color=#dc0073><link="list">list</link></color>[<color=#dc0073><link="list">               </link></color>] = <link="DistancesGrid">distances_grid</link>   
-        <color=#01befe><link="self">self</link></color>.number_of_cities: <color=#dc0073><link="int">int</link></color> = <color=#dc0073><link="len">               </link></color>(<link="DistancesGrid">distances_grid</link>)    
+<color=#aaf502><link="class">class</link></color> <color=#006e05>DistancesGrid</color>:
+    <color=#aaf502><link="def">def</link></color>                (<color=#188600><link="self">self</link></color>, <link="DistancesGrid">distances_grid</link>: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="list">list</link></color>]):   
+        <color=#188600><link="self">self</link></color>.<link="DistancesGrid">distances_grid</link>: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="list">               </link></color>] = <link="DistancesGrid">distances_grid</link>   
+        <color=#188600><link="self">self</link></color>.number_of_cities: <color=#006e05><link="int">int</link></color> = <color=#006e05><link="len">               </link></color>(<link="DistancesGrid">distances_grid</link>)    
 
-    <color=#f5b700><link="def">def</link></color> <color=#7b3fca>get_distance</color>(<color=#01befe><link="self">self</link></color>, index1: <color=#dc0073><link="int">int</link></color>, index2: <color=#dc0073><link="int">int</link></color>) -> <color=#dc0073><link="float">               </link></color>:
-        <color=#f5b700><link="return">return</link></color> <color=#01befe><link="self">self</link></color>.<link="DistancesGrid">               </link>[index1][index2]  
+    <color=#aaf502><link="def">def</link></color> <color=#7b3fca>get_distance</color>(<color=#188600><link="self">self</link></color>, index1: <color=#006e05><link="int">int</link></color>, index2: <color=#006e05><link="int">int</link></color>) -> <color=#006e05><link="float">               </link></color>:
+        <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.<link="DistancesGrid">               </link>[index1][index2]  

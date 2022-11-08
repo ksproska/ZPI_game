@@ -1,14 +1,14 @@
-<color=#dc0073>import</color> random
-<color=#dc0073>from</color> Circuit <color=#dc0073>import</color> Circuit
+<color=#006e05>import</color> random
+<color=#006e05>from</color> Circuit <color=#006e05>import</color> Circuit
 
 
-<color=#f5b700>class</color> <color=#dc0073>SelectorTournament</color>:
+<color=#aaf502>class</color> <color=#006e05>SelectorTournament</color>:
 
-    <color=#f5b700>def</color> __init__(<color=#01befe>self</color>, size_percentage):
-        <color=#01befe>self</color>.size_percentage = size_percentage
+    <color=#aaf502>def</color> __init__(<color=#188600>self</color>, size_percentage):
+        <color=#188600>self</color>.size_percentage = size_percentage
 
-    <color=#f5b700>def</color> <color=#7b3fca>get</color>(<color=#01befe>self</color>, generation: <color=#dc0073>list</color>) -> Circuit:  
-        tournament_size = <color=#dc0073>int</color>(<color=#dc0073>len</color>(generation) * <color=#01befe>self</color>.size_percentage)
-        selectedIndexes = random.sample(<color=#dc0073>range</color>(<color=#dc0073>len</color>(generation)), tournament_size)  
-        selected = [generation[i] <color=#f5b700>for</color> i in selectedIndexes]  
-        <color=#f5b700>return</color> <color=#dc0073>min</color>(selected, key=<color=#f5b700>lambda</color> x: x.score)  
+    <color=#aaf502>def</color> <color=#7b3fca>get</color>(<color=#188600>self</color>, generation: <color=#006e05>list</color>) -> Circuit:  
+        tournament_size = <color=#006e05>int</color>(<color=#006e05>len</color>(generation) * <color=#188600>self</color>.size_percentage)
+        selectedIndexes = random.sample(<color=#006e05>range</color>(<color=#006e05>len</color>(generation)), tournament_size)  
+        selected = [generation[i] <color=#aaf502>for</color> i in selectedIndexes]  
+        <color=#aaf502>return</color> <color=#006e05>min</color>(selected, key=<color=#aaf502>lambda</color> x: x.score)  
