@@ -6,6 +6,9 @@ public class DropSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] public string expectedContents;
     public string _placedContent;
+    [SerializeField] public int expectedParent;
+    public int _placedFromParent;
+
 
     public void OnStart()
     {
@@ -22,7 +25,8 @@ public class DropSlot : MonoBehaviour, IDropHandler
             {
                 eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
                 _placedContent = eventData.pointerDrag.GetComponent<DragDrop>().TextMeshPro.text;
-            }
+                _placedFromParent = eventData.pointerDrag.GetComponent<DragDrop>().parent;
+}
             eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
         }
         
@@ -32,9 +36,19 @@ public class DropSlot : MonoBehaviour, IDropHandler
         return expectedContents == _placedContent;
     }
 
+    public bool IsFromCorrectParent()
+    {
+        return expectedParent == _placedFromParent;
+    }
+
     public void SetContent(string content)
     {
         _placedContent = content;
     }
-    
+
+    public void SetParent(int parent)
+    {
+        _placedFromParent = parent;
+    }
+
 }

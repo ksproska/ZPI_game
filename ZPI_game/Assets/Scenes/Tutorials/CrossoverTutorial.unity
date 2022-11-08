@@ -240,6 +240,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8151543383315115644, guid: 641b8cc65a26b99428f8fabbcf3fa8a0, type: 3}
     - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: parentNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: initializeGrid
       value: 1
       objectReference: {fileID: 0}
@@ -371,6 +375,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1223022369}
     - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: parentNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: initializeGrid
       value: 1
       objectReference: {fileID: 0}
@@ -497,6 +505,10 @@ PrefabInstance:
       propertyPath: prefab
       value: 
       objectReference: {fileID: 8151543383315115644, guid: 641b8cc65a26b99428f8fabbcf3fa8a0, type: 3}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: parentNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: initializeGrid
       value: 1
@@ -2819,6 +2831,10 @@ PrefabInstance:
       propertyPath: otherGenome
       value: 
       objectReference: {fileID: 267796937}
+    - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
+      propertyPath: parentNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2900773235971604003, guid: 0e7249d77cf18204fb3146b4f7e433fa, type: 3}
       propertyPath: initializeGrid
       value: 1

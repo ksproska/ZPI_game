@@ -55,6 +55,7 @@ public class CrossoverTutorialController : MonoBehaviour
         CalculateNextCrossing();
 
         levelSlotsList.GetComponent<GenomSlotsCreator>().FillGenome(childGenome);
+        levelSlotsList.GetComponent<GenomSlotsCreator>().FillExpectedParents(steps.OrderBy(elem => elem.Item1).Select(elem => elem.Item3).ToList());
     }
 
     void CalculateNextCrossing()
@@ -102,6 +103,8 @@ public class CrossoverTutorialController : MonoBehaviour
 
         CalculateNextCrossing();
         levelSlotsList.GetComponent<GenomSlotsCreator>().CreateSlots(childGenome);
+        levelSlotsList.GetComponent<GenomSlotsCreator>().FillExpectedParents(steps.OrderBy(elem => elem.Item1).Select(elem => elem.Item3).ToList());
+
 
         tutorialHandler.DeactivateTutorial();
         currentStep = 0;
@@ -142,11 +145,18 @@ public class CrossoverTutorialController : MonoBehaviour
         if (currentStep > 0)
         {
             currentStep -= 1;
-            var (slot, value, parent) = steps[currentStep];
+            var (_, _, parent) = steps[currentStep];
             bool dropIsAboveSlot = (parent == 0);
             tutorialHandler.Previous(dropIsAboveSlot);
             tutorialHandler.ColorCells(parent1tutorialStaticsList.GetComponent<GenomCreator>().geneList, parent2tutorialStaticsList.GetComponent<GenomCreator>().geneList, tutorialSlotsList.GetComponent<GenomSlotsCreator>().geneList);
 
         }
+    }
+
+    public void HandleAreAllCorrectWithParents()
+    {
+        tutorialHandler.checkButton.GetComponent<ErrorColoring>().HandleAreAllCorrect();
+        List<int> parentList = steps.Select(elem => elem.Item3).ToList();
+
     }
 }

@@ -20,7 +20,7 @@ public class ErrorColoring : MonoBehaviour
         var allSlots = FindObjectsOfType<DropSlot>();
         foreach (var slot in allSlots)
         {
-            if (slot.IsCorrect())
+            if (slot.IsCorrect() && slot.IsFromCorrectParent())
             {
                 slot.GetComponentInChildren<Image>().color = _colorOk;
             }

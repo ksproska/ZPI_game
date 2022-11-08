@@ -17,6 +17,7 @@ public class GenomCreator : MonoBehaviour
     [NonSerialized] public List<int> genomeList;
     [NonSerialized] public List<GameObject> geneList = new();
     public GenomCreator otherGenome;
+    public int parentNumber;
 
     private void Awake()
     {
@@ -54,11 +55,21 @@ public class GenomCreator : MonoBehaviour
             {
                 var staticDd = staticAdded.GetComponent<TextMeshProUGUI>();
                 staticDd.text = $"{genomeList[i]}";
+                var dragDrop = staticAdded.GetComponent<DragDrop>();
+                if (dragDrop)
+                {
+                    dragDrop.parent = parentNumber;
+                }
             }
             else if (otherGenome != null)
             {
                 var staticDd = staticAdded.GetComponent<TextMeshProUGUI>();
                 staticDd.text = $"{otherGenome.genomeList[i]}";
+                var dragDrop = staticAdded.GetComponent<DragDrop>();
+                if (dragDrop)
+                {
+                    dragDrop.parent = otherGenome.parentNumber;
+                }
             }
             geneList.Add(staticAdded);
         }
