@@ -101,7 +101,7 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             return;
         }
 
-        goToScene.scene = "StoryBeginning";
+        goToScene.scene = "map_0_StoryBeginning";
         goToScene.FadeOutScene();
     }
 }

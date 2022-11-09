@@ -4825,6 +4825,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: BACK
       objectReference: {fileID: 0}
+    - target: {fileID: 8661990779410550738, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
+      propertyPath: scene
+      value: WorldMap
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
 --- !u!1001 &1438911291
