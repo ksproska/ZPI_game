@@ -79,7 +79,7 @@ namespace LevelUtils
             {
                 if (scene.enabled)
                 {
-                    scenes.Add(Path.GetFileName(scene.path));
+                    scenes.Add(Path.GetFileNameWithoutExtension(scene.path));
                 }
             }
             return scenes;
