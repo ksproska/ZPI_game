@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DeveloperUtils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,7 +17,10 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
     private RectTransform _rectTransform;
     private Canvas _canvas;
     private CanvasGroup _canvasGroup;
+    [NonSerialized] public  PointsContainer container;
     [NonSerialized] public int cityNumber;
+
+    private Vector2 oryginalPosition;
     
     private void Awake()
     {
@@ -24,6 +28,8 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         _canvas = FindObjectOfType<Canvas>();
         _canvasGroup = GetComponent<CanvasGroup>();
         _lineRenderer = GetComponent<LineRenderer>();
+        container = GetComponentInParent<PointsContainer>();
+        oryginalPosition = _rectTransform.anchoredPosition;
     }
     
     public (float, float) GetPosition()
@@ -33,7 +39,7 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
 
     public void DrawLine(City other)
     {
-        Vector3[] pathPoints = { this.transform.position, other.transform.position };
+        Vector3[] pathPoints = { transform.position, other.transform.position };
         _lineRenderer.positionCount = 2;
         _lineRenderer.SetPositions(pathPoints);
         _lineRenderer.material = lineMaterial;
@@ -50,6 +56,7 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        oryginalPosition = _rectTransform.anchoredPosition;
         _canvasGroup.blocksRaycasts = false;
     }
     
@@ -60,6 +67,19 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!IsInBounds())
+        {
+            _rectTransform.anchoredPosition = oryginalPosition;
+        }
         _canvasGroup.blocksRaycasts = true;
+    }
+
+    private bool IsInBounds()
+    {
+        container.bounds.center.Debug();
+        container.bounds.max.Debug();
+        container.bounds.min.Debug();
+        
+        return true;
     }
 }
