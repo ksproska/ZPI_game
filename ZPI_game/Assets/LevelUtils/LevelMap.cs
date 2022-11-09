@@ -61,25 +61,25 @@ namespace LevelUtils
         }
         private List<LevelButtonInfo> LoadLevels()
         {
-            List<Scene> scenes = GetScenes().Where(scn => scn.IsNavigableFromMap()).ToList();
+            List<string> scenes = GetScenes().Where(scn => IsNavigableFromMap(scn)).ToList();
             List<int> completed = LoadSaveHelper.Instance.GetSlot(_currSlot);
-            List<LevelButtonInfo> levelInfos = scenes.Select(scn => new LevelButtonInfo(scn.GetClearName(), scn.GetClearName(), scn.GetSceneNumber(), true, null)).ToList();
+            List<LevelButtonInfo> levelInfos = scenes.Select(scn => new LevelButtonInfo(GetClearMapName(scn), GetClearMapName(scn), GetSceneNumber(scn), true, null)).ToList();
             levelInfos.ForEach(lvlInfo => lvlInfo.IsFinished = completed.Contains(lvlInfo.LevelNumber));
-            levelInfos.Join(scenes, levelInf => levelInf.LevelName, scn => scn.GetClearName(), (levelInf, scn) => new { LevelInfo = levelInf, Scene = scn }).ToList().
+            levelInfos.Join(scenes, levelInf => levelInf.LevelName, scn => GetClearMapName(scn), (levelInf, scn) => new { LevelInfo = levelInf, Scene = scn }).ToList().
                 ForEach(elem => {
-                    List<int> prevLevelNums = elem.Scene.GetPreviousLevels();
+                    List<int> prevLevelNums = GetPreviousMapLevels(elem.Scene);
                     elem.LevelInfo.PrevLevels = levelInfos.Where(lvlInfo => prevLevelNums.Contains(lvlInfo.LevelNumber)).ToList();
                 });
             return levelInfos;
         }
-        private List<Scene> GetScenes()
+        private List<string> GetScenes()
         {
-            List<Scene> scenes = new List<Scene>();
+            List<string> scenes = new List<string>();
             foreach (var scene in EditorBuildSettings.scenes)
             {
                 if (scene.enabled)
                 {
-                    scenes.Add(SceneManager.GetSceneByPath(scene.path));
+                    scenes.Add(Path.GetFileName(scene.path));
                 }
             }
             return scenes;
@@ -169,7 +169,20 @@ namespace LevelUtils
             if (split.Length == 2) return new List<int>();
             return split.Skip(3).Select(int.Parse).ToList();
         }
-        
+
+        public static int GetSceneNumber(string scene)
+        {
+            if (IsNavigableFromMap(scene))
+                throw new NotMapNavigableException($"Scene {scene} is not navigable from world map.");
+            var split = scene.Split('_');
+            if (split.Length < 3)
+                throw new InvalidMapNavigableName($"Scene {scene} has an invalid name " +
+                                                  $"structure for a map navigable scene. Correct " +
+                                                  $"structure should look like: " +
+                                                  $"\"map_1_SceneName\"");
+            return int.Parse(split[1]);
+        }
+
         public static string MakeMapSceneName(string clearName, int number, IEnumerable<int> previousLevels)
         {
             string previousLevelsChain = string.Join('_', previousLevels);
