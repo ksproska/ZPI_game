@@ -24,10 +24,10 @@ EditorBuildSettings:
     path: Assets/Scenes/WorldMap.unity
     guid: bb6b9aa54f50fa04a859ed7e70826c40
   - enabled: 1
-    path: Assets/Scenes/Education/lvl_learn_1.unity
+    path: Assets/Scenes/Education/map_1_DistanceGrid_0.unity
     guid: 1f2c2ec628abb6f4b8d2ad6cec5cf6b0
   - enabled: 1
-    path: Assets/Scenes/Education/lvl_number_1.unity
+    path: Assets/Scenes/Education/map_2_Circuit_1.unity
     guid: 5b3b47dd7ce1ea947b88c11a3d6398e4
   - enabled: 1
     path: Assets/Scenes/Education/lvl_number_2.unity
@@ -48,6 +48,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Education/Edu_template.unity
     guid: 2b0ccfd2be0c0a3458498bcc3c56cff6
   - enabled: 1
-    path: Assets/Scenes/Curscenes/StoryBeginning.unity
+    path: Assets/Scenes/Curscenes/map_0_StoryBeginning.unity
     guid: 2ad462aff665bd94f8b62fad5973073f
   m_configObjects: {}

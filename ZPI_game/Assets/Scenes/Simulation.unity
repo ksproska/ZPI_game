@@ -5225,15 +5225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1df034579180a71b0f9141fb58bb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 205008542}
-  - {fileID: 613754336}
-  - {fileID: 1228518329}
-  - {fileID: 1872342998}
-  - {fileID: 117775623}
-  - {fileID: 1553942388}
-  - {fileID: 1093015964}
-  areDisabled: 0
 --- !u!1001 &1447193206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5845,7 +5836,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1860789809}
   m_HandleRect: {fileID: 1860789808}
   m_Direction: 2
-  m_Value: 0.9999989
+  m_Value: 0.99999917
   m_Size: 0.11297531
   m_NumberOfSteps: 0
   m_OnValueChanged:
