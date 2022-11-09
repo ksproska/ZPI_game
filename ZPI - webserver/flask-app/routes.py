@@ -43,7 +43,33 @@ def get_points(map_id):
 @routes.route('/api/map', methods=['POST'])
 def create_map():
     map_serialized = request.json
+    try:
+        ClientDataValidator.validate_map(map_serialized)
+    except ValidationError as v_err:
+        return f'{v_err.messages[0]}', 400
+    
+    try:
+        DatabaseValidator.different_points_validation(map_serialized['Points'])
+    except IntegrityError as i_err:
+        return f'{i_err.statement}', 400
+        
     new_map = CreateQueries.create_def_map()
+    CreateQueries.create_points(new_map, map_serialized['Points'])
+    return 'Map created!', 200
+
+@routes.route('/api/user/<int:user_id>/map', methods=['POST'])
+def create_user_map(user_id):
+    map_serialized = request.json
+    try:
+        ClientDataValidator.validate_map(map_serialized)
+    except ValidationError as v_err:
+        return f'{v_err.messages[0]}', 400
+    try:
+        DatabaseValidator.different_points_validation(map_serialized['Points'])
+    except IntegrityError as i_err:
+        return f'{i_err.statement}', 400
+
+    new_map = CreateQueries.create_user_map(user_id)
     CreateQueries.create_points(new_map, map_serialized['Points'])
     return 'Map created!', 200
 

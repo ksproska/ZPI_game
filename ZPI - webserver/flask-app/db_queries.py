@@ -1,4 +1,5 @@
 from sqlalchemy import exc
+from datetime import date
 from db_models import *
 
 class ReadQueries():
@@ -26,6 +27,13 @@ class CreateQueries():
     @staticmethod
     def create_def_map():
         map = Maps(None, None)
+        CreateQueries.db_con.session.add(map)
+        CreateQueries.db_con.session.commit()
+        return map
+    
+    @staticmethod
+    def create_user_map(user_id):
+        map = Maps(user_id, date.today())
         CreateQueries.db_con.session.add(map)
         CreateQueries.db_con.session.commit()
         return map

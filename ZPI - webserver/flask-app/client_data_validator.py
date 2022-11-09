@@ -43,3 +43,24 @@ class ClientDataValidator():
         
         if len(user_creds_serialized['Password']) < 12:
             raise ex.ValidationError('Password should be at least 12 characters long!')
+    
+    @staticmethod
+    def validate_map(map_serialized: dict):
+
+        if not 'Points' in map_serialized:
+            raise ex.ValidationError(f'Client received data has no key \'Points\'!')
+        
+        if not isinstance(map_serialized['Points'], list):
+            raise ex.ValidationError(f'List of points is in the wrong format!')
+        
+        for point in map_serialized['Points']:
+            if not isinstance(point, dict):
+                raise ex.ValidationError(f'A point ({point}) is in the wrong format!')
+            elif not 'X' in point:
+                raise ex.ValidationError(f'A point ({point}) has no X coordinate!')
+            elif not 'Y' in point:
+                raise ex.ValidationError(f'A point ({point}) has no Y coordinate!')
+            elif point['X'] < 0 or point['X'] > 1920:
+                raise ex.ValidationError(f'X cordinate of point ({point}) is out of range!')
+            elif point['Y'] < 0 or point['Y'] > 1080:
+                raise ex.ValidationError(f'Y cordinate of point ({point}) is out of range!')
