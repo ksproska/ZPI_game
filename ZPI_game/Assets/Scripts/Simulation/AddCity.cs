@@ -12,7 +12,7 @@ public class AddCity : MonoBehaviour
     public void Add()
     {
         var city = Instantiate(pointPrefab, map.transform.position, Quaternion.identity, FindObjectOfType<Canvas>().transform);
-        city.transform.parent = pointsContainer.gameObject.transform;
+        city.transform.SetParent(pointsContainer.gameObject.transform);
         city.GetComponent<City>().container = pointsContainer;
     }
 }
