@@ -1,4 +1,5 @@
 
+using System;
 using Extensions;
 using System.Collections.Generic;
 using System.IO;
@@ -136,6 +137,49 @@ namespace LevelUtils
             }
             return prevLevels.Select(prevLvl => prevLvl.GameObjectName).ToList();
         }
+        
+        public static bool IsNavigableFromMap(string name)
+        {
+            return name.StartsWith("map");
+        }
+        
+        public static string GetClearMapName(string name)
+        {
+            if (!IsNavigableFromMap(name))
+                throw new NotMapNavigableException($"Scene {name} is not navigable from world map.");
+            var splitName = name.Split('_');
+            if (splitName.Length < 3)
+                throw new InvalidMapNavigableName($"Scene {name} has an invalid name " +
+                                                  $"structure for a map navigable scene. Correct " +
+                                                  $"structure should look like: " +
+                                                  $"\"map_1_SceneName\"");
+            return splitName[2];
+        }
+        
+        public static List<int> GetPreviousMapLevels(string name)
+        {
+            if (!IsNavigableFromMap(name))
+                throw new NotMapNavigableException($"Scene {name} is not navigable from world map.");
+            var split = name.Split('_');
+            if (split.Length < 3)
+                throw new InvalidMapNavigableName($"Scene {name} has an invalid name " +
+                                                  $"structure for a map navigable scene. Correct " +
+                                                  $"structure should look like: " +
+                                                  $"\"map_1_SceneName\"");
+            if (split.Length == 2) return new List<int>();
+            return split.Skip(3).Select(int.Parse).ToList();
+        }
+        
+        public static string MakeMapSceneName(string clearName, int number, IEnumerable<int> previousLevels)
+        {
+            string previousLevelsChain = string.Join('_', previousLevels);
+            var ret = $"map_{number}_{clearName}";
+            if (previousLevelsChain.Length != 0)
+            {
+                ret += $"_{previousLevelsChain}";
+            }
+            return ret;
+        }
     }
     class LevelInfoJson
     {
@@ -150,6 +194,22 @@ namespace LevelUtils
             LevelName = levelName;
             LevelNumber = levelNumber;
             PrevLevels = prevLevels;
+        }
+    }
+    
+    public class NotMapNavigableException : Exception
+    {
+        public NotMapNavigableException(string message = "") : base(message)
+        {
+            
+        }
+    }
+
+    public class InvalidMapNavigableName : Exception
+    {
+        public InvalidMapNavigableName(string message = "") : base(message)
+        {
+            
         }
     }
 }
