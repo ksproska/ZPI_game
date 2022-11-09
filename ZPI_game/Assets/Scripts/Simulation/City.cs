@@ -67,19 +67,10 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!IsInBounds())
+        if (!container.IsMouseOver)
         {
             _rectTransform.anchoredPosition = oryginalPosition;
         }
         _canvasGroup.blocksRaycasts = true;
-    }
-
-    private bool IsInBounds()
-    {
-        container.bounds.center.Debug();
-        container.bounds.max.Debug();
-        container.bounds.min.Debug();
-        
-        return true;
     }
 }
