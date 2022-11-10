@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TMPro;
@@ -14,10 +15,10 @@ namespace Assets.Scripts.Menu.Account
 {
     class LoginValidator: MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI loginText;
+        [SerializeField] private TMP_InputField loginText;
         [SerializeField] private Text loginValidationText;
 
-        [SerializeField] private TextMeshProUGUI passwordText;
+        [SerializeField] private TMP_InputField passwordText;
         [SerializeField] private Text passwordValidationText;
 
         [SerializeField] private ConnectionErrorBox errorInfoFrame;
@@ -41,16 +42,17 @@ namespace Assets.Scripts.Menu.Account
         {
             var menuActives = new List<IMenuActive>(GetComponentsInChildren<IMenuActive>());
             menuActives.ForEach(m => m.SetEnabled(false));
-            var login = loginText.text;
-            var password = passwordText.text;
+            var login = loginText.text.Trim();
+            var password = passwordText.text.Trim();
             User user = new(login, password);
             cryo.SetBothEyesTypes(Cryo.Script.EyeType.Wink);
             cryo.SetMouthType(Cryo.Script.MouthType.Confused);
             var (unityResponse, serverString) = await Auth.AuthenticateUser(user);
+            serverString.Debug();
             switch(unityResponse)
             {
                 case UnityEngine.Networking.UnityWebRequest.Result.Success:
-                    OnSuccess();
+                    OnSuccess(serverString);
                     break;
                 case UnityEngine.Networking.UnityWebRequest.Result.ConnectionError:
                     OnConnectionError();
@@ -67,11 +69,14 @@ namespace Assets.Scripts.Menu.Account
             menuActives.ForEach(m => m.SetEnabled(true));
         }
 
-        private void OnSuccess()
+        private void OnSuccess(string serverString)
         {
             errorInfoFrame.SetCryoEyeType(Cryo.Script.EyeType.Happy);
             errorInfoFrame.SetCryoMouthType(Cryo.Script.MouthType.Smile);
+            var userResponse = JsonSerializer.Deserialize<UserResponse>(serverString);
             errorInfoFrame.SetErrorText("You have been logged in successfully!");
+            CurrentState.CurrentGameState.Instance.CurrentUserId = userResponse.user_id;
+            CurrentState.CurrentGameState.Instance.CurrentUserNickname = userResponse.nickname;
             errorInfoFrame.gameObject.SetActive(true);
         }
 
@@ -92,6 +97,12 @@ namespace Assets.Scripts.Menu.Account
         private void OnDataProcessingError()
         {
 
+        }
+
+        class UserResponse
+        {
+            public string nickname { get; set; }
+            public int user_id { get; set; }
         }
 
     }

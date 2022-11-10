@@ -15,16 +15,16 @@ namespace Assets.Scripts.Menu.Account
 {
     class CreateAccountValidator: MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI nameText;
+        [SerializeField] private TMP_InputField nameText;
         [SerializeField] private Text nameValidationText;
 
-        [SerializeField] private TextMeshProUGUI loginText;
+        [SerializeField] private TMP_InputField loginText;
         [SerializeField] private Text loginValidationText;
 
-        [SerializeField] private TextMeshProUGUI passwordText;
+        [SerializeField] private TMP_InputField passwordText;
         [SerializeField] private Text passwordValidationText;
 
-        [SerializeField] private TextMeshProUGUI confirmPasswordText;
+        [SerializeField] private TMP_InputField confirmPasswordText;
 
         [SerializeField] private Text accountCreatedText;
 
@@ -57,11 +57,11 @@ namespace Assets.Scripts.Menu.Account
             var menuActives = new List<IMenuActive>(GetComponentsInChildren<IMenuActive>());
             menuActives.ForEach(m => m.SetEnabled(false));
 
-            var name = nameText.text;
-            var login = loginText.text;
-            var password = passwordText.text;
+            var name = nameText.text.Trim();
+            var login = loginText.text.Trim();
+            var password = passwordText.text.Trim();
             User user = new(login, name, password);
-            var (unityResponse, serverString) = await Auth.AuthenticateUser(user);
+            var (unityResponse, serverString) = await Auth.CreateNewUser(user);
             switch (unityResponse)
             {
                 case UnityEngine.Networking.UnityWebRequest.Result.Success:
@@ -90,7 +90,7 @@ namespace Assets.Scripts.Menu.Account
 
         private void OnConnectionError()
         {
-            accountCreatedText.text = "It seems you have no connection. Please try again later.";
+            accountCreatedText.text = "It seems the server is not responding. Please try again later or check your internet connection.";
             cryo.SetBothEyesTypes(Cryo.Script.EyeType.Sad);
             cryo.SetMouthType(Cryo.Script.MouthType.Confused);
             StartCoroutine(SetCryoToNormal());
@@ -98,12 +98,13 @@ namespace Assets.Scripts.Menu.Account
 
         private void OnDataProcessingError()
         {
-
+            accountCreatedText.text = "Bad user";
         }
+
 
         private void OnProtocolError()
         {
-
+            accountCreatedText.text = "Bad user";
         }
 
         public bool IsEmailLoccalyValid()
@@ -140,7 +141,7 @@ namespace Assets.Scripts.Menu.Account
         {
             var name = nameText.text;
             nameValidationText.text = "";
-            if (name.Trim().Length < 4)
+            if (name.Trim().Length < 3)
             {
                 nameValidationText.text = "Name should have at least 3 characters.";
                 return false;
