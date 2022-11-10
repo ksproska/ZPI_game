@@ -111,7 +111,8 @@ namespace LevelUtils
         public void CompleteALevel(string levelName, LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
-            LoadSaveHelper.Instance.CompleteALevel(ListOfLevels.Where(lvl => lvl.LevelName == levelName).First().LevelNumber, slotNum);
+
+            LoadSaveHelper.Instance.CompleteALevel(ListOfLevels.Where(lvl => lvl.LevelName == GetClearMapName(levelName)).First().LevelNumber, slotNum);
             List<int> completed = LoadSaveHelper.Instance.GetSlot(slotNum);
             ListOfLevels.ForEach(lvl => lvl.IsFinished = completed.Contains(lvl.LevelNumber));
         }
@@ -170,7 +171,7 @@ namespace LevelUtils
 
         public static int GetSceneNumber(string scene)
         {
-            if (IsNavigableFromMap(scene))
+            if (!IsNavigableFromMap(scene))
                 throw new NotMapNavigableException($"Scene {scene} is not navigable from world map.");
             var split = scene.Split('_');
             if (split.Length < 3)

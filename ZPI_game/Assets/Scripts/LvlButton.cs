@@ -38,7 +38,6 @@ public class LvlButton : MonoBehaviour
 
 
         List<string> prevLevelsNames = LevelMap.Instance.GetPrevGameObjectNames(this.name, CurrentGameState.Instance.CurrentSlot);
-
         foreach (var name in prevLevelsNames)
         {
             if (LevelMap.Instance.IsLevelDone(name, CurrentGameState.Instance.CurrentSlot))
