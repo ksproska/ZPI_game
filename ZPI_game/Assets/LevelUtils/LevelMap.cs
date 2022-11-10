@@ -74,13 +74,11 @@ namespace LevelUtils
         }
         private List<string> GetScenes()
         {
+            int sceneCount = SceneManager.sceneCountInBuildSettings;
             List<string> scenes = new List<string>();
-            foreach (var scene in EditorBuildSettings.scenes)
+            for (int i = 0; i < sceneCount; i++)
             {
-                if (scene.enabled)
-                {
-                    scenes.Add(Path.GetFileNameWithoutExtension(scene.path));
-                }
+                scenes.Add(Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
             }
             return scenes;
         }
