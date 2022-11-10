@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Text.Json;
 using UnityEngine;
 using DeveloperUtils;
-
+using UnityEditor;
+using System.IO;
 
 namespace Webserver
 {
@@ -22,7 +23,20 @@ namespace Webserver
             (var res, string serverResp) = await Auth.AuthenticateUser(new User("janko-z-bogdanca@wp.pl", "haslokajdsajjcjk213"));
             serverResp.Debug();
             res.ToString().Debug();
+            GetScenes().DebugLoop();
+        }
 
+        private List<string> GetScenes()
+        {
+            List<string> scenes = new List<string>();
+            foreach (var scene in EditorBuildSettings.scenes)
+            {
+                if (scene.enabled)
+                {
+                    scenes.Add(Path.GetFileNameWithoutExtension(scene.path));
+                }
+            }
+            return scenes;
         }
 
 
