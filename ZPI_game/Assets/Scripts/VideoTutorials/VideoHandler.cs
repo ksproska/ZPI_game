@@ -7,6 +7,8 @@ public class VideoHandler : MonoBehaviour
 {
     private VideoPlayer player;
     private Slider _slider;
+
+    [SerializeField] float slideDuration;
     void Start()
     {
         player = GetComponent<VideoPlayer>();
@@ -22,6 +24,16 @@ public class VideoHandler : MonoBehaviour
     public void SetTime(float newTime)
     {
         player.time = newTime;
+    }
+
+    public void Next()
+    {
+        player.time += slideDuration;
+    }
+
+    public void Previous()
+    {
+        player.time -= slideDuration;
     }
 
     public void StartStop()
