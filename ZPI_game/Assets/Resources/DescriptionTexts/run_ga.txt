@@ -43,8 +43,8 @@ weights_example = [
 ]
 
 
-<color=#aaf502>class</color> <color=#006e05>TestGeneticAlgorithm</color>(unittest.TestCase):
-    <color=#aaf502>def</color> <color=#7b3fca>test_GA</color>(<color=#188600>self</color>):
+<color=#aaf502>class</color> <color=#009607>TestGeneticAlgorithm</color>(unittest.TestCase):
+    <color=#aaf502>def</color> <color=#3e9360>test_GA</color>(<color=#188600>self</color>):
         weights_grid = DistancesGrid(weights_example)
         <color=#aaf502>for</color> selector in [SelectorRoulette(), SelectorTournament(<color=#89b68b>0.1</color>)]:
             <color=#aaf502>for</color> crosser in [CrosserPartialyMatched(), CrosserCycle(), CrosserOrder()]:

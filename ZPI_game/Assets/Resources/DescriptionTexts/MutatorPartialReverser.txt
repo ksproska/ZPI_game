@@ -2,10 +2,10 @@
 <color=#006e05>from</color> copy <color=#006e05>import</color> deepcopy
 
 
-<color=#aaf502>class</color> <color=#006e05>MutatorPartialReverser</color>:
+<color=#aaf502>class</color> <color=#009607>MutatorPartialReverser</color>:
 
     <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#7b3fca>mutate</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], start_index: <color=#006e05>int</color>, end_index: <color=#006e05>int</color>) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+    <color=#aaf502>def</color> <color=#3e9360>mutate</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], start_index: <color=#006e05>int</color>, end_index: <color=#006e05>int</color>) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
         city_ids_copy = deepcopy(city_ids)  
         length = end_index - start_index + <color=#89b68b>1</color> \
             <color=#aaf502>if</color> end_index < start_index \
@@ -17,7 +17,7 @@
                 city_ids_copy[index2], city_ids_copy[index1]  
         <color=#aaf502>return</color> city_ids_copy
 
-    <color=#aaf502>def</color> <color=#7b3fca>get</color>(<color=#188600>self</color>, city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+    <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
         start_index = randrange(<color=#89b68b>0</color>, <color=#006e05>len</color>(city_ids))  
         end_index = randrange(<color=#89b68b>0</color>, <color=#006e05>len</color>(city_ids))
         <color=#aaf502>return</color> <color=#188600>self</color>.mutate(city_ids, start_index, end_index)

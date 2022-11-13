@@ -1,36 +1,36 @@
 <color=#006e05>import</color> random
 
 
-<color=#aaf502>class</color> <color=#006e05>CrosserOrder</color>:
+<color=#aaf502>class</color> <color=#009607>CrosserOrder</color>:
     <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#7b3fca>cross</color>(parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>, start_index: <color=#006e05>int</color>, segment_length: <color=#006e05>int</color>):
-        <color=#648068>"""
+    <color=#aaf502>def</color> <color=#3e9360>cross</color>(parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>, start_index: <color=#006e05>int</color>, segment_length: <color=#006e05>int</color>):
+        <color=#78997c>"""
         Method returns a child for given parents and length of a segment.
         """</color>
-        child = [None <color=#aaf502>for</color> _ in <color=#006e05>range</color>(<color=#006e05>len</color>(parent1))]
+        child = [None <color=#aaf502>for</color> _ in <color=#006e05>range</color>(<color=#006e05>len</color>(parent1))]  
         <color=#aaf502>for</color> i in <color=#006e05>range</color>(segment_length):
-            index = i + start_index
-            child[index] = parent1[index]
+            index = i + start_index  
+            child[index] = parent1[index]  
 
-        last_not_contained = <color=#89b68b>0</color>
+        last_not_contained = <color=#89b68b>0</color>  
         <color=#aaf502>for</color> i in <color=#006e05>range</color>(<color=#006e05>len</color>(child)):
-            <color=#aaf502>if</color> child[i] is None:
+            <color=#aaf502>if</color> child[i] is None:  
                 last_not_contained = CrosserOrder.__put_next(child, parent2, i, last_not_contained)
         <color=#aaf502>return</color> child
 
     <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#7b3fca>__put_next</color>(child: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>, curr_i: <color=#006e05>int</color>, last_not_contained: <color=#006e05>int</color>):
+    <color=#aaf502>def</color> <color=#3e9360>__put_next</color>(child: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>, curr_i: <color=#006e05>int</color>, last_not_contained: <color=#006e05>int</color>):
         <color=#aaf502>for</color> j in <color=#006e05>range</color>(last_not_contained, <color=#006e05>len</color>(parent2)):
-            <color=#aaf502>if</color> parent2[j] not in child:
-                child[curr_i] = parent2[j]
-                <color=#aaf502>return</color> j + <color=#89b68b>1</color>
+            <color=#aaf502>if</color> parent2[j] not in child:  
+                child[curr_i] = parent2[j]  
+                <color=#aaf502>return</color> j + <color=#89b68b>1</color>  
         <color=#aaf502>return</color> <color=#006e05>len</color>(parent2)
 
-    <color=#aaf502>def</color> <color=#7b3fca>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>):
-        <color=#648068>"""
+    <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>):
+        <color=#78997c>"""
         Method returns a child for given parents. Length of a segment to be copied is drawned.
         """</color>
-        startInx = random.randrange(<color=#006e05>len</color>(parent1))
-        segmentLen = random.randrange(<color=#006e05>max</color>(<color=#006e05>len</color>(parent1) - startInx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))
+        startInx = random.randrange(<color=#006e05>len</color>(parent1))  
+        segmentLen = random.randrange(<color=#006e05>max</color>(<color=#006e05>len</color>(parent1) - startInx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))  
 
         <color=#aaf502>return</color> <color=#188600>self</color>.cross(parent1, parent2, startInx, segmentLen)

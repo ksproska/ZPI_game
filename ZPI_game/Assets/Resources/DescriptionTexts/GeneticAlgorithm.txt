@@ -3,7 +3,7 @@
 <color=#006e05>from</color> Circuit <color=#006e05>import</color> Circuit
 
 
-<color=#aaf502>class</color> <color=#006e05>GeneticAlgorithm</color>:
+<color=#aaf502>class</color> <color=#009607>GeneticAlgorithm</color>:
 
     <color=#aaf502>def</color> __init__(<color=#188600>self</color>, weights_grid: DistancesGrid, generation_size: <color=#006e05>int</color>, selector,
                  mutator, mutation_probability: <color=#006e05>float</color>,
@@ -21,7 +21,7 @@
         <color=#188600>self</color>.best_for_iteration = <color=#188600>self</color>.best
         <color=#188600>self</color>.iteration = <color=#89b68b>0</color>
 
-    <color=#aaf502>def</color> <color=#7b3fca>run_iteration</color>(<color=#188600>self</color>):
+    <color=#aaf502>def</color> <color=#3e9360>run_iteration</color>(<color=#188600>self</color>):
         next_generation = <color=#006e05>list</color>()
         <color=#aaf502>while</color> <color=#006e05>len</color>(next_generation) < <color=#006e05>len</color>(<color=#188600>self</color>.generation):
             parent1 = <color=#188600>self</color>.selector.get(<color=#188600>self</color>.generation)  

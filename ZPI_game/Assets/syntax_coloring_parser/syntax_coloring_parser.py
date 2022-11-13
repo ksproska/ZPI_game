@@ -17,12 +17,12 @@ COLORS_DICT = {
     'Token.Name.Builtin.Pseudo':    "#188600",
     # 'Token.Operator': "#ffff00",
     'Token.Name.Decorator':         "#9fff00",
-    'Token.Name.Function':          "#7b3fca",
+    'Token.Name.Function':          "#3e9360",
     'Token.Name.Builtin':           "#006e05",
     'Token.Keyword.Namespace':      "#006e05",
     # "Token.Comment.Single": "#404040",
-    'Token.Literal.String.Doc':     "#648068",
-    'Token.Name.Class':             '#006e05'
+    'Token.Literal.String.Doc':     "#78997c",
+    'Token.Name.Class':             '#009607'
 }
 
 LINK_TOKEN_LIST = [
@@ -104,8 +104,13 @@ def split_into_two_files(filepath):
             file1 += line + '\n'
         else:
             file2 += line + "\n"
-    file1 = file1.split('\n\n\n')[1]
     return file1, file2
+
+
+def remove_imports(content):
+    if "import" in content:
+        return content.split('\n\n\n')[1]
+    return content
 
 
 def main():
@@ -120,12 +125,12 @@ def main():
         content_colored_and_gaped, _ = color_link_and_gap(content)
         content_colored = color(content)
 
-        write_to_file(filename_gaped, content_colored_and_gaped)
+        write_to_file(filename_gaped, remove_imports(content_colored_and_gaped))
         write_to_file(filename_descriptions, content_colored)
 
-        f1, f2 = split_into_two_files("../Resources/PythonTexts/GeneticAlgorithm.txt")
-        write_to_file("../Resources/PythonTexts/GeneticAlgorithm1.txt", f1)
-        write_to_file("../Resources/PythonTexts/GeneticAlgorithm2.txt", f2)
+    f1, f2 = split_into_two_files("../Resources/PythonTexts/GeneticAlgorithm.txt")
+    write_to_file("../Resources/PythonTexts/GeneticAlgorithm1.txt", f1)
+    write_to_file("../Resources/PythonTexts/GeneticAlgorithm2.txt", f2)
 
 
 if __name__ == '__main__':

@@ -1,13 +1,4 @@
-import random
-
-
 class CrosserCycle:
-    @staticmethod
-    def cross(parent1: list, parent2: list):
-        cycles = CrosserCycle.__get_cycles(parent1, parent2)
-        child = CrosserCycle.__copy_from_parents(cycles, parent1, parent2)
-        return child
-
     @staticmethod
     def __get_cycles(parent1, parent2):
         cycles: list[list[int]] = []
@@ -40,6 +31,12 @@ class CrosserCycle:
                     child[index] = parent1[index]
                 else:
                     child[index] = parent2[index]
+        return child
+
+    @staticmethod
+    def cross(parent1: list, parent2: list):
+        cycles = CrosserCycle.__get_cycles(parent1, parent2)
+        child = CrosserCycle.__copy_from_parents(cycles, parent1, parent2)
         return child
 
     def get(self, parent1: list, parent2: list):

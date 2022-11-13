@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -6,12 +5,14 @@ using UnityEngine.Video;
 public class VideoHandler : MonoBehaviour
 {
     private VideoPlayer player;
+    [SerializeField] private VideoClip _clip;
     private Slider _slider;
 
     [SerializeField] float slideDuration;
     void Start()
     {
         player = GetComponent<VideoPlayer>();
+        player.clip = _clip;
         _slider = FindObjectOfType<Slider>();
         _slider.maxValue = (float) player.clip.length;
     }
@@ -29,6 +30,7 @@ public class VideoHandler : MonoBehaviour
     public void Reset()
     {
         player.time = 0;
+        player.Play();
     }
     
     public void Next()

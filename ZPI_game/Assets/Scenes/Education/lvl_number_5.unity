@@ -196,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 45.5
+      value: 45.500004
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 141.30003
+      value: 98.20003
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 31.6
+      value: -11.499994
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -412,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -48.9
+      value: -92
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -518,7 +518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.10000038
+      value: -42.999992
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -624,7 +624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94.200005
+      value: -137.3
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -730,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -33.2
+      value: -76.299995
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -836,7 +836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94.200005
+      value: -137.3
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -942,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.6
+      value: -58.699997
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1053,7 +1053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -63.700005
+      value: -106.8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1347,7 +1347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 80.1
+      value: 37.000004
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1453,7 +1453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 158.60005
+      value: 115.50006
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1559,7 +1559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.10000038
+      value: -42.999992
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1670,7 +1670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 140.9
+      value: 97.8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1776,7 +1776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 159.40002
+      value: 116.30003
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1971,7 +1971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.10000038
+      value: -42.999992
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2657,31 +2657,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "    <color=#f5b700><link=\"def\">def</link></color> <color=#7b3fca>run_iteration</color>(<color=#01befe><link=\"self\">self</link></color>):\n       
-        next_generation = <color=#dc0073><link=\"list\">list</link></color>()\n       
-        <color=#f5b700><link=\"while\">while</link></color> <color=#dc0073><link=\"len\">len</link></color>(next_generation)
-        < <color=#dc0073><link=\"len\">len</link></color>(<color=#01befe><link=\"self\">self</link></color>.generation):\n           
-        parent1 = <color=#01befe><link=\"self\">self</link></color>.              
-        .get(<color=#01befe><link=\"self\">self</link></color>.               ) 
-        \n            parent2 = <color=#01befe><link=\"self\">self</link></color>.              
-        .get(<color=#01befe><link=\"self\">self</link></color>.               ) 
-        \n\n            child_genotype = parent1.                 \n            <color=#f5b700><link=\"if\">if</link></color>
-        <color=#01befe><link=\"self\">self</link></color>.crossover_probability <
-        random.random():\n                child_genotype = <color=#01befe><link=\"self\">self</link></color>.              
-        .get(parent1.city_ids, parent2.city_ids)  \n\n            <color=#f5b700><link=\"if\">if</link></color>
-        <color=#01befe><link=\"self\">self</link></color>.mutation_probability <
-        random.random():\n                child_genotype = <color=#01befe><link=\"self\">self</link></color>.              
+      value: "    <color=#aaf502><link=\"def\">def</link></color> <color=#7b3fca>run_iteration</color>(<color=#188600><link=\"self\">self</link></color>):\n       
+        next_generation = <color=#006e05><link=\"list\">list</link></color>()\n       
+        <color=#aaf502><link=\"while\">while</link></color> <color=#006e05><link=\"len\">len</link></color>(next_generation)
+        < <color=#006e05><link=\"len\">len</link></color>(<color=#188600><link=\"self\">self</link></color>.generation):\n           
+        parent1 = <color=#188600><link=\"self\">self</link></color>.              
+        .get(<color=#188600><link=\"self\">self</link></color>.               ) 
+        \n            parent2 = <color=#188600><link=\"self\">self</link></color>.              
+        .get(<color=#188600><link=\"self\">self</link></color>.               ) 
+        \n\n            child_genotype = parent1.                 \n            <color=#aaf502><link=\"if\">if</link></color>
+        <color=#188600><link=\"self\">self</link></color>.crossover_probability <
+        random.random():\n                child_genotype = <color=#188600><link=\"self\">self</link></color>.              
+        .get(parent1.city_ids, parent2.city_ids)  \n\n            <color=#aaf502><link=\"if\">if</link></color>
+        <color=#188600><link=\"self\">self</link></color>.mutation_probability <
+        random.random():\n                child_genotype = <color=#188600><link=\"self\">self</link></color>.              
         .get(child_genotype)  \n\n            child = <link=\"Circuit\">              
-        </link>(               , <color=#01befe><link=\"self\">self</link></color>.              
-        )  \n            next_generation.               (child)  \n        <color=#01befe><link=\"self\">self</link></color>.generation
-        =                  \n        <color=#01befe><link=\"self\">self</link></color>.best_for_iteration
-        = <link=\"Circuit\">Circuit</link>.               (<color=#01befe><link=\"self\">self</link></color>.generation) 
-        \n        <color=#01befe><link=\"self\">self</link></color>.iteration                
-        <color=#ffffff>1</color>  \n\n        <color=#f5b700><link=\"if\">if</link></color>
-        <color=#01befe><link=\"self\">self</link></color>.best.                >
-        <color=#01befe><link=\"self\">self</link></color>.best_for_iteration.              
-        :  \n            <color=#01befe><link=\"self\">self</link></color>.best =
-        <color=#01befe><link=\"self\">self</link></color>.best_for_iteration\n"
+        </link>(               , <color=#188600><link=\"self\">self</link></color>.              
+        )  \n            next_generation.               (child)  \n        <color=#188600><link=\"self\">self</link></color>.generation
+        =                  \n        <color=#188600><link=\"self\">self</link></color>.best_for_iteration
+        = <link=\"Circuit\">Circuit</link>.               (<color=#188600><link=\"self\">self</link></color>.generation) 
+        \n        <color=#188600><link=\"self\">self</link></color>.iteration                
+        <color=#89b68b>1</color>  \n\n        <color=#aaf502><link=\"if\">if</link></color>
+        <color=#188600><link=\"self\">self</link></color>.best.                >
+        <color=#188600><link=\"self\">self</link></color>.best_for_iteration.              
+        :  \n            <color=#188600><link=\"self\">self</link></color>.best =
+        <color=#188600><link=\"self\">self</link></color>.best_for_iteration\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209430, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: details
@@ -2761,7 +2761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209435, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 132.17505
+      value: 89.07506
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209435, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

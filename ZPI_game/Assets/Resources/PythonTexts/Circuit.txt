@@ -1,15 +1,11 @@
-<color=#006e05><link="from">from</link></color> random <color=#006e05><link="import">import</link></color> shuffle
-<color=#006e05><link="from">from</link></color> DistancesGrid <color=#006e05><link="import">import</link></color> DistancesGrid
-
-
-<color=#aaf502><link="class">class</link></color> <color=#006e05><link="Circuit">Circuit</link></color>:
+<color=#aaf502><link="class">class</link></color> <color=#009607><link="Circuit">Circuit</link></color>:
 
     <color=#aaf502><link="def">def</link></color> __init__(<color=#188600><link="self">self</link></color>, city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], <link="DistancesGrid">distances_grid</link>: DistancesGrid):
         <color=#188600><link="self">self</link></color>.city_ids = city_ids
         <color=#188600><link="self">self</link></color>.score = <link="Circuit">Circuit</link>.               (city_ids, <link="DistancesGrid">distances_grid</link>)  
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#7b3fca>get_score</color>(city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], <link="DistancesGrid">distances_grid</link>: DistancesGrid) -> <color=#006e05><link="float">float</link></color>:
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_score</color>(city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], <link="DistancesGrid">distances_grid</link>: DistancesGrid) -> <color=#006e05><link="float">float</link></color>:
         sum_distances = <color=#89b68b>0.0</color>
         <color=#aaf502><link="for">               </link></color> city_id in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(city_ids)):  
             city_id_next = (city_id + <color=#89b68b>1</color>)                 <color=#006e05><link="len">len</link></color>(city_ids)  
@@ -17,11 +13,11 @@
         <color=#aaf502><link="return">return</link></color> sum_distances
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#7b3fca>get_random</color>(<link="DistancesGrid">distances_grid</link>: DistancesGrid):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_random</color>(<link="DistancesGrid">distances_grid</link>: DistancesGrid):
         random_genotype = <color=#006e05><link="list">list</link></color>(<color=#006e05><link="range">               </link></color>(<link="DistancesGrid">distances_grid</link>.number_of_cities))  
                        (random_genotype)  
         <color=#aaf502><link="return">return</link></color> <link="Circuit">Circuit</link>(random_genotype, <link="DistancesGrid">distances_grid</link>)
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#7b3fca>get_best</color>(members: <color=#006e05><link="list">list</link></color>):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_best</color>(members: <color=#006e05><link="list">list</link></color>):
         <color=#aaf502><link="return">return</link></color> <color=#006e05><link="max">max</link></color>(members, key=<color=#aaf502><link="lambda">               </link></color> x: x.score)  
