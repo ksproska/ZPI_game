@@ -1775,7 +1775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5657353785622704556, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: scene
-      value: map_1_DistancesGrid_0
+      value: map_1_DistanceGrid_0
       objectReference: {fileID: 0}
     - target: {fileID: 6029555408832814571, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
       propertyPath: PrevBut
