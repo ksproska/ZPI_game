@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainTitleScene.unity
     guid: 0db08a0f28361454c8c10e008d958b7e
   - enabled: 0
-    path: Assets/Scenes/TitleScene.unity
+    path: Assets/Scenes/Old/TitleScene.unity
     guid: 8ff1c3d35077c5f44b7f63c092e3ac42
   - enabled: 0
     path: Assets/Scenes/Old/Start.unity
@@ -50,4 +50,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Curscenes/map_0_StoryBeginning.unity
     guid: 2ad462aff665bd94f8b62fad5973073f
+  - enabled: 1
+    path: Assets/Scenes/Education/crosser_cycle1.unity
+    guid: 060c96739d636daa7b9604c6ccfada51
+  - enabled: 1
+    path: Assets/Scenes/Education/crosser_cycle2.unity
+    guid: c646d19e928bdbce89820fa5ae009ceb
+  - enabled: 1
+    path: Assets/Scenes/Education/crosser_order.unity
+    guid: 0a90d08e4a9a7b927b5f39347a8528e9
+  - enabled: 1
+    path: Assets/Scenes/Education/mutator_thror.unity
+    guid: d035b12064f720cbab6816b1e9ff199d
+  - enabled: 1
+    path: Assets/Scenes/Education/selector_roulette.unity
+    guid: 2bee44e63ea814ccfa0e22b52a10901a
   m_configObjects: {}
