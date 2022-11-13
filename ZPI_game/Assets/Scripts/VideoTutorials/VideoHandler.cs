@@ -26,6 +26,11 @@ public class VideoHandler : MonoBehaviour
         player.time = newTime;
     }
 
+    public void Reset()
+    {
+        player.time = 0;
+    }
+    
     public void Next()
     {
         player.time += slideDuration;
