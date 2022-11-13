@@ -111,8 +111,9 @@ namespace LevelUtils
         public void CompleteALevel(string levelName, LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
-
-            LoadSaveHelper.Instance.CompleteALevel(ListOfLevels.Where(lvl => lvl.LevelName == GetClearMapName(levelName)).First().LevelNumber, slotNum);
+            // ListOfLevels.ForEach(lvl => Debug.Log($"{lvl.LevelName}  {levelName}  {GetClearMapName(levelName)}"));
+            if(!IsLevelDone(levelName, slotNum))
+                LoadSaveHelper.Instance.CompleteALevel(ListOfLevels.Where(lvl => lvl.LevelName == GetClearMapName(levelName)).First().LevelNumber, slotNum);
             List<int> completed = LoadSaveHelper.Instance.GetSlot(slotNum);
             ListOfLevels.ForEach(lvl => lvl.IsFinished = completed.Contains(lvl.LevelNumber));
         }
@@ -124,7 +125,9 @@ namespace LevelUtils
         public bool IsLevelDone(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
-            return ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().IsFinished;
+            var doneLevel = ListOfLevels.FirstOrDefault(lvl => lvl.GameObjectName == gameObjectName);
+            return doneLevel is { IsFinished: true };
+            //return ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().IsFinished;
         }
         public List<string> GetPrevGameObjectNames(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
         {
@@ -139,6 +142,10 @@ namespace LevelUtils
         
         public static bool IsNavigableFromMap(string name)
         {
+            if (name == null)
+            {
+                return false;
+            }
             return name.StartsWith("map");
         }
         

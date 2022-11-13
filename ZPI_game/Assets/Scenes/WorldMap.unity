@@ -3325,7 +3325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1130.3378}
+  m_AnchoredPosition: {x: 0, y: 1130.2809}
   m_SizeDelta: {x: 100, y: 84.4245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1485968641
@@ -3714,7 +3714,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7332894473652052963, guid: 0f196da6cf9f6b64593361040c75dcf1, type: 3}
       propertyPath: scene
-      value: map_0_StoryBeggining
+      value: map_0_StoryBeginning
       objectReference: {fileID: 0}
     - target: {fileID: 7911959558350106378, guid: 0f196da6cf9f6b64593361040c75dcf1, type: 3}
       propertyPath: m_Name

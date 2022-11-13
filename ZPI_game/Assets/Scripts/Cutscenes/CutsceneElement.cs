@@ -15,14 +15,8 @@ public class CutsceneElement : MonoBehaviour
         playable = GetComponent<ICutscenePlayable>();
     }
 
-    private void Start()
-    {
-        //playable = GetComponent<ICutscenePlayable>();
-    }
-
     public IEnumerator Play()
     {
-        //playable ??= GetComponent<ICutscenePlayable>();
         if(playable != null)
             yield return StartCoroutine(playable.Play());
     }

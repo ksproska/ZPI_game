@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CurrentState;
 using UnityEngine;
 
 public class CutsceneSequence : MonoBehaviour
@@ -12,6 +13,8 @@ public class CutsceneSequence : MonoBehaviour
 
     private void Start()
     {
+        var currentState = FindObjectOfType<CurrentGameState>();
+        currentState.CurrentLevelName = "map_0_StoryBeginning";
         cutsceneElements = new List<CutsceneElement>(GetComponentsInChildren<CutsceneElement>());
         cutsceneElements.ForEach(elem => elem.gameObject.SetActive(false));
         StartCoroutine(Play());

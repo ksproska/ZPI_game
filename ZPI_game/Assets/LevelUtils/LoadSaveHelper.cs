@@ -114,21 +114,24 @@ namespace LevelUtils
                 case SlotNum.First:
                     if (_slots[0].Contains(LevelName))
                     {
-                        throw new ArgumentException("Level is already completed!!");
+                        return;
+                        //throw new ArgumentException("Level is already completed!!");
                     }
                     _slots[0].Add(LevelName);
                     break;
                 case SlotNum.Second:
                     if (_slots[1].Contains(LevelName))
                     {
-                        throw new ArgumentException("Level is already completed!!");
+                        return;
+                        //throw new ArgumentException("Level is already completed!!");
                     }
                     _slots[1].Add(LevelName);
                     break;
                 case SlotNum.Third:
                     if (_slots[2].Contains(LevelName))
                     {
-                        throw new ArgumentException("Level is already completed!!");
+                        return;
+                        //throw new ArgumentException("Level is already completed!!");
                     }
                     _slots[2].Add(LevelName);
                     break;

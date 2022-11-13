@@ -102,6 +102,8 @@ public class MenuSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
 
         goToScene.scene = "map_0_StoryBeginning";
+        var currentState = FindObjectOfType<CurrentGameState>();
+        currentState.CurrentLevelName = goToScene.scene;
         goToScene.FadeOutScene();
     }
 }

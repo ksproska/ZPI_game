@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.Cryo.Script;
 using CurrentState;
+using DeveloperUtils;
 using LevelUtils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,7 +65,11 @@ namespace Cutscenes.SpecificCutscenes
         {
             var levelMap = FindObjectOfType<LevelMap>();
             var currentState = FindObjectOfType<CurrentGameState>();
-            levelMap.CompleteALevel(currentState.CurrentLevelName, currentState.CurrentSlot);
+            if (!levelMap.IsLevelDone(currentState.CurrentLevelName, currentState.CurrentSlot))
+            {
+                levelMap.CompleteALevel(currentState.CurrentLevelName, currentState.CurrentSlot);
+            }
+            
         }
 
         public IEnumerator Play()
