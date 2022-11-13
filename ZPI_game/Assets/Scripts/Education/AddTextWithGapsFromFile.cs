@@ -10,7 +10,8 @@ public class AddTextWithGapsFromFile : MonoBehaviour
     [SerializeField] private string filename;
     void Start()
     {
-        string path = Directory.GetCurrentDirectory() + $"\\Assets\\PythonTexts\\{filename}.txt";
+        string dir =  Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Resources", "PythonTexts");
+        string path =  Path.Combine(dir, $"{filename}.txt");
         string readText = File.ReadAllText(path);
         var textmesh = gameObject.GetComponent<TextMeshProUGUI>();
         // EditorUtility.SetDirty(textmesh);

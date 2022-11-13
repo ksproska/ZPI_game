@@ -24,7 +24,8 @@ public class TextLinkHandler : MonoBehaviour, IPointerClickHandler
             _showOrHide.Show();
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
             details.text = "Details for <b>" + linkInfo.GetLinkText() + "</b>:\n";
-            string path = Directory.GetCurrentDirectory() + "\\Assets\\DescriptionTexts\\" + linkInfo.GetLinkID() + ".txt";
+            string dir = Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Resources", "DescriptionTexts");
+            string path = Path.Combine(dir, $"{linkInfo.GetLinkID()}.txt");
             string readText = File.ReadAllText(path);
             details.text += readText;
         }

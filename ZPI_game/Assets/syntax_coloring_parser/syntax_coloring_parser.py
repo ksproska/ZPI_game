@@ -57,7 +57,7 @@ def color_link_and_gap(content: str):
                 token_covered = f'<link="{OBJECTS_TO_LINK[token_content]}">{token_covered}</link>'
             if token_name in LINK_TOKEN_LIST:
                 token_covered = f'<link="{token_content}">{token_covered}</link>'
-                Path(f'../DescriptionTexts/{token_content}.txt').touch(exist_ok=True)
+                Path(f'../Resources/DescriptionTexts/{token_content}.txt').touch(exist_ok=True)
             if token_name in COLORS_DICT:
                 token_covered = f'<color={COLORS_DICT[token_name]}>{token_covered}</color>'
             result_code += token_covered
@@ -114,8 +114,8 @@ def main():
         content = get_content_from_file(str(path))
         print_all_tokens_dictionary(content)
 
-        filename_gaped = "../PythonTexts/" + str(path.split('/')[-1]).replace("py", "txt")
-        filename_descriptions = "../DescriptionTexts/" + str(path.split('/')[-1]).replace("py", "txt")
+        filename_gaped = "../Resources/PythonTexts/" + str(path.split('/')[-1]).replace("py", "txt")
+        filename_descriptions = "../Resources/DescriptionTexts/" + str(path.split('/')[-1]).replace("py", "txt")
 
         content_colored_and_gaped, _ = color_link_and_gap(content)
         content_colored = color(content)
@@ -123,9 +123,9 @@ def main():
         write_to_file(filename_gaped, content_colored_and_gaped)
         write_to_file(filename_descriptions, content_colored)
 
-        f1, f2 = split_into_two_files("../PythonTexts/GeneticAlgorithm.txt")
-        write_to_file("../PythonTexts/GeneticAlgorithm1.txt", f1)
-        write_to_file("../PythonTexts/GeneticAlgorithm2.txt", f2)
+        f1, f2 = split_into_two_files("../Resources/PythonTexts/GeneticAlgorithm.txt")
+        write_to_file("../Resources/PythonTexts/GeneticAlgorithm1.txt", f1)
+        write_to_file("../Resources/PythonTexts/GeneticAlgorithm2.txt", f2)
 
 
 if __name__ == '__main__':
