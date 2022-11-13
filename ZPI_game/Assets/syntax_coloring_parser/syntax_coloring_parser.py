@@ -91,7 +91,7 @@ def color(content):
     return result_code
 
 
-def split_into_two_files(filepath):
+def split_into_two_files_ga(filepath):
     content = get_content_from_file(filepath)
     lines = content.splitlines()
     break_fun_name = 'run_iteration'
@@ -100,6 +100,25 @@ def split_into_two_files(filepath):
     for line in lines:
         if break_fun_name in line:
             break_found = True
+        if not break_found:
+            file1 += line + '\n'
+        else:
+            file2 += line + "\n"
+    return file1, file2
+
+
+def split_into_two_files_cx(filepath):
+    content = get_content_from_file(filepath)
+    lines = content.splitlines()
+    break_fun_name = '__copy_from_parents'
+    break_found = False
+    file1, file2 = '', ''
+    for line in lines:
+        if "def" in line and break_fun_name in line:
+            break_found = True
+            last = file1.split("\n\n")[-1]
+            file1 = file1.replace(last, "")
+            file2 += last
         if not break_found:
             file1 += line + '\n'
         else:
@@ -128,9 +147,13 @@ def main():
         write_to_file(filename_gaped, remove_imports(content_colored_and_gaped))
         write_to_file(filename_descriptions, content_colored)
 
-    f1, f2 = split_into_two_files("../Resources/PythonTexts/GeneticAlgorithm.txt")
+    f1, f2 = split_into_two_files_ga("../Resources/PythonTexts/GeneticAlgorithm.txt")
     write_to_file("../Resources/PythonTexts/GeneticAlgorithm1.txt", f1)
     write_to_file("../Resources/PythonTexts/GeneticAlgorithm2.txt", f2)
+
+    f1, f2 = split_into_two_files_cx("../Resources/PythonTexts/CrosserCycle.txt")
+    write_to_file("../Resources/PythonTexts/CrosserCycle1.txt", f1)
+    write_to_file("../Resources/PythonTexts/CrosserCycle2.txt", f2)
 
 
 if __name__ == '__main__':
