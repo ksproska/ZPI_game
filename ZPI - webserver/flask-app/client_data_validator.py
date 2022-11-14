@@ -64,3 +64,22 @@ class ClientDataValidator():
                 raise ex.ValidationError(f'X cordinate of point ({point}) is out of range!')
             elif point['Y'] < 0 or point['Y'] > 1080:
                 raise ex.ValidationError(f'Y cordinate of point ({point}) is out of range!')
+    
+    @staticmethod
+    def validate_score(score_serialized: dict):
+
+        if not 'MapId' in score_serialized:
+            raise ex.ValidationError(f'Client received data has no key \'MapId\'!')
+        
+        if not isinstance(score_serialized['MapId'], int):
+            raise ex.ValidationError(f'MapId is in the wrong format!')
+        
+        if not 'Score' in score_serialized:
+            raise ex.ValidationError(f'Client received data has no key \'Score\'!')
+        
+        if not isinstance(score_serialized['Score'], float):
+            raise ex.ValidationError(f'Score is in the wrong format!')
+        
+        if score_serialized['Score'] < 0.0:
+            raise ex.ValidationError(f'Score cannot be negative number!')
+        

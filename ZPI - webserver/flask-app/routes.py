@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, request
 from sqlalchemy.exc import IntegrityError
 from data_model_schemas import Schemas
 from db_models import Users
-from db_queries import ReadQueries, CreateQueries
+from db_queries import ReadQueries, CreateQueries, UpdateQueries
 from client_data_validator import ClientDataValidator
 from database_validator import DatabaseValidator
 from hashlib import sha256
@@ -72,6 +72,52 @@ def create_user_map(user_id):
     new_map = CreateQueries.create_user_map(user_id)
     CreateQueries.create_points(new_map, map_serialized['Points'])
     return 'Map created!', 200
+
+@routes.route('/api/user/<int:user_id>/maps', methods=['GET'])
+def get_user_maps(user_id): 
+    try:
+        DatabaseValidator.user_exists_validation(user_id)
+    except IntegrityError as i_err:
+        return f'{i_err.statement}', 404
+
+    usr_maps = ReadQueries.get_user_maps(user_id)
+    return jsonify(Schemas.maps_schema.dump(usr_maps)), 200
+
+@routes.route('/api/user/<int:user_id>/score', methods=['POST'])
+def put_score(user_id):
+    score_serialized = request.json
+    try:
+        ClientDataValidator.validate_score(score_serialized)
+    except ValidationError as v_err:
+        return f'{v_err.messages[0]}', 400
+    try:
+        DatabaseValidator.user_exists_validation(user_id)
+        DatabaseValidator.map_exists_validation(score_serialized['MapId'])
+    except IntegrityError as i_err:
+        return f'{i_err.statement}', 404
+
+    curr_score = ReadQueries.get_usr_score(user_id, score_serialized['MapId'])
+    if curr_score is not None:
+        if curr_score.score > score_serialized['Score']:
+            curr_score.score = score_serialized['Score']
+            UpdateQueries.update_score(curr_score)
+            return 'Score updated!', 200
+        return 'Score unchanged!', 200
+    else:
+        CreateQueries.create_score(user_id, score_serialized['MapId'], score_serialized['Score'])
+        return 'Score created!', 200
+
+@routes.route('/api/user/<int:user_id>/score/<int:map_id>', methods=['GET'])
+def get_score(user_id, map_id):
+    try:
+        DatabaseValidator.user_exists_validation(user_id)
+        DatabaseValidator.map_exists_validation(map_id)
+        DatabaseValidator.score_exists_validation(map_id, user_id)
+    except IntegrityError as i_err:
+        return f'{i_err.statement}', 404
+
+    curr_score = ReadQueries.get_usr_score(user_id, map_id)
+    return str(curr_score.score), 200
 
 @routes.route('/api/user', methods=['POST'])
 def create_user():

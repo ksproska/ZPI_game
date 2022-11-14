@@ -1,4 +1,4 @@
-from sqlalchemy import exc
+from sqlalchemy import exc, and_
 from datetime import date
 from db_models import *
 
@@ -7,6 +7,10 @@ class ReadQueries():
     @staticmethod
     def get_maps():
         return Maps.query.all()
+    
+    @staticmethod
+    def get_user_maps(user_id):
+        return Maps.query.filter(Maps.user_id == user_id).all()
     
     @staticmethod
     def get_points(map_id):
@@ -19,6 +23,10 @@ class ReadQueries():
     @staticmethod
     def get_user(email):
         return Users.query.filter(Users.email == email).first()
+    
+    @staticmethod
+    def get_usr_score(user_id, map_id):
+        return Scores.query.filter(and_(Scores.map_id == map_id, Scores.user_id == user_id)).first()
 
 class CreateQueries():
 
@@ -50,6 +58,20 @@ class CreateQueries():
         CreateQueries.db_con.session.add(usr)
         CreateQueries.db_con.session.commit()
         return usr
+    
+    @staticmethod
+    def create_score(user_id, map_id, score):
+        scr = Scores(map_id, user_id, score)
+        CreateQueries.db_con.session.add(scr)
+        CreateQueries.db_con.session.commit()
 
+class UpdateQueries():
+
+    db_con = get_db()
+
+    @staticmethod
+    def update_score(score: Scores):
+        UpdateQueries.db_con.session.add(score)
+        UpdateQueries.db_con.session.commit()
 
         
