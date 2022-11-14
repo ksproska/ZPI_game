@@ -140,7 +140,7 @@ namespace Webserver
             if (wr.result == UnityWebRequest.Result.Success)
             {
                 string jsonResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
-                JsonSerializerOptions options = new JsonSerializerOptions();
+                //JsonSerializerOptions options = new JsonSerializerOptions();
                 return (wr.result, JsonSerializer.Deserialize<List<Map>>(jsonResp));
             }
             else
