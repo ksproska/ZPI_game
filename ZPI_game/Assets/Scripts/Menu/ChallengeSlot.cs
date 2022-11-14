@@ -33,6 +33,6 @@ public class ChallengeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void ShowLevelInfoFrame()
     {
-        "Click".Debug();
+        
     }
 }
