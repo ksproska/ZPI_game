@@ -30,13 +30,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Education/map_2_Circuit_1.unity
     guid: 5b3b47dd7ce1ea947b88c11a3d6398e4
   - enabled: 1
-    path: Assets/Scenes/Education/lvl_number_2.unity
+    path: Assets/Scenes/Education/map_6_TournamentImpl_5.unity
     guid: e26d49e2e7fdd9b48ac844b0f43ec168
   - enabled: 1
-    path: Assets/Scenes/Education/lvl_learn_2.unity
+    path: Assets/Scenes/Education/map_10_pmxImpl_9.unity
     guid: d16f0e349a773ef4aa8b7d1feb0882a0
   - enabled: 1
-    path: Assets/Scenes/Education/lvl_number_3.unity
+    path: Assets/Scenes/Education/map_21_rsmImpl_20.unity
     guid: a3ef89fb44e3d6d4682c9e0f545a6220
   - enabled: 1
     path: Assets/Scenes/Education/lvl_number_4.unity
@@ -44,25 +44,46 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education/lvl_number_5.unity
     guid: 6baa1116ee54b42498fc97efa0048e34
-  - enabled: 0
+  - enabled: 1
     path: 
-    guid: 00000000000000000000000000000000
+    guid: 2b0ccfd2be0c0a3458498bcc3c56cff6
   - enabled: 1
     path: Assets/Scenes/Curscenes/map_0_StoryBeginning.unity
     guid: 2ad462aff665bd94f8b62fad5973073f
   - enabled: 1
-    path: Assets/Scenes/Education/crosser_cycle1.unity
+    path: Assets/Scenes/Education/map_16_cxImpl1_15.unity
     guid: 060c96739d636daa7b9604c6ccfada51
   - enabled: 1
-    path: Assets/Scenes/Education/crosser_cycle2.unity
+    path: Assets/Scenes/Education/map_17_cxImpl2_16.unity
     guid: c646d19e928bdbce89820fa5ae009ceb
   - enabled: 1
-    path: Assets/Scenes/Education/crosser_order.unity
+    path: Assets/Scenes/Education/map_13_oxImpl_12.unity
     guid: 0a90d08e4a9a7b927b5f39347a8528e9
   - enabled: 1
-    path: Assets/Scenes/Education/mutator_thror.unity
+    path: Assets/Scenes/Education/map_24_throrsImpl_23.unity
     guid: d035b12064f720cbab6816b1e9ff199d
   - enabled: 1
-    path: Assets/Scenes/Education/selector_roulette.unity
+    path: Assets/Scenes/Education/map_4_RouletteImpl_3.unity
     guid: 2bee44e63ea814ccfa0e22b52a10901a
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_8_pmxClip_7.unity
+    guid: 5c95c128a5bab350b8169a1a3b40a16b
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_14_cxClip_7.unity
+    guid: cb38ace71fe3b5004a68e7d720d1940e
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_11_oxClip_7.unity
+    guid: eae644c387e40c35795c242a4f117e00
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_18_rsmClip_17.unity
+    guid: e4bfeeb2e2d1432a69807f8e59440774
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_22_throrsClip_21.unity
+    guid: 3cea9e3e14fb7bb26ad8e2095a85a009
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_3_RouletteClip_2.unity
+    guid: 8eca8c432fffec64794ce4df40e06c5b
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_5_TournamentClip_2.unity
+    guid: 388f1e06f2bf3f7afa55cd6abfb3f998
   m_configObjects: {}
