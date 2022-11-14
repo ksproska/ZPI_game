@@ -17,7 +17,7 @@ public class VideoHandler : MonoBehaviour
     {
         finishWatching.gameObject.SetActive(false);
         var sceneName = SceneManager.GetActiveScene().name;
-        if(LevelMap.Instance.IsLevelDone(sceneName, CurrentState.CurrentGameState.Instance.CurrentSlot))
+        if(LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(sceneName), CurrentState.CurrentGameState.Instance.CurrentSlot))
         {
             finishWatching.gameObject.SetActive(true);
         }

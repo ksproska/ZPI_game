@@ -63,13 +63,9 @@ namespace Cutscenes.SpecificCutscenes
 
         public void SaveCutscene()
         {
-            var levelMap = FindObjectOfType<LevelMap>();
-            var currentState = FindObjectOfType<CurrentGameState>();
-            if (!levelMap.IsLevelDone(currentState.CurrentLevelName, currentState.CurrentSlot))
-            {
-                levelMap.CompleteALevel(currentState.CurrentLevelName, currentState.CurrentSlot);
-            }
-            
+            var levelMap = LevelMap.Instance;
+            var currentState = CurrentGameState.Instance;
+            levelMap.CompleteALevel(currentState.CurrentLevelName, currentState.CurrentSlot);
         }
 
         public IEnumerator Play()

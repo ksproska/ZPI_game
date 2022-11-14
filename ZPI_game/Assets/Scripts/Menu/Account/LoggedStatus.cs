@@ -22,6 +22,7 @@ public class LoggedStatus : MonoBehaviour
 
     private bool IsLoggedIn()
     {
+        if (CurrentState.CurrentGameState.Instance == null) return false;
         return CurrentState.CurrentGameState.Instance.CurrentUserId != -1;
     }
 }
