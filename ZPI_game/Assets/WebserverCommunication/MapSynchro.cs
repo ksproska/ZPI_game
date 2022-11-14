@@ -109,6 +109,47 @@ namespace Webserver
                 return new List<Point>();
             }
         }
+        public static async Task<(UnityWebRequest.Result, string)> CreateNewUsrMap(Map map)
+        {
+            using UnityWebRequest wr = new UnityWebRequest($"http://localhost:5000/api/user/{map.CreatorId}/map", "POST");
+            wr.SetRequestHeader("Content-Type", "application/json");
+            wr.downloadHandler = new DownloadHandlerBuffer();
+            byte[] rawMapSerialized = Encoding.UTF8.GetBytes(map.ToJson());
+            wr.uploadHandler = new UploadHandlerRaw(rawMapSerialized);
+
+            var asyncOperation = wr.SendWebRequest();
+
+            while (!asyncOperation.isDone)
+            {
+                await Task.Yield();
+            }
+            string srvResp = wr.downloadHandler.data != null ? Encoding.UTF8.GetString(wr.downloadHandler.data) : "";
+            return (wr.result, srvResp);
+        }
+        public static async Task<(UnityWebRequest.Result, List<Map>)> GetUserMaps(int userId)
+        {
+            using UnityWebRequest wr = new UnityWebRequest($"http://localhost:5000/api/user/{userId}/maps", "GET");
+            wr.downloadHandler = new DownloadHandlerBuffer();
+
+            var asyncOperation = wr.SendWebRequest();
+
+            while (!asyncOperation.isDone)
+            {
+                await Task.Yield();
+            }
+            if (wr.result == UnityWebRequest.Result.Success)
+            {
+                string jsonResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
+                JsonSerializerOptions options = new JsonSerializerOptions();
+                return (wr.result, JsonSerializer.Deserialize<List<Map>>(jsonResp));
+            }
+            else
+            {
+                return (wr.result, new List<Map>());
+            }
+        }
+        
     }
+
 }
 
