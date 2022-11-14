@@ -12,6 +12,7 @@ public class ChallengeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] Text bestScore;
     [SerializeField] ChallengeInfoFrame infoFrame;
     [SerializeField] string clearName;
+    [SerializeField] int challengeId;
     [SerializeField] string mapPreviewAssetName;
 
     private void OnEnable()
@@ -37,6 +38,19 @@ public class ChallengeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void ShowLevelInfoFrame()
     {
-        infoFrame.ShowInfoFrame(clearName, 12, null);
+        var bundle = new InfoFrameBundle();
+        bundle.ChallengeName = clearName;
+        bundle.ChallengeID = challengeId;
+
+        // TODO uzupe³niæ metody pobierania najlepszego wyniku dla mapy.
+        bundle.Slot1BestScore = 12;
+        bundle.Slot2BestScore = 134;
+        bundle.Slot3BestScore = -1;
+
+        // TODO uzupe³niæ metody pobierania wyników z serwera.
+        bundle.AccountBestScore = -1;
+        bundle.TopScores = new List<(string, float)>();
+
+        infoFrame.ShowInfoFrame(bundle);
     }
 }

@@ -35,7 +35,7 @@ namespace Assets.Scripts.Menu.Account
 
         private void Start()
         {
-            emailRegex = new(@"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b");
+            emailRegex = new(@"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b");
             nameValidationText.text = "";
             loginValidationText.text = "";
             passwordValidationText.text = "";

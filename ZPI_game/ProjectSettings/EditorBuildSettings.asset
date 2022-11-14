@@ -44,9 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education/lvl_number_5.unity
     guid: 6baa1116ee54b42498fc97efa0048e34
-  - enabled: 1
+  - enabled: 0
     path: 
-    guid: 2b0ccfd2be0c0a3458498bcc3c56cff6
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Curscenes/map_0_StoryBeginning.unity
     guid: 2ad462aff665bd94f8b62fad5973073f
@@ -86,4 +86,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education/VideoTutorials/map_5_TournamentClip_2.unity
     guid: 388f1e06f2bf3f7afa55cd6abfb3f998
+  - enabled: 1
+    path: Assets/Scenes/Challenges.unity
+    guid: 572d8e7856101974c959de787e28767a
   m_configObjects: {}
