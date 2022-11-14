@@ -26,7 +26,7 @@ class ScoreSchema(fl_marsh.Schema):
 
     MapId = fields.Integer(attribute='map_id')
     UserId = fields.Integer(attribute='user_id')
-    Score = fields.Float(attribute='score')
+    BestScore = fields.Float(attribute='score')
 
 
 class Schemas():
