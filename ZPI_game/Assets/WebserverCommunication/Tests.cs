@@ -39,6 +39,14 @@ namespace Webserver
             //    Debug.Log(map.Points.Count);
             //}
             //res.ToString().Debug();
+
+            //(var res, string serverResp) = await ScoreSynchro.PutNewScore(new Score(2, 2, 32.2f));
+            //serverResp.Debug();
+            //res.ToString().Debug();
+
+            (var res, float bstScr) = await ScoreSynchro.GetUsrBestScore(2, 2);
+            bstScr.Debug();
+            res.ToString().Debug();
         }
 
 

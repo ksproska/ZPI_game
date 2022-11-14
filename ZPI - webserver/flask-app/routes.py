@@ -98,13 +98,13 @@ def put_score(user_id):
 
     curr_score = ReadQueries.get_usr_score(user_id, score_serialized['MapId'])
     if curr_score is not None:
-        if curr_score.score > score_serialized['Score']:
-            curr_score.score = score_serialized['Score']
+        if curr_score.score > score_serialized['BestScore']:
+            curr_score.score = score_serialized['BestScore']
             UpdateQueries.update_score(curr_score)
             return 'Score updated!', 200
         return 'Score unchanged!', 200
     else:
-        CreateQueries.create_score(user_id, score_serialized['MapId'], score_serialized['Score'])
+        CreateQueries.create_score(user_id, score_serialized['MapId'], score_serialized['BestScore'])
         return 'Score created!', 200
 
 @routes.route('/api/user/<int:user_id>/score/<int:map_id>', methods=['GET'])
