@@ -75,7 +75,7 @@ class ClientDataValidator():
             raise ex.ValidationError(f'MapId is in the wrong format!')
         
         if not 'BestScore' in score_serialized:
-            raise ex.ValidationError(f'Client received data has no key \'Score\'!')
+            raise ex.ValidationError(f'Client received data has no key \'BestScore\'!')
         
         if not isinstance(score_serialized['BestScore'], float):
             raise ex.ValidationError(f'Score is in the wrong format!')
