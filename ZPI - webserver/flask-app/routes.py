@@ -119,6 +119,17 @@ def get_score(user_id, map_id):
     curr_score = ReadQueries.get_usr_score(user_id, map_id)
     return str(curr_score.score), 200
 
+@routes.route('/api/scores/<int:map_id>', methods=['GET'])
+def get_top_five_scores(map_id):
+    try:
+        DatabaseValidator.map_exists_validation(map_id)
+    except IntegrityError as i_err:
+        return f'{i_err.statement}', 404
+
+    scores = ReadQueries.get_scores_w_nick_ord(map_id)
+    five_best_scores = scores[:5]
+    return jsonify(Schemas.score_with_nick_schema.dump(five_best_scores)), 200
+
 @routes.route('/api/user', methods=['POST'])
 def create_user():
     user_serialized = request.json

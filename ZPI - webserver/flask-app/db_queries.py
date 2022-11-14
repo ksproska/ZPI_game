@@ -27,6 +27,11 @@ class ReadQueries():
     @staticmethod
     def get_usr_score(user_id, map_id):
         return Scores.query.filter(and_(Scores.map_id == map_id, Scores.user_id == user_id)).first()
+    
+    @staticmethod
+    def get_scores_w_nick_ord(map_id):
+        return Scores.query.join(Users, Users.user_id == Scores.user_id).filter(Scores.map_id == map_id).order_by(Scores.score).add_column(Users.nickname).add_column(Scores.score).all()
+
 
 class CreateQueries():
 

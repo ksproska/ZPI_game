@@ -28,6 +28,9 @@ class ScoreSchema(fl_marsh.Schema):
     UserId = fields.Integer(attribute='user_id')
     BestScore = fields.Float(attribute='score')
 
+class ScoreWithNickSchema(fl_marsh.Schema):
+    class Meta:
+        fields = ('score', 'nickname')
 
 class Schemas():
     point_schema = PointSchema()
@@ -36,6 +39,7 @@ class Schemas():
     maps_schema = MapSchema(many=True)
     user_schema = UserSchema()
     score_schema = ScoreSchema()
+    score_with_nick_schema = ScoreWithNickSchema(many=True)
 
 def get_marshmallow():
     return fl_marsh
