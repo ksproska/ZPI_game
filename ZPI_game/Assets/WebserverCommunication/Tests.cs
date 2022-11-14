@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DeveloperUtils;
-using UnityEditor;
 using System.IO;
+using Maps;
+
 
 namespace Webserver
 {
@@ -14,30 +16,32 @@ namespace Webserver
         async void Start()
         {
             //List<Map> maps = await MapSynchro.GetMaps();
-            //JsonSerializer.Serialize(maps, new JsonSerializerOptions { WriteIndented = true }).Debug();
+            //foreach (var map in maps)
+            //{
+            //    Debug.Log(map.CreatorId);
+            //    Debug.Log(map.CreationDate);
+            //    Debug.Log(map.Points.Count);
+            //}
 
             //(var res, string serverResp) = await Auth.CreateNewUser(new User("janko-z-bogdanca@wp.pl", "Kozaczek42", "haslokajdsajjcjk213"));
             //serverResp.Debug();
             //res.ToString().Debug();
 
-            (var res, string serverResp) = await Auth.AuthenticateUser(new User("janko-z-bogdanca@wp.pl", "haslokajdsajjcjk213"));
-            serverResp.Debug();
-            res.ToString().Debug();
-            GetScenes().DebugLoop();
+            //(var res, string serverResp) = await MapSynchro.CreateNewUsrMap(new Map(new List<Point>() { new Point(455, 267), new Point(109, 87), new Point(85, 332) }, creatorId: 2));
+            //serverResp.Debug();
+            //res.ToString().Debug();
+
+            //(var res, List<Map> userMaps) = await MapSynchro.GetUserMaps(2);
+            //foreach (var map in userMaps)
+            //{
+            //    Debug.Log(map.CreatorId);
+            //    Debug.Log(map.CreationDate);
+            //    Debug.Log(map.Points.Count);
+            //}
+            //res.ToString().Debug();
         }
 
-        private List<string> GetScenes()
-        {
-            List<string> scenes = new List<string>();
-            foreach (var scene in EditorBuildSettings.scenes)
-            {
-                if (scene.enabled)
-                {
-                    scenes.Add(Path.GetFileNameWithoutExtension(scene.path));
-                }
-            }
-            return scenes;
-        }
+
 
 
     }
