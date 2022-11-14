@@ -761,6 +761,7 @@ MonoBehaviour:
   tutorialHandler: {fileID: 868033085}
   StartingIndexTextContainer: {fileID: 952290365}
   EndingIndexTextContainer: {fileID: 792551798}
+  IndicesListTextContainer: {fileID: 0}
   tutorialContainer: {fileID: 1438350421}
   levelContainer: {fileID: 1683632139}
   slotListPrefab: {fileID: 1173561352}
@@ -769,6 +770,7 @@ MonoBehaviour:
   tutorialSlotsList: {fileID: 2079496837}
   tutorialDropsList: {fileID: 1891411575}
   tutorialStaticsList: {fileID: 1477416685}
+  crossingType: rsm
 --- !u!114 &868033085
 MonoBehaviour:
   m_ObjectHideFlags: 0

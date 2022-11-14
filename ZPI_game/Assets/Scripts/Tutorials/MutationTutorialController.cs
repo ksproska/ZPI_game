@@ -17,6 +17,7 @@ public class MutationTutorialController : MonoBehaviour
 
     public TextMeshProUGUI StartingIndexTextContainer;
     public TextMeshProUGUI EndingIndexTextContainer;
+    public TextMeshProUGUI IndicesListTextContainer;
 
 
 
@@ -39,9 +40,12 @@ public class MutationTutorialController : MonoBehaviour
 
     [NonSerialized] public int beginIndex;
     [NonSerialized] public int endIndex;
+    [NonSerialized] public List<int> indices;
     [NonSerialized] public List<int> beginGenome;
     [NonSerialized] public List<int> endGenome;
     [NonSerialized] public List<(int, int)> steps;
+
+    public string mutationType;
 
     // Start is called before the first frame update
     void Start()
@@ -54,19 +58,37 @@ public class MutationTutorialController : MonoBehaviour
 
     void CalculateNextCrossing()
     {
-        beginIndex = rnd.Next(0, 9);
-        do
-        {
-            endIndex = rnd.Next(0, 9);
-        } while (endIndex - beginIndex == 0 || endIndex - beginIndex == -1);
-
         beginGenome = staticsListPrefab.GetComponent<GenomCreator>().genomeList;
         RecordedList<int> recordedMutation = new(beginGenome);
-        endGenome = MutatorReverseSequence<int>.ReversePartOrder(beginGenome, beginIndex, endIndex, ref recordedMutation);
-        steps = recordedMutation.GetFullHistory().Distinct().ToList();
+        if(mutationType == "rsm")
+        {
+            beginIndex = rnd.Next(0, 9);
+            do
+            {
+                endIndex = rnd.Next(0, 9);
+            } while (endIndex - beginIndex == 0 || endIndex - beginIndex == -1);
 
-        StartingIndexTextContainer.text = $"Starting index: {beginIndex}";
-        EndingIndexTextContainer.text = $"Ending index: {endIndex}";
+            endGenome = MutatorReverseSequence<int>.ReversePartOrder(beginGenome, beginIndex, endIndex, ref recordedMutation);
+            steps = recordedMutation.GetFullHistory().Distinct().ToList();
+
+            StartingIndexTextContainer.text = $"Starting index: {beginIndex}";
+            EndingIndexTextContainer.text = $"Ending index: {endIndex}";
+        }
+        else if(mutationType == "thrors")
+        {
+            indices = new() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            indices = indices.OrderBy(x => rnd.Next()).Take(rnd.Next(1, 8)).ToList();
+
+            endGenome = MutatorThrors<int>.SwipeOneRight(beginGenome, indices, ref recordedMutation);
+            steps = recordedMutation.GetFullHistory().Distinct().ToList();
+
+            IndicesListTextContainer.text = $"Indices to swipe: ";
+            foreach(var index in indices)
+            {
+                IndicesListTextContainer.text += $"{index}  ";
+            }
+        }
+
     }
 
 

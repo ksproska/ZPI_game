@@ -45,8 +45,6 @@ public class DropHandler : MonoBehaviour
 
             if (!LevelMap.Instance.IsLevelDone(CurrentGameState.Instance.CurrentLevelName, CurrentGameState.Instance.CurrentSlot))
             {
-                Debug.Log(CurrentGameState.Instance.CurrentLevelName);
-                Debug.Log(CurrentGameState.Instance.CurrentSlot);
                 LevelMap.Instance.CompleteALevel(CurrentGameState.Instance.CurrentLevelName, CurrentGameState.Instance.CurrentSlot);
             }
             CurrentGameState.Instance.CurrentLevelName = null;

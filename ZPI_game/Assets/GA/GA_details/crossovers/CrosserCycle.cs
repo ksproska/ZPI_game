@@ -1,3 +1,4 @@
+using Assets.GA.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,13 @@ namespace GA
             }
             return cycles;
         }
+
         public static List<int> Cross(List<int> parent1, List<int> parent2)
+        {
+            LabeledRecordedList<int, int> dummy = LabeledRecordedList<int, int>.Dummy;
+            return Cross(parent1, parent2, ref dummy);
+        }
+        public static List<int> Cross(List<int> parent1, List<int> parent2, ref LabeledRecordedList<int, int> labeledRecordedList)
         {
             var cycles = GetCycles(parent1, parent2);
             var child = Enumerable.Repeat(-1, parent1.Count).ToList();
@@ -50,10 +57,18 @@ namespace GA
                     if (i % 2 == 0)
                     {
                         child[inx] = parent1[inx];
+                        if (labeledRecordedList is not DummyLabeledRecordedList<int, int>)
+                        {
+                            labeledRecordedList.SetLabeled(inx, parent1[inx], 0);
+                        }
                     }
                     else
                     {
                         child[inx] = parent2[inx];
+                        if (labeledRecordedList is not DummyLabeledRecordedList<int, int>)
+                        {
+                            labeledRecordedList.SetLabeled(inx, parent2[inx], 1);
+                        }
                     }
                 }
             }
