@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Education/lvl_number_5.unity
     guid: 6baa1116ee54b42498fc97efa0048e34
   - enabled: 1
-    path: Assets/Scenes/Education/Edu_template.unity
+    path: 
     guid: 2b0ccfd2be0c0a3458498bcc3c56cff6
   - enabled: 1
     path: Assets/Scenes/Curscenes/map_0_StoryBeginning.unity
@@ -65,4 +65,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education/selector_roulette.unity
     guid: 2bee44e63ea814ccfa0e22b52a10901a
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_8_pmxClip_7.unity
+    guid: 5c95c128a5bab350b8169a1a3b40a16b
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_14_cxClip_7.unity
+    guid: cb38ace71fe3b5004a68e7d720d1940e
+  - enabled: 1
+    path: Assets/Scenes/Education/VideoTutorials/map_11_oxClip_7.unity
+    guid: eae644c387e40c35795c242a4f117e00
   m_configObjects: {}
