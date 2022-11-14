@@ -13,7 +13,7 @@ class ClientDataValidator():
         elif not 'Password' in usr_serialized:
             raise ex.ValidationError(f'Client received data has no key \'Password\'!')
 
-        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'
+        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
         if not re.fullmatch(regex, usr_serialized['Email']):
             raise ex.ValidationError('Email address has a wrong format!')
         elif len(usr_serialized['Email']) > 200:
@@ -35,7 +35,7 @@ class ClientDataValidator():
         elif not 'Password' in user_creds_serialized:
             raise ex.ValidationError(f'Client received data has no key \'Password\'!')
 
-        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'
+        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
         if not re.fullmatch(regex, user_creds_serialized['Email']):
             raise ex.ValidationError('Email address has a wrong format!')
         elif len(user_creds_serialized['Email']) > 200:
@@ -74,12 +74,12 @@ class ClientDataValidator():
         if not isinstance(score_serialized['MapId'], int):
             raise ex.ValidationError(f'MapId is in the wrong format!')
         
-        if not 'Score' in score_serialized:
+        if not 'BestScore' in score_serialized:
             raise ex.ValidationError(f'Client received data has no key \'Score\'!')
         
-        if not isinstance(score_serialized['Score'], float):
+        if not isinstance(score_serialized['BestScore'], float):
             raise ex.ValidationError(f'Score is in the wrong format!')
         
-        if score_serialized['Score'] < 0.0:
+        if score_serialized['BestScore'] < 0.0:
             raise ex.ValidationError(f'Score cannot be negative number!')
         
