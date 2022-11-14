@@ -10,10 +10,14 @@ public class ChallengeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] Image background;
     [SerializeField] Text challengeName;
     [SerializeField] Text bestScore;
+    [SerializeField] ChallengeInfoFrame infoFrame;
+    [SerializeField] string clearName;
+    [SerializeField] string mapPreviewAssetName;
 
     private void OnEnable()
     {
         challengeName.color = Color.black;
+        challengeName.text = clearName;
         bestScore.color = Color.black;
         background.color = Color.white;
     }
@@ -33,6 +37,6 @@ public class ChallengeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void ShowLevelInfoFrame()
     {
-        
+        infoFrame.ShowInfoFrame(clearName, 12, null);
     }
 }
