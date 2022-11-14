@@ -1536,6 +1536,7 @@ MonoBehaviour:
   parent2tutorialStaticsList: {fileID: 931856983}
   nextButton: {fileID: 913109692}
   previousButton: {fileID: 1754627226}
+  crossingType: pmx
 --- !u!114 &740283601
 MonoBehaviour:
   m_ObjectHideFlags: 0

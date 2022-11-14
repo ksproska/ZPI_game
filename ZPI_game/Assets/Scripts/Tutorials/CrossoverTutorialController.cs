@@ -47,6 +47,8 @@ public class CrossoverTutorialController : MonoBehaviour
     [NonSerialized] public List<int> parent2Genome;
     [NonSerialized] public List<int> childGenome;
     [NonSerialized] public List<(int, int, int)> steps;
+
+    public string crossingType;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,18 +62,40 @@ public class CrossoverTutorialController : MonoBehaviour
 
     void CalculateNextCrossing()
     {
-        beginIndex = rnd.Next(0, 7);
-        segmentLength = rnd.Next(2, 9 - beginIndex - 1);
-
+        LabeledRecordedList<int, int> recordedCrossing = new(childGenome);
         parent1Genome = parent1StaticsList.GetComponent<GenomCreator>().genomeList;
         parent2Genome = parent2StaticsList.GetComponent<GenomCreator>().genomeList;
 
-        LabeledRecordedList<int, int> recordedCrossing = new(childGenome);
-        childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing);
-        steps = recordedCrossing.GetFullHistory().Distinct().ToList();
+        if (crossingType == "pmx")
+        {
+            beginIndex = rnd.Next(0, 7);
+            segmentLength = rnd.Next(2, 9 - beginIndex - 1);
 
-        startingIndexTextContainer.text = $"Starting index: {beginIndex}";
-        segmentLengthTextContainer.text = $"Segment length: {segmentLength}";
+
+            childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing);
+            steps = recordedCrossing.GetFullHistory().Distinct().ToList();
+
+            startingIndexTextContainer.text = $"Starting index: {beginIndex}";
+            segmentLengthTextContainer.text = $"Segment length: {segmentLength}";
+        }
+        else if(crossingType == "ox")
+        {
+            beginIndex = rnd.Next(0, 7);
+            segmentLength = rnd.Next(2, 9 - beginIndex - 1);
+
+            childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing);
+            //childGenome = CrosserOrder.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing); //NOT YET APPLIED
+            steps = recordedCrossing.GetFullHistory().Distinct().ToList();
+
+            startingIndexTextContainer.text = $"Starting index: {beginIndex}";
+            segmentLengthTextContainer.text = $"Segment length: {segmentLength}";
+        }
+        else if (crossingType == "cx")
+        {
+            childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing);
+            //childGenome = CrosserCycle.Cross(parent1Genome, parent2Genome, ref recordedCrossing); //NOT YET APPLIED
+            steps = recordedCrossing.GetFullHistory().Distinct().ToList();
+        }
     }
 
     public void CreateTutorial()
