@@ -1,10 +1,10 @@
 <color=#aaf502><link="class">class</link></color> <color=#009607>CrosserOrder</color>:
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>cross</color>(parent1: <color=#006e05><link="list">list</link></color>, parent2: <color=#006e05><link="list">list</link></color>, start_index: <color=#006e05><link="int">int</link></color>, segment_length: <color=#006e05><link="int">int</link></color>):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>cross</color>(parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], start_index: <color=#006e05><link="int">int</link></color>, segment_length: <color=#006e05><link="int">int</link></color>):
         child = [None <color=#aaf502><link="for">for</link></color>                 in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(               ))]  
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(segment_length):
-            index = i +                  
-            child[index] =                [index]  
+            inx = i +                  
+            child[inx] =                [inx]  
 
         last_not_contained = <color=#89b68b>               </color>  
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(child)):
@@ -13,15 +13,15 @@
         <color=#aaf502><link="return">return</link></color> child
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>__put_next</color>(child: <color=#006e05><link="list">list</link></color>, parent2: <color=#006e05><link="list">list</link></color>, curr_i: <color=#006e05><link="int">int</link></color>, last_not_contained: <color=#006e05><link="int">int</link></color>):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>__put_next</color>(child: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], curr_i: <color=#006e05><link="int">int</link></color>, last_not_contained: <color=#006e05><link="int">int</link></color>):
         <color=#aaf502><link="for">for</link></color> j in <color=#006e05><link="range">range</link></color>(last_not_contained, <color=#006e05><link="len">len</link></color>(parent2)):
             <color=#aaf502><link="if">if</link></color> parent2[j]                 in child:  
                 child[curr_i] =                [j]  
                 <color=#aaf502><link="return">return</link></color> j + <color=#89b68b>               </color>  
         <color=#aaf502><link="return">return</link></color> <color=#006e05><link="len">len</link></color>(parent2)
 
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get</color>(<color=#188600><link="self">self</link></color>, parent1: <color=#006e05><link="list">list</link></color>, parent2: <color=#006e05><link="list">list</link></color>):
-        startInx = random.               (<color=#006e05><link="len">len</link></color>(parent1))  
-        segmentLen = random.               (<color=#006e05><link="max">max</link></color>(<color=#006e05><link="len">len</link></color>(parent1) - startInx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))  
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get</color>(<color=#188600><link="self">self</link></color>, parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]):
+        start_inx = random.               (<color=#006e05><link="len">len</link></color>(parent1))  
+        segment_len = random.               (<color=#006e05><link="max">max</link></color>(<color=#006e05><link="len">len</link></color>(parent1) - start_inx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))  
 
-        <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.cross(parent1, parent2, startInx, segmentLen)
+        <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.cross(parent1, parent2, start_inx, segment_len)

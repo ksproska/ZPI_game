@@ -1,7 +1,7 @@
 <color=#aaf502><link="class">class</link></color> <color=#009607>SelectorRoulette</color>:
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_distributed_weight</color>(generation: <color=#006e05><link="list">list</link></color>[<link="Circuit">Circuit</link>]) -> <color=#006e05><link="list">list</link></color>:
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_distributed_weight</color>(generation: <color=#006e05><link="list">list</link></color>[<link="Circuit">Circuit</link>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="float">float</link></color>]:
         max_score = <color=#006e05><link="max">               </link></color>(generation,                =<color=#aaf502><link="lambda">               </link></color> x: x.               )  
         reversed_eval = [               .score - x.                + <color=#89b68b>1</color> <color=#aaf502><link="for">for</link></color> x in generation]  
         sum_eval = <color=#006e05><link="sum">               </link></color>(reversed_eval)  
@@ -13,12 +13,12 @@
         <color=#aaf502><link="return">return</link></color> eval_percentage
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_index_for_value</color>(distributed_weights, value):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_index_for_value</color>(distributed_weights: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="float">float</link></color>], value: <color=#006e05><link="float">float</link></color>) -> <color=#006e05><link="int">int</link></color>:
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(distributed_weights)):
             <color=#aaf502><link="if">if</link></color> value                 distributed_weights[i]:  
                 <color=#aaf502><link="return">return</link></color> i
 
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get</color>(<color=#188600><link="self">self</link></color>, generation):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get</color>(<color=#188600><link="self">self</link></color>, generation: <color=#006e05><link="list">list</link></color>[<link="Circuit">Circuit</link>]) -> <link="Circuit">Circuit</link>:
         rand_float = random.random()
         distributed_weights = <color=#188600><link="self">self</link></color>.get_distributed_weight(               )  
         index = <color=#188600><link="self">self</link></color>.get_index_for_value(distributed_weights,                )  

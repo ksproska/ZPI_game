@@ -1,10 +1,10 @@
 <color=#006e05>import</color> random
 
 
-<color=#aaf502>class</color> <color=#009607>CrosserPartialyMatched</color>:
+<color=#aaf502>class</color> <color=#009607>CrosserPartiallyMatched</color>:
 
     <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#3e9360>cross</color>(parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>, start_index: <color=#006e05>int</color>, segment_length: <color=#006e05>int</color>):
+    <color=#aaf502>def</color> <color=#3e9360>cross</color>(parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>], start_index: <color=#006e05>int</color>, segment_length: <color=#006e05>int</color>):
         <color=#78997c>"""
         Method returns a child for given parents, start index, and length of a segment.
         """</color>
@@ -27,7 +27,7 @@
 
         <color=#aaf502>return</color> child
 
-    <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>):
+    <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]):
         <color=#78997c>"""
         Method returns a child for given parents. Start index and length of a segment are drawnded.
         """</color>

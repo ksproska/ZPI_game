@@ -1,6 +1,6 @@
 <color=#aaf502>class</color> <color=#009607>CrosserCycle</color>:
     <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#3e9360>__get_cycles</color>(parent1, parent2):
+    <color=#aaf502>def</color> <color=#3e9360>__get_cycles</color>(parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>list</color>[<color=#006e05>int</color>]]:
         cycles: <color=#006e05>list</color>[<color=#006e05>list</color>[<color=#006e05>int</color>]] = []
         current_inx = <color=#89b68b>0</color>  
         collected_indexes = {current_inx}
@@ -23,7 +23,7 @@
         <color=#aaf502>return</color> cycles
 
     <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#3e9360>__copy_from_parents</color>(cycles, parent1, parent2):
+    <color=#aaf502>def</color> <color=#3e9360>__copy_from_parents</color>(cycles: <color=#006e05>list</color>[<color=#006e05>list</color>[<color=#006e05>int</color>]], parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
         child = [None <color=#aaf502>for</color> _ in <color=#006e05>range</color>(<color=#006e05>len</color>(parent1))]  
         <color=#aaf502>for</color> i, cycle in <color=#006e05>enumerate</color>(cycles):  
             <color=#aaf502>for</color> index in cycle:
@@ -33,11 +33,7 @@
                     child[index] = parent2[index]  
         <color=#aaf502>return</color> child
 
-    <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#3e9360>cross</color>(parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>):
+    <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
         cycles = CrosserCycle.__get_cycles(parent1, parent2)  
         child = CrosserCycle.__copy_from_parents(cycles, parent1, parent2)  
         <color=#aaf502>return</color> child
-
-    <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>, parent2: <color=#006e05>list</color>):
-        <color=#aaf502>return</color> <color=#188600>self</color>.cross(parent1, parent2)

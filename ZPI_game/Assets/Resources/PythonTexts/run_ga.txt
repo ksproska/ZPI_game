@@ -2,8 +2,8 @@
     <color=#aaf502><link="def">def</link></color> <color=#3e9360>test_GA</color>(<color=#188600><link="self">self</link></color>):
         weights_grid = DistancesGrid(weights_example)
         <color=#aaf502><link="for">for</link></color> selector in [SelectorRoulette(), SelectorTournament(<color=#89b68b>0.1</color>)]:
-            <color=#aaf502><link="for">for</link></color> crosser in [CrosserPartialyMatched(), CrosserCycle(), CrosserOrder()]:
-                <color=#aaf502><link="for">for</link></color> mutator in [MutatorPartialReverser(), MutatorThrors()]:
+            <color=#aaf502><link="for">for</link></color> crosser in [CrosserPartiallyMatched(), CrosserCycle(), CrosserOrder()]:
+                <color=#aaf502><link="for">for</link></color> mutator in [MutatorReverseSequence(), MutatorThrors()]:
                     iterations = <color=#89b68b>1000</color>
                     ga = GeneticAlgorithm(weights_grid,
                                           generation_size=<color=#89b68b>10</color>,

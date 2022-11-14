@@ -6,7 +6,7 @@ from Circuit import Circuit
 class SelectorRoulette:
 
     @staticmethod
-    def get_distributed_weight(generation: list[Circuit]) -> list:
+    def get_distributed_weight(generation: list[Circuit]) -> list[float]:
         max_score = max(generation, key=lambda x: x.score)  # max key lambda score
         reversed_eval = [max_score.score - x.score + 1 for x in generation]  # max_score score
         sum_eval = sum(reversed_eval)  # sum
@@ -18,12 +18,12 @@ class SelectorRoulette:
         return eval_percentage
 
     @staticmethod
-    def get_index_for_value(distributed_weights, value):
+    def get_index_for_value(distributed_weights: list[float], value: float) -> int:
         for i in range(len(distributed_weights)):
             if value <= distributed_weights[i]:  # <=
                 return i
 
-    def get(self, generation):
+    def get(self, generation: list[Circuit]) -> Circuit:
         rand_float = random.random()
         distributed_weights = self.get_distributed_weight(generation)  # generation
         index = self.get_index_for_value(distributed_weights, rand_float)  # rand_float

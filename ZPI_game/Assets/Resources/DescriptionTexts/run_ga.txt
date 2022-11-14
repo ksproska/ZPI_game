@@ -6,8 +6,8 @@
 <color=#006e05>from</color> mutation.MutatorThrors <color=#006e05>import</color> MutatorThrors
 <color=#006e05>from</color> selection.SelectorRoulette <color=#006e05>import</color> SelectorRoulette
 <color=#006e05>from</color> selection.SelectorTournament <color=#006e05>import</color> SelectorTournament
-<color=#006e05>from</color> mutation.MutatorPartialReverser <color=#006e05>import</color> MutatorPartialReverser
-<color=#006e05>from</color> crossover.CrosserPartiallyMatched <color=#006e05>import</color> CrosserPartialyMatched
+<color=#006e05>from</color> mutation.MutatorReverseSequence <color=#006e05>import</color> MutatorReverseSequence
+<color=#006e05>from</color> crossover.CrosserPartiallyMatched <color=#006e05>import</color> CrosserPartiallyMatched
 <color=#006e05>import</color> unittest
 
 weights_example = [
@@ -47,8 +47,8 @@ weights_example = [
     <color=#aaf502>def</color> <color=#3e9360>test_GA</color>(<color=#188600>self</color>):
         weights_grid = DistancesGrid(weights_example)
         <color=#aaf502>for</color> selector in [SelectorRoulette(), SelectorTournament(<color=#89b68b>0.1</color>)]:
-            <color=#aaf502>for</color> crosser in [CrosserPartialyMatched(), CrosserCycle(), CrosserOrder()]:
-                <color=#aaf502>for</color> mutator in [MutatorPartialReverser(), MutatorThrors()]:
+            <color=#aaf502>for</color> crosser in [CrosserPartiallyMatched(), CrosserCycle(), CrosserOrder()]:
+                <color=#aaf502>for</color> mutator in [MutatorReverseSequence(), MutatorThrors()]:
                     iterations = <color=#89b68b>1000</color>
                     ga = GeneticAlgorithm(weights_grid,
                                           generation_size=<color=#89b68b>10</color>,

@@ -1,6 +1,6 @@
 class CrosserCycle:
     @staticmethod
-    def __get_cycles(parent1, parent2):
+    def __get_cycles(parent1: list[int], parent2: list[int]) -> list[list[int]]:
         cycles: list[list[int]] = []
         current_inx = 0  # 0
         collected_indexes = {current_inx}
@@ -23,7 +23,7 @@ class CrosserCycle:
         return cycles
 
     @staticmethod
-    def __copy_from_parents(cycles, parent1, parent2):
+    def __copy_from_parents(cycles: list[list[int]], parent1: list[int], parent2: list[int]) -> list[int]:
         child = [None for _ in range(len(parent1))]  # None
         for i, cycle in enumerate(cycles):  # enumerate
             for index in cycle:
@@ -33,11 +33,7 @@ class CrosserCycle:
                     child[index] = parent2[index]  # parent2
         return child
 
-    @staticmethod
-    def cross(parent1: list, parent2: list):
+    def get(self, parent1: list[int], parent2: list[int]) -> list[int]:
         cycles = CrosserCycle.__get_cycles(parent1, parent2)  # __get_cycles
         child = CrosserCycle.__copy_from_parents(cycles, parent1, parent2)  # cycles
         return child
-
-    def get(self, parent1: list, parent2: list):
-        return self.cross(parent1, parent2)
