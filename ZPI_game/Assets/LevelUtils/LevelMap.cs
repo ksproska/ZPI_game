@@ -63,7 +63,7 @@ namespace LevelUtils
         {
             List<string> scenes = GetScenes().Where(scn => IsNavigableFromMap(scn)).ToList();
             List<int> completed = LoadSaveHelper.Instance.GetSlot(_currSlot);
-            List<LevelButtonInfo> levelInfos = scenes.Select(scn => new LevelButtonInfo(GetClearMapName(scn), GetClearMapName(scn), GetSceneNumber(scn), true, null)).ToList();
+            List<LevelButtonInfo> levelInfos = scenes.Select(scn => new LevelButtonInfo(scn, GetClearMapName(scn), GetSceneNumber(scn), true, null)).ToList();
             levelInfos.ForEach(lvlInfo => lvlInfo.IsFinished = completed.Contains(lvlInfo.LevelNumber));
             levelInfos.Join(scenes, levelInf => levelInf.LevelName, scn => GetClearMapName(scn), (levelInf, scn) => new { LevelInfo = levelInf, Scene = scn }).ToList().
                 ForEach(elem => {
