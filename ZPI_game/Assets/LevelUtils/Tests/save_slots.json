@@ -1,13 +1,26 @@
 {
   "slots": [
     {
-      "levels_completed": []
+      "levels_completed": [
+        1,
+        2
+      ]
     },
     {
-      "levels_completed": []
+      "levels_completed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
     },
     {
-      "levels_completed": []
+      "levels_completed": [
+        1,
+        2,
+        3
+      ]
     }
   ]
 }
