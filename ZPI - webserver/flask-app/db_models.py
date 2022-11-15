@@ -29,8 +29,8 @@ class Maps(db.Model):
 
 class Points(db.Model):
     map_id = db.Column(db.Integer, db.ForeignKey('maps.map_id'), primary_key=True, autoincrement=False)
-    X = db.Column(db.Integer, primary_key=True)
-    Y = db.Column(db.Integer, primary_key=True)
+    X = db.Column(db.Float, primary_key=True)
+    Y = db.Column(db.Float, primary_key=True)
     map = db.relationship('Maps', backref=db.backref('points',lazy=True), uselist=False)
 
     def __init__(self, map_id, X, Y) -> None:

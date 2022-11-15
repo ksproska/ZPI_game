@@ -44,9 +44,12 @@ namespace Webserver
             //serverResp.Debug();
             //res.ToString().Debug();
 
-            (var res, float bstScr) = await ScoreSynchro.GetUsrBestScore(2, 2);
-            bstScr.Debug();
-            res.ToString().Debug();
+            //(var res, float bstScr) = await ScoreSynchro.GetUsrBestScore(2, 2);
+            //bstScr.Debug();
+            //res.ToString().Debug();
+
+            (_, var bstScrs) = await ScoreSynchro.GetTopFiveBestScores(2);
+            bstScrs.DebugLoop();
         }
 
 

@@ -60,10 +60,7 @@ class ClientDataValidator():
                 raise ex.ValidationError(f'A point ({point}) has no X coordinate!')
             elif not 'Y' in point:
                 raise ex.ValidationError(f'A point ({point}) has no Y coordinate!')
-            elif point['X'] < 0 or point['X'] > 1920:
-                raise ex.ValidationError(f'X cordinate of point ({point}) is out of range!')
-            elif point['Y'] < 0 or point['Y'] > 1080:
-                raise ex.ValidationError(f'Y cordinate of point ({point}) is out of range!')
+            
     
     @staticmethod
     def validate_score(score_serialized: dict):
