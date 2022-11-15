@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using UnityEngine;
+using Maps;
+using System.Linq;
 
 namespace LevelUtils
 {
@@ -11,6 +13,10 @@ namespace LevelUtils
         public const int SLOT_NUMBER = 3;
         public const string JSON_FILE_NAME = "/LevelUtils/save_slots.json";
         public const string JSON_FILE_NAME_TESTS = "Assets\\LevelUtils\\Tests\\save_slots.json";
+        public const Selector DEFAULT_SELECTOR = Selector.Tournament;
+        public const Mutator DEFAULT_MUTATOR = Mutator.RSM;
+        public const Crosser DEFAULT_CROSSER = Crosser.OX;
+        public const int DEFAULT_POP_SIZE = 10;
         public enum SlotNum
         {
             First,
@@ -18,7 +24,7 @@ namespace LevelUtils
             Third
         }
         public static LoadSaveHelper Instance { get; set; }
-        private List<int>[] _slots;
+        private SavedSlotInfo[] _slots;
         private bool _isTestConfig = false;
         void Awake()
         {
@@ -35,23 +41,18 @@ namespace LevelUtils
         }
         private void CreateDefSlots(string filePath)
         {
-            List<List<int>> emptySlots = new List<List<int>>() { new List<int>(), new List<int>(), new List<int>() };
-
-            var jsonStructuredDict = new Dictionary<string, List<Dictionary<string, List<int>>>>();
-            var listOfSlots = new List<Dictionary<string, List<int>>>();
-            foreach (List<int> levels in emptySlots)
+            List<SavedSlotInfo> emptySlots = new List<SavedSlotInfo>() 
             {
-                var jsonDict = new Dictionary<string, List<int>>();
-                jsonDict.Add("levels_completed", levels);
-                listOfSlots.Add(jsonDict);
-            }
-            jsonStructuredDict.Add("slots", listOfSlots);
+                GetDefSlot(), 
+                GetDefSlot(),
+                GetDefSlot()
+            };
 
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-            string jsonStringSlots = JsonSerializer.Serialize(jsonStructuredDict, options);
+            string jsonStringSlots = JsonSerializer.Serialize(emptySlots, options);
             File.WriteAllText(filePath, jsonStringSlots);
         }
-        private List<int>[] GetCompletedLevels(string filePath)
+        private SavedSlotInfo[] GetCompletedLevels(string filePath)
         {
             new FileInfo(filePath).Directory.Create();
 
@@ -59,22 +60,17 @@ namespace LevelUtils
                 CreateDefSlots(filePath);
 
             string jsonFile = File.ReadAllText(filePath);
-            var parsedJson = JsonSerializer.Deserialize<Dictionary<string, List<Dictionary<string, List<int>>>>>(jsonFile);
-            return new List<int>[]
-            {
-                parsedJson["slots"][0]["levels_completed"],
-                parsedJson["slots"][1]["levels_completed"],
-                parsedJson["slots"][2]["levels_completed"]
-            };
+            var parsedJson = JsonSerializer.Deserialize<List<SavedSlotInfo>>(jsonFile);
+            return parsedJson.ToArray();
         }
         public void LoadTestConfiguration()
         {
             _slots = GetCompletedLevels(JSON_FILE_NAME_TESTS);
             _isTestConfig = true;
         }
-        public List<int> GetSlot(SlotNum slot)
+        public SavedSlotInfo GetSlot(SlotNum slot)
         {
-            List<int> result = null;
+            SavedSlotInfo result = null;
             switch (slot)
             {
                 case SlotNum.First:
@@ -91,17 +87,8 @@ namespace LevelUtils
         }
         public void SaveGameState()
         {
-            var jsonStructuredDict = new Dictionary<string, List<Dictionary<string, List<int>>>>();
-            var listOfSlots = new List<Dictionary<string, List<int>>>();
-            foreach(List<int> levels in _slots)
-            {
-                var jsonDict = new Dictionary<string, List<int>>();
-                jsonDict.Add("levels_completed", levels);
-                listOfSlots.Add(jsonDict);
-            }
-            jsonStructuredDict.Add("slots", listOfSlots);
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
-            string jsonText = JsonSerializer.Serialize(jsonStructuredDict, options);
+            string jsonText = JsonSerializer.Serialize(_slots, options);
             if (_isTestConfig)
                 File.WriteAllText(JSON_FILE_NAME_TESTS, jsonText);
             else
@@ -112,28 +99,28 @@ namespace LevelUtils
             switch (slot)
             {
                 case SlotNum.First:
-                    if (_slots[0].Contains(LevelName))
+                    if (_slots[0].CompletedLevels.Contains(LevelName))
                     {
                         return;
                         //throw new ArgumentException("Level is already completed!!");
                     }
-                    _slots[0].Add(LevelName);
+                    _slots[0].CompletedLevels.Add(LevelName);
                     break;
                 case SlotNum.Second:
-                    if (_slots[1].Contains(LevelName))
+                    if (_slots[1].CompletedLevels.Contains(LevelName))
                     {
                         return;
                         //throw new ArgumentException("Level is already completed!!");
                     }
-                    _slots[1].Add(LevelName);
+                    _slots[1].CompletedLevels.Add(LevelName);
                     break;
                 case SlotNum.Third:
-                    if (_slots[2].Contains(LevelName))
+                    if (_slots[2].CompletedLevels.Contains(LevelName))
                     {
                         return;
                         //throw new ArgumentException("Level is already completed!!");
                     }
-                    _slots[2].Add(LevelName);
+                    _slots[2].CompletedLevels.Add(LevelName);
                     break;
             }
             SaveGameState();
@@ -143,41 +130,118 @@ namespace LevelUtils
             switch (slotNum)
             {
                 case SlotNum.First:
-                    _slots[0] = new List<int>();
+                    _slots[0] = GetDefSlot();
                     break;
                 case SlotNum.Second:
-                    _slots[1] = new List<int>();
+                    _slots[1] = GetDefSlot();
                     break;
                 case SlotNum.Third:
-                    _slots[2] = new List<int>();
+                    _slots[2] = GetDefSlot();
                     break;
             }
             SaveGameState();
+        }
+        private SavedSlotInfo GetDefSlot()
+        {
+            return new SavedSlotInfo()
+            {
+                CompletedLevels = new List<int>(),
+                BestScores = new float[] { -1f, -1f, -1f, -1f, -1f, -1f },
+                Sandbox = new Sandbox() { Selector = DEFAULT_SELECTOR, Mutator = DEFAULT_MUTATOR, Crosser = DEFAULT_CROSSER, CrossoverProbab = 0.5f, MutationProb = 0.5f, CurrentBestScore = -1f, PopulationSize = DEFAULT_POP_SIZE, UserMap = null }
+            };
         }
         public void EraseAllSlots()
         {
             for(int slotNum = 0; slotNum < SLOT_NUMBER; slotNum++)
             {
-                _slots[slotNum] = new List<int>();
+                _slots[slotNum] = GetDefSlot();
             }
             SaveGameState();
         }
         public List<SlotNum> GetOccupiedSlots()
         {
             List<SlotNum> occSlots = new List<SlotNum>();
-            if (_slots[0].Count > 0)
+            if (_slots[0].CompletedLevels.Count > 0)
             {
                 occSlots.Add(SlotNum.First);
             }
-            if (_slots[1].Count > 0)
+            if (_slots[1].CompletedLevels.Count > 0)
             {
                 occSlots.Add(SlotNum.Second);
             }
-            if (_slots[2].Count > 0)
+            if (_slots[2].CompletedLevels.Count > 0)
             {
                 occSlots.Add(SlotNum.Third);
             }
             return occSlots;
+        }
+        
+    }
+    public enum Selector
+    {
+        Tournament,
+        Roulette
+    }
+    public enum Mutator
+    {
+        Thrors,
+        RSM
+    }
+    public enum Crosser
+    {
+        OX,
+        PMX,
+        CX
+    }
+    public class SavedSlotInfo
+    {
+        public List<int> CompletedLevels { get; set; }
+        public float[] BestScores { get; set; }
+        public Sandbox Sandbox { get; set; }
+        public override bool Equals(object obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                SavedSlotInfo otherSlot = obj as SavedSlotInfo;
+                return CompletedLevels.SequenceEqual(otherSlot.CompletedLevels)
+                    && BestScores.SequenceEqual(otherSlot.BestScores)
+                   && Sandbox.Equals(otherSlot.Sandbox);
+            }
+        }
+    }
+    public class Sandbox
+    {
+        public Selector Selector { get; set; }
+        public Mutator Mutator { get; set; }
+        public float MutationProb { get; set; }
+        public Crosser Crosser { get; set; }
+        public float CrossoverProbab { get; set; }
+        public int PopulationSize { get; set; }
+        public float CurrentBestScore { get; set; }
+        public Map UserMap { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Sandbox otherSdbx = obj as Sandbox;
+                return Selector == otherSdbx.Selector
+                    && Mutator == otherSdbx.Mutator
+                    && Crosser == otherSdbx.Crosser
+                    && Math.Abs(MutationProb - otherSdbx.MutationProb) < 0.0000001f
+                    && Math.Abs(CrossoverProbab - otherSdbx.CrossoverProbab) < 0.0000001f
+                    && PopulationSize == otherSdbx.PopulationSize
+                    && Math.Abs(CurrentBestScore - otherSdbx.CurrentBestScore) < 0.0000001f
+                    && (UserMap == null && otherSdbx.UserMap == null || UserMap.Equals(otherSdbx.UserMap));
+            }
         }
     }
 }

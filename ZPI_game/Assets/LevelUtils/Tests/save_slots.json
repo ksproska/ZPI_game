@@ -1,13 +1,65 @@
-{
-  "slots": [
-    {
-      "levels_completed": []
-    },
-    {
-      "levels_completed": []
-    },
-    {
-      "levels_completed": []
+[
+  {
+    "CompletedLevels": [],
+    "BestScores": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "Sandbox": {
+      "Selector": 0,
+      "Mutator": 1,
+      "MutationProb": 0.5,
+      "Crosser": 0,
+      "CrossoverProbab": 0.5,
+      "PopulationSize": 10,
+      "CurrentBestScore": -1,
+      "UserMap": null
     }
-  ]
-}
+  },
+  {
+    "CompletedLevels": [],
+    "BestScores": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "Sandbox": {
+      "Selector": 0,
+      "Mutator": 1,
+      "MutationProb": 0.5,
+      "Crosser": 0,
+      "CrossoverProbab": 0.5,
+      "PopulationSize": 10,
+      "CurrentBestScore": -1,
+      "UserMap": null
+    }
+  },
+  {
+    "CompletedLevels": [],
+    "BestScores": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "Sandbox": {
+      "Selector": 0,
+      "Mutator": 1,
+      "MutationProb": 0.5,
+      "Crosser": 0,
+      "CrossoverProbab": 0.5,
+      "PopulationSize": 10,
+      "CurrentBestScore": -1,
+      "UserMap": null
+    }
+  }
+]

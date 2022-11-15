@@ -10,6 +10,7 @@ using System.IO;
 using UnityEngine.TestTools;
 using UnityEngine;
 using System.Collections;
+using Maps;
 
 namespace LevelUtils
 {
@@ -31,6 +32,7 @@ namespace LevelUtils
             LoadSaveHelper loadSaveHelper = go.AddComponent<LoadSaveHelper>();
             LoadSaveHelper.Instance = loadSaveHelper;
             loadSaveHelper.LoadTestConfiguration();
+            loadSaveHelper.EraseAllSlots();
         }
         
         [UnityTest]
@@ -60,20 +62,33 @@ namespace LevelUtils
             LoadSaveHelper.Instance.CompleteALevel(1, LoadSaveHelper.SlotNum.Third);
             LoadSaveHelper.Instance.CompleteALevel(2, LoadSaveHelper.SlotNum.Third);
             LoadSaveHelper.Instance.CompleteALevel(3, LoadSaveHelper.SlotNum.Third);
-            Assert.Throws<ArgumentException>(() => LoadSaveHelper.Instance.CompleteALevel(1, LoadSaveHelper.SlotNum.First));
-            var jsonStructuredDict = new Dictionary<string, List<Dictionary<string, List<int>>>>();
-            var listOfSlots = new List<Dictionary<string, List<int>>>();
-            foreach (List<int> levels in testCases.Select(el => el.savedLevels))
+            //Assert.Throws<ArgumentException>(() => LoadSaveHelper.Instance.CompleteALevel(1, LoadSaveHelper.SlotNum.First));
+            List<SavedSlotInfo> savedSlots = new List<SavedSlotInfo>()
             {
-                var jsonDict = new Dictionary<string, List<int>>();
-                jsonDict.Add("levels_completed", levels);
-                listOfSlots.Add(jsonDict);
-            }
-            jsonStructuredDict.Add("slots", listOfSlots);
+                new SavedSlotInfo()
+                {
+                    CompletedLevels = testCases[0].savedLevels,
+                    BestScores = new float[] { -1f, -1f, -1f, -1f, -1f, -1f },
+                    Sandbox = new Sandbox() { Selector = LoadSaveHelper.DEFAULT_SELECTOR, Mutator = LoadSaveHelper.DEFAULT_MUTATOR, Crosser = LoadSaveHelper.DEFAULT_CROSSER, CrossoverProbab = 0.5f, MutationProb = 0.5f, CurrentBestScore = -1f, PopulationSize = LoadSaveHelper.DEFAULT_POP_SIZE, UserMap = null }
+                },
+                new SavedSlotInfo()
+                {
+                    CompletedLevels = testCases[1].savedLevels,
+                    BestScores = new float[] { -1f, -1f, -1f, -1f, -1f, -1f },
+                    Sandbox = new Sandbox() { Selector = LoadSaveHelper.DEFAULT_SELECTOR, Mutator = LoadSaveHelper.DEFAULT_MUTATOR, Crosser = LoadSaveHelper.DEFAULT_CROSSER, CrossoverProbab = 0.5f, MutationProb = 0.5f, CurrentBestScore = -1f, PopulationSize = LoadSaveHelper.DEFAULT_POP_SIZE, UserMap = null }
+                },
+                new SavedSlotInfo()
+                {
+                    CompletedLevels = testCases[2].savedLevels,
+                    BestScores = new float[] { -1f, -1f, -1f, -1f, -1f, -1f },
+                    Sandbox = new Sandbox() { Selector = LoadSaveHelper.DEFAULT_SELECTOR, Mutator = LoadSaveHelper.DEFAULT_MUTATOR, Crosser = LoadSaveHelper.DEFAULT_CROSSER, CrossoverProbab = 0.5f, MutationProb = 0.5f, CurrentBestScore = -1f, PopulationSize = LoadSaveHelper.DEFAULT_POP_SIZE, UserMap = null }
+                },
+            };
 
             string jsonFile = File.ReadAllText(LoadSaveHelper.JSON_FILE_NAME_TESTS);
-            var parsedJson = JsonSerializer.Deserialize<Dictionary<string, List<Dictionary<string, List<int>>>>>(jsonFile);
-            CollectionAssert.AreEquivalent(jsonStructuredDict, parsedJson);
+            var parsedJson = JsonSerializer.Deserialize<List<SavedSlotInfo>>(jsonFile);
+            CollectionAssert.AreEquivalent(savedSlots, parsedJson);
+
             LoadSaveHelper.Instance.EraseAllSlots();
             
             yield return null;
@@ -90,9 +105,9 @@ namespace LevelUtils
                 new TestCase(new List<int>() {}),
                 new TestCase(new List<int>() {})
             };
-            List<int> firstSlot = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.First);
-            List<int> secondSlot = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Second);
-            List<int> thirdSlot = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Third);
+            List<int> firstSlot = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.First).CompletedLevels;
+            List<int> secondSlot = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Second).CompletedLevels;
+            List<int> thirdSlot = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Third).CompletedLevels;
 
             CollectionAssert.AreEqual(testCases[0].savedLevels, firstSlot);
             CollectionAssert.AreEqual(testCases[1].savedLevels, secondSlot);
@@ -141,15 +156,17 @@ namespace LevelUtils
 
             LoadSaveHelper.Instance.EraseASlot(LoadSaveHelper.SlotNum.First);
             
-            CollectionAssert.AreEqual(new List<int>(), LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.First));
+            CollectionAssert.AreEqual(new List<int>(), LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.First).CompletedLevels);
 
             LoadSaveHelper.Instance.EraseASlot(LoadSaveHelper.SlotNum.Second);
 
-            CollectionAssert.AreEqual(new List<int>(), LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Second));
+            CollectionAssert.AreEqual(new List<int>(), LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Second).CompletedLevels);
 
             LoadSaveHelper.Instance.EraseASlot(LoadSaveHelper.SlotNum.Third);
 
-            CollectionAssert.AreEqual(new List<int>(), LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Third));
+            CollectionAssert.AreEqual(new List<int>(), LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Third).CompletedLevels);
+
+            //LoadSaveHelper.Instance.EraseAllSlots();
 
             yield return null;
         }
