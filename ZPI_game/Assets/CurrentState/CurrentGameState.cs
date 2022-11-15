@@ -95,7 +95,7 @@ namespace CurrentState
         public string CurrentLevelName { get; set; }
         public int CurrentUserId { get; set; }
         public string CurrentUserNickname { get; set; }
-        
+        public int CurrentMapId { get; set; }
         public bool IsMusicOn
         {
             get { return _isMusicOn; }
