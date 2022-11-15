@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DeveloperUtils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,9 +35,9 @@ public class DrawGraph : MonoBehaviour
 
     public void RemoveAllPoints()
     {
-        if (y.Count > 0 && y[y.Count - 1] < bestValue)
+        if (y.Count > 0 && y[^1] < bestValue)
         {
-            bestValue = y[y.Count - 1];
+            bestValue = y[^1];
         }
         x.Clear();
         y.Clear();
@@ -44,19 +45,19 @@ public class DrawGraph : MonoBehaviour
 
     private void SetGraph()
     {
-        lineRenderer.positionCount = x.Count;
-        var width = (xMax - xMin);
-        var height = (yMax - yMin);
+        lineRenderer.positionCount = Math.Max(x.Count, 2);
+        var width = xMax - xMin;
+        var height = yMax - yMin;
         for (int i = 0; i < x.Count; i++)
         {
-            lineRenderer.SetPosition(i, new Vector3(xMin + width* (x[i]/x.Max()), yMin + height* (y[i]/y.Max()), -9));
+            lineRenderer.SetPosition(i, new Vector3(xMin + width * (x[i] / x.Max()), yMin + height * (y[i] / y.Max()), -9));
         }
-
+        
         if (bestValue < int.MaxValue)
         {
             bestLineRenderer.positionCount = 2;
-            bestLineRenderer.SetPosition(0, new Vector3(xMin, yMin + height* (bestValue / y.Max()), -9));
-            bestLineRenderer.SetPosition(1, new Vector3(xMax, yMin + height* (bestValue / y.Max()), -9));
+            bestLineRenderer.SetPosition(0, new Vector3(xMin, yMin + height * (bestValue / y.Max()), -9));
+            bestLineRenderer.SetPosition(1, new Vector3(xMax, yMin + height * (bestValue / y.Max()), -9));
         }
     }
 

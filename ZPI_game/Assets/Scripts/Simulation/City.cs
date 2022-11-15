@@ -35,7 +35,8 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
     public (float, float) GetPosition()
     {
         //return (_rectTransform.anchoredPosition.x, _rectTransform.anchoredPosition.y);
-        return (gameObject.transform.position.x, gameObject.transform.position.y);
+        var position = gameObject.transform.position;
+        return (position.x, position.y);
     }
 
     public void DrawLine(City other)

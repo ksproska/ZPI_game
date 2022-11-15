@@ -1,6 +1,9 @@
+using System;
 using DeveloperUtils;
 using System.Collections;
 using System.Collections.Generic;
+using CurrentState;
+using LevelUtils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,6 +17,20 @@ public class ChallengeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] string clearName;
     [SerializeField] int challengeId;
     [SerializeField] string mapPreviewAssetName;
+
+    private void Start()
+    {
+        var bestForSlot = LoadSaveHelper.Instance.GetSlot(CurrentState.CurrentGameState.Instance.CurrentSlot)
+            .BestScores[challengeId];
+        if (bestForSlot >= 0)
+        {
+            bestScore.text = $"Best score: {bestForSlot:0.00}";
+        }
+        else
+        {
+            bestScore.text = "Best score: - ";
+        }
+    }
 
     private void OnEnable()
     {
@@ -41,15 +58,10 @@ public class ChallengeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         var bundle = new InfoFrameBundle();
         bundle.ChallengeName = clearName;
         bundle.ChallengeID = challengeId;
-
-        // TODO uzupe³niæ metody pobierania najlepszego wyniku dla mapy.
-        bundle.Slot1BestScore = 12;
-        bundle.Slot2BestScore = 134;
-        bundle.Slot3BestScore = -1;
-
-        // TODO uzupe³niæ metody pobierania wyników z serwera.
-        bundle.AccountBestScore = -1;
-        bundle.TopScores = new List<(string, float)>();
+        
+        bundle.Slot1BestScore = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.First).BestScores[challengeId];
+        bundle.Slot2BestScore = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Second).BestScores[challengeId];
+        bundle.Slot3BestScore = LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Third).BestScores[challengeId];
 
         infoFrame.ShowInfoFrame(bundle);
     }
