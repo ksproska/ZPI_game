@@ -1,11 +1,12 @@
 using System;
 using System.Linq;
+using DeveloperUtils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
-public class EducationDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler
+public class EducationDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IPointerUpHandler
 {
     // [SerializeField] public string contents;
     [SerializeField] public TextMeshProUGUI TextMeshPro;
@@ -13,6 +14,8 @@ public class EducationDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
     public CanvasGroup canvasGroup;
     public GameObject prefab;
     private GameObject drop;
+
+    private bool _isMoved = false;
 
 
     public void Update()
@@ -53,9 +56,9 @@ public class EducationDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
         eventData.rawPointerPress = drop;
         eventData.pointerEnter = drop;
     }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
+        _isMoved = true;
         drop.GetComponent<DragDrop>().canvasGroup.blocksRaycasts = false;
         eventData.pointerDrag = drop;
     }
@@ -65,4 +68,12 @@ public class EducationDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
         drop.GetComponent<RectTransform>().anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (!_isMoved)
+        {
+            Destroy(drop);
+        }
+        _isMoved = false;
+    }
 }
