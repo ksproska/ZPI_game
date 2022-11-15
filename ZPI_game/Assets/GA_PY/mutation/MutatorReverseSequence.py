@@ -2,7 +2,7 @@ from random import randrange
 from copy import deepcopy
 
 
-class MutatorPartialReverser:
+class MutatorReverseSequence:
 
     @staticmethod
     def mutate(city_ids: list[int], start_index: int, end_index: int) -> list[int]:

@@ -1,10 +1,10 @@
 import random
 
 
-class CrosserPartialyMatched:
+class CrosserPartiallyMatched:
 
     @staticmethod
-    def cross(parent1: list, parent2: list, start_index: int, segment_length: int):
+    def cross(parent1: list[int], parent2: list[int], start_index: int, segment_length: int):
         """
         Method returns a child for given parents, start index, and length of a segment.
         """
@@ -27,7 +27,7 @@ class CrosserPartialyMatched:
 
         return child
 
-    def get(self, parent1: list, parent2: list):
+    def get(self, parent1: list[int], parent2: list[int]):
         """
         Method returns a child for given parents. Start index and length of a segment are drawnded.
         """

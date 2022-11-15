@@ -6,8 +6,8 @@ from crossover.CrosserOrder import CrosserOrder
 from mutation.MutatorThrors import MutatorThrors
 from selection.SelectorRoulette import SelectorRoulette
 from selection.SelectorTournament import SelectorTournament
-from mutation.MutatorPartialReverser import MutatorPartialReverser
-from crossover.CrosserPartiallyMatched import CrosserPartialyMatched
+from mutation.MutatorReverseSequence import MutatorReverseSequence
+from crossover.CrosserPartiallyMatched import CrosserPartiallyMatched
 import unittest
 
 weights_example = [
@@ -47,8 +47,8 @@ class TestGeneticAlgorithm(unittest.TestCase):
     def test_GA(self):
         weights_grid = DistancesGrid(weights_example)
         for selector in [SelectorRoulette(), SelectorTournament(0.1)]:
-            for crosser in [CrosserPartialyMatched(), CrosserCycle(), CrosserOrder()]:
-                for mutator in [MutatorPartialReverser(), MutatorThrors()]:
+            for crosser in [CrosserPartiallyMatched(), CrosserCycle(), CrosserOrder()]:
+                for mutator in [MutatorReverseSequence(), MutatorThrors()]:
                     iterations = 1000
                     ga = GeneticAlgorithm(weights_grid,
                                           generation_size=10,

@@ -34,6 +34,7 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
     
     public (float, float) GetPosition()
     {
+        //return (_rectTransform.anchoredPosition.x, _rectTransform.anchoredPosition.y);
         return (gameObject.transform.position.x, gameObject.transform.position.y);
     }
 

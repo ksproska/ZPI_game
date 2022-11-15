@@ -2,7 +2,7 @@
 <color=#006e05>from</color> copy <color=#006e05>import</color> deepcopy
 
 
-<color=#aaf502>class</color> <color=#009607>MutatorPartialReverser</color>:
+<color=#aaf502>class</color> <color=#009607>MutatorReverseSequence</color>:
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>mutate</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], start_index: <color=#006e05>int</color>, end_index: <color=#006e05>int</color>) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:

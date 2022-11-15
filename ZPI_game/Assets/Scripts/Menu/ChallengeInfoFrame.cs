@@ -30,9 +30,9 @@ public class ChallengeInfoFrame : MonoBehaviour
         var s2 = bundle.Slot2BestScore >= 0 ? bundle.Slot2BestScore.ToString("0.00") : " - ";
         var s3 = bundle.Slot3BestScore >= 0 ? bundle.Slot3BestScore.ToString("0.00") : " - ";
 
-        slot1BestScore.text = $"<color='#3300ffff'>Game 1</color>\n{s1}";
-        slot2BestScore.text = $"<color='#ff9900ff'>Game 2</color>\n{s2}";
-        slot3BestScore.text = $"<color='#006600ff'>Game 3</color>\n{s3}";
+        slot1BestScore.text = $"<color='#cc0000ff'>Game 1</color>\n{s1}";
+        slot2BestScore.text = $"<color='#3300ffff'>Game 2</color>\n{s2}";
+        slot3BestScore.text = $"<color='#ff9900ff'>Game 3</color>\n{s3}";
 
         var accountBest = "";
         if(CurrentGameState.Instance.CurrentUserId == -1)

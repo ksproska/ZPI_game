@@ -1765,13 +1765,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8404408643262910086, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: filename
-      value: MutatorPartialReverser
+      value: MutatorReverseSequence
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#006e05>MutatorPartialReverser</color>:\n\n   
+      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>MutatorReverseSequence</color>:\n\n   
         <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\n   
-        <color=#aaf502><link=\"def\">def</link></color> <color=#7b3fca>mutate</color>(city_ids:
+        <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>mutate</color>(city_ids:
         <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
         start_index: <color=#006e05><link=\"int\">int</link></color>, end_index:
         <color=#006e05><link=\"int\">int</link></color>) -> <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]:\n       
@@ -1787,7 +1787,7 @@ PrefabInstance:
         <color=#006e05><link=\"len\">len</link></color>(city_ids_copy)  \n           
         city_ids_copy[index1], city_ids_copy[index2]                 \\\n               
         city_ids_copy[index2], city_ids_copy[index1]  \n        <color=#aaf502><link=\"return\">return</link></color>
-        city_ids_copy\n\n    <color=#aaf502><link=\"def\">def</link></color> <color=#7b3fca>get</color>(<color=#188600><link=\"self\">self</link></color>,
+        city_ids_copy\n\n    <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get</color>(<color=#188600><link=\"self\">self</link></color>,
         city_ids: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>])
         -> <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]:\n       
         start_index =                (<color=#89b68b>0</color>, <color=#006e05><link=\"len\">len</link></color>(city_ids)) 
