@@ -71,7 +71,6 @@ public class CrossoverTutorialController : MonoBehaviour
             beginIndex = rnd.Next(0, 7);
             segmentLength = rnd.Next(2, 9 - beginIndex - 1);
 
-
             childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing);
             steps = recordedCrossing.GetFullHistory().Distinct().ToList();
 
@@ -83,8 +82,7 @@ public class CrossoverTutorialController : MonoBehaviour
             beginIndex = rnd.Next(0, 7);
             segmentLength = rnd.Next(2, 9 - beginIndex - 1);
 
-            childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing);
-            //childGenome = CrosserOrder.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing); //NOT YET APPLIED
+            childGenome = CrosserOrder.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing); //NOT YET APPLIED
             steps = recordedCrossing.GetFullHistory().Distinct().ToList();
 
             startingIndexTextContainer.text = $"Starting index: {beginIndex}";
@@ -92,8 +90,7 @@ public class CrossoverTutorialController : MonoBehaviour
         }
         else if (crossingType == "cx")
         {
-            childGenome = CrosserPartiallyMatched.Cross(parent1Genome, parent2Genome, beginIndex, segmentLength, ref recordedCrossing);
-            //childGenome = CrosserCycle.Cross(parent1Genome, parent2Genome, ref recordedCrossing); //NOT YET APPLIED
+            childGenome = CrosserCycle.Cross(parent1Genome, parent2Genome, ref recordedCrossing); //NOT YET APPLIED
             steps = recordedCrossing.GetFullHistory().Distinct().ToList();
         }
     }
