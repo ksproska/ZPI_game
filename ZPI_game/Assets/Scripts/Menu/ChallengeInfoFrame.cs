@@ -1,8 +1,11 @@
+using System;
 using CurrentState;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class ChallengeInfoFrame : MonoBehaviour
@@ -19,10 +22,20 @@ public class ChallengeInfoFrame : MonoBehaviour
     {
         CurrentGameState.Instance.CurrentLevelName = "Challenges";
     }
-    public void ShowInfoFrame(InfoFrameBundle bundle)
+
+    private void OnEnable()
+    {
+        if (CurrentGameState.Instance.CurrentUserId != -1) return;
+        leaderboard.gameObject.SetActive(false);
+        leaderboardTitle.gameObject.SetActive(false);
+    }
+
+    public async void ShowInfoFrame(InfoFrameBundle bundle)
     {
         leaderboard.gameObject.SetActive(true);
         leaderboardTitle.gameObject.SetActive(true);
+
+        CurrentGameState.Instance.CurrentMapId = bundle.ChallengeID;
 
         challengeName.text = bundle.ChallengeName;
 
@@ -33,27 +46,40 @@ public class ChallengeInfoFrame : MonoBehaviour
         slot1BestScore.text = $"<color='#cc0000ff'>Game 1</color>\n{s1}";
         slot2BestScore.text = $"<color='#3300ffff'>Game 2</color>\n{s2}";
         slot3BestScore.text = $"<color='#ff9900ff'>Game 3</color>\n{s3}";
-
-        var accountBest = "";
-        if(CurrentGameState.Instance.CurrentUserId == -1)
-        {
-            accountBest = "not logged in";
-            leaderboard.gameObject.SetActive(false);
-            leaderboardTitle.gameObject.SetActive(false);
-        }
-        else if(bundle.AccountBestScore >= 0)
-        {
-            accountBest = bundle.AccountBestScore.ToString("0.00");
-        }
-        else
-        {
-            accountBest = " - ";
-        }
-        bestScoreForAccount.text = $"Best score: {accountBest}";
-
-        leaderboard.text = TopListToString(bundle.TopScores);
-        
         gameObject.SetActive(true);
+        
+        var (success, score, topList) = await LoadDataFromServer(bundle.ChallengeID);
+        SetupAccountBestScoreInfo(success, score);
+        SetupTopFivePlayersInfo(success, topList);
+    }
+
+    private async Task<(bool, float, string)> LoadDataFromServer(int challengeID)
+    {
+        float bestScore = -1;
+        string topList;
+
+        var (unityBestScoreResult, best) = await Webserver.ScoreSynchro.GetUsrBestScore(CurrentGameState.Instance.CurrentUserId, challengeID);
+        switch (unityBestScoreResult)
+        {
+            case UnityWebRequest.Result.Success:
+                bestScore = best;
+                break; 
+            default:
+                return (false, -1, "");
+        }
+        
+        var (unityTopFiveResult, bestScores) = await Webserver.ScoreSynchro.GetTopFiveBestScores(challengeID);
+
+        switch (unityTopFiveResult)
+        {
+            case UnityWebRequest.Result.Success:
+                topList = TopListToString(bestScores);
+                break; 
+            default:
+                return (false, -1, "");
+        }
+
+        return (true, bestScore, topList);
     }
 
     private string TopListToString(List<(string, float)> topList)
@@ -65,6 +91,28 @@ public class ChallengeInfoFrame : MonoBehaviour
             .ForEach(elem => ret += $"{elem.index + 1}. {elem.value.Item1}\n");
         return ret;
     }
+
+    private void SetupAccountBestScoreInfo(bool success, float score)
+    {
+        if (!success)
+        {
+            bestScoreForAccount.text = "Best score: not logged in";
+            return;
+        }
+        var bestAccountScore = score >= 0 ? score.ToString("0.00") : " - ";
+        bestScoreForAccount.text = $"Best score: {bestAccountScore}";
+    }
+
+    private void SetupTopFivePlayersInfo(bool success, string topList)
+    {
+        if (!success)
+        {
+            leaderboard.gameObject.SetActive(false);
+            leaderboardTitle.gameObject.SetActive(false);
+            return;
+        }
+        leaderboard.text = topList;
+    }
 }
 
 public class InfoFrameBundle
@@ -75,6 +123,4 @@ public class InfoFrameBundle
     public float Slot1BestScore { get; set; }
     public float Slot2BestScore { get; set; }
     public float Slot3BestScore { get; set; }
-    public List<(string, float)> TopScores { get; set; }
-    public float AccountBestScore { get; set; }
 }

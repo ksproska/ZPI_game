@@ -51,5 +51,10 @@ namespace Maps
             X = x;
             Y = y;
         }
+        public void Deconstruct(out float x, out float y)
+        {
+            x = X;
+            y = Y;
+        }
     }
 }

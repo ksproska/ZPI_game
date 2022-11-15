@@ -45,11 +45,11 @@ public class DrawGraph : MonoBehaviour
     private void SetGraph()
     {
         lineRenderer.positionCount = x.Count;
-        var width = (xMax - xMin);
-        var height = (yMax - yMin);
+        var width = xMax - xMin;
+        var height = yMax - yMin;
         for (int i = 0; i < x.Count; i++)
         {
-            lineRenderer.SetPosition(i, new Vector3(xMin + width* (x[i]/x.Max()), yMin + height* (y[i]/y.Max()), -9));
+            lineRenderer.SetPosition(i, new Vector3(xMin + width * (x[i]/x.Max()), yMin + height * (y[i]/y.Max()), -9));
         }
 
         if (bestValue < int.MaxValue)
