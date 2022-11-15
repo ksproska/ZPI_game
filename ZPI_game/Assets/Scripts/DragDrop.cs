@@ -1,3 +1,4 @@
+using DeveloperUtils;
 using System;
 using System.Linq;
 using TMPro;
@@ -5,11 +6,11 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler, IPointerUpHandler, IPointerDownHandler
 {
     // [SerializeField] public string contents;
     [SerializeField] public TextMeshProUGUI TextMeshPro;
-    public bool isAtTheRightPosition = false;
+    public bool isAtTheRightPosition = true;
     private RectTransform _rectTransform;
     private Canvas _canvas;
     public CanvasGroup canvasGroup;
@@ -38,8 +39,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         this.parent = parent;
     }
 
-    public void OnPointerDown(PointerEventData eventData) {}
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = false;
@@ -58,6 +57,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         {
             GetComponent<Transform>().position = _startPos;
         }
+        isAtTheRightPosition = true;
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -67,10 +67,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         {
             if (GetComponent<RectTransform>().position != _startPos)
             {
+
                 eventData.pointerDrag.GetComponent<RectTransform>().position =
                     GetComponent<RectTransform>().position;
                 eventData.pointerDrag.GetComponent<DragDrop>().isAtTheRightPosition = true;
-                DropSlot dropslot = FindObjectsOfType<DropSlot>().Where(ds => ds.transform.position == GetComponent<RectTransform>().position).First();
+                DropSlot dropslot = FindObjectsOfType<DropSlot>().Where(ds => ds.GetComponent<RectTransform>().position == GetComponent<RectTransform>().position).First();
+
+
                 dropslot.SetContent(eventData.pointerDrag.GetComponent<DragDrop>().TextMeshPro.text);
                 dropslot.SetParent(eventData.pointerDrag.GetComponent<DragDrop>().parent);
             }
@@ -78,5 +81,20 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
         GetComponent<Transform>().position = _startPos;
         canvasGroup.blocksRaycasts = true;
+    }
+
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        Debug.Log("Test");
+        if(transform.position == _startPos)
+        {
+            Destroy(this);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("Test");
     }
 }

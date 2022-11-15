@@ -87,10 +87,10 @@ GameObject:
   - component: {fileID: 8151543383315115643}
   - component: {fileID: 8151543383315115640}
   - component: {fileID: 8151543383315115641}
-  - component: {fileID: 8151543383315115642}
   - component: {fileID: 370205709318171167}
+  - component: {fileID: 6092106045953941687}
   m_Layer: 5
-  m_Name: CodeSnippet
+  m_Name: EducationCodeSnippet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,21 +214,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8151543383315115642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8151543383315115644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e10f7d3063bb2b4bad82d70d7d06b4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TextMeshPro: {fileID: 8151543383315115641}
-  isAtTheRightPosition: 1
-  canvasGroup: {fileID: 0}
 --- !u!225 &370205709318171167
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -241,3 +226,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6092106045953941687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151543383315115644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203cd6a38751b844e899ccde6d59f086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextMeshPro: {fileID: 8151543383315115641}
+  isAtTheRightPosition: 0
+  canvasGroup: {fileID: 0}
+  prefab: {fileID: 8151543383315115644, guid: f0fc46b911335a74a99a098ff4b16d9a, type: 3}
