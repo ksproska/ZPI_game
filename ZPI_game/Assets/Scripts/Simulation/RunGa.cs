@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DeveloperUtils;
 using GA;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -41,9 +42,9 @@ public class RunGa : MonoBehaviour
     private void SetGa()
     {
         _allCities = CityHandler.GetAllCities();
-        var selectionType = (TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text]);
-        var crossoverType = (TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text]);
-        var mutationType = (TypeToNameMappers.GetMutationDescriptionMapper()[mutation.options[mutation.value].text]);
+        var selectionType = TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text];
+        var crossoverType = TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text];
+        var mutationType = TypeToNameMappers.GetMutationDescriptionMapper()[mutation.options[mutation.value].text];
 
         _ga = GeneticAlgorithmProxy.Get(
             CityCalculations.GetDistances(_allCities),

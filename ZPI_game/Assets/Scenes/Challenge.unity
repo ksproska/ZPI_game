@@ -5958,10 +5958,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0654a80e34a03b24e9af385ac6aea411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCorner: {fileID: 0}
-  rightCorner: {fileID: 0}
+  leftCorner: {fileID: 2021276858}
+  rightCorner: {fileID: 948800705}
   lineRenderer: {fileID: 1606933757}
-  bestLineRenderer: {fileID: 0}
+  bestLineRenderer: {fileID: 1379353730}
 --- !u!120 &1606933757
 LineRenderer:
   m_ObjectHideFlags: 0
