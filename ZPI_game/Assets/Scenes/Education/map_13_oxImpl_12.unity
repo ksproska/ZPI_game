@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -138.9
+      value: -156
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -241,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -347,7 +347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -403,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -129.8
+      value: -121
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -453,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -569,7 +569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -675,7 +675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -919,7 +919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1107,15 +1107,15 @@ RectTransform:
   - {fileID: 1471165120}
   - {fileID: 1570696760}
   - {fileID: 1196129659}
-  - {fileID: 1634717321}
-  - {fileID: 1459729393}
   - {fileID: 16910020}
   - {fileID: 132536236}
-  - {fileID: 6420813507850211096}
   - {fileID: 678729836}
   - {fileID: 45959880}
   - {fileID: 930607646}
   - {fileID: 754547994}
+  - {fileID: 1634717321}
+  - {fileID: 1459729393}
+  - {fileID: 6420813507850211096}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1299,7 +1299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -143.3
+      value: -136
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1516,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -157
+      value: -176
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1801,7 +1801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003925389011753758, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4003925389094967090, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1983,7 +1983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573037, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573037, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2058,6 +2058,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
+      propertyPath: toDropPrefab
+      value: 
+      objectReference: {fileID: 8151543383315115644, guid: 7e84ba01e97e6274d860b083691ab99f, type: 3}
+    - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.size
       value: 11
       objectReference: {fileID: 0}
@@ -2128,7 +2132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493945075900873945, guid: 31aef63cb9f6f33489809e038c64a647, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8493945075900873945, guid: 31aef63cb9f6f33489809e038c64a647, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2217,38 +2221,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>CrosserOrder</color>:\n   
-        <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\n   
+      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>CrosserOrder</color>:\r\n   
+        <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
         <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>cross</color>(parent1:
-        <color=#006e05><link=\"list\">list</link></color>, parent2: <color=#006e05><link=\"list\">list</link></color>,
+        <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
+        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
         start_index: <color=#006e05><link=\"int\">int</link></color>, segment_length:
-        <color=#006e05><link=\"int\">int</link></color>):\n        child = [None
+        <color=#006e05><link=\"int\">int</link></color>):\r\n        child = [None
         <color=#aaf502><link=\"for\">for</link></color>                 in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(              
-        ))]  \n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(segment_length):\n           
-        index = i +                  \n            child[index] =               
-        [index]  \n\n        last_not_contained = <color=#89b68b>               </color> 
-        \n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(child)):\n           
+        ))]  \r\n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(segment_length):\r\n           
+        inx = i +                  \r\n            child[inx] =                [inx] 
+        \r\n\r\n        last_not_contained = <color=#89b68b>               </color> 
+        \r\n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(child)):\r\n           
         <color=#aaf502><link=\"if\">if</link></color> child[i] is               
-        :  \n                last_not_contained = CrosserOrder.__put_next(child,
-        parent2, i, last_not_contained)\n        <color=#aaf502><link=\"return\">return</link></color>
-        child\n\n    <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\n   
+        :  \r\n                last_not_contained = CrosserOrder.__put_next(child,
+        parent2, i, last_not_contained)\r\n        <color=#aaf502><link=\"return\">return</link></color>
+        child\r\n\r\n    <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
         <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>__put_next</color>(child:
-        <color=#006e05><link=\"list\">list</link></color>, parent2: <color=#006e05><link=\"list\">list</link></color>,
+        <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
+        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
         curr_i: <color=#006e05><link=\"int\">int</link></color>, last_not_contained:
-        <color=#006e05><link=\"int\">int</link></color>):\n        <color=#aaf502><link=\"for\">for</link></color>
+        <color=#006e05><link=\"int\">int</link></color>):\r\n        <color=#aaf502><link=\"for\">for</link></color>
         j in <color=#006e05><link=\"range\">range</link></color>(last_not_contained,
-        <color=#006e05><link=\"len\">len</link></color>(parent2)):\n            <color=#aaf502><link=\"if\">if</link></color>
-        parent2[j]                 in child:  \n                child[curr_i] =               
-        [j]  \n                <color=#aaf502><link=\"return\">return</link></color>
-        j + <color=#89b68b>               </color>  \n        <color=#aaf502><link=\"return\">return</link></color>
-        <color=#006e05><link=\"len\">len</link></color>(parent2)\n\n    <color=#aaf502><link=\"def\">def</link></color>
+        <color=#006e05><link=\"len\">len</link></color>(parent2)):\r\n           
+        <color=#aaf502><link=\"if\">if</link></color> parent2[j]                
+        in child:  \r\n                child[curr_i] =                [j]  \r\n               
+        <color=#aaf502><link=\"return\">return</link></color> j + <color=#89b68b>              
+        </color>  \r\n        <color=#aaf502><link=\"return\">return</link></color>
+        <color=#006e05><link=\"len\">len</link></color>(parent2)\r\n\r\n    <color=#aaf502><link=\"def\">def</link></color>
         <color=#3e9360>get</color>(<color=#188600><link=\"self\">self</link></color>,
-        parent1: <color=#006e05><link=\"list\">list</link></color>, parent2: <color=#006e05><link=\"list\">list</link></color>):\n       
-        startInx = random.               (<color=#006e05><link=\"len\">len</link></color>(parent1)) 
-        \n        segmentLen = random.               (<color=#006e05><link=\"max\">max</link></color>(<color=#006e05><link=\"len\">len</link></color>(parent1)
-        - startInx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))  \n\n       
+        parent1: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
+        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]):\r\n       
+        start_inx = random.               (<color=#006e05><link=\"len\">len</link></color>(parent1)) 
+        \r\n        segment_len = random.               (<color=#006e05><link=\"max\">max</link></color>(<color=#006e05><link=\"len\">len</link></color>(parent1)
+        - start_inx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))  \r\n\r\n       
         <color=#aaf502><link=\"return\">return</link></color> <color=#188600><link=\"self\">self</link></color>.cross(parent1,
-        parent2, startInx, segmentLen)\n"
+        parent2, start_inx, segment_len)\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209430, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: details

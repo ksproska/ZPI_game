@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DeveloperUtils;
 using TMPro;
@@ -20,11 +21,11 @@ public class EducationDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
 
     public void Update()
     {
-        foreach (Transform child in transform)
+        foreach (DragDrop child in FindObjectsOfType<DragDrop>().Where(drop => drop.transform.position == transform.position).ToList())
         {
-            if (child.GetComponent<DragDrop>() != null)
+            if (child != null)
             {
-                if (child.GetComponent<DragDrop>().isAtTheRightPosition && child.position == transform.position)
+                if (child.isAtTheRightPosition && child.transform.position == transform.position)
                 {
                     Destroy(child.gameObject);
                 }
@@ -47,14 +48,9 @@ public class EducationDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
     public void OnPointerDown(PointerEventData eventData)
     {
         drop = Instantiate(prefab, transform.position, Quaternion.identity,
-            transform);
+            transform.parent);
         drop.GetComponent<DragDrop>().isAtTheRightPosition = false;
         drop.GetComponent<DragDrop>().SetContent(TextMeshPro.text);
-        eventData.pointerPress = drop;
-        eventData.selectedObject = drop;
-        eventData.pointerClick = drop;
-        eventData.rawPointerPress = drop;
-        eventData.pointerEnter = drop;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

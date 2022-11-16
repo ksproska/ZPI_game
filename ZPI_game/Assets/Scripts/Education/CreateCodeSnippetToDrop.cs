@@ -10,7 +10,7 @@ public class CreateCodeSnippetToDrop : MonoBehaviour
     {
         for (int i = 0; i < contents.Count; i++)
         {
-            var added = Instantiate(toDropPrefab, gameObject.transform.position, Quaternion.identity, FindObjectOfType<Canvas>().transform);
+            var added = Instantiate(toDropPrefab, gameObject.transform.position, Quaternion.identity, transform);
             var dd = added.GetComponent<EducationDragDrop>();
             dd.SetContent(contents[i]);
             added.transform.position += Vector3.down * i * 35;

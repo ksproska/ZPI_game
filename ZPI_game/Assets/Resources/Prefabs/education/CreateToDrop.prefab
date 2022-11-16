@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9641004579794d84ebcd892c248244ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toDropPrefab: {fileID: 8151543383315115644, guid: f0fc46b911335a74a99a098ff4b16d9a, type: 3}
+  toDropPrefab: {fileID: 8151543383315115644, guid: 7e84ba01e97e6274d860b083691ab99f, type: 3}
   contents:
   - __init__
   - list
