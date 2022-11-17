@@ -2448,19 +2448,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8404408643262910086, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: filename
-      value: GeneticAlgorithm_2
+      value: GeneticAlgorithm
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
       value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>GeneticAlgorithm</color>:\r\n\r\n   
         <color=#aaf502><link=\"def\">def</link></color> __init__(<color=#188600><link=\"self\">self</link></color>,
         weights_grid: DistancesGrid, generation_size: <color=#006e05><link=\"int\">int</link></color>,
-        selector,\r\n                 crosser, crossover_probability: <color=#006e05><link=\"float\">float</link></color>):\r\n\r\n       
+        selector,\r\n                 mutator, mutation_probability: <color=#006e05><link=\"float\">float</link></color>,\r\n                
+        crosser, crossover_probability: <color=#006e05><link=\"float\">float</link></color>):\r\n\r\n       
         <color=#188600><link=\"self\">self</link></color>.weights_grid = weights_grid\r\n       
         <color=#188600><link=\"self\">self</link></color>.selector = selector\r\n       
-        <color=#188600><link=\"self\">self</link></color>.crosser =                 
-        \r\n        <color=#188600><link=\"self\">self</link></color>.crossover_probability
-        =                  \r\n\r\n        <color=#188600><link=\"self\">self</link></color>.generation
+        <color=#188600><link=\"self\">self</link></color>.mutator =                 
+        \r\n        <color=#188600><link=\"self\">self</link></color>.mutation_probability
+        =                  \r\n        <color=#188600><link=\"self\">self</link></color>.crosser
+        = crosser\r\n        <color=#188600><link=\"self\">self</link></color>.crossover_probability
+        = crossover_probability\r\n\r\n        <color=#188600><link=\"self\">self</link></color>.generation
         = [<link=\"Circuit\">Circuit</link>.get_random(weights_grid) <color=#aaf502><link=\"for\">for</link></color>
         _ in <color=#006e05><link=\"range\">range</link></color>(generation_size)]\r\n       
         <color=#188600><link=\"self\">self</link></color>.best = <link=\"Circuit\">Circuit</link>.get_best(<color=#188600><link=\"self\">self</link></color>.generation)\r\n       
@@ -2472,19 +2475,21 @@ PrefabInstance:
         < <color=#006e05><link=\"len\">len</link></color>(<color=#188600><link=\"self\">self</link></color>.generation):\r\n           
         parent1 = <color=#188600><link=\"self\">self</link></color>.selector.get(<color=#188600><link=\"self\">self</link></color>.generation)\r\n           
         parent2 = <color=#188600><link=\"self\">self</link></color>.selector.get(<color=#188600><link=\"self\">self</link></color>.generation)\r\n\r\n           
-        child_genotype = parent1.                 \r\n            <color=#aaf502><link=\"if\">if</link></color>
+        child_genotype = parent1.city_ids\r\n            <color=#aaf502><link=\"if\">if</link></color>
+        <color=#188600><link=\"self\">self</link></color>.crossover_probability <
+        random.random():\r\n                child_genotype = <color=#188600><link=\"self\">self</link></color>.crosser.get(parent1.city_ids,
+        parent2.city_ids)\r\n\r\n            <color=#aaf502><link=\"if\">if</link></color>
         <color=#188600><link=\"self\">self</link></color>.                < random.random(): 
         \r\n                child_genotype = <color=#188600><link=\"self\">self</link></color>.              
-        .get(parent1.city_ids, parent2.               )  \r\n\r\n            ...\r\n\r\n           
-        child = <link=\"Circuit\">               </link>(               , <color=#188600><link=\"self\">self</link></color>.weights_grid) 
-        \r\n            next_generation.               (child)  \r\n        <color=#188600><link=\"self\">self</link></color>.generation
-        =                  \r\n        <color=#188600><link=\"self\">self</link></color>.best_for_iteration
+        .get(               )  \r\n\r\n            child = <link=\"Circuit\">Circuit</link>(child_genotype,
+        <color=#188600><link=\"self\">self</link></color>.weights_grid)\r\n           
+        next_generation.append(child)\r\n        <color=#188600><link=\"self\">self</link></color>.generation
+        = next_generation\r\n        <color=#188600><link=\"self\">self</link></color>.best_for_iteration
         = <link=\"Circuit\">Circuit</link>.get_best(<color=#188600><link=\"self\">self</link></color>.generation)\r\n       
-        <color=#188600><link=\"self\">self</link></color>.iteration                
-        <color=#89b68b>1</color>  \r\n\r\n        <color=#aaf502><link=\"if\">if</link></color>
-        <color=#188600><link=\"self\">self</link></color>.best.score > <color=#188600><link=\"self\">self</link></color>.best_for_iteration.              
-        :  \r\n            <color=#188600><link=\"self\">self</link></color>.best
-        = <color=#188600><link=\"self\">self</link></color>.                 \r\n"
+        <color=#188600><link=\"self\">self</link></color>.iteration += <color=#89b68b>1</color>\r\n\r\n       
+        <color=#aaf502><link=\"if\">if</link></color> <color=#188600><link=\"self\">self</link></color>.best.score
+        > <color=#188600><link=\"self\">self</link></color>.best_for_iteration.score:\r\n           
+        <color=#188600><link=\"self\">self</link></color>.best = <color=#188600><link=\"self\">self</link></color>.best_for_iteration\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_margin.z
