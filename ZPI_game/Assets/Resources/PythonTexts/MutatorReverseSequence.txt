@@ -8,7 +8,8 @@
             <color=#aaf502><link="else">else</link></color> (end_index - start_index + <color=#89b68b>1</color> + <color=#006e05><link="len">len</link></color>(city_ids_copy)) % <color=#006e05><link="len">len</link></color>(city_ids_copy)
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(length // <color=#89b68b>2</color>):
             index1 = (                + i)                 <color=#006e05><link="len">len</link></color>(city_ids_copy)  
-            index2 = (                - i + <color=#006e05><link="len">len</link></color>(city_ids_copy))                 <color=#006e05><link="len">len</link></color>(city_ids_copy)  
+            index2 = (                - i + <color=#006e05><link="len">len</link></color>(city_ids_copy)) \
+                                     <color=#006e05><link="len">len</link></color>(city_ids_copy)  
             city_ids_copy[index1], city_ids_copy[index2]                 \
                 city_ids_copy[index2], city_ids_copy[index1]  
         <color=#aaf502><link="return">return</link></color> city_ids_copy

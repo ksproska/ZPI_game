@@ -7,7 +7,9 @@
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>get_distributed_weight</color>(generation: <color=#006e05>list</color>[Circuit]) -> <color=#006e05>list</color>[<color=#006e05>float</color>]:
-        max_score = <color=#006e05>max</color>(generation, key=<color=#aaf502>lambda</color> x: x.score)  
+        max_score = <color=#006e05>max</color>(  
+            generation, key=<color=#aaf502>lambda</color> x: x.score  
+        )
         reversed_eval = [max_score.score - x.score + <color=#89b68b>1</color> <color=#aaf502>for</color> x in generation]  
         sum_eval = <color=#006e05>sum</color>(reversed_eval)  
         eval_percentage = [x / sum_eval <color=#aaf502>for</color> x in reversed_eval]  

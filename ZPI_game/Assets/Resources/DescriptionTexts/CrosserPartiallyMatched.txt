@@ -2,9 +2,9 @@
 
 
 <color=#aaf502>class</color> <color=#009607>CrosserPartiallyMatched</color>:
-
     <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#3e9360>cross</color>(parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>], start_index: <color=#006e05>int</color>, segment_length: <color=#006e05>int</color>):
+    <color=#aaf502>def</color> <color=#3e9360>cross</color>(parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>],
+              start_index: <color=#006e05>int</color>, segment_length: <color=#006e05>int</color>):
         <color=#78997c>"""
         Method returns a child for given parents, start index, and length of a segment.
         """</color>
@@ -24,7 +24,6 @@
         <color=#aaf502>for</color> i in <color=#006e05>range</color>(<color=#006e05>len</color>(child)):
             <color=#aaf502>if</color> child[i] is None:
                 child[i] = parent2[i]
-
         <color=#aaf502>return</color> child
 
     <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]):

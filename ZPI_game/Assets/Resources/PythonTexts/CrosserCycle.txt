@@ -23,7 +23,8 @@
         <color=#aaf502><link="return">return</link></color> cycles
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>__copy_from_parents</color>(cycles: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]], parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>__copy_from_parents</color>(cycles: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]],
+                            parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
         child = [                <color=#aaf502><link="for">for</link></color> _ in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(parent1))]  
         <color=#aaf502><link="for">for</link></color> i, cycle in <color=#006e05><link="enumerate">               </link></color>(cycles):  
             <color=#aaf502><link="for">for</link></color> index in cycle:
