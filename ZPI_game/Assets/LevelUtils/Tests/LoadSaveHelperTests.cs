@@ -34,7 +34,32 @@ namespace LevelUtils
             loadSaveHelper.LoadTestConfiguration();
             loadSaveHelper.EraseAllSlots();
         }
-        
+        private bool AreSavedSlotsEqual(SavedSlotInfo slt1, SavedSlotInfo slt2)
+        {
+            if(slt1.Sandbox.UserMap.MapId != slt2.Sandbox.UserMap.MapId || slt1.Sandbox.UserMap.CreatorId != slt2.Sandbox.UserMap.CreatorId || slt1.Sandbox.UserMap.CreationDate != slt2.Sandbox.UserMap.CreationDate)
+            {
+                return false;
+            }
+
+            if (slt1.Sandbox.UserMap.Points.Count != slt2.Sandbox.UserMap.Points.Count)
+            {
+                for (int inx = 0; inx < slt1.Sandbox.UserMap.Points.Count; inx++)
+                {
+                    if(Math.Abs(slt1.Sandbox.UserMap.Points[inx].X - slt2.Sandbox.UserMap.Points[inx].X) > 0.0000000001f || Math.Abs(slt1.Sandbox.UserMap.Points[inx].Y - slt2.Sandbox.UserMap.Points[inx].Y) > 0.0000000001f)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            bool sandboxesEqual = slt1.Sandbox.Crosser == slt2.Sandbox.Crosser && slt1.Sandbox.Mutator == slt2.Sandbox.Mutator &&
+                slt1.Sandbox.Selector == slt2.Sandbox.Selector && Math.Abs(slt1.Sandbox.CurrentBestScore - slt2.Sandbox.CurrentBestScore) < 0.0000000001 &&
+                Math.Abs(slt1.Sandbox.CrossoverProbab - slt2.Sandbox.CrossoverProbab) < 0.0000000001 && Math.Abs(slt1.Sandbox.MutationProb - slt2.Sandbox.MutationProb) < 0.0000000001 && 
+                slt1.Sandbox.PopulationSize == slt2.Sandbox.PopulationSize;
+
+            return slt1.BestScores.SequenceEqual(slt2.BestScores) && slt1.CompletedLevels.SequenceEqual(slt2.CompletedLevels) &&
+                sandboxesEqual;
+        }
         [UnityTest]
         public IEnumerator TestCompleteALevel()
         {
@@ -87,8 +112,12 @@ namespace LevelUtils
 
             string jsonFile = File.ReadAllText(LoadSaveHelper.JSON_FILE_NAME_TESTS);
             var parsedJson = JsonSerializer.Deserialize<List<SavedSlotInfo>>(jsonFile);
-            CollectionAssert.AreEquivalent(savedSlots, parsedJson);
-
+            Assert.AreEqual(savedSlots.Count, parsedJson.Count);
+            for(int inx = 0; inx < savedSlots.Count; inx++)
+            {
+                Assert.IsTrue(AreSavedSlotsEqual(savedSlots[inx], parsedJson[inx]));
+            }
+         
             LoadSaveHelper.Instance.EraseAllSlots();
             
             yield return null;
@@ -112,6 +141,10 @@ namespace LevelUtils
             CollectionAssert.AreEqual(testCases[0].savedLevels, firstSlot);
             CollectionAssert.AreEqual(testCases[1].savedLevels, secondSlot);
             CollectionAssert.AreEqual(testCases[2].savedLevels, thirdSlot);
+
+            CollectionAssert.AreEqual(LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.First).BestScores, new float[] { -1f, -1f, -1f, -1f, -1f, -1f });
+            CollectionAssert.AreEqual(LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Second).BestScores, new float[] { -1f, -1f, -1f, -1f, -1f, -1f });
+            CollectionAssert.AreEqual(LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Third).BestScores, new float[] { -1f, -1f, -1f, -1f, -1f, -1f });
 
             yield return null;
         }
@@ -167,6 +200,13 @@ namespace LevelUtils
             CollectionAssert.AreEqual(new List<int>(), LoadSaveHelper.Instance.GetSlot(LoadSaveHelper.SlotNum.Third).CompletedLevels);
 
             //LoadSaveHelper.Instance.EraseAllSlots();
+
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator SavedSlotInfoTest()
+        {
 
             yield return null;
         }
