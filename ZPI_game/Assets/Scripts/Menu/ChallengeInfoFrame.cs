@@ -17,6 +17,7 @@ public class ChallengeInfoFrame : MonoBehaviour
     [SerializeField] private Text bestScoreForAccount;
     [SerializeField] private Text leaderboard;
     [SerializeField] private Text leaderboardTitle;
+    [SerializeField] private Image mapPreview;
 
     private void Awake()
     {
@@ -36,6 +37,8 @@ public class ChallengeInfoFrame : MonoBehaviour
         leaderboardTitle.gameObject.SetActive(true);
 
         CurrentGameState.Instance.CurrentMapId = bundle.ChallengeID;
+
+        mapPreview.sprite = Resources.Load<Sprite>($"Challenges/challenge{bundle.ChallengeID}");
 
         challengeName.text = bundle.ChallengeName;
 
@@ -94,6 +97,7 @@ public class ChallengeInfoFrame : MonoBehaviour
 
     private void SetupAccountBestScoreInfo(bool success, float score)
     {
+        if (bestScoreForAccount == null) return;
         if (!success)
         {
             bestScoreForAccount.text = "Best score: not logged in";
@@ -105,6 +109,7 @@ public class ChallengeInfoFrame : MonoBehaviour
 
     private void SetupTopFivePlayersInfo(bool success, string topList)
     {
+        if (leaderboardTitle == null) return;
         if (!success)
         {
             leaderboard.gameObject.SetActive(false);

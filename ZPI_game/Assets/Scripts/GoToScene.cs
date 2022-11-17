@@ -36,8 +36,6 @@ public class GoToScene : MonoBehaviour
     public void FadeOutScene()
     {
         SceneFader fader = FindObjectOfType<SceneFader>(true);
-        AudioSource audioSource = Camera.main.gameObject.GetComponent<AudioSource>();
-        if (audioSource == null) audioSource = this.audioSource;
         StartCoroutine(PlaySoundAndFade(audioSource, fader));
     }
 
