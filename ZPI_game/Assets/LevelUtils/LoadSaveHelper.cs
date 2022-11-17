@@ -198,20 +198,6 @@ namespace LevelUtils
         public List<int> CompletedLevels { get; set; }
         public float[] BestScores { get; set; }
         public Sandbox Sandbox { get; set; }
-        public override bool Equals(object obj)
-        {
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            else
-            {
-                SavedSlotInfo otherSlot = obj as SavedSlotInfo;
-                return CompletedLevels.SequenceEqual(otherSlot.CompletedLevels)
-                    && BestScores.SequenceEqual(otherSlot.BestScores)
-                   && Sandbox.Equals(otherSlot.Sandbox);
-            }
-        }
     }
     public class Sandbox
     {
@@ -223,26 +209,6 @@ namespace LevelUtils
         public int PopulationSize { get; set; }
         public float CurrentBestScore { get; set; }
         public Map UserMap { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            else
-            {
-                Sandbox otherSdbx = obj as Sandbox;
-                return Selector == otherSdbx.Selector
-                    && Mutator == otherSdbx.Mutator
-                    && Crosser == otherSdbx.Crosser
-                    && Math.Abs(MutationProb - otherSdbx.MutationProb) < 0.0000001f
-                    && Math.Abs(CrossoverProbab - otherSdbx.CrossoverProbab) < 0.0000001f
-                    && PopulationSize == otherSdbx.PopulationSize
-                    && Math.Abs(CurrentBestScore - otherSdbx.CurrentBestScore) < 0.0000001f
-                    && (UserMap == null && otherSdbx.UserMap == null || UserMap.Equals(otherSdbx.UserMap));
-            }
-        }
     }
 }
 
