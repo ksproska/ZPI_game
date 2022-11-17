@@ -6,13 +6,13 @@
 
         <color=#188600><link="self">self</link></color>.weights_grid = weights_grid
         <color=#188600><link="self">self</link></color>.selector = selector
-        <color=#188600><link="self">self</link></color>.mutator = mutator
-        <color=#188600><link="self">self</link></color>.mutation_probability = mutation_probability
+        <color=#188600><link="self">self</link></color>.mutator =                  
+        <color=#188600><link="self">self</link></color>.mutation_probability =                  
         <color=#188600><link="self">self</link></color>.crosser = crosser
         <color=#188600><link="self">self</link></color>.crossover_probability = crossover_probability
 
-        <color=#188600><link="self">self</link></color>.generation = [<link="Circuit">Circuit</link>.               (               ) <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(generation_size)]  
-        <color=#188600><link="self">self</link></color>.best = <link="Circuit">Circuit</link>.               (<color=#188600><link="self">self</link></color>.generation)  
+        <color=#188600><link="self">self</link></color>.generation = [<link="Circuit">Circuit</link>.get_random(weights_grid) <color=#aaf502><link="for">for</link></color> _ in <color=#006e05><link="range">range</link></color>(generation_size)]
+        <color=#188600><link="self">self</link></color>.best = <link="Circuit">Circuit</link>.get_best(<color=#188600><link="self">self</link></color>.generation)
         <color=#188600><link="self">self</link></color>.best_for_iteration = <color=#188600><link="self">self</link></color>.best
         <color=#188600><link="self">self</link></color>.iteration = <color=#89b68b>0</color>
 

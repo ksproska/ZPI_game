@@ -1,0 +1,23 @@
+<color=#006e05>import</color> random
+<color=#006e05>from</color> DistancesGrid <color=#006e05>import</color> DistancesGrid
+<color=#006e05>from</color> Circuit <color=#006e05>import</color> Circuit
+
+
+<color=#aaf502>class</color> <color=#009607>GeneticAlgorithm</color>:
+
+    <color=#aaf502>def</color> __init__(<color=#188600>self</color>, weights_grid: DistancesGrid, generation_size: <color=#006e05>int</color>, selector):  
+
+        <color=#188600>self</color>.weights_grid = weights_grid  
+        <color=#188600>self</color>.selector = selector  
+
+        <color=#188600>self</color>.generation = [Circuit.get_random(weights_grid) <color=#aaf502>for</color> _ in <color=#006e05>range</color>(generation_size)]  
+        <color=#188600>self</color>.best = Circuit.get_best(<color=#188600>self</color>.generation)  
+        <color=#188600>self</color>.best_for_iteration = <color=#188600>self</color>.best
+        <color=#188600>self</color>.iteration = <color=#89b68b>0</color>  
+
+    <color=#aaf502>def</color> <color=#3e9360>run_iteration</color>(<color=#188600>self</color>):
+        next_generation = <color=#006e05>list</color>()
+        <color=#aaf502>while</color> <color=#006e05>len</color>(next_generation) < <color=#006e05>len</color>(<color=#188600>self</color>.generation):
+            parent1 = <color=#188600>self</color>.selector.get(<color=#188600>self</color>.generation)  
+            parent2 = <color=#188600>self</color>.selector.get(<color=#188600>self</color>.generation)  
+            ...
