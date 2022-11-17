@@ -21,6 +21,9 @@ public class WorldMapHandler : MonoBehaviour
     [SerializeField] private AudioSource source;
     private int glitchLevel;
     private int timeDelay;
+
+    [SerializeField] private GameObject chellengeButton;
+    [SerializeField] private GameObject lastLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,14 @@ public class WorldMapHandler : MonoBehaviour
         prevTime = Time.time;
         source.volume = CurrentGameState.Instance.EffectsVolume;
         timeDelay = rnd.Next(10, 20);
+
+        if (LevelMap.Instance.IsLevelDone(lastLevel.name, CurrentGameState.Instance.CurrentSlot)){
+            chellengeButton.SetActive(true);
+        }
+        else
+        {
+            chellengeButton.SetActive(false);
+        }
     }
 
     // Update is called once per frame
