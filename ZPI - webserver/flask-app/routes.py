@@ -154,12 +154,12 @@ def authenticate_user():
         return f'{v_err.messages[0]}', 400
     usr = ReadQueries.get_user(user_creds_serialized['Email'])
     if usr is None:
-        return 'User with this email address and password couldn\'t be found!', 401
+        return 'User with this email address and password couldn\'t be found!', 404
     sha_engine = sha256()
     sha_engine.update(user_creds_serialized['Password'].encode(encoding='utf-8'))
     pass_sha = sha_engine.hexdigest()
     if not compare_digest(pass_sha, usr.password):
-        return 'User with this email address and password couldn\'t be found!', 401
+        return 'User with this email address and password couldn\'t be found!', 404
 
     return jsonify(Schemas.user_schema.dump(usr)), 200
 
