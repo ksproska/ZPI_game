@@ -9,6 +9,8 @@ class SelectorTournament:
 
     def get(self, generation: list[Circuit]) -> Circuit:  # Circuit
         tournament_size = int(len(generation) * self.size_percentage)
-        selectedIndexes = random.sample(range(len(generation)), tournament_size)  # sample range
-        selected = [generation[i] for i in selectedIndexes]  # for in
+        selected_indexes = random.sample(  # sample
+            range(len(generation)), tournament_size  # range
+        )
+        selected = [generation[i] for i in selected_indexes]  # for in
         return min(selected, key=lambda x: x.score)  # min

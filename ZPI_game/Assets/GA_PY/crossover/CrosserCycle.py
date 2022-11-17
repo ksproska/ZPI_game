@@ -23,7 +23,8 @@ class CrosserCycle:
         return cycles
 
     @staticmethod
-    def __copy_from_parents(cycles: list[list[int]], parent1: list[int], parent2: list[int]) -> list[int]:
+    def __copy_from_parents(cycles: list[list[int]],
+                            parent1: list[int], parent2: list[int]) -> list[int]:
         child = [None for _ in range(len(parent1))]  # None
         for i, cycle in enumerate(cycles):  # enumerate
             for index in cycle:

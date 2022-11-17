@@ -1,5 +1,4 @@
 <color=#aaf502><link="class">class</link></color> <color=#009607><link="Circuit">Circuit</link></color>:
-
     <color=#aaf502><link="def">def</link></color> __init__(<color=#188600><link="self">self</link></color>, city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], <link="DistancesGrid">distances_grid</link>: DistancesGrid):
         <color=#188600><link="self">self</link></color>.city_ids = city_ids
         <color=#188600><link="self">self</link></color>.score = <link="Circuit">Circuit</link>.               (city_ids, <link="DistancesGrid">distances_grid</link>)  
@@ -9,7 +8,9 @@
         sum_distances = <color=#89b68b>0.0</color>
         <color=#aaf502><link="for">               </link></color> city_id in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(city_ids)):  
             city_id_next = (city_id + <color=#89b68b>1</color>)                 <color=#006e05><link="len">len</link></color>(city_ids)  
-            sum_distances += <link="DistancesGrid">distances_grid</link>.get_distance(city_ids[city_id], city_ids[city_id_next])
+            sum_distances += <link="DistancesGrid">distances_grid</link>.get_distance(
+                city_ids[city_id], city_ids[city_id_next]
+            )
         <color=#aaf502><link="return">return</link></color> sum_distances
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>

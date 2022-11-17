@@ -2,9 +2,9 @@ import random
 
 
 class CrosserPartiallyMatched:
-
     @staticmethod
-    def cross(parent1: list[int], parent2: list[int], start_index: int, segment_length: int):
+    def cross(parent1: list[int], parent2: list[int],
+              start_index: int, segment_length: int):
         """
         Method returns a child for given parents, start index, and length of a segment.
         """
@@ -24,7 +24,6 @@ class CrosserPartiallyMatched:
         for i in range(len(child)):
             if child[i] is None:
                 child[i] = parent2[i]
-
         return child
 
     def get(self, parent1: list[int], parent2: list[int]):

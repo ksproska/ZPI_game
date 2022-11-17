@@ -12,7 +12,8 @@ class MutatorReverseSequence:
             else (end_index - start_index + 1 + len(city_ids_copy)) % len(city_ids_copy)
         for i in range(length // 2):
             index1 = (start_index + i) % len(city_ids_copy)  # start_index %
-            index2 = (end_index - i + len(city_ids_copy)) % len(city_ids_copy)  # end_index %
+            index2 = (end_index - i + len(city_ids_copy)) \
+                     % len(city_ids_copy)  # end_index %
             city_ids_copy[index1], city_ids_copy[index2] = \
                 city_ids_copy[index2], city_ids_copy[index1]  # =
         return city_ids_copy
