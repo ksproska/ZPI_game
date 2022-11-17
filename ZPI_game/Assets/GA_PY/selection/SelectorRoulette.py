@@ -7,7 +7,9 @@ class SelectorRoulette:
 
     @staticmethod
     def get_distributed_weight(generation: list[Circuit]) -> list[float]:
-        max_score = max(generation, key=lambda x: x.score)  # max key lambda score
+        max_score = max(  # max
+            generation, key=lambda x: x.score  # key lambda score
+        )
         reversed_eval = [max_score.score - x.score + 1 for x in generation]  # max_score score
         sum_eval = sum(reversed_eval)  # sum
         eval_percentage = [x / sum_eval for x in reversed_eval]  # sum_eval

@@ -1,0 +1,18 @@
+<color=#aaf502><link="class">class</link></color> <color=#009607>GeneticAlgorithm</color>:
+
+    <color=#aaf502><link="def">def</link></color> __init__(<color=#188600><link="self">self</link></color>, weights_grid: DistancesGrid, generation_size: <color=#006e05><link="int">int</link></color>,                ):  
+
+        <color=#188600><link="self">self</link></color>.weights_grid =                  
+        <color=#188600><link="self">self</link></color>.selector =                  
+
+        <color=#188600><link="self">self</link></color>.generation = [<link="Circuit">Circuit</link>.               (               ) <color=#aaf502><link="for">for</link></color> _ in <color=#006e05><link="range">range</link></color>(generation_size)]  
+        <color=#188600><link="self">self</link></color>.best = <link="Circuit">Circuit</link>.               (<color=#188600><link="self">self</link></color>.generation)  
+        <color=#188600><link="self">self</link></color>.best_for_iteration = <color=#188600><link="self">self</link></color>.best
+        <color=#188600><link="self">self</link></color>.iteration = <color=#89b68b>               </color>  
+
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360>run_iteration</color>(<color=#188600><link="self">self</link></color>):
+        next_generation = <color=#006e05><link="list">list</link></color>()
+        <color=#aaf502><link="while">while</link></color> <color=#006e05><link="len">len</link></color>(next_generation) < <color=#006e05><link="len">len</link></color>(<color=#188600><link="self">self</link></color>.generation):
+            parent1 = <color=#188600><link="self">self</link></color>.               .get(<color=#188600><link="self">self</link></color>.               )  
+            parent2 = <color=#188600><link="self">self</link></color>.               .get(<color=#188600><link="self">self</link></color>.               )  
+            ...

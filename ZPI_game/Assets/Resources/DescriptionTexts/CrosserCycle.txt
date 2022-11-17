@@ -23,7 +23,8 @@
         <color=#aaf502>return</color> cycles
 
     <color=#9fff00>@staticmethod</color>
-    <color=#aaf502>def</color> <color=#3e9360>__copy_from_parents</color>(cycles: <color=#006e05>list</color>[<color=#006e05>list</color>[<color=#006e05>int</color>]], parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+    <color=#aaf502>def</color> <color=#3e9360>__copy_from_parents</color>(cycles: <color=#006e05>list</color>[<color=#006e05>list</color>[<color=#006e05>int</color>]],
+                            parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
         child = [None <color=#aaf502>for</color> _ in <color=#006e05>range</color>(<color=#006e05>len</color>(parent1))]  
         <color=#aaf502>for</color> i, cycle in <color=#006e05>enumerate</color>(cycles):  
             <color=#aaf502>for</color> index in cycle:

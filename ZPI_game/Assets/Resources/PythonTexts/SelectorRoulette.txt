@@ -2,7 +2,9 @@
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
     <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_distributed_weight</color>(generation: <color=#006e05><link="list">list</link></color>[<link="Circuit">Circuit</link>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="float">float</link></color>]:
-        max_score = <color=#006e05><link="max">               </link></color>(generation,                =<color=#aaf502><link="lambda">               </link></color> x: x.               )  
+        max_score = <color=#006e05><link="max">               </link></color>(  
+            generation,                =<color=#aaf502><link="lambda">               </link></color> x: x.                 
+        )
         reversed_eval = [               .score - x.                + <color=#89b68b>1</color> <color=#aaf502><link="for">for</link></color> x in generation]  
         sum_eval = <color=#006e05><link="sum">               </link></color>(reversed_eval)  
         eval_percentage = [x /                 <color=#aaf502><link="for">for</link></color> x in reversed_eval]  

@@ -1779,6 +1779,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4003925387742310015, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4003925388015052837, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2225,21 +2229,21 @@ PrefabInstance:
         <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
         <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>cross</color>(parent1:
         <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
-        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
+        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],\r\n             
         start_index: <color=#006e05><link=\"int\">int</link></color>, segment_length:
         <color=#006e05><link=\"int\">int</link></color>):\r\n        child = [None
         <color=#aaf502><link=\"for\">for</link></color>                 in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(              
         ))]  \r\n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(segment_length):\r\n           
         inx = i +                  \r\n            child[inx] =                [inx] 
-        \r\n\r\n        last_not_contained = <color=#89b68b>               </color> 
+        \r\n        last_not_contained = <color=#89b68b>               </color> 
         \r\n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(child)):\r\n           
         <color=#aaf502><link=\"if\">if</link></color> child[i] is               
-        :  \r\n                last_not_contained = CrosserOrder.__put_next(child,
-        parent2, i, last_not_contained)\r\n        <color=#aaf502><link=\"return\">return</link></color>
+        :  \r\n                last_not_contained = CrosserOrder.__put_next(\r\n                   
+        child, parent2, i, last_not_contained)\r\n        <color=#aaf502><link=\"return\">return</link></color>
         child\r\n\r\n    <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
         <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>__put_next</color>(child:
         <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
-        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
+        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],\r\n                  
         curr_i: <color=#006e05><link=\"int\">int</link></color>, last_not_contained:
         <color=#006e05><link=\"int\">int</link></color>):\r\n        <color=#aaf502><link=\"for\">for</link></color>
         j in <color=#006e05><link=\"range\">range</link></color>(last_not_contained,
@@ -2254,7 +2258,7 @@ PrefabInstance:
         parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]):\r\n       
         start_inx = random.               (<color=#006e05><link=\"len\">len</link></color>(parent1)) 
         \r\n        segment_len = random.               (<color=#006e05><link=\"max\">max</link></color>(<color=#006e05><link=\"len\">len</link></color>(parent1)
-        - start_inx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))  \r\n\r\n       
+        - start_inx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))  \r\n       
         <color=#aaf502><link=\"return\">return</link></color> <color=#188600><link=\"self\">self</link></color>.cross(parent1,
         parent2, start_inx, segment_len)\r\n"
       objectReference: {fileID: 0}
@@ -2336,7 +2340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209435, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 132.17505
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209435, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
