@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Old/Start.unity
     guid: 59f73414dd501ec4187b94ba7f5049d9
   - enabled: 1
-    path: Assets/Scenes/Simulation.unity
+    path: Assets/Scenes/map_26_Simulation_25.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
     path: Assets/Scenes/Old/Education.unity
