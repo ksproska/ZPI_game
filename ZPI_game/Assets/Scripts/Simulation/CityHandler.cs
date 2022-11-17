@@ -1,3 +1,4 @@
+using Maps;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,11 @@ public class CityHandler : MonoBehaviour
         int number = 0;
         list.ForEach(c => c.cityNumber = number++);
         return list;
+    }
+    public static Map CitiesToMap(List<City> cities)
+    {
+        List<Point> points = cities.Select(city => new Point(city.GetAnchoredPosition().Item1, city.GetAnchoredPosition().Item2)).ToList();
+        return new Map(points);
     }
     public static void DrawLines(List<int> genome, List<City> allCities)
     {

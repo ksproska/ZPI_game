@@ -25,11 +25,7 @@ namespace Maps
         {
             return JsonSerializer.Serialize<Map>(map);
         }
-        //public static Map CitiesToMap(List<City> cities)
-        //{
-        //    List<Point> points = cities.Select(city => new Point(city.GetPosition().Item1, city.GetPosition().Item2)).ToList();
-        //    return new Map(points);
-        //}
+
 
         private static double GetDistance(Point fst, Point snd)
         {
