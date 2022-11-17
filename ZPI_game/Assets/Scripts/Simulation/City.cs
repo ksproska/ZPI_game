@@ -39,6 +39,12 @@ public class City : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         return (position.x, position.y);
     }
 
+    public (float, float) GetAnchoredPosition()
+    {
+        var position = _rectTransform.anchoredPosition;
+        return (position.x, position.y);
+    }
+
     public void DrawLine(City other)
     {
         Vector3[] pathPoints = { transform.position, other.transform.position };
