@@ -1268,6 +1268,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1803059469}
     m_Modifications:
+    - target: {fileID: 371946128893361085, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 371946128893361085, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 371946128893361085, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 371946128893361085, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 371946129119074680, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2

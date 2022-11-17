@@ -14,8 +14,8 @@ namespace Challenges
 
         private void Start()
         {
-            // var points = LocalMaps.Instance.GetMapById(CurrentGameState.Instance.CurrentMapId).Points;
-            var points = LocalMaps.Instance.GetMapById(0).Points;
+            var points = LocalMaps.Instance.GetMapById(CurrentGameState.Instance.CurrentMapId).Points;
+            // var points = LocalMaps.Instance.GetMapById(0).Points;
             var parentRectTransform = GetComponent<RectTransform>();
             foreach (var (x, y) in points)
             {

@@ -467,6 +467,7 @@ MonoBehaviour:
   bestScoreForAccount: {fileID: 695450845}
   leaderboard: {fileID: 1418921570}
   leaderboardTitle: {fileID: 286228702}
+  mapPreview: {fileID: 1481480415}
 --- !u!1001 &467858945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,7 +477,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: clearName
-      value: That's easy!
+      value: Symmetry
       objectReference: {fileID: 0}
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: infoFrame
@@ -1399,7 +1400,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: clearName
-      value: Where friends?
+      value: Radioactive Valley
       objectReference: {fileID: 0}
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: infoFrame
@@ -1517,7 +1518,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: clearName
-      value: No going back
+      value: Make a Wish
       objectReference: {fileID: 0}
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: infoFrame
@@ -2831,7 +2832,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: clearName
-      value: What the mother of heaven!?
+      value: Fibonacci Cities
       objectReference: {fileID: 0}
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: infoFrame
@@ -2949,7 +2950,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: clearName
-      value: Boom
+      value: Blob Madness
       objectReference: {fileID: 0}
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: infoFrame
@@ -3099,7 +3100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: clearName
-      value: The uncany valley
+      value: Circle City
       objectReference: {fileID: 0}
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: infoFrame

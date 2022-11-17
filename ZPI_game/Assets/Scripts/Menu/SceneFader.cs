@@ -40,7 +40,7 @@ public class SceneFader : MonoBehaviour
 
         if(fadeDirection == FadeDirection.In)
         {
-            var maxVolume = source.volume;
+            var maxVolume = source == null ? 0 : source.volume;
             while(alpha >= fadeEndValue)
             {
                 SetImageColor(ref alpha, fadeDirection);
