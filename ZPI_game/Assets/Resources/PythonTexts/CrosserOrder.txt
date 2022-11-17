@@ -11,8 +11,7 @@
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(child)):
             <color=#aaf502><link="if">if</link></color> child[i] is                :  
                 last_not_contained = CrosserOrder.__put_next(
-                    child, parent2, i, last_not_contained
-                )
+                    child, parent2, i, last_not_contained)
         <color=#aaf502><link="return">return</link></color> child
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>

@@ -17,8 +17,7 @@ class CrosserOrder:
         for i in range(len(child)):
             if child[i] is None:  # None
                 last_not_contained = CrosserOrder.__put_next(
-                    child, parent2, i, last_not_contained
-                )
+                    child, parent2, i, last_not_contained)
         return child
 
     @staticmethod
