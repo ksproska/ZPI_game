@@ -22,7 +22,7 @@ public class WorldMapHandler : MonoBehaviour
     private int glitchLevel;
     private int timeDelay;
 
-    [SerializeField] private GameObject chellengeButton;
+    [SerializeField] private GameObject challengeButton;
     [SerializeField] private GameObject lastLevel;
     // Start is called before the first frame update
     void Start()
@@ -37,11 +37,11 @@ public class WorldMapHandler : MonoBehaviour
         timeDelay = rnd.Next(10, 20);
 
         if (LevelMap.Instance.IsLevelDone(lastLevel.name, CurrentGameState.Instance.CurrentSlot)){
-            chellengeButton.SetActive(true);
+            challengeButton.SetActive(true);
         }
         else
         {
-            chellengeButton.SetActive(false);
+            challengeButton.SetActive(false);
         }
     }
 

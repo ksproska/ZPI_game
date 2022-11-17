@@ -5247,7 +5247,7 @@ MonoBehaviour:
   glitchBeginningLevel: 10
   wires: {fileID: 565920794}
   source: {fileID: 1196359754}
-  chellengeButton: {fileID: 1882034457}
+  challengeButton: {fileID: 0}
   lastLevel: {fileID: 172857151}
 --- !u!1001 &1248005267
 PrefabInstance:
