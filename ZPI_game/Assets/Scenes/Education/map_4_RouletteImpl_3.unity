@@ -196,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 281.9
+      value: 110.3
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 131.70009
+      value: 125.2
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -316,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 132
+      value: 140.5
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -417,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100
+      value: 77.4
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -625,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -153
+      value: -175.1
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -799,7 +799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 83.2
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -936,7 +936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 36
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1156,11 +1156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 136.8
+      value: -40.4
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 132.3
+      value: 124.4
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1262,11 +1262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -150.6
+      value: -150.2
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 115.1
+      value: 93.9
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1471,7 +1471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 115.1
+      value: 93.1
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1573,11 +1573,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 12
+      value: -163.6
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 132
+      value: 124.2
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1674,11 +1674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -182.7
+      value: -180.4
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -76
+      value: -96.6
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1796,7 +1796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -170
+      value: -192.1
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1902,7 +1902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -186.4
+      value: -207.7
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2416,32 +2416,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>SelectorRoulette</color>:\n\n   
-        <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\n   
+      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>SelectorRoulette</color>:\r\n\r\n   
+        <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
         <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get_distributed_weight</color>(generation:
         <color=#006e05><link=\"list\">list</link></color>[<link=\"Circuit\">Circuit</link>])
-        -> <color=#006e05><link=\"list\">list</link></color>:\n        max_score
-        = <color=#006e05><link=\"max\">               </link></color>(generation,               
-        =<color=#aaf502><link=\"lambda\">               </link></color> x: x.              
-        )  \n        reversed_eval = [               .score - x.                +
-        <color=#89b68b>1</color> <color=#aaf502><link=\"for\">for</link></color>
-        x in generation]  \n        sum_eval = <color=#006e05><link=\"sum\">              
-        </link></color>(reversed_eval)  \n        eval_percentage = [x /                
-        <color=#aaf502><link=\"for\">for</link></color> x in reversed_eval]  \n\n       
+        -> <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"float\">float</link></color>]:\r\n       
+        max_score = <color=#006e05><link=\"max\">               </link></color>( 
+        \r\n            generation,                =<color=#aaf502><link=\"lambda\">              
+        </link></color> x: x.                 \r\n        )\r\n        reversed_eval
+        = [               .score - x.                + <color=#89b68b>1</color> <color=#aaf502><link=\"for\">for</link></color>
+        x in generation]  \r\n        sum_eval = <color=#006e05><link=\"sum\">              
+        </link></color>(reversed_eval)  \r\n        eval_percentage = [x /                
+        <color=#aaf502><link=\"for\">for</link></color> x in reversed_eval]  \r\n\r\n       
         <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(eval_percentage)
-        - <color=#89b68b>1</color>):\n            eval_percentage[i + <color=#89b68b>1</color>]                
-        eval_percentage[i]  \n\n        <color=#aaf502><link=\"return\">return</link></color>
-        eval_percentage\n\n    <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\n   
-        <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get_index_for_value</color>(distributed_weights,
-        value):\n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(distributed_weights)):\n           
+        - <color=#89b68b>1</color>):\r\n            eval_percentage[i + <color=#89b68b>1</color>]                
+        eval_percentage[i]  \r\n\r\n        <color=#aaf502><link=\"return\">return</link></color>
+        eval_percentage\r\n\r\n    <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
+        <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get_index_for_value</color>(distributed_weights:
+        <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"float\">float</link></color>],
+        value: <color=#006e05><link=\"float\">float</link></color>) -> <color=#006e05><link=\"int\">int</link></color>:\r\n       
+        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(distributed_weights)):\r\n           
         <color=#aaf502><link=\"if\">if</link></color> value                 distributed_weights[i]: 
-        \n                <color=#aaf502><link=\"return\">return</link></color> i\n\n   
-        <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get</color>(<color=#188600><link=\"self\">self</link></color>,
-        generation):\n        rand_float = random.random()\n        distributed_weights
-        = <color=#188600><link=\"self\">self</link></color>.get_distributed_weight(              
-        )  \n        index = <color=#188600><link=\"self\">self</link></color>.get_index_for_value(distributed_weights,               
-        )  \n        <color=#aaf502><link=\"return\">return</link></color>               
-        [index]  \n"
+        \r\n                <color=#aaf502><link=\"return\">return</link></color>
+        i\r\n\r\n    <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get</color>(<color=#188600><link=\"self\">self</link></color>,
+        generation: <color=#006e05><link=\"list\">list</link></color>[<link=\"Circuit\">Circuit</link>])
+        -> <link=\"Circuit\">Circuit</link>:\r\n        rand_float = random.random()\r\n       
+        distributed_weights = <color=#188600><link=\"self\">self</link></color>.get_distributed_weight(              
+        )  \r\n        index = <color=#188600><link=\"self\">self</link></color>.get_index_for_value(distributed_weights,               
+        )  \r\n        <color=#aaf502><link=\"return\">return</link></color>               
+        [index]  \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209430, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: details
@@ -2521,7 +2524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209435, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.8
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209435, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
