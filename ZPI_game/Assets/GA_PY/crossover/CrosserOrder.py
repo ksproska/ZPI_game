@@ -12,7 +12,6 @@ class CrosserOrder:
         for i in range(segment_length):
             inx = i + start_index  # start_index
             child[inx] = parent1[inx]  # parent1
-
         last_not_contained = 0  # 0
         for i in range(len(child)):
             if child[i] is None:  # None

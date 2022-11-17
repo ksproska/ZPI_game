@@ -6,7 +6,6 @@
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(segment_length):
             inx = i +                  
             child[inx] =                [inx]  
-
         last_not_contained = <color=#89b68b>               </color>  
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(child)):
             <color=#aaf502><link="if">if</link></color> child[i] is                :  

@@ -12,7 +12,6 @@
         <color=#aaf502>for</color> i in <color=#006e05>range</color>(segment_length):
             inx = i + start_index  
             child[inx] = parent1[inx]  
-
         last_not_contained = <color=#89b68b>0</color>  
         <color=#aaf502>for</color> i in <color=#006e05>range</color>(<color=#006e05>len</color>(child)):
             <color=#aaf502>if</color> child[i] is None:  
