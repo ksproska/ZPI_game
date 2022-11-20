@@ -1437,7 +1437,7 @@
 			"response": []
 		},
 		{
-			"name": "POST new user - doubling email",
+			"name": "POST auth user - wrong schema (no email)",
 			"event": [
 				{
 					"listen": "test",
@@ -1454,7 +1454,7 @@
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
 							"  var errStr = pm.response;\r",
-							"  pm.expect(errStr).to.eq(\"User with the following username or email address already exists!\")\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Email'!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -1466,7 +1466,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Email\" : \"someemail@somecompany.pl\",\r\n    \"Nickname\": \"MietekXPompa\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"raw": "{\r\n    \"mail\" : \"someemail34@somecompany.pl\",\r\n    \"Nickname\": \"Awesome User\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1474,7 +1474,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/user",
+					"raw": "http://127.0.0.1:5000/api/auth",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -1485,14 +1485,14 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"user"
+						"auth"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "POST new user - doubling nickname",
+			"name": "POST auth user - wrong schema (no password)",
 			"event": [
 				{
 					"listen": "test",
@@ -1509,7 +1509,7 @@
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
 							"  var errStr = pm.response;\r",
-							"  pm.expect(errStr).to.eq(\"User with the following username or email address already exists!\")\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Password'!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -1521,7 +1521,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Email\" : \"someemail34@somecompany.pl\",\r\n    \"Nickname\": \"Awesome User\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"raw": "{\r\n    \"Email\" : \"someemail34@somecompany.pl\",\r\n    \"P@ssword\": \"secure_and_long_password\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1529,7 +1529,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/user",
+					"raw": "http://127.0.0.1:5000/api/auth",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -1540,7 +1540,337 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"user"
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth user - wrong schema (bad email #1)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail34\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/auth",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth user - wrong schema (bad email #2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail34@\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/auth",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth user - wrong schema (bad email #3)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail34@contoso\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/auth",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth user - wrong schema (email too long)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Email address too long!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail34SDDDDDDDDDDDDDDDDDDDDDDDDDDDDDMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMDDDDDDDDDDDDDDDDDDDDDDDDCCCCCCCCCCCCCC@contoso.com\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/auth",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth user - wrong schema (password too short)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Password should be at least 12 characters long!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail34@contoso.com\",\r\n    \"Password\": \"weak\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/auth",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth user - user not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"User with this email address and password couldn't be found!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"jan.jankowski@janikowo.pl\",\r\n    \"Password\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/auth",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
 					]
 				}
 			},

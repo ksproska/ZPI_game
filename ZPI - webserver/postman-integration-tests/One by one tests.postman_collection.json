@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "75cddd40-f7e1-466d-9799-18a769b8a4da",
+		"name": "One by one tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19053221"
+	},
+	"item": [
+		{
+			"name": "POST new user - valid #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"User created\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail453@somecompany.pl\",\r\n    \"Nickname\": \"Sample User\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - valid #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"User created\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail56@contoso.pl\",\r\n    \"Nickname\": \"Next usr\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - valid #3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"User created\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"john.mcwarwick@contoso.pl\",\r\n    \"Nickname\": \"Johny Jazz\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - valid #4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"User created\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"james.a.coulinsky@koln.de\",\r\n    \"Nickname\": \"Elias Kolnitsch\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - valid #5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"User created\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"jonas.schmidt@koln.de\",\r\n    \"Nickname\": \"Jonas Schmidt\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - doubling email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"User with the following username or email address already exists!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail453@somecompany.pl\",\r\n    \"Nickname\": \"Sample User#45\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - doubling nickname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"User with the following username or email address already exists!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail4597@somecompany.pl\",\r\n    \"Nickname\": \"Sample User\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - valid #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"Map created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 653.31,\r\n            \"Y\": 564.943\r\n        },\r\n        {\r\n            \"X\": 332.75,\r\n            \"Y\": 90.98\r\n        },\r\n        {\r\n            \"X\": 522.23,\r\n            \"Y\": 905.52\r\n        },\r\n        {\r\n            \"X\": 113.23,\r\n            \"Y\": 180.22\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - valid #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"Map created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 653.31,\r\n            \"Y\": 564.943\r\n        },\r\n        {\r\n            \"X\": 332.75,\r\n            \"Y\": 90.98\r\n        },\r\n        {\r\n            \"X\": 522.23,\r\n            \"Y\": 905.52\r\n        },\r\n        {\r\n            \"X\": 113.23,\r\n            \"Y\": 180.22\r\n        },\r\n        {\r\n            \"X\": 87.154,\r\n            \"Y\": 463.943\r\n        },\r\n        {\r\n            \"X\": 97.881,\r\n            \"Y\": 18.88\r\n        },\r\n        {\r\n            \"X\": 18.44,\r\n            \"Y\": 230.0\r\n        },\r\n        {\r\n            \"X\": 144.43,\r\n            \"Y\": 563.39\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - valid #3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"Map created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 985.42,\r\n            \"Y\": 45.943\r\n        },\r\n        {\r\n            \"X\": 862.65,\r\n            \"Y\": 872.98\r\n        },\r\n        {\r\n            \"X\": 731.64,\r\n            \"Y\": 124.4\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET maps - verify that exist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that there are 3 maps\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData.length).to.eq(3 + 1)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify first map schema\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  var fstOBOMap = jsonData[1];\r",
+							"  pm.expect(fstOBOMap.Points[0].X).to.eq(653.31);\r",
+							"  pm.expect(fstOBOMap.Points[0].Y).to.eq(564.943);\r",
+							"\r",
+							"  pm.expect(fstOBOMap.Points[1].X).to.eq(332.75);\r",
+							"  pm.expect(fstOBOMap.Points[1].Y).to.eq(90.98);\r",
+							"\r",
+							"  pm.expect(fstOBOMap.Points[2].X).to.eq(522.23);\r",
+							"  pm.expect(fstOBOMap.Points[2].Y).to.eq(90.98);\r",
+							"\r",
+							"  pm.expect(fstOBOMap.Points[3].X).to.eq(113.23);\r",
+							"  pm.expect(fstOBOMap.Points[3].Y).to.eq(180.22);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify second map schema\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  var sndOBOMap = jsonData[2];\r",
+							"  pm.expect(sndOBOMap.Points[0].X).to.eq(653.31);\r",
+							"  pm.expect(sndOBOMap.Points[0].Y).to.eq(564.943);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[1].X).to.eq(332.75);\r",
+							"  pm.expect(sndOBOMap.Points[1].Y).to.eq(90.98);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[2].X).to.eq(522.23);\r",
+							"  pm.expect(sndOBOMap.Points[2].Y).to.eq(90.98);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[3].X).to.eq(113.23);\r",
+							"  pm.expect(sndOBOMap.Points[3].Y).to.eq(180.22);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[4].X).to.eq(87.154);\r",
+							"  pm.expect(sndOBOMap.Points[4].Y).to.eq(463.943);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[5].X).to.eq(97.881);\r",
+							"  pm.expect(sndOBOMap.Points[5].Y).to.eq(18.88);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[6].X).to.eq(18.44);\r",
+							"  pm.expect(sndOBOMap.Points[6].Y).to.eq(230.0);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[7].X).to.eq(144.43);\r",
+							"  pm.expect(sndOBOMap.Points[7].Y).to.eq(563.39);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify third map schema\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  var thdOBOMap = jsonData[2];\r",
+							"  pm.expect(thdOBOMap.Points[0].X).to.eq(985.42);\r",
+							"  pm.expect(thdOBOMap.Points[0].Y).to.eq(45.943);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[1].X).to.eq(862.65);\r",
+							"  pm.expect(sndOBOMap.Points[1].Y).to.eq(872.98);\r",
+							"\r",
+							"  pm.expect(sndOBOMap.Points[2].X).to.eq(731.64);\r",
+							"  pm.expect(sndOBOMap.Points[2].Y).to.eq(124.4);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "fiv",
+					"host": [
+						"fiv"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
