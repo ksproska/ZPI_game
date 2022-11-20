@@ -1,0 +1,1550 @@
+{
+	"info": {
+		"_postman_id": "0425fc4e-04f7-4e78-8fa6-cdfb9b949fbe",
+		"name": "POST api tests (empty db)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19053221"
+	},
+	"item": [
+		{
+			"name": "POST new map - json schema without points",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Points'!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"some-key\": \"some-val\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with wrong points",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"List of points is in the wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": \"some-val\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with empty list of points",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"There are no points associated with this map!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with one point wrong type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"A point (a string) is in the wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 23.23,\r\n            \"Y\": 481.52\r\n        },\r\n        {\r\n            \"X\": 223,\r\n            \"Y\": 318.09\r\n        },\r\n        {\r\n            \"X\": 212.98,\r\n            \"Y\": 526\r\n        },\r\n        \"a string\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with one point wrong Y",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"A point ({point}) has no Y coordinate!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 23.23,\r\n            \"Y\": 481.52\r\n        },\r\n        {\r\n            \"X\": 223,\r\n            \"Y\": 318.09\r\n        },\r\n        {\r\n            \"X\": 212.98,\r\n            \"Z\": 526\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with one point wrong X",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"A point ({point}) has no Y coordinate!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 23.23,\r\n            \"Y\": 481.52\r\n        },\r\n        {\r\n            \"X\": 223,\r\n            \"Y\": 318.09\r\n        },\r\n        {\r\n            \"Z\": 212.98,\r\n            \"Y\": 526\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with one point wrong Y & X",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"A point ({point}) has no X coordinate!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 23.23,\r\n            \"Y\": 481.52\r\n        },\r\n        {\r\n            \"X\": 223,\r\n            \"Y\": 318.09\r\n        },\r\n        {\r\n            \"ala\": 212.98,\r\n            \"ma kota\": 526\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with one point wrong X type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"A point coordinate X (string) has to be a float!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 23.23,\r\n            \"Y\": 481.52\r\n        },\r\n        {\r\n            \"X\": 223,\r\n            \"Y\": 318.09\r\n        },\r\n        {\r\n            \"X\": \"string\",\r\n            \"Y\": 526\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with one point wrong Y type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"A point coordinate Y (214,32) has to be a float!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 23.23,\r\n            \"Y\": 481.52\r\n        },\r\n        {\r\n            \"X\": 223,\r\n            \"Y\": 318.09\r\n        },\r\n        {\r\n            \"X\": 542.86,\r\n            \"Y\": \"214,32\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - json schema with many points wrong",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"A point (true) is in the wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        true,\r\n        {\r\n            \"X\": 23.23,\r\n            \"Y\": 481.52\r\n        },\r\n        123.89,\r\n        {\r\n            \"X\": 212.98,\r\n            \"Y\": 526\r\n        },\r\n        \"a string\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - all the same points",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Cannot create a map with two the same points!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - only two the same points",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var jsonData = pm.response;\r",
+							"  pm.expect(jsonData).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Cannot create a map with two the same points!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 32.23,\r\n            \"Y\": 564.943\r\n        },\r\n        {\r\n            \"X\": 332.75,\r\n            \"Y\": 9.90\r\n        },\r\n        {\r\n            \"X\": 435.23,\r\n            \"Y\": 876.52\r\n        },\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        },\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - all cords differ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should be fine\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns a confirm message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Map created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 32.23,\r\n            \"Y\": 564.943\r\n        },\r\n        {\r\n            \"X\": 332.75,\r\n            \"Y\": 9.90\r\n        },\r\n        {\r\n            \"X\": 435.23,\r\n            \"Y\": 876.52\r\n        },\r\n        {\r\n            \"X\": 234.23,\r\n            \"Y\": 432.52\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - one cord differ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should be fine\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns a confirm message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Map created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 32.23,\r\n            \"Y\": 564.943\r\n        },\r\n        {\r\n            \"X\": 32.23,\r\n            \"Y\": 9.90\r\n        },\r\n        {\r\n            \"X\": 564.943,\r\n            \"Y\": 9.90\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new map - the same map",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should be fine\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns a confirm message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Map created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Points\": [\r\n        {\r\n            \"X\": 32.23,\r\n            \"Y\": 564.943\r\n        },\r\n        {\r\n            \"X\": 32.23,\r\n            \"Y\": 9.90\r\n        },\r\n        {\r\n            \"X\": 564.943,\r\n            \"Y\": 9.90\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - json schema without email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Email'!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"aaaaaa\" : 245\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - json schema without nickname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Nickname'!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"a@b.pl\",\r\n    \"Nlckname\": \"blah blah blah\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - json schema without password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Password'!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"a@b.pl\",\r\n    \"Nickname\": \"Awesome Usr123\",\r\n    \"passwd\": \"none\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - wrong email format #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail\",\r\n    \"Nickname\": \"Awesome Usr123\",\r\n    \"Password\": \"hard_to_hack_passwd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - wrong email format #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail@\",\r\n    \"Nickname\": \"Awesome Usr123\",\r\n    \"Password\": \"hard_to_hack_passwd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - wrong email format #3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail@somecompany\",\r\n    \"Nickname\": \"Awesome Usr123\",\r\n    \"Password\": \"hard_to_hack_passwd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - email too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Email address too long!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemaiGGGGGGGGGGGGDSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSXXXXXXXXXXXXXXXVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVl@somecompany.pl\",\r\n    \"Nickname\": \"Awesome Usr123\",\r\n    \"Password\": \"hard_to_hack_passwd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - password too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Password should be at least 12 characters long!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail@somecompany.pl\",\r\n    \"Nickname\": \"Awesome Usr123\",\r\n    \"Password\": \"short\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - nickname too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Nickname can be maximally 30 characters long!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail@somecompany.pl\",\r\n    \"Nickname\": \"Awesome User With An Awesome And A Very Long Nickname\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - nickname too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"Nickname has to be at least 3 characters long!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail@somecompany.pl\",\r\n    \"Nickname\": \"A\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - correct data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response;\r",
+							"  pm.expect(infoStr).to.eq(\"User created\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail@somecompany.pl\",\r\n    \"Nickname\": \"Awesome User\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - doubling email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"User with the following username or email address already exists!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail@somecompany.pl\",\r\n    \"Nickname\": \"MietekXPompa\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - doubling nickname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response;\r",
+							"  pm.expect(errStr).to.eq(\"User with the following username or email address already exists!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"someemail34@somecompany.pl\",\r\n    \"Nickname\": \"Awesome User\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
