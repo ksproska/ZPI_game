@@ -1,6 +1,6 @@
 <color=#aaf502><link="class">class</link></color> <color=#009607>CrosserPartiallyMatched</color>:
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>cross</color>(parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>],
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="CrosserPartiallyMatched_cross">cross</link></color>(parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>],
               start_index: <color=#006e05><link="int">int</link></color>, segment_length: <color=#006e05><link="int">int</link></color>):
         child = [                <color=#aaf502><link="for">for</link></color> _ in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(parent1))]  
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(start_index, segment_length):
@@ -20,7 +20,7 @@
                 child[i] = parent2[i]
         <color=#aaf502><link="return">return</link></color> child
 
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get</color>(<color=#188600><link="self">self</link></color>, parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="CrosserPartiallyMatched_get">get</link></color>(<color=#188600><link="self">self</link></color>, parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]):
         start_inx = random.               (<color=#006e05><link="len">len</link></color>(parent1) - <color=#89b68b>1</color>)  
         segment_len = random.randrange(<color=#006e05><link="len">len</link></color>(parent1) - start_inx - <color=#89b68b>1</color>)
-        <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.               (parent1, parent2, start_inx, segment_len)  
+        <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.<link="CrosserPartiallyMatched_cross">               </link>(parent1, parent2, start_inx, segment_len)  

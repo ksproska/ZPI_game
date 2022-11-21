@@ -54,8 +54,8 @@ def color_link_and_gap(content: str, filename, doc_comment_dict):
             result_code = result_code.rstrip()
         else:
             token_covered = token_content
-            # if token_content in doc_comment_dict:
-            #     token_covered = f'<link="{filename}_{token_content}">{token_covered}</link>'
+            if token_content in doc_comment_dict:
+                token_covered = f'<link="{filename}_{token_content}">{token_covered}</link>'
             if token_content in OBJECTS_TO_LINK:
                 token_covered = f'<link="{OBJECTS_TO_LINK[token_content]}">{token_covered}</link>'
             if token_name in LINK_TOKEN_LIST:
