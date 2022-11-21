@@ -27,7 +27,7 @@ namespace Assets.Cryo.Script
             }
         }
 
-        public static bool IsSimmetric(EyeType eyeType)
+        public static bool IsAsimmetric(EyeType eyeType)
         {
             switch(eyeType)
             {
@@ -48,6 +48,7 @@ namespace Assets.Cryo.Script
         Wink,
         Happy,
         Sad,
+        Closed,
     }
 
     public enum MouthType
