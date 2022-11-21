@@ -1,0 +1,1 @@
+Method returns a child for given parents and length of a segment.

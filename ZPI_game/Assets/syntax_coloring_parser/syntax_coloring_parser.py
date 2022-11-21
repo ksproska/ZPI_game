@@ -41,13 +41,12 @@ OBJECTS_TO_LINK = {
 }
 
 
-def color_link_and_gap(content: str):
+def color_link_and_gap(content: str, filename, doc_comment_dict):
     result_code = ""
     removed = ""
     tokens = pg.get_lexer_by_name('python3').get_tokens(content)
     for token_type, token_content in tokens:
         token_name = str(token_type)
-
         if token_name == COMMENT_SINGLE:
             result_code, removed = replace_commented_text(
                 token_content, result_code, removed)
@@ -55,6 +54,8 @@ def color_link_and_gap(content: str):
             result_code = result_code.rstrip()
         else:
             token_covered = token_content
+            if token_content in doc_comment_dict:
+                token_covered = f'<link="{filename}_{token_content}">{token_covered}</link>'
             if token_content in OBJECTS_TO_LINK:
                 token_covered = f'<link="{OBJECTS_TO_LINK[token_content]}">{token_covered}</link>'
             if token_name in LINK_TOKEN_LIST:
@@ -64,6 +65,20 @@ def color_link_and_gap(content: str):
                 token_covered = f'<color={COLORS_DICT[token_name]}>{token_covered}</color>'
             result_code += token_covered
     return result_code, removed
+
+
+def get_comment_docs(content: str):
+    result_dict = {}
+    last_element = ""
+    tokens = pg.get_lexer_by_name('python3').get_tokens(content)
+    for token_type, token_content in tokens:
+        token_name = str(token_type)
+        if token_name == "Token.Name.Class" or token_name == "Token.Name.Function":
+            last_element = token_content
+        elif token_name == COMMENT_DOC:
+            description = token_content.strip().replace('"""', "").strip()
+            result_dict[last_element] = description
+    return result_dict
 
 
 def replace_commented_text(content: str, result_code: str, removed: str):
@@ -139,21 +154,22 @@ def main():
     print(paths)
     for path in paths:
         content = get_content_from_file(str(path))
-        print_all_tokens_dictionary(content)
+        # print_all_tokens_dictionary(content)
+        filename = str(path.split(os.sep)[-1].replace(".py", ""))
+        filename_gaped = os.path.join("..", "Resources", "PythonTexts", filename + ".txt")
+        filename_descriptions = os.path.join("..", "Resources", "DescriptionTexts", filename + ".txt")
 
-        # filename_gaped = "../Resources/PythonTexts/" + str(path.split('/')[-1]).replace("py", "txt")
-        filename_gaped = os.path.join("..", "Resources", "PythonTexts",
-                                      str(path.split(os.sep)[-1].replace(".py", ".txt")))
-        # filename_descriptions = "../Resources/DescriptionTexts/" + str(path.split('/')[-1]).replace("py", "txt")
-        filename_descriptions = os.path.join("..", "Resources", "DescriptionTexts",
-                                             str(path.split(os.sep)[-1].replace(".py", ".txt")))
-
-        content_colored_and_gaped, _ = color_link_and_gap(content)
+        doc_descriptions_dict = get_comment_docs(content)
+        content_colored_and_gaped, _ = color_link_and_gap(content, filename, doc_descriptions_dict)
         content_colored = color(content)
 
         write_to_file(filename_gaped, remove_imports(
             content_colored_and_gaped))
         write_to_file(filename_descriptions, content_colored)
+
+        for elem_name in doc_descriptions_dict:
+            elem_filename = os.path.join("..", "Resources", "DescriptionTexts", filename + "_" + elem_name + ".txt")
+            write_to_file(elem_filename, doc_descriptions_dict[elem_name])
 
     f1, f2 = split_into_two_files_ga(os.path.join("..", "Resources", "PythonTexts", "GeneticAlgorithm.txt"))
     write_to_file(os.path.join("..", "Resources", "PythonTexts", "GeneticAlgorithm1.txt"), f1)

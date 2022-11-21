@@ -28,6 +28,8 @@ namespace Challenges
 
         [SerializeField] private Image image;
 
+        private float bestAllTime;
+
         public void changeImage()
         {
             var current = image.sprite;
@@ -68,7 +70,7 @@ namespace Challenges
             //     .Where(s => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(s.Item3), CurrentGameState.Instance.CurrentSlot))
             //     .ToList();
             // selection.AddOptions(completedSelectors.Select(tuple => tuple.Key).ToList());
-            
+
             // // Filter all the crosseres that have been completed by the player
             // var allCrossers = TypeToNameMappers.GetCrossoverDescriptionMapper()
             //     .Select(pair => (pair.Key, pair.Value))
@@ -80,7 +82,7 @@ namespace Challenges
             //     .Where(c => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(c.Item3), CurrentGameState.Instance.CurrentSlot))
             //     .ToList();
             // crossover.AddOptions(completedCrossers.Select(tuple => tuple.Key).ToList());
-            
+
             // // Filter all the mutators that have been completed by the player
             // var allMutators = TypeToNameMappers.GetMutationDescriptionMapper()
             //     .Select(pair => (pair.Key, pair.Value))
@@ -92,6 +94,10 @@ namespace Challenges
             //     .Where(m => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(m.Item3), CurrentGameState.Instance.CurrentSlot))
             //     .ToList();
             // mutation.AddOptions(completedMutators.Select(tuple => tuple.Key).ToList());
+
+            var slotInfo = LoadSaveHelper.Instance.GetSlot(CurrentGameState.Instance.CurrentSlot);
+            bestAllTime = slotInfo.BestScores[CurrentGameState.Instance.CurrentMapId];
+            if (bestAllTime == -1) bestAllTime = int.MaxValue;
             
             selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
             crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
@@ -140,6 +146,7 @@ namespace Challenges
                     if (_ga.GetIterationNumber() > maxIterations)
                     {
                         _isRunning = false;
+                        OnEndRun();
                         changeImage();
                     }
                 }
@@ -159,6 +166,10 @@ namespace Challenges
                 _allCities = newCities;
                 SetGa();
             }
+            else
+            {
+                OnEndRun();
+            }
             _isRunning = !_isRunning;
         }
 
@@ -166,6 +177,24 @@ namespace Challenges
         {
             _isRunning = false;
             changeImage();
+        }
+
+        public async void OnEndRun()
+        {
+            var currentBest = (float)_ga.GetBestForIterationScore();
+            if(currentBest < bestAllTime)
+            {
+                var slotInfo = LoadSaveHelper.Instance.GetSlot(CurrentGameState.Instance.CurrentSlot);
+                slotInfo.BestScores[CurrentGameState.Instance.CurrentMapId] = currentBest;
+                LoadSaveHelper.Instance.SaveGameState();
+                if(CurrentGameState.Instance.CurrentUserId != -1)
+                {
+                    var userId = CurrentGameState.Instance.CurrentUserId;
+                    var mapId = CurrentGameState.Instance.CurrentMapId;
+                    var score = new Webserver.Score(userId, mapId, currentBest);
+                    var (result, info) = await Webserver.ScoreSynchro.PutNewScore(score);
+                }
+            }
         }
 
         public void SetupCrossoverProbability(float value)

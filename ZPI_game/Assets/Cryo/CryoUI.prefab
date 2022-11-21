@@ -258,6 +258,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 47662d57eaf3d9d43b9a2f74428b50ae, type: 3}
   - {fileID: 21300000, guid: 7bcbe646f48b3f54f90591aff659d3f6, type: 3}
   - {fileID: 21300000, guid: 673ac022d9f8a734a97ba5ba158629d7, type: 3}
+  - {fileID: 21300000, guid: 84c2889e294d17a41a5d64d9b425f6e0, type: 3}
   mouthTypes:
   - {fileID: 21300000, guid: 1fbd34eb29335df4a8bd99ac8bd1af43, type: 3}
   - {fileID: 21300000, guid: d3167da7f011c944a84f936a58bbeede, type: 3}
@@ -353,6 +354,10 @@ PrefabInstance:
     - target: {fileID: 3695977126200236605, guid: 4746905a857fff84fb0ab8eafe3a9a49, type: 3}
       propertyPath: m_Name
       value: ChatPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695977126200236605, guid: 4746905a857fff84fb0ab8eafe3a9a49, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5633135291616149349, guid: 4746905a857fff84fb0ab8eafe3a9a49, type: 3}
       propertyPath: m_Pivot.x
