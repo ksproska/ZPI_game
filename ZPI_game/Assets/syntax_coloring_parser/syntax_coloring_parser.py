@@ -1,5 +1,6 @@
 from pathlib import Path
 import pygments.lexers as pg
+import os
 
 from syntax_coloring_utils \
     import get_content_from_file, print_all_tokens_dictionary, \
@@ -48,7 +49,8 @@ def color_link_and_gap(content: str):
         token_name = str(token_type)
 
         if token_name == COMMENT_SINGLE:
-            result_code, removed = replace_commented_text(token_content, result_code, removed)
+            result_code, removed = replace_commented_text(
+                token_content, result_code, removed)
         elif token_name == COMMENT_DOC:
             result_code = result_code.rstrip()
         else:
@@ -57,7 +59,8 @@ def color_link_and_gap(content: str):
                 token_covered = f'<link="{OBJECTS_TO_LINK[token_content]}">{token_covered}</link>'
             if token_name in LINK_TOKEN_LIST:
                 token_covered = f'<link="{token_content}">{token_covered}</link>'
-                Path(f'../Resources/DescriptionTexts/{token_content}.txt').touch(exist_ok=True)
+                Path(
+                    f'../Resources/DescriptionTexts/{token_content}.txt').touch(exist_ok=True)
             if token_name in COLORS_DICT:
                 token_covered = f'<color={COLORS_DICT[token_name]}>{token_covered}</color>'
             result_code += token_covered
@@ -138,20 +141,27 @@ def main():
         content = get_content_from_file(str(path))
         print_all_tokens_dictionary(content)
 
-        filename_gaped = "../Resources/PythonTexts/" + str(path.split('/')[-1]).replace("py", "txt")
-        filename_descriptions = "../Resources/DescriptionTexts/" + str(path.split('/')[-1]).replace("py", "txt")
+        # filename_gaped = "../Resources/PythonTexts/" + str(path.split('/')[-1]).replace("py", "txt")
+        filename_gaped = os.path.join("..", "Resources", "PythonTexts", str(
+            path.split('/')[-1]).replace("py", "txt"))
+        # filename_descriptions = "../Resources/DescriptionTexts/" + str(path.split('/')[-1]).replace("py", "txt")
+        filename_descriptions = os.path.join("..", "Resources", "DescriptionTexts", str(
+            path.split('/')[-1]).replace("py", "txt"))
 
         content_colored_and_gaped, _ = color_link_and_gap(content)
         content_colored = color(content)
 
-        write_to_file(filename_gaped, remove_imports(content_colored_and_gaped))
+        write_to_file(filename_gaped, remove_imports(
+            content_colored_and_gaped))
         write_to_file(filename_descriptions, content_colored)
 
-    f1, f2 = split_into_two_files_ga("../Resources/PythonTexts/GeneticAlgorithm.txt")
+    f1, f2 = split_into_two_files_ga(
+        "../Resources/PythonTexts/GeneticAlgorithm.txt")
     write_to_file("../Resources/PythonTexts/GeneticAlgorithm1.txt", f1)
     write_to_file("../Resources/PythonTexts/GeneticAlgorithm2.txt", f2)
 
-    f1, f2 = split_into_two_files_cx("../Resources/PythonTexts/CrosserCycle.txt")
+    f1, f2 = split_into_two_files_cx(
+        "../Resources/PythonTexts/CrosserCycle.txt")
     write_to_file("../Resources/PythonTexts/CrosserCycle1.txt", f1)
     write_to_file("../Resources/PythonTexts/CrosserCycle2.txt", f2)
 
