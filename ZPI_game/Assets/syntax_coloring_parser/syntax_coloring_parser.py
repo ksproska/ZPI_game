@@ -59,8 +59,7 @@ def color_link_and_gap(content: str):
                 token_covered = f'<link="{OBJECTS_TO_LINK[token_content]}">{token_covered}</link>'
             if token_name in LINK_TOKEN_LIST:
                 token_covered = f'<link="{token_content}">{token_covered}</link>'
-                Path(
-                    f'../Resources/DescriptionTexts/{token_content}.txt').touch(exist_ok=True)
+                Path(os.path.join("..", "Resources", "DescriptionTexts", f"{token_content}.txt")).touch(exist_ok=True)
             if token_name in COLORS_DICT:
                 token_covered = f'<color={COLORS_DICT[token_name]}>{token_covered}</color>'
             result_code += token_covered
@@ -137,16 +136,17 @@ def remove_imports(content):
 
 def main():
     paths = get_file_paths_ending_with_py()
+    print(paths)
     for path in paths:
         content = get_content_from_file(str(path))
         print_all_tokens_dictionary(content)
 
         # filename_gaped = "../Resources/PythonTexts/" + str(path.split('/')[-1]).replace("py", "txt")
-        filename_gaped = os.path.join("..", "Resources", "PythonTexts", str(
-            path.split('/')[-1]).replace("py", "txt"))
+        filename_gaped = os.path.join("..", "Resources", "PythonTexts",
+                                      str(path.split(os.sep)[-1].replace(".py", ".txt")))
         # filename_descriptions = "../Resources/DescriptionTexts/" + str(path.split('/')[-1]).replace("py", "txt")
-        filename_descriptions = os.path.join("..", "Resources", "DescriptionTexts", str(
-            path.split('/')[-1]).replace("py", "txt"))
+        filename_descriptions = os.path.join("..", "Resources", "DescriptionTexts",
+                                             str(path.split(os.sep)[-1].replace(".py", ".txt")))
 
         content_colored_and_gaped, _ = color_link_and_gap(content)
         content_colored = color(content)
@@ -155,15 +155,19 @@ def main():
             content_colored_and_gaped))
         write_to_file(filename_descriptions, content_colored)
 
-    f1, f2 = split_into_two_files_ga(
-        "../Resources/PythonTexts/GeneticAlgorithm.txt")
-    write_to_file("../Resources/PythonTexts/GeneticAlgorithm1.txt", f1)
-    write_to_file("../Resources/PythonTexts/GeneticAlgorithm2.txt", f2)
+    f1, f2 = split_into_two_files_ga(os.path.join("..", "Resources", "PythonTexts", "GeneticAlgorithm.txt"))
+    write_to_file(os.path.join("..", "Resources", "PythonTexts", "GeneticAlgorithm1.txt"), f1)
+    write_to_file(os.path.join("..", "Resources", "PythonTexts", "GeneticAlgorithm2.txt"), f2)
+    # write_to_file("../Resources/PythonTexts/GeneticAlgorithm1.txt", f1)
+    # write_to_file("../Resources/PythonTexts/GeneticAlgorithm2.txt", f2)
 
-    f1, f2 = split_into_two_files_cx(
-        "../Resources/PythonTexts/CrosserCycle.txt")
-    write_to_file("../Resources/PythonTexts/CrosserCycle1.txt", f1)
-    write_to_file("../Resources/PythonTexts/CrosserCycle2.txt", f2)
+    # f1, f2 = split_into_two_files_cx(
+    #     "../Resources/PythonTexts/CrosserCycle.txt")
+    f1, f2 = split_into_two_files_cx(os.path.join("..", "Resources", "PythonTexts", "CrosserCycle.txt"))
+    write_to_file(os.path.join("..", "Resources", "PythonTexts", "CrosserCycle1.txt"), f1)
+    write_to_file(os.path.join("..", "Resources", "PythonTexts", "CrosserCycle2.txt"), f2)
+    # write_to_file("../Resources/PythonTexts/CrosserCycle1.txt", f1)
+    # write_to_file("../Resources/PythonTexts/CrosserCycle2.txt", f2)
 
 
 if __name__ == '__main__':
