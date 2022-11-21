@@ -407,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -171.8
+      value: -155.29
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -875,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -204.2
+      value: -187.8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1773,30 +1773,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#006e05>CrosserPartiallyMatched</color>:\n\n<color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\n   
-        <color=#aaf502><link=\"def\">def</link></color> <color=#7b3fca>cross</color>(parent1:
-        <color=#006e05><link=\"list\">list</link></color>, parent2: <color=#006e05><link=\"list\">list</link></color>,
+      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>CrosserPartiallyMatched</color>:\r\n   
+        <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
+        <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>cross</color>(parent1:
+        <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
+        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],\r\n             
         start_index: <color=#006e05><link=\"int\">int</link></color>, segment_length:
-        <color=#006e05><link=\"int\">int</link></color>):\n        child = [               
+        <color=#006e05><link=\"int\">int</link></color>):\r\n        child = [               
         <color=#aaf502><link=\"for\">for</link></color> _ in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(parent1))] 
-        \n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(start_index,
-        segment_length):\n            child[i] =                [i]  \n\n       
-        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(segment_length):\n           
-        index = i + start_index\n                            = parent2[index]  \n\n           
-        <color=#aaf502><link=\"if\">if</link></color> value not in               
-        :  \n                <color=#aaf502><link=\"while\">while</link></color>
-        child[index] is not None:\n                    index =                .index(parent1[index]) 
-        \n                child[index] = value\n\n        <color=#aaf502><link=\"for\">for</link></color>
-        i in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(child)):\n           
-        <color=#aaf502><link=\"if\">if</link></color> child[i] is None:\n               
-        child[i] = parent2[i]\n\n        <color=#aaf502><link=\"return\">return</link></color>
-        child\n\n    <color=#aaf502><link=\"def\">def</link></color> <color=#7b3fca>get</color>(<color=#188600><link=\"self\">self</link></color>,
-        parent1: <color=#006e05><link=\"list\">list</link></color>, parent2: <color=#006e05><link=\"list\">list</link></color>):\n       
+        \r\n        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(start_index,
+        segment_length):\r\n            child[i] =                [i]  \r\n\r\n       
+        <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(segment_length):\r\n           
+        index = i + start_index\r\n                            = parent2[index] 
+        \r\n\r\n            <color=#aaf502><link=\"if\">if</link></color> value not
+        in                :  \r\n                <color=#aaf502><link=\"while\">while</link></color>
+        child[index] is not None:\r\n                    index =                .index(parent1[index]) 
+        \r\n                child[index] = value\r\n\r\n        <color=#aaf502><link=\"for\">for</link></color>
+        i in <color=#006e05><link=\"range\">range</link></color>(<color=#006e05><link=\"len\">len</link></color>(child)):\r\n           
+        <color=#aaf502><link=\"if\">if</link></color> child[i] is None:\r\n               
+        child[i] = parent2[i]\r\n        <color=#aaf502><link=\"return\">return</link></color>
+        child\r\n\r\n    <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get</color>(<color=#188600><link=\"self\">self</link></color>,
+        parent1: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
+        parent2: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]):\r\n       
         start_inx = random.               (<color=#006e05><link=\"len\">len</link></color>(parent1)
-        - <color=#89b68b>1</color>)  \n        segment_len = random.randrange(<color=#006e05><link=\"len\">len</link></color>(parent1)
-        - start_inx - <color=#89b68b>1</color>)\n        <color=#aaf502><link=\"return\">return</link></color>
+        - <color=#89b68b>1</color>)  \r\n        segment_len = random.randrange(<color=#006e05><link=\"len\">len</link></color>(parent1)
+        - start_inx - <color=#89b68b>1</color>)\r\n        <color=#aaf502><link=\"return\">return</link></color>
         <color=#188600><link=\"self\">self</link></color>.               (parent1,
-        parent2, start_inx, segment_len)  \n"
+        parent2, start_inx, segment_len)  \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209430, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: details

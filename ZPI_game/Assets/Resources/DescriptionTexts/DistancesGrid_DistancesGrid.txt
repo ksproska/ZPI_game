@@ -1,0 +1,7 @@
+Class stores distances between cities as a grid each to each, example:
+    [
+        [0, 1, 4, 2],
+        [1, 0, 3, 6],
+        [4, 3, 0, 8],
+        [2, 6, 8, 0]
+    ]

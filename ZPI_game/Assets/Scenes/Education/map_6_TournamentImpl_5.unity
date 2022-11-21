@@ -196,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -90.3
+      value: -86.257
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 18.02494
+      value: -15.075
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -297,11 +297,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -225.7
+      value: -224.1
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.07507706
+      value: -30.075
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -831,11 +831,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 41.59999
+      value: 39.2
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.924934
+      value: -15.075
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -937,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -93.3
+      value: -86.25723
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1048,11 +1048,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 21.399992
+      value: 32.4
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 34.224937
+      value: 33.425
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1632,10 +1632,10 @@ PrefabInstance:
         -> <link=\"Circuit\">               </link>:  \r\n        tournament_size
         = <color=#006e05><link=\"int\">int</link></color>(<color=#006e05><link=\"len\">len</link></color>(generation)
         * <color=#188600><link=\"self\">self</link></color>.size_percentage)\r\n       
-        selectedIndexes = random.               (<color=#006e05><link=\"range\">              
+        selected_indexes = random.               (  \r\n            <color=#006e05><link=\"range\">              
         </link></color>(<color=#006e05><link=\"len\">len</link></color>(generation)),
-        tournament_size)  \r\n        selected = [generation[i] <color=#aaf502><link=\"for\">              
-        </link></color> i                 selectedIndexes]  \r\n        <color=#aaf502><link=\"return\">return</link></color>
+        tournament_size  \r\n        )\r\n        selected = [generation[i] <color=#aaf502><link=\"for\">              
+        </link></color> i in selected_               dexes]  \r\n        <color=#aaf502><link=\"return\">return</link></color>
         <color=#006e05><link=\"min\">               </link></color>(selected, key=<color=#aaf502><link=\"lambda\">lambda</link></color>
         x: x.score)  \r\n"
       objectReference: {fileID: 0}

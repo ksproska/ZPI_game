@@ -1,0 +1,3 @@
+Class representing our road and it's score (how good it is). 
+    Each city is given an unrepeatable index, therefore our road (here called genotype) 
+    is represented as a list of those indexes.
