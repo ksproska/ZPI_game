@@ -1601,6 +1601,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: CryoExplanation
       objectReference: {fileID: 0}
+    - target: {fileID: 2112615804476989767, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116212412331111841, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116212412331111841, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116212412331111841, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116212412331111841, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293069680662451200, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 104.3634
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293069680662451200, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 26.8872
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293069680662451200, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -109
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293069680662451200, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153256019815570001, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_Text
+      value: OK
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153256019815570001, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ae65c358fe8c76547895fc95f3a763f7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
 --- !u!1001 &6235930773545750529

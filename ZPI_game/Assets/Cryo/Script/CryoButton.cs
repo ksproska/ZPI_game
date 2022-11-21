@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class CryoButton : MonoBehaviour
 {
@@ -33,5 +34,27 @@ public class CryoButton : MonoBehaviour
         cryo.SetBothEyesTypes(Assets.Cryo.Script.EyeType.Closed);
         yield return new WaitForSeconds(0.5f);
         cryo.SetBothEyesTypes(Assets.Cryo.Script.EyeType.EyeBig);
+    }
+
+    public void ToggleExplanationFrame()
+    {
+        gameObject.SetActive(false);
+        explanationFrame.SetFrameActive(true);
+        //if (explanationFrame.gameObject.activeSelf)
+        //{
+        //    explanationFrame.gameObject.SetActive(false);
+        //    if(stopper != null)
+        //    {
+        //        stopper.gameObject.SetActive(false);
+        //    }
+        //}
+        //else
+        //{
+        //    explanationFrame.gameObject.SetActive(true);
+        //    if (stopper != null)
+        //    {
+        //        stopper.gameObject.SetActive(true);
+        //    }
+        //}
     }
 }

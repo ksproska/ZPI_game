@@ -17,8 +17,8 @@
 /ZPI_game/Packages/NUnit3.13.3/*
 /ZPI_game/ProjectSettings/ProjectSettings.asset
 
-/ZPI - webserver/flask-venv
-/ZPI - webserver/flask-app/__pycache__
+/ZPI-webserver/flask-venv
+/ZPI-webserver/flask-app/__pycache__
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/

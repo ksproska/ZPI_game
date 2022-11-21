@@ -244,9 +244,6 @@ GameObject:
   - component: {fileID: 9206782008505251753}
   - component: {fileID: 9206782008505251752}
   - component: {fileID: 9206782008505251751}
-  - component: {fileID: 9206782008505251754}
-  - component: {fileID: 2515357739336781611}
-  - component: {fileID: 205466587726700813}
   m_Layer: 5
   m_Name: EduButton
   m_TagString: Untagged
@@ -359,45 +356,3 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &9206782008505251754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206782008505251749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3745d701c6e999047a9ad35172d20c66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  background: {fileID: 0}
---- !u!114 &2515357739336781611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206782008505251749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d6cde69a761aa438300dba2d6d8dec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rectTransform: {fileID: 0}
---- !u!114 &205466587726700813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206782008505251749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57773a060312f4748992205869847a9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: 
-  clip: {fileID: 0}
-  audioSource: {fileID: 0}
