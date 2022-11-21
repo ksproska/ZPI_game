@@ -44,6 +44,8 @@ public class CryoUI : MonoBehaviour
             case EyeType.Happy:
             case EyeType.Sad:
                 return eyeTypes[5];
+            case EyeType.Closed:
+                return eyeTypes[6];
             default:
                 return null;
         }
