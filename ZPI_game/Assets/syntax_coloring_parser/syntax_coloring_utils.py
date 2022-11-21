@@ -9,12 +9,12 @@ def replace_last_occurrence(text, old, new):
 
 
 def get_file_paths_ending_with_py():
-    main_dir = "../GA_PY"
+    main_dir = os.path.join("..", "GA_PY")
     directories = [
         main_dir,
-        f'{main_dir}/crossover',
-        f'{main_dir}/mutation',
-        f'{main_dir}/selection'
+        os.path.join(main_dir, 'crossover'),
+        os.path.join(main_dir, 'mutation'),
+        os.path.join(main_dir, 'selection')
     ]
     paths = []
     for directory in directories:
