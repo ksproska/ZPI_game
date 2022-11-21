@@ -1,7 +1,7 @@
-<color=#aaf502><link="class">class</link></color> <color=#009607>DistancesGrid</color>:
+<color=#aaf502><link="class">class</link></color> <color=#009607><link="DistancesGrid_DistancesGrid">DistancesGrid</link></color>:
     <color=#aaf502><link="def">def</link></color>                (<color=#188600><link="self">self</link></color>, <link="DistancesGrid">distances_grid</link>: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="list">list</link></color>]):   
         <color=#188600><link="self">self</link></color>.<link="DistancesGrid">distances_grid</link>: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="list">               </link></color>] = <link="DistancesGrid">distances_grid</link>   
         <color=#188600><link="self">self</link></color>.number_of_cities: <color=#006e05><link="int">int</link></color> = <color=#006e05><link="len">               </link></color>(<link="DistancesGrid">distances_grid</link>)    
 
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get_distance</color>(<color=#188600><link="self">self</link></color>, index1: <color=#006e05><link="int">int</link></color>, index2: <color=#006e05><link="int">int</link></color>) -> <color=#006e05><link="float">               </link></color>:
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="DistancesGrid_get_distance">get_distance</link></color>(<color=#188600><link="self">self</link></color>, index1: <color=#006e05><link="int">int</link></color>, index2: <color=#006e05><link="int">int</link></color>) -> <color=#006e05><link="float">               </link></color>:
         <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.<link="DistancesGrid">               </link>[index1][index2]  
