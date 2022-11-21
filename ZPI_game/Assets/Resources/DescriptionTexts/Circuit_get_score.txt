@@ -1,0 +1,2 @@
+Method calculates the length of an entire road - for each id we take the following id,
+        retreve distance between those cities and sum all the distances together.
