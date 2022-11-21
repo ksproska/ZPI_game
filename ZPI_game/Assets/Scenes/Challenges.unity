@@ -2832,7 +2832,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: clearName
-      value: Fibonacci Cities
+      value: Fibonacci Islands
       objectReference: {fileID: 0}
     - target: {fileID: 6175331104940630393, guid: 5cd4f1a3e5b9d3f46930846d18184716, type: 3}
       propertyPath: infoFrame

@@ -127,7 +127,7 @@ public class CryoUI : MonoBehaviour
         leftEye.sprite = sprite;
         currentLeftEyeType = eyeType;
         FlipImageX(leftEye, false);
-        if (EyeTypeHandler.IsSimmetric(eyeType))
+        if (EyeTypeHandler.IsAsimmetric(eyeType))
         {
             FlipImageX(leftEye, true);
         }

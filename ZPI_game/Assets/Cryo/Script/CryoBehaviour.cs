@@ -35,6 +35,8 @@ public class CryoBehaviour : MonoBehaviour
                 return eyeTypes[4];
             case EyeType.Happy: case EyeType.Sad:
                 return eyeTypes[5];
+            case EyeType.Closed:
+                return eyeTypes[6];
             default:
                 return null;
         }
@@ -91,7 +93,7 @@ public class CryoBehaviour : MonoBehaviour
         leftEye.sprite = sprite;
         currentLeftEyeType = eyeType;
         leftEye.flipX = false;
-        if(EyeTypeHandler.IsSimmetric(eyeType))
+        if(EyeTypeHandler.IsAsimmetric(eyeType))
         {
             leftEye.flipX = true;
         }
