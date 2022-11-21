@@ -16,10 +16,12 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        expectedPosition = popupMenu.transform.position;
-        popupMenu.transform.position += Vector3.up * popupMenu.GetComponent<RectTransform>().rect.height;
-        settingsMenu.transform.position += Vector3.up * settingsMenu.GetComponent<RectTransform>().rect.height;
-        temporaryPosition = popupMenu.transform.position;
+        settingsMenu.SetActive(false);
+        popupMenu.SetActive(true);
+        expectedPosition = popupMenu.GetComponent<RectTransform>().localPosition;
+        popupMenu.GetComponent<RectTransform>().localPosition += Vector3.up * popupMenu.GetComponent<RectTransform>().rect.height;
+        settingsMenu.GetComponent<RectTransform>().localPosition += Vector3.up * settingsMenu.GetComponent<RectTransform>().rect.height;
+        temporaryPosition = popupMenu.GetComponent<RectTransform>().localPosition;
     }
 
     // Update is called once per frame
@@ -36,13 +38,10 @@ public class MenuController : MonoBehaviour
 
         if (rollInMenu)
         {
-            if (!compareVector3(popupMenu.transform.position, expectedPosition))
+            if (!compareVector3(popupMenu.GetComponent<RectTransform>().localPosition, expectedPosition))
             {
-                Debug.Log(popupMenu.transform.position);
-                Debug.Log(expectedPosition);
-
-                popupMenu.transform.position = Vector3.MoveTowards(popupMenu.transform.position, expectedPosition, Time.deltaTime * 3000);
-                settingsMenu.transform.position = Vector3.MoveTowards(settingsMenu.transform.position, expectedPosition, Time.deltaTime * 3000);
+                popupMenu.GetComponent<RectTransform>().localPosition = Vector3.MoveTowards(popupMenu.GetComponent<RectTransform>().localPosition, expectedPosition, Time.deltaTime * 3000);
+                settingsMenu.GetComponent<RectTransform>().localPosition = Vector3.MoveTowards(settingsMenu.GetComponent<RectTransform>().localPosition, expectedPosition, Time.deltaTime * 3000);
             }
             else
             {
