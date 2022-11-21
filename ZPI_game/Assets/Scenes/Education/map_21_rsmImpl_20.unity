@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -14.099998
+      value: -30.4
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -417,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -95.5
+      value: -109.5
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -699,11 +699,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 130.9
+      value: -175.6
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.7000084
+      value: -15.4
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1769,31 +1769,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>MutatorReverseSequence</color>:\n\n   
-        <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\n   
+      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>MutatorReverseSequence</color>:\r\n\r\n   
+        <color=#9fff00><link=\"@staticmethod\">@staticmethod</link></color>\r\n   
         <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>mutate</color>(city_ids:
         <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>],
         start_index: <color=#006e05><link=\"int\">int</link></color>, end_index:
-        <color=#006e05><link=\"int\">int</link></color>) -> <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]:\n       
-        city_ids_copy =                (city_ids)  \n        length = end_index -
-        start_index + <color=#89b68b>1</color> \\\n            <color=#aaf502><link=\"if\">if</link></color>
-        end_index < start_index \\\n            <color=#aaf502><link=\"else\">else</link></color>
+        <color=#006e05><link=\"int\">int</link></color>) -> <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]:\r\n       
+        city_ids_copy =                (city_ids)  \r\n        length = end_index
+        - start_index + <color=#89b68b>1</color> \\\r\n            <color=#aaf502><link=\"if\">if</link></color>
+        end_index < start_index \\\r\n            <color=#aaf502><link=\"else\">else</link></color>
         (end_index - start_index + <color=#89b68b>1</color> + <color=#006e05><link=\"len\">len</link></color>(city_ids_copy))
-        % <color=#006e05><link=\"len\">len</link></color>(city_ids_copy)\n       
+        % <color=#006e05><link=\"len\">len</link></color>(city_ids_copy)\r\n       
         <color=#aaf502><link=\"for\">for</link></color> i in <color=#006e05><link=\"range\">range</link></color>(length
-        // <color=#89b68b>2</color>):\n            index1 = (                + i)                
-        <color=#006e05><link=\"len\">len</link></color>(city_ids_copy)  \n           
-        index2 = (                - i + <color=#006e05><link=\"len\">len</link></color>(city_ids_copy))                
-        <color=#006e05><link=\"len\">len</link></color>(city_ids_copy)  \n           
-        city_ids_copy[index1], city_ids_copy[index2]                 \\\n               
-        city_ids_copy[index2], city_ids_copy[index1]  \n        <color=#aaf502><link=\"return\">return</link></color>
-        city_ids_copy\n\n    <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get</color>(<color=#188600><link=\"self\">self</link></color>,
+        // <color=#89b68b>2</color>):\r\n            index1 = (                +
+        i)                 <color=#006e05><link=\"len\">len</link></color>(city_ids_copy) 
+        \r\n            index2 = (                - i + <color=#006e05><link=\"len\">len</link></color>(city_ids_copy))
+        \\\r\n                                     <color=#006e05><link=\"len\">len</link></color>(city_ids_copy) 
+        \r\n            city_ids_copy[index1], city_ids_copy[index2]                
+        \\\r\n                city_ids_copy[index2], city_ids_copy[index1]  \r\n       
+        <color=#aaf502><link=\"return\">return</link></color> city_ids_copy\r\n\r\n   
+        <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>get</color>(<color=#188600><link=\"self\">self</link></color>,
         city_ids: <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>])
-        -> <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]:\n       
+        -> <color=#006e05><link=\"list\">list</link></color>[<color=#006e05><link=\"int\">int</link></color>]:\r\n       
         start_index =                (<color=#89b68b>0</color>, <color=#006e05><link=\"len\">len</link></color>(city_ids)) 
-        \n        end_index = randrange(<color=#89b68b>0</color>, <color=#006e05><link=\"len\">len</link></color>(city_ids))\n       
+        \r\n        end_index = randrange(<color=#89b68b>0</color>, <color=#006e05><link=\"len\">len</link></color>(city_ids))\r\n       
         <color=#aaf502><link=\"return\">return</link></color> <color=#188600><link=\"self\">self</link></color>.mutate(city_ids,
-        start_index, end_index)\n"
+        start_index, end_index)\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209430, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: details
