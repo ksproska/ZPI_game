@@ -1,8 +1,10 @@
 using CurrentState;
+using LevelUtils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -10,7 +12,9 @@ public class MenuController : MonoBehaviour
     private Vector3 temporaryPosition;
     public GameObject popupMenu;
     public GameObject settingsMenu;
+    public GameObject container;
     public GoToScene goToScene;
+    public Text text;
 
     private bool rollInMenu = false;
     // Start is called before the first frame update
@@ -18,10 +22,18 @@ public class MenuController : MonoBehaviour
     {
         settingsMenu.SetActive(false);
         popupMenu.SetActive(true);
-        expectedPosition = popupMenu.GetComponent<RectTransform>().localPosition;
-        popupMenu.GetComponent<RectTransform>().localPosition += Vector3.up * popupMenu.GetComponent<RectTransform>().rect.height;
-        settingsMenu.GetComponent<RectTransform>().localPosition += Vector3.up * settingsMenu.GetComponent<RectTransform>().rect.height;
-        temporaryPosition = popupMenu.GetComponent<RectTransform>().localPosition;
+        expectedPosition = container.GetComponent<RectTransform>().localPosition;
+        container.GetComponent<RectTransform>().localPosition += Vector3.up * container.GetComponent<RectTransform>().rect.height;
+        temporaryPosition = container.GetComponent<RectTransform>().localPosition;
+        Debug.Log(CurrentGameState.Instance.CurrentLevelName);
+        if(CurrentGameState.Instance.CurrentLevelName != "WorldMap")
+        {
+            text.text = LevelMap.GetClearMapName(CurrentGameState.Instance.CurrentLevelName);
+        }
+        else
+        {
+            text.text = "WorldMap";
+        }
     }
 
     // Update is called once per frame
@@ -38,10 +50,9 @@ public class MenuController : MonoBehaviour
 
         if (rollInMenu)
         {
-            if (!compareVector3(popupMenu.GetComponent<RectTransform>().localPosition, expectedPosition))
+            if (!compareVector3(container.GetComponent<RectTransform>().localPosition, expectedPosition))
             {
-                popupMenu.GetComponent<RectTransform>().localPosition = Vector3.MoveTowards(popupMenu.GetComponent<RectTransform>().localPosition, expectedPosition, Time.deltaTime * 3000);
-                settingsMenu.GetComponent<RectTransform>().localPosition = Vector3.MoveTowards(settingsMenu.GetComponent<RectTransform>().localPosition, expectedPosition, Time.deltaTime * 3000);
+                container.GetComponent<RectTransform>().localPosition = Vector3.MoveTowards(container.GetComponent<RectTransform>().localPosition, expectedPosition, Time.deltaTime * 3000);
             }
             else
             {
