@@ -28,7 +28,7 @@ public class CryoExplanation : MonoBehaviour
 
         explanation.text = Resources.Load<TextAsset>($"CryoExplanations/{textResource}").text;
 
-        SetFrameActive(LevelMap.Instance.IsLevelDone(CurrentGameState.Instance.CurrentLevelName,
+        SetFrameActive(!LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(CurrentGameState.Instance.CurrentLevelName),
             CurrentGameState.Instance.CurrentSlot));
     }
 

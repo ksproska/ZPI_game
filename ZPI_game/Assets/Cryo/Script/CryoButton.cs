@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using LevelUtils;
+using CurrentState;
 
 public class CryoButton : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class CryoButton : MonoBehaviour
     private void Start()
     {
         cryo.SetBothEyesTypes(Assets.Cryo.Script.EyeType.EyeBig);
+        gameObject.SetActive(LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(CurrentGameState.Instance.CurrentLevelName),
+            CurrentGameState.Instance.CurrentSlot));
     }
 
     private void FixedUpdate()
