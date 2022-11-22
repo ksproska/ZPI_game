@@ -20,6 +20,7 @@ namespace Cutscenes.SpecificCutscenes
         [SerializeField] private CryoUI cryo;
         private List<string> textLines;
         private int currentIndex = 0;
+        private float lastVolume;
 
         private void Awake()
         {
@@ -32,11 +33,33 @@ namespace Cutscenes.SpecificCutscenes
             chatPanel.SetActive(false);
         }
 
+        private void Start()
+        {
+            var musicVolume =  CurrentGameState.Instance.MusicVolume;
+            var isMysiOn = CurrentGameState.Instance.IsMusicOn;
+            if(!isMysiOn)
+            {
+                musicVolume = 0;
+            }
+            lastVolume = musicVolume;
+            audioSource.volume = lastVolume;
+
+        }
+
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
             {
                 NextLineOnClick();
+            }
+            if(CurrentGameState.Instance.IsMusicOn)
+            {
+                var musicVolume = CurrentGameState.Instance.MusicVolume;
+                if(musicVolume != lastVolume)
+                {
+                    lastVolume = musicVolume;
+                    audioSource.volume = musicVolume;
+                }
             }
         }
 
