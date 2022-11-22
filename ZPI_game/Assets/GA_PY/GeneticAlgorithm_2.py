@@ -4,19 +4,12 @@ from Circuit import Circuit
 
 
 class GeneticAlgorithm:
-
     def __init__(self, weights_grid: DistancesGrid, generation_size: int, selector,
                  crosser, crossover_probability: float):
-
-        self.weights_grid = weights_grid
-        self.selector = selector
+        ...
         self.crosser = crosser  # crosser
         self.crossover_probability = crossover_probability  # crossover_probability
-
-        self.generation = [Circuit.get_random(weights_grid) for _ in range(generation_size)]
-        self.best = Circuit.get_best(self.generation)
-        self.best_for_iteration = self.best
-        self.iteration = 0
+        ...
 
     def run_iteration(self):
         next_generation = list()
@@ -26,8 +19,8 @@ class GeneticAlgorithm:
 
             child_genotype = parent1.city_ids  # city_ids
             if self.crossover_probability < random.random():  # crossover_probability
-                child_genotype = self.crosser.get(parent1.city_ids, parent2.city_ids)  # crosser city_ids
-
+                child_genotype = self.crosser.get(
+                    parent1.city_ids, parent2.city_ids)  # crosser city_ids
             ...
 
             child = Circuit(child_genotype, self.weights_grid)  # Circuit child_genotype
