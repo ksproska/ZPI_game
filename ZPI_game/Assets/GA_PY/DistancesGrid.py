@@ -13,7 +13,8 @@ class DistancesGrid:
         self.number_of_cities: int = len(distances_grid)    # len
 
     def get_distance(self, index1: int, index2: int) -> float:   # float
-        """Method returns distance between two cites, where cities are represented by index <0, x>, example:
+        """Method returns distance between two cites, where cities are represented by index <0, x>.
+        Example:
         get_weight(0, 1) = 1
         get_weight(1, 0) = 1
         get_weight(2, 2) = 0

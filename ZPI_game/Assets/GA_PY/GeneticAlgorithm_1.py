@@ -16,6 +16,11 @@ class GeneticAlgorithm:
         self.iteration = 0  # 0
 
     def run_iteration(self):
+        """Method runs one iteration for genethic algorithm.
+        It is splitted into couple of steps:
+        1. Select two parents
+        ...
+        """
         next_generation = list()
         while len(next_generation) < len(self.generation):
             parent1 = self.selector.get(self.generation)  # selector generation

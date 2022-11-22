@@ -12,6 +12,7 @@ class MutatorThrors:
 
         mutated:  [4, 1, 0, 3, 2, 5, 6, 7, 8, 9]
 
+        ---------------------------------------------------------
         Args:
             city_ids (list[int]): child's genotype
             indexes (list[int]): indexes of cities which will be shifted one place right
