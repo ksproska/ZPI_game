@@ -139,7 +139,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.00000010051415, y: 0, z: 2.0226135, w: 0}
+  m_margin: {x: -0.00000010051415, y: 0, z: 2.0226135, w: -0.000020947558}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -157,7 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dad8b1ff3c3c864a9d2be99bb20b0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  details: {fileID: 0}
 --- !u!114 &8404408643262910086
 MonoBehaviour:
   m_ObjectHideFlags: 0
