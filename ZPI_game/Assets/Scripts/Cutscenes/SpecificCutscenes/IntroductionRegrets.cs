@@ -36,7 +36,7 @@ namespace Cutscenes.SpecificCutscenes
 
         private void Start()
         {
-            var musicVolume =  CurrentGameState.Instance.MusicVolume;
+            var musicVolume = CurrentGameState.Instance.MusicVolume;
             var isMysiOn = CurrentGameState.Instance.IsMusicOn;
             if(!isMysiOn)
             {
