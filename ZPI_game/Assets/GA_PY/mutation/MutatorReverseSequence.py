@@ -6,13 +6,7 @@ class MutatorReverseSequence:
 
     @staticmethod
     def mutate(city_ids: list[int], start_index: int, end_index: int) -> list[int]:
-        """Returns child's mutated genotype, example:
-        child =  [0, 1, 2, 3, 4, 5]
-        start_index = 1
-        end_index = 4
-
-        mutated: [0, 4, 3, 2, 1, 5]
-
+        """Returns child's mutated genotype.
         ---------------------------------------------------------
         Args:
             city_ids (list[int]): child's genotype
@@ -21,6 +15,13 @@ class MutatorReverseSequence:
 
         Returns:
             list[int]: mutated child's genotype
+        ---------------------------------------------------------
+        Example:
+            child =  [0, 1, 2, 3, 4, 5]
+            start_index = 1
+            end_index = 4
+
+            mutated: [0, 4, 3, 2, 1, 5]
         """
         city_ids_copy = deepcopy(city_ids)  # deepcopy
         length = end_index - start_index + 1 \
@@ -36,7 +37,7 @@ class MutatorReverseSequence:
 
     def get(self, city_ids: list[int]) -> list[int]:
         """Returns child's mutated genotype. The start and end indexes are randomly selected here.
-
+        ---------------------------------------------------------
         Args:
             city_ids (list[int]): child's genotype
 

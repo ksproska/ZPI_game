@@ -5,14 +5,8 @@
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>cross</color>(parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>],
               start_index: <color=#006e05>int</color>, segment_length: <color=#006e05>int</color>):
-        <color=#78997c>"""Method returns a child for given parents, start index, and length of a segment, example:
-        parent1 = [8, 4, 7, 3, 6, 2, 5, 1, 9, 0]
-        parent2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        start_index = 3
-        segment_length = 5
-
-        child:    [0, 7, 4, 3, 6, 2, 5, 1, 8, 9] 
-
+        <color=#78997c>"""Method returns a child for given parents, start index, and length of a segment.
+        ---------------------------------------------------------
         Args:
             parent1 (list[int]): genotype of the first parent
             parent2 (list[int]): genotype of the second parent
@@ -21,6 +15,14 @@
 
         Returns:
             list[int]: genotype of the child
+        ---------------------------------------------------------
+        Example:
+            parent1 = [8, 4, 7, 3, 6, 2, 5, 1, 9, 0]
+            parent2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            start_index = 3
+            segment_length = 5
+
+            child:    [0, 7, 4, 3, 6, 2, 5, 1, 8, 9]
         """</color>
         child = [None <color=#aaf502>for</color> _ in <color=#006e05>range</color>(<color=#006e05>len</color>(parent1))]  
         <color=#aaf502>for</color> i in <color=#006e05>range</color>(start_index, segment_length):
@@ -41,8 +43,8 @@
         <color=#aaf502>return</color> child
 
     <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]):
-        <color=#78997c>"""Method returns a child for given parents. Length of a segment to be copied is drawned.
-
+        <color=#78997c>"""Method returns a child for given parents. Length of a segment to be copied is drawn.
+        ---------------------------------------------------------
         Args:
             parent1 (list[int]): genotype of the first parent
             parent2 (list[int]): genotype of the second parent

@@ -6,13 +6,7 @@
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>mutate</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], start_index: <color=#006e05>int</color>, end_index: <color=#006e05>int</color>) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
-        <color=#78997c>"""Returns child's mutated genotype, example:
-        child =  [0, 1, 2, 3, 4, 5]
-        start_index = 1
-        end_index = 4
-
-        mutated: [0, 4, 3, 2, 1, 5]
-
+        <color=#78997c>"""Returns child's mutated genotype.
         ---------------------------------------------------------
         Args:
             city_ids (list[int]): child's genotype
@@ -21,6 +15,13 @@
 
         Returns:
             list[int]: mutated child's genotype
+        ---------------------------------------------------------
+        Example:
+            child =  [0, 1, 2, 3, 4, 5]
+            start_index = 1
+            end_index = 4
+
+            mutated: [0, 4, 3, 2, 1, 5]
         """</color>
         city_ids_copy = deepcopy(city_ids)  
         length = end_index - start_index + <color=#89b68b>1</color> \
@@ -36,7 +37,7 @@
 
     <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
         <color=#78997c>"""Returns child's mutated genotype. The start and end indexes are randomly selected here.
-
+        ---------------------------------------------------------
         Args:
             city_ids (list[int]): child's genotype
 

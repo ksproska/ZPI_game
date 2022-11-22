@@ -16,8 +16,8 @@ class GeneticAlgorithm:
         self.iteration = 0  # 0
 
     def run_iteration(self):
-        """Method runs one iteration for genethic algorithm.
-        It is splitted into couple of steps:
+        """Method runs one iteration for genetic algorithm.
+        It is split into a couple of steps:
         1. Select two parents
         ...
         """

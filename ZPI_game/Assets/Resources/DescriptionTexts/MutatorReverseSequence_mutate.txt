@@ -1,10 +1,4 @@
-Returns child's mutated genotype, example:
-        child =  [0, 1, 2, 3, 4, 5]
-        start_index = 1
-        end_index = 4
-
-        mutated: [0, 4, 3, 2, 1, 5]
-
+Returns child's mutated genotype.
         ---------------------------------------------------------
         Args:
             city_ids (list[int]): child's genotype
@@ -13,3 +7,10 @@ Returns child's mutated genotype, example:
 
         Returns:
             list[int]: mutated child's genotype
+        ---------------------------------------------------------
+        Example:
+            child =  [0, 1, 2, 3, 4, 5]
+            start_index = 1
+            end_index = 4
+
+            mutated: [0, 4, 3, 2, 1, 5]

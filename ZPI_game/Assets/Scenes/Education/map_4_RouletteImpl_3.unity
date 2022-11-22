@@ -778,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5010301029226359832, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5010301029226359832, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
       propertyPath: m_LocalScale.x
@@ -1376,9 +1376,8 @@ RectTransform:
   - {fileID: 1634717321}
   - {fileID: 1459729393}
   - {fileID: 6420813507850211096}
-  - {fileID: 317022186}
-  - {fileID: 1984164593}
   - {fileID: 234509139}
+  - {fileID: 1984164593}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
