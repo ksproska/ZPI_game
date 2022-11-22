@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "8c1e14b8-d1f6-4ca9-ade9-3155a80a21a8",
+		"_postman_id": "1892e246-ecbc-42c5-954f-45eb2c14bf13",
 		"name": "GET api tests (empty db)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19053221"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -73,12 +72,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"There is no map with id 42334!\")\r",
 							"});"
 						],
@@ -120,12 +119,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"There is no map with id 6547!\")\r",
 							"});"
 						],
@@ -167,12 +166,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"There is no user with id 321!\")\r",
 							"});"
 						],
