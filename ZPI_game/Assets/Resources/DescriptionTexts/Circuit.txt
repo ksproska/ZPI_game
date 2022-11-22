@@ -28,10 +28,25 @@
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>get_random</color>(distances_grid: DistancesGrid):
+        <color=#78997c>"""Returns new Circuit object with random genotype of length distances_grid.number_of_cities.
+
+        Args:
+            distances_grid (DistancesGrid): object containing distances between each city
+
+        Returns:
+            Circuit: object with randomly generated genotype
+        """</color>
         random_genotype = <color=#006e05>list</color>(<color=#006e05>range</color>(distances_grid.number_of_cities))  
         shuffle(random_genotype)  
         <color=#aaf502>return</color> Circuit(random_genotype, distances_grid)
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>get_best</color>(members: <color=#006e05>list</color>):
+        <color=#78997c>"""
+        Args:
+            members (list): [description]
+
+        Returns:
+            [type]: [description]
+        """</color>
         <color=#aaf502>return</color> <color=#006e05>max</color>(members, key=<color=#aaf502>lambda</color> x: x.score)  
