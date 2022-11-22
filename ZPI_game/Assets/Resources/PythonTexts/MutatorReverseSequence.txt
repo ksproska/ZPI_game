@@ -1,7 +1,7 @@
 <color=#aaf502><link="class">class</link></color> <color=#009607>MutatorReverseSequence</color>:
 
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>mutate</color>(city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], start_index: <color=#006e05><link="int">int</link></color>, end_index: <color=#006e05><link="int">int</link></color>) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="MutatorReverseSequence_mutate">mutate</link></color>(city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], start_index: <color=#006e05><link="int">int</link></color>, end_index: <color=#006e05><link="int">int</link></color>) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
         city_ids_copy =                (city_ids)  
         length = end_index - start_index + <color=#89b68b>1</color> \
             <color=#aaf502><link="if">if</link></color> end_index < start_index \
@@ -14,7 +14,7 @@
                 city_ids_copy[index2], city_ids_copy[index1]  
         <color=#aaf502><link="return">return</link></color> city_ids_copy
 
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>get</color>(<color=#188600><link="self">self</link></color>, city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="MutatorReverseSequence_get">get</link></color>(<color=#188600><link="self">self</link></color>, city_ids: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
         start_index =                (<color=#89b68b>0</color>, <color=#006e05><link="len">len</link></color>(city_ids))  
         end_index = randrange(<color=#89b68b>0</color>, <color=#006e05><link="len">len</link></color>(city_ids))
-        <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.mutate(city_ids, start_index, end_index)
+        <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.<link="MutatorReverseSequence_mutate">mutate</link>(city_ids, start_index, end_index)

@@ -16,7 +16,7 @@
         <color=#188600><link="self">self</link></color>.best_for_iteration = <color=#188600><link="self">self</link></color>.best
         <color=#188600><link="self">self</link></color>.iteration = <color=#89b68b>0</color>
 
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360>run_iteration</color>(<color=#188600><link="self">self</link></color>):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="GeneticAlgorithm_run_iteration">run_iteration</link></color>(<color=#188600><link="self">self</link></color>):
         next_generation = <color=#006e05><link="list">list</link></color>()
         <color=#aaf502><link="while">while</link></color> <color=#006e05><link="len">len</link></color>(next_generation) < <color=#006e05><link="len">len</link></color>(<color=#188600><link="self">self</link></color>.generation):
             parent1 = <color=#188600><link="self">self</link></color>.selector.get(<color=#188600><link="self">self</link></color>.generation)

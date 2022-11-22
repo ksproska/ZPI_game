@@ -13,10 +13,17 @@
         <color=#188600>self</color>.number_of_cities: <color=#006e05>int</color> = <color=#006e05>len</color>(distances_grid)    
 
     <color=#aaf502>def</color> <color=#3e9360>get_distance</color>(<color=#188600>self</color>, index1: <color=#006e05>int</color>, index2: <color=#006e05>int</color>) -> <color=#006e05>float</color>:   
-        <color=#78997c>"""
-        Method returns distance between two cites, where cities are represented by index <0, x>, example:
+        <color=#78997c>"""Method returns distance between two cites, where cities are represented by index <0, x>.
+        Example:
         get_weight(0, 1) = 1
         get_weight(1, 0) = 1
         get_weight(2, 2) = 0
+
+        Args:
+            index1 (int): index in grid of the first city
+            index2 (int): index in grid of second city
+
+        Returns:
+            float: distance between two cities for given indexes
         """</color>
         <color=#aaf502>return</color> <color=#188600>self</color>.distances_grid[index1][index2]  
