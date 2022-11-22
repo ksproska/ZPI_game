@@ -529,6 +529,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 833645813519280824}
     m_Modifications:
+    - target: {fileID: 2544662701481343479, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: m_Text
+      value: OK
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544662701481343479, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ae65c358fe8c76547895fc95f3a763f7, type: 3}
     - target: {fileID: 9206782008505251749, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_Name
       value: EduButton
@@ -563,11 +571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9206782008505251750, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 104.36
       objectReference: {fileID: 0}
     - target: {fileID: 9206782008505251750, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 26.89
       objectReference: {fileID: 0}
     - target: {fileID: 9206782008505251750, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -599,11 +607,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9206782008505251750, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -40
+      value: -109
       objectReference: {fileID: 0}
     - target: {fileID: 9206782008505251750, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 40
+      value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 9206782008505251750, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
