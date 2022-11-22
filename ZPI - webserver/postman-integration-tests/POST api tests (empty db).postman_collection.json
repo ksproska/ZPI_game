@@ -1874,6 +1874,348 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (no MapId)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'MapId'!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"jan.jankowski@janikowo.pl\",\r\n    \"Password\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (MapId wrong format)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"MapId is in the wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : \"wrong format!\",\r\n    \"Password\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (no BestScore)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'BestScore'!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 54,\r\n    \"232\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (BestScore wrong format)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"Score is in the wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 54,\r\n    \"BestScore\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (BestScore negative)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"Score cannot be negative number!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 54,\r\n    \"BestScore\": -20.07\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - no user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"There is no user with id 321!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 54,\r\n    \"BestScore\": 20.07\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
