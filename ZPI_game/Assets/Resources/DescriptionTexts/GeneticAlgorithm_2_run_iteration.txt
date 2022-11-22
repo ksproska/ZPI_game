@@ -1,0 +1,5 @@
+Method runs one iteration for genetic algorithm.
+        It is split into a couple of steps:
+        1. Select two parents
+        2. Cross two parents resulting in a new child (which might get "the best genes" from both parents)
+        ...

@@ -1,0 +1,7 @@
+Returns one Circuit object that is the winner of roulette selection.
+        ---------------------------------------------------------
+        Args:
+            generation (list[Circuit]): list of all Circuit objects in this generation
+
+        Returns:
+            Circuit: the winner of the selection

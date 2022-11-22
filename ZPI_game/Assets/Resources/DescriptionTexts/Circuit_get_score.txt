@@ -1,0 +1,9 @@
+Method calculates the length of an entire road - for each id we take the following id,
+        retrieve distance between those cities and sum all the distances together.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): genotype (indexes of each city representing our circuit road)
+            distances_grid (DistancesGrid): object containing distances between each city
+
+        Returns:
+            float: summary of distances for the entire road

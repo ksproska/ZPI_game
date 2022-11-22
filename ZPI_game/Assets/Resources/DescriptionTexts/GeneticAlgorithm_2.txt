@@ -4,21 +4,20 @@
 
 
 <color=#aaf502>class</color> <color=#009607>GeneticAlgorithm</color>:
-
     <color=#aaf502>def</color> __init__(<color=#188600>self</color>, weights_grid: DistancesGrid, generation_size: <color=#006e05>int</color>, selector,
                  crosser, crossover_probability: <color=#006e05>float</color>):
-
-        <color=#188600>self</color>.weights_grid = weights_grid
-        <color=#188600>self</color>.selector = selector
+        ...
         <color=#188600>self</color>.crosser = crosser  
         <color=#188600>self</color>.crossover_probability = crossover_probability  
-
-        <color=#188600>self</color>.generation = [Circuit.get_random(weights_grid) <color=#aaf502>for</color> _ in <color=#006e05>range</color>(generation_size)]
-        <color=#188600>self</color>.best = Circuit.get_best(<color=#188600>self</color>.generation)
-        <color=#188600>self</color>.best_for_iteration = <color=#188600>self</color>.best
-        <color=#188600>self</color>.iteration = <color=#89b68b>0</color>
+        ...
 
     <color=#aaf502>def</color> <color=#3e9360>run_iteration</color>(<color=#188600>self</color>):
+        <color=#78997c>"""Method runs one iteration for genetic algorithm.
+        It is split into a couple of steps:
+        1. Select two parents
+        2. Cross two parents resulting in a new child (which might get "the best genes" from both parents)
+        ...
+        """</color>
         next_generation = <color=#006e05>list</color>()
         <color=#aaf502>while</color> <color=#006e05>len</color>(next_generation) < <color=#006e05>len</color>(<color=#188600>self</color>.generation):
             parent1 = <color=#188600>self</color>.selector.get(<color=#188600>self</color>.generation)
@@ -26,8 +25,8 @@
 
             child_genotype = parent1.city_ids  
             <color=#aaf502>if</color> <color=#188600>self</color>.crossover_probability < random.random():  
-                child_genotype = <color=#188600>self</color>.crosser.get(parent1.city_ids, parent2.city_ids)  
-
+                child_genotype = <color=#188600>self</color>.crosser.get(
+                    parent1.city_ids, parent2.city_ids)  
             ...
 
             child = Circuit(child_genotype, <color=#188600>self</color>.weights_grid)  

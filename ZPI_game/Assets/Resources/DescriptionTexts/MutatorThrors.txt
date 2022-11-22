@@ -6,6 +6,21 @@
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>mutate</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], indexes: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+        <color=#78997c>"""Returns child's mutated genotype.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): child's genotype
+            indexes (list[int]): indexes of cities which will be shifted one place right
+
+        Returns:
+            list[int]: mutated child's genotype
+        ---------------------------------------------------------
+        Example:
+            child =   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            indexes = [0, 2, 4]
+
+            mutated:  [4, 1, 0, 3, 2, 5, 6, 7, 8, 9]
+        """</color>
         city_ids_copy = deepcopy(city_ids)  
         last = city_ids[indexes[-<color=#89b68b>1</color>]]
         <color=#aaf502>for</color> i in <color=#006e05>range</color>(<color=#006e05>len</color>(indexes) - <color=#89b68b>1</color>):  
@@ -14,6 +29,14 @@
         <color=#aaf502>return</color> city_ids_copy
 
     <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+        <color=#78997c>"""Returns child's mutated genotype. The indexes of cities to shift are randomly selected here.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): child's genotype
+
+        Returns:
+            list[int]: mutated child's genotype
+        """</color>
         size = random.randrange(<color=#89b68b>2</color>, <color=#006e05>len</color>(city_ids) - <color=#89b68b>1</color>)  
         indexes = random.sample(<color=#006e05>range</color>(<color=#006e05>len</color>(city_ids)), size)  
         <color=#aaf502>return</color> <color=#188600>self</color>.mutate(city_ids, indexes)
