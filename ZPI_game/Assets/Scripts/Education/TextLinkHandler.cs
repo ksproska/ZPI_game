@@ -21,13 +21,16 @@ public class TextLinkHandler : MonoBehaviour, IPointerClickHandler
         int linkIndex = TMP_TextUtilities.FindIntersectingLink(pTextMeshPro, eventData.position, null);
         
         if (linkIndex != -1) { // was a link clicked?
-            _showOrHide.Show();
             TMP_LinkInfo linkInfo = pTextMeshPro.textInfo.linkInfo[linkIndex];
-            details.text = "Details for <b>" + linkInfo.GetLinkText() + "</b>:\n";
-            string dir = Path.Combine(Directory.GetCurrentDirectory(), "Assets", "Resources", "DescriptionTexts");
-            string path = Path.Combine(dir, $"{linkInfo.GetLinkID()}.txt");
-            string readText = File.ReadAllText(path);
-            details.text += readText;
+            Debug.Log(linkInfo.GetLinkText() + " - " + linkInfo.GetLinkID());
+            if (linkInfo.GetLinkID() == "")
+            {
+                return;
+            }
+            _showOrHide.Show();
+            details.text = "Details for <b>" + linkInfo.GetLinkText() + "</b>:\n\n";
+            var textAsset = Resources.Load<TextAsset>($"DescriptionTexts/{linkInfo.GetLinkID()}");
+            details.text += textAsset.text;
         }
     }
 }
