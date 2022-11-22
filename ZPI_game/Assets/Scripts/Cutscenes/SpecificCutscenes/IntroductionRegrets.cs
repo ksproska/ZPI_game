@@ -6,11 +6,12 @@ using CurrentState;
 using DeveloperUtils;
 using LevelUtils;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Cutscenes.SpecificCutscenes
 {
-    public class IntroductionRegrets: MonoBehaviour, ICutscenePlayable
+    public class IntroductionRegrets: MonoBehaviour, ICutscenePlayable, IPointerClickHandler
     {
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip audioClip;
@@ -48,10 +49,10 @@ namespace Cutscenes.SpecificCutscenes
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                NextLineOnClick();
-            }
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    NextLineOnClick();
+            //}
             if(CurrentGameState.Instance.IsMusicOn)
             {
                 var musicVolume = CurrentGameState.Instance.MusicVolume;
@@ -106,6 +107,11 @@ namespace Cutscenes.SpecificCutscenes
             }
             SaveCutscene();
             yield return new WaitForSeconds(3f);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            NextLineOnClick();
         }
     }
 }
