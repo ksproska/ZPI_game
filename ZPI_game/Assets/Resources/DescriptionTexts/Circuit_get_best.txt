@@ -1,5 +1,5 @@
-Returns Circut object with best score.
-
+Returns Circuit object with best score.
+        ---------------------------------------------------------
         Args:
             members (list[Circuit]): list of Circuit objects
 

@@ -1,29 +1,41 @@
 <color=#aaf502>class</color> <color=#009607>DistancesGrid</color>:
-    <color=#78997c>"""
-    Class stores distances between cities as a grid each to each, example:
-    [
-        [0, 1, 4, 2],
-        [1, 0, 3, 6],
-        [4, 3, 0, 8],
-        [2, 6, 8, 0]
-    ]
-    """</color>
     <color=#aaf502>def</color> __init__(<color=#188600>self</color>, distances_grid: <color=#006e05>list</color>[<color=#006e05>list</color>]):   
+        <color=#78997c>"""Object stores distances between cities as a grid each to each.
+        ---------------------------------------------------------
+        Args:
+            distances_grid (list[list]): list of lists of distances between cities.
+        ---------------------------------------------------------
+        Example:
+            distances_grid = [
+                [0, 1, 4, 2],
+                [1, 0, 3, 6],
+                [4, 3, 0, 8],
+                [2, 6, 8, 0]
+            ]
+            number_of_cities = 4
+        """</color>
         <color=#188600>self</color>.distances_grid: <color=#006e05>list</color>[<color=#006e05>list</color>] = distances_grid   
         <color=#188600>self</color>.number_of_cities: <color=#006e05>int</color> = <color=#006e05>len</color>(distances_grid)    
 
     <color=#aaf502>def</color> <color=#3e9360>get_distance</color>(<color=#188600>self</color>, index1: <color=#006e05>int</color>, index2: <color=#006e05>int</color>) -> <color=#006e05>float</color>:   
         <color=#78997c>"""Method returns distance between two cites, where cities are represented by index <0, x>.
-        Example:
-        get_weight(0, 1) = 1
-        get_weight(1, 0) = 1
-        get_weight(2, 2) = 0
-
+        ---------------------------------------------------------
         Args:
             index1 (int): index in grid of the first city
             index2 (int): index in grid of second city
 
         Returns:
             float: distance between two cities for given indexes
+        ---------------------------------------------------------
+        Example:
+            distances_grid = [
+                [0, 1, 4, 2],
+                [1, 0, 3, 6],
+                [4, 3, 0, 8],
+                [2, 6, 8, 0]
+            ]
+            get_weight(0, 1) = 1
+            get_weight(1, 0) = 1
+            get_weight(2, 2) = 0
         """</color>
         <color=#aaf502>return</color> <color=#188600>self</color>.distances_grid[index1][index2]  

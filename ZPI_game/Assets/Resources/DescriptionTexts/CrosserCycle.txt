@@ -1,7 +1,9 @@
 <color=#aaf502>class</color> <color=#009607>CrosserCycle</color>:
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>__get_cycles</color>(parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>list</color>[<color=#006e05>int</color>]]:
-        <color=#78997c>"""Method returns list of all cycles found in parents, example:
+        <color=#78997c>"""Method returns list of all cycles found in parents.
+        ---------------------------------------------------------
+        Example:
         parent1 = [8, 4, 7, 3, 6, 2, 5, 1, 9, 0]
         parent2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -43,7 +45,18 @@
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>__copy_from_parents</color>(cycles: <color=#006e05>list</color>[<color=#006e05>list</color>[<color=#006e05>int</color>]],
                             parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
-        <color=#78997c>"""Method copies values for the correct parent, example:
+        <color=#78997c>"""Method copies values for the correct parent.
+        ---------------------------------------------------------
+        Args:
+            cycles (list[list[int]]): all cycles found for parents
+            parent1 (list[int]): genotype of the first parent
+            parent2 (list[int]): genotype of the second parent
+
+        Returns:
+            list[int]: genotype of the child
+
+        ---------------------------------------------------------
+        Example:
         cycles = [
             [0, 9, 8], 
             [1, 7, 2, 5, 6, 4], 
@@ -53,15 +66,6 @@
         parent2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
         child:    [8, 1, 2, 3, 4, 5, 6, 7, 9, 0] 
-
-        ---------------------------------------------------------
-        Args:
-            cycles (list[list[int]]): all cycles found for parents
-            parent1 (list[int]): genotype of the first parent
-            parent2 (list[int]): genotype of the second parent
-
-        Returns:
-            list[int]: genotype of the child
         """</color>
         child = [None <color=#aaf502>for</color> _ in <color=#006e05>range</color>(<color=#006e05>len</color>(parent1))]  
         <color=#aaf502>for</color> i, cycle in <color=#006e05>enumerate</color>(cycles):  
@@ -74,7 +78,7 @@
 
     <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, parent1: <color=#006e05>list</color>[<color=#006e05>int</color>], parent2: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
         <color=#78997c>"""Returns genotype of the parents' child
-
+        ---------------------------------------------------------
         Args:
             parent1 (list[int]): genotype of the first parent
             parent2 (list[int]): genotype of the second parent

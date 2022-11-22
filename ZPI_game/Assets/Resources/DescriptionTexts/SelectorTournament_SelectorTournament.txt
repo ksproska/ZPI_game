@@ -1,11 +1,11 @@
 Init for Tournament Selector
-
+        ---------------------------------------------------------
         Args:
             size_percentage (float): the percentage of generation that will participate in tournament
-
+        ---------------------------------------------------------
         Example:
-        generation_size = 50
-        and
-        size_percentage = 0.44 (44%)
-        then:
-        numb_participating = 22
+            generation_size = 50
+            and
+            size_percentage = 0.44 (44%)
+            then:
+            numb_participating = 22

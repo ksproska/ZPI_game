@@ -1,6 +1,7 @@
 Returns one Circuit object that is the winner of tournament selection.
-        It randomly chooses the participants (of size = len(generation) * self.size_percentage) and returns the best one.
-
+        It randomly chooses the participants (of size = len(generation) * self.size_percentage)
+        and returns the best one.
+        ---------------------------------------------------------
         Args:
             generation (list[Circuit]): list of all Circuit objects in this generation
 
