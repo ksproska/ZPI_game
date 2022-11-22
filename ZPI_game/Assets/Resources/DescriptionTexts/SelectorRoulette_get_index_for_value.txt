@@ -1,0 +1,14 @@
+Returns index corresponding to the given value
+        Example:
+        distributed_weights = [0.1, 0.3, 0.4, 0.6, 0.7, 0.9, 1]
+        value = 0.5
+
+        returns: 2
+
+        ---------------------------------------------------------
+        Args:
+            distributed_weights (list[float]): ranges representing probability of drawing each index
+            value (float): random value in range [0, 1]
+
+        Returns:
+            int: index corresponding to the given value

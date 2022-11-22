@@ -1,0 +1,4 @@
+Method runs one iteration for genethic algorithm.
+        It is splitted into couple of steps:
+        1. Select two parents
+        ...

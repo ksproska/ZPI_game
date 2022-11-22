@@ -1,0 +1,7 @@
+Returns new Circuit object with random genotype of length distances_grid.number_of_cities.
+
+        Args:
+            distances_grid (DistancesGrid): object containing distances between each city
+
+        Returns:
+            Circuit: object with randomly generated genotype
