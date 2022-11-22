@@ -452,6 +452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CryoExplanation
       objectReference: {fileID: 0}
+    - target: {fileID: 4259500241076787337, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: textResource
+      value: circuit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
 --- !u!1 &872072684

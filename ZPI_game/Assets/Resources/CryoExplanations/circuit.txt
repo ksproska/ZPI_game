@@ -1,0 +1,4 @@
+This <color=''>DistanceGrid</color> wasn't that bad, don't you think? Now, if you are to learn how does the genetic algorithm work, you need to have a representation of an individual. I assume you know how evolution works. I mean, I hope you paid attention during biology classes before this whole bomb situation.
+
+In our case, an <b>individual</b> is a representation of the shortest route between all cities. Each city can be visited <b>only once</b>, and the trip ends in the city you started with.
+In the previous level you assigned numbers, called indices, to each city. Now, the simple representation of one possible route will be the list of indices. As instance, a list that looks like this <b>[1, 3, 2, 0]</b> means we start our trip in the city of index <b>1</b>, travel to city <b>3</b>, then to city <b>2</b>, then <b>0</b>, and we get back to the city <b>1</b>. Simple, innit?
