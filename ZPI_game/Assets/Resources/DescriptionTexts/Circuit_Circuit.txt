@@ -1,3 +1,7 @@
-Class representing our road and it's score (how good it is). 
-    Each city is given an unrepeatable index, therefore our road (here called genotype) 
-    is represented as a list of those indexes.
+Object representing our road, and it's score (how good it is).
+        Each city is given an unrepeatable index, therefore our road (here called genotype)
+        is represented as a list of those indexes.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): genotype (indexes of each city representing our circuit road)
+            distances_grid (DistancesGrid): object containing distances between each city

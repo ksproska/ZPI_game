@@ -3,20 +3,29 @@
 
 
 <color=#aaf502>class</color> <color=#009607>Circuit</color>:
-    <color=#78997c>"""
-    Class representing our road and it's score (how good it is). 
-    Each city is given an unrepeatable index, therefore our road (here called genotype) 
-    is represented as a list of those indexes.
-    """</color>
     <color=#aaf502>def</color> __init__(<color=#188600>self</color>, city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], distances_grid: DistancesGrid):
+        <color=#78997c>"""Object representing our road, and it's score (how good it is).
+        Each city is given an unrepeatable index, therefore our road (here called genotype)
+        is represented as a list of those indexes.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): genotype (indexes of each city representing our circuit road)
+            distances_grid (DistancesGrid): object containing distances between each city
+        """</color>
         <color=#188600>self</color>.city_ids = city_ids
         <color=#188600>self</color>.score = Circuit.get_score(city_ids, distances_grid)  
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>get_score</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], distances_grid: DistancesGrid) -> <color=#006e05>float</color>:
-        <color=#78997c>"""
-        Method calculates the length of an entire road - for each id we take the following id,
-        retreve distance between those cities and sum all the distances together.
+        <color=#78997c>"""Method calculates the length of an entire road - for each id we take the following id,
+        retrieve distance between those cities and sum all the distances together.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): genotype (indexes of each city representing our circuit road)
+            distances_grid (DistancesGrid): object containing distances between each city
+
+        Returns:
+            float: summary of distances for the entire road
         """</color>
         sum_distances = <color=#89b68b>0.0</color>
         <color=#aaf502>for</color> city_id in <color=#006e05>range</color>(<color=#006e05>len</color>(city_ids)):  
@@ -28,10 +37,26 @@
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>get_random</color>(distances_grid: DistancesGrid):
+        <color=#78997c>"""Returns new Circuit object with random genotype of length distances_grid.number_of_cities.
+        ---------------------------------------------------------
+        Args:
+            distances_grid (DistancesGrid): object containing distances between each city
+
+        Returns:
+            Circuit: object with randomly generated genotype
+        """</color>
         random_genotype = <color=#006e05>list</color>(<color=#006e05>range</color>(distances_grid.number_of_cities))  
         shuffle(random_genotype)  
         <color=#aaf502>return</color> Circuit(random_genotype, distances_grid)
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>get_best</color>(members: <color=#006e05>list</color>):
+        <color=#78997c>"""Returns Circuit object with best score.
+        ---------------------------------------------------------
+        Args:
+            members (list[Circuit]): list of Circuit objects
+
+        Returns:
+            Circuit: object with the best score
+        """</color>
         <color=#aaf502>return</color> <color=#006e05>max</color>(members, key=<color=#aaf502>lambda</color> x: x.score)  

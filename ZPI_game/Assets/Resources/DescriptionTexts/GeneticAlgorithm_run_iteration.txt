@@ -1,0 +1,7 @@
+Method runs one iteration for genetic algorithm.
+        It is split into a couple of steps:
+        1. Select two parents
+        2. Cross two parents resulting in a new child (which might get "the best genes" from both parents)
+        3. Mutate a child (causing some randomization in procedure)
+        3. Repeat steps 1-3 until the new generation is the same size as old generation.
+        4. Find the best child in new generation and save it.

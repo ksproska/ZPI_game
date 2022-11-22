@@ -7,6 +7,20 @@
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>get_distributed_weight</color>(generation: <color=#006e05>list</color>[Circuit]) -> <color=#006e05>list</color>[<color=#006e05>float</color>]:
+        <color=#78997c>"""Returns ranges for the given generation scores favouring the smallest ones
+        (the smaller score the bigger probability of drawing it).
+        The values are sorted smallest to biggest, first value is bigger than 0, last is equal to 1
+        ---------------------------------------------------------
+        Args:
+            generation (list[Circuit]): list of Circuit elements
+
+        Returns:
+            list[float]: ranges representing probability of drawing each index
+        ---------------------------------------------------------
+        Example:
+            scores = [2, 1, 2, 1, 2, 1, 2]
+            returns: [0.1, 0.3, 0.4, 0.6, 0.7, 0.9, 1]
+        """</color>
         max_score = <color=#006e05>max</color>(  
             generation, key=<color=#aaf502>lambda</color> x: x.score  
         )
@@ -21,11 +35,34 @@
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>get_index_for_value</color>(distributed_weights: <color=#006e05>list</color>[<color=#006e05>float</color>], value: <color=#006e05>float</color>) -> <color=#006e05>int</color>:
+        <color=#78997c>"""Returns index corresponding to the given value
+        ---------------------------------------------------------
+        Args:
+            distributed_weights (list[float]): ranges representing probability of drawing each index
+            value (float): random value in range [0, 1]
+
+        Returns:
+            int: index corresponding to the given value
+        ---------------------------------------------------------
+        Example:
+            distributed_weights = [0.1, 0.3, 0.4, 0.6, 0.7, 0.9, 1]
+            value = 0.5
+
+            returns: 2
+        """</color>
         <color=#aaf502>for</color> i in <color=#006e05>range</color>(<color=#006e05>len</color>(distributed_weights)):
             <color=#aaf502>if</color> value <= distributed_weights[i]:  
                 <color=#aaf502>return</color> i
 
     <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, generation: <color=#006e05>list</color>[Circuit]) -> Circuit:
+        <color=#78997c>"""Returns one Circuit object that is the winner of roulette selection.
+        ---------------------------------------------------------
+        Args:
+            generation (list[Circuit]): list of all Circuit objects in this generation
+
+        Returns:
+            Circuit: the winner of the selection
+        """</color>
         rand_float = random.random()
         distributed_weights = <color=#188600>self</color>.get_distributed_weight(generation)  
         index = <color=#188600>self</color>.get_index_for_value(distributed_weights, rand_float)  

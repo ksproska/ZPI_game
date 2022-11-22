@@ -1,0 +1,4 @@
+Method runs one iteration for genetic algorithm.
+        It is split into a couple of steps:
+        1. Select two parents
+        ...

@@ -22,6 +22,14 @@
         <color=#188600>self</color>.iteration = <color=#89b68b>0</color>
 
     <color=#aaf502>def</color> <color=#3e9360>run_iteration</color>(<color=#188600>self</color>):
+        <color=#78997c>"""Method runs one iteration for genetic algorithm.
+        It is split into a couple of steps:
+        1. Select two parents
+        2. Cross two parents resulting in a new child (which might get "the best genes" from both parents)
+        3. Mutate a child (causing some randomization in procedure)
+        3. Repeat steps 1-3 until the new generation is the same size as old generation.
+        4. Find the best child in new generation and save it.
+        """</color>
         next_generation = <color=#006e05>list</color>()
         <color=#aaf502>while</color> <color=#006e05>len</color>(next_generation) < <color=#006e05>len</color>(<color=#188600>self</color>.generation):
             parent1 = <color=#188600>self</color>.selector.get(<color=#188600>self</color>.generation)

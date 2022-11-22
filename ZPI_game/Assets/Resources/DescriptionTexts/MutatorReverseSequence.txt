@@ -6,6 +6,23 @@
 
     <color=#9fff00>@staticmethod</color>
     <color=#aaf502>def</color> <color=#3e9360>mutate</color>(city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>], start_index: <color=#006e05>int</color>, end_index: <color=#006e05>int</color>) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+        <color=#78997c>"""Returns child's mutated genotype.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): child's genotype
+            start_index (int): first index of the segment
+            end_index (int): last index of the segment
+
+        Returns:
+            list[int]: mutated child's genotype
+        ---------------------------------------------------------
+        Example:
+            child =  [0, 1, 2, 3, 4, 5]
+            start_index = 1
+            end_index = 4
+
+            mutated: [0, 4, 3, 2, 1, 5]
+        """</color>
         city_ids_copy = deepcopy(city_ids)  
         length = end_index - start_index + <color=#89b68b>1</color> \
             <color=#aaf502>if</color> end_index < start_index \
@@ -19,6 +36,14 @@
         <color=#aaf502>return</color> city_ids_copy
 
     <color=#aaf502>def</color> <color=#3e9360>get</color>(<color=#188600>self</color>, city_ids: <color=#006e05>list</color>[<color=#006e05>int</color>]) -> <color=#006e05>list</color>[<color=#006e05>int</color>]:
+        <color=#78997c>"""Returns child's mutated genotype. The start and end indexes are randomly selected here.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): child's genotype
+
+        Returns:
+            list[int]: mutated child's genotype
+        """</color>
         start_index = randrange(<color=#89b68b>0</color>, <color=#006e05>len</color>(city_ids))  
         end_index = randrange(<color=#89b68b>0</color>, <color=#006e05>len</color>(city_ids))
         <color=#aaf502>return</color> <color=#188600>self</color>.mutate(city_ids, start_index, end_index)

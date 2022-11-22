@@ -1,1 +1,8 @@
-Method returns a child for given parents. Start index and length of a segment are drawnded.
+Method returns a child for given parents. Length of a segment to be copied is drawn.
+        ---------------------------------------------------------
+        Args:
+            parent1 (list[int]): genotype of the first parent
+            parent2 (list[int]): genotype of the second parent
+
+        Returns:
+            list[int]: genotype of the child

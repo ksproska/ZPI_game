@@ -1,0 +1,16 @@
+Returns child's mutated genotype.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): child's genotype
+            start_index (int): first index of the segment
+            end_index (int): last index of the segment
+
+        Returns:
+            list[int]: mutated child's genotype
+        ---------------------------------------------------------
+        Example:
+            child =  [0, 1, 2, 3, 4, 5]
+            start_index = 1
+            end_index = 4
+
+            mutated: [0, 4, 3, 2, 1, 5]

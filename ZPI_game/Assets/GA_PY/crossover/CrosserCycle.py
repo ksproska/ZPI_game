@@ -1,6 +1,26 @@
 class CrosserCycle:
     @staticmethod
     def __get_cycles(parent1: list[int], parent2: list[int]) -> list[list[int]]:
+        """Method returns list of all cycles found in parents.
+        ---------------------------------------------------------
+        Example:
+        parent1 = [8, 4, 7, 3, 6, 2, 5, 1, 9, 0]
+        parent2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        cycles: [
+                    [0, 9, 8], 
+                    [1, 7, 2, 5, 6, 4], 
+                    [3]
+                ]
+
+        ---------------------------------------------------------
+        Args:
+            parent1 (list[int]): genotype of the first parent
+            parent2 (list[int]): genotype of the second parent
+
+        Returns:
+            list[list[int]]: all found cycles
+        """
         cycles: list[list[int]] = []
         current_inx = 0  # 0
         collected_indexes = {current_inx}
@@ -25,6 +45,28 @@ class CrosserCycle:
     @staticmethod
     def __copy_from_parents(cycles: list[list[int]],
                             parent1: list[int], parent2: list[int]) -> list[int]:
+        """Method copies values for the correct parent.
+        ---------------------------------------------------------
+        Args:
+            cycles (list[list[int]]): all cycles found for parents
+            parent1 (list[int]): genotype of the first parent
+            parent2 (list[int]): genotype of the second parent
+
+        Returns:
+            list[int]: genotype of the child
+
+        ---------------------------------------------------------
+        Example:
+        cycles = [
+            [0, 9, 8], 
+            [1, 7, 2, 5, 6, 4], 
+            [3]
+        ]
+        parent1 = [8, 4, 7, 3, 6, 2, 5, 1, 9, 0]
+        parent2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        child:    [8, 1, 2, 3, 4, 5, 6, 7, 9, 0] 
+        """
         child = [None for _ in range(len(parent1))]  # None
         for i, cycle in enumerate(cycles):  # enumerate
             for index in cycle:
@@ -35,6 +77,15 @@ class CrosserCycle:
         return child
 
     def get(self, parent1: list[int], parent2: list[int]) -> list[int]:
+        """Returns genotype of the parents' child
+        ---------------------------------------------------------
+        Args:
+            parent1 (list[int]): genotype of the first parent
+            parent2 (list[int]): genotype of the second parent
+
+        Returns:
+            list[int]: genotype of the child
+        """
         cycles = CrosserCycle.__get_cycles(parent1, parent2)  # __get_cycles
         child = CrosserCycle.__copy_from_parents(cycles, parent1, parent2)  # cycles
         return child

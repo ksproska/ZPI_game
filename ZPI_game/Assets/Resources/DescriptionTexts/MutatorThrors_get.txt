@@ -1,0 +1,7 @@
+Returns child's mutated genotype. The indexes of cities to shift are randomly selected here.
+        ---------------------------------------------------------
+        Args:
+            city_ids (list[int]): child's genotype
+
+        Returns:
+            list[int]: mutated child's genotype
