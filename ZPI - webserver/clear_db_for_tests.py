@@ -12,4 +12,5 @@ cur.execute("DELETE FROM POINTS")
 
 cur.execute("DELETE FROM SCORES")
 
+con.commit()
 con.close()
