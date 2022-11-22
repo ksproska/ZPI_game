@@ -28,6 +28,7 @@ public class MenuController : MonoBehaviour
         Debug.Log(CurrentGameState.Instance.CurrentLevelName);
         if(CurrentGameState.Instance.CurrentLevelName != "WorldMap")
         {
+            Debug.Log(CurrentGameState.Instance.CurrentLevelName);
             text.text = LevelMap.GetClearMapName(CurrentGameState.Instance.CurrentLevelName);
         }
         else
@@ -46,6 +47,7 @@ public class MenuController : MonoBehaviour
             {
                 rollInMenu = true;
             }
+            GetComponent<MenuSettingsController>().SaveChanges();
         }
 
         if (rollInMenu)
@@ -70,6 +72,7 @@ public class MenuController : MonoBehaviour
     public void RollInMenu()
     {
         rollInMenu = true;
+        GetComponent<MenuSettingsController>().SaveChanges();
     }
 
     public void GoToScene(string mapName)
@@ -94,6 +97,7 @@ public class MenuController : MonoBehaviour
     {
         settingsMenu.SetActive(false);
         popupMenu.SetActive(true);
+        GetComponent<MenuSettingsController>().SaveChanges();
     }
 
     private bool compareVector3(Vector3 vector3, Vector3 otherVector3)
