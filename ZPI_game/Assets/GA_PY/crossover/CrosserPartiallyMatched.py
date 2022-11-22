@@ -5,14 +5,8 @@ class CrosserPartiallyMatched:
     @staticmethod
     def cross(parent1: list[int], parent2: list[int],
               start_index: int, segment_length: int):
-        """Method returns a child for given parents, start index, and length of a segment, example:
-        parent1 = [8, 4, 7, 3, 6, 2, 5, 1, 9, 0]
-        parent2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        start_index = 3
-        segment_length = 5
-
-        child:    [0, 7, 4, 3, 6, 2, 5, 1, 8, 9] 
-
+        """Method returns a child for given parents, start index, and length of a segment.
+        ---------------------------------------------------------
         Args:
             parent1 (list[int]): genotype of the first parent
             parent2 (list[int]): genotype of the second parent
@@ -21,6 +15,14 @@ class CrosserPartiallyMatched:
 
         Returns:
             list[int]: genotype of the child
+        ---------------------------------------------------------
+        Example:
+            parent1 = [8, 4, 7, 3, 6, 2, 5, 1, 9, 0]
+            parent2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+            start_index = 3
+            segment_length = 5
+
+            child:    [0, 7, 4, 3, 6, 2, 5, 1, 8, 9]
         """
         child = [None for _ in range(len(parent1))]  # None
         for i in range(start_index, segment_length):
@@ -41,8 +43,8 @@ class CrosserPartiallyMatched:
         return child
 
     def get(self, parent1: list[int], parent2: list[int]):
-        """Method returns a child for given parents. Length of a segment to be copied is drawned.
-
+        """Method returns a child for given parents. Length of a segment to be copied is drawn.
+        ---------------------------------------------------------
         Args:
             parent1 (list[int]): genotype of the first parent
             parent2 (list[int]): genotype of the second parent
