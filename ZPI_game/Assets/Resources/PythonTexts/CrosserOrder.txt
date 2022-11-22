@@ -1,7 +1,7 @@
 <color=#aaf502><link="class">class</link></color> <color=#009607>CrosserOrder</color>:
     <color=#9fff00><link="@staticmethod">@staticmethod</link></color>
     <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="CrosserOrder_cross">cross</link></color>(parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>],
-              start_index: <color=#006e05><link="int">int</link></color>, segment_length: <color=#006e05><link="int">int</link></color>):
+              start_index: <color=#006e05><link="int">int</link></color>, segment_length: <color=#006e05><link="int">int</link></color>) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
         child = [None <color=#aaf502><link="for">for</link></color>                 in <color=#006e05><link="range">range</link></color>(<color=#006e05><link="len">len</link></color>(               ))]  
         <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(segment_length):
             inx = i +                  
@@ -22,7 +22,7 @@
                 <color=#aaf502><link="return">return</link></color> j + <color=#89b68b>               </color>  
         <color=#aaf502><link="return">return</link></color> <color=#006e05><link="len">len</link></color>(parent2)
 
-    <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="CrosserOrder_get">get</link></color>(<color=#188600><link="self">self</link></color>, parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]):
+    <color=#aaf502><link="def">def</link></color> <color=#3e9360><link="CrosserOrder_get">get</link></color>(<color=#188600><link="self">self</link></color>, parent1: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>], parent2: <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]) -> <color=#006e05><link="list">list</link></color>[<color=#006e05><link="int">int</link></color>]:
         start_inx = random.               (<color=#006e05><link="len">len</link></color>(parent1))  
         segment_len = random.               (<color=#006e05><link="max">max</link></color>(<color=#006e05><link="len">len</link></color>(parent1) - start_inx - <color=#89b68b>1</color>, <color=#89b68b>1</color>))  
         <color=#aaf502><link="return">return</link></color> <color=#188600><link="self">self</link></color>.<link="CrosserOrder_cross">cross</link>(parent1, parent2, start_inx, segment_len)

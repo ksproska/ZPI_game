@@ -28,10 +28,26 @@ class Circuit:
 
     @staticmethod
     def get_random(distances_grid: DistancesGrid):
+        """Returns new Circuit object with random genotype of length distances_grid.number_of_cities.
+
+        Args:
+            distances_grid (DistancesGrid): object containing distances between each city
+
+        Returns:
+            Circuit: object with randomly generated genotype
+        """
         random_genotype = list(range(distances_grid.number_of_cities))  # range
         shuffle(random_genotype)  # shuffle
         return Circuit(random_genotype, distances_grid)
 
     @staticmethod
     def get_best(members: list):
+        """Returns Circut object with best score.
+
+        Args:
+            members (list[Circuit]): list of Circuit objects
+
+        Returns:
+            Circuit: object with the best score
+        """
         return max(members, key=lambda x: x.score)  # lambda
