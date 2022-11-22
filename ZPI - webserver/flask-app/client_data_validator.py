@@ -74,7 +74,7 @@ class ClientDataValidator():
         if not 'BestScore' in score_serialized:
             raise ex.ValidationError(f'Client received data has no key \'BestScore\'!')
         
-        if not isinstance(score_serialized['BestScore'], float):
+        if not isinstance(score_serialized['BestScore'], float) and not isinstance(score_serialized['BestScore'], int):
             raise ex.ValidationError(f'Score is in the wrong format!')
         
         if score_serialized['BestScore'] < 0.0:
