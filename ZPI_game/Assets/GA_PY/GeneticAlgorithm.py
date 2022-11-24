@@ -19,7 +19,7 @@ class GeneticAlgorithm:
         self.generation = [Circuit.get_random(
             weights_grid) for _ in range(generation_size)]
         self.best = Circuit.get_best(self.generation)
-        self.best_for_iteration = self.best
+        self.best_for_iter = self.best
         self.iteration = 0
 
     def run_iteration(self):
@@ -48,8 +48,8 @@ class GeneticAlgorithm:
             child = Circuit(child_genotype, self.weights_grid)
             next_generation.append(child)
         self.generation = next_generation
-        self.best_for_iteration = Circuit.get_best(self.generation)
+        self.best_for_iter = Circuit.get_best(self.generation)
         self.iteration += 1
 
-        if self.best.score > self.best_for_iteration.score:
-            self.best = self.best_for_iteration
+        if self.best.score > self.best_for_iter.score:
+            self.best = self.best_for_iter
