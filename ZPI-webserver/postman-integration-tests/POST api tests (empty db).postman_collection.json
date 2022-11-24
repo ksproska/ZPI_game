@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0425fc4e-04f7-4e78-8fa6-cdfb9b949fbe",
+		"_postman_id": "f1b9e893-5e22-436e-91e6-c10622f34559",
 		"name": "POST api tests (empty db)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19053221"
@@ -18,12 +18,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var jsonData = pm.response.json();\r",
+							"  var jsonData = pm.response.text();\r",
 							"  pm.expect(jsonData).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Points'!\")\r",
 							"});"
 						],
@@ -73,12 +73,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var jsonData = pm.response.json();\r",
+							"  var jsonData = pm.response.text();\r",
 							"  pm.expect(jsonData).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"List of points is in the wrong format!\")\r",
 							"});"
 						],
@@ -128,12 +128,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"There are no points associated with this map!\")\r",
 							"});"
 						],
@@ -183,12 +183,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"A point (a string) is in the wrong format!\")\r",
 							"});"
 						],
@@ -238,13 +238,13 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
-							"  pm.expect(errStr).to.eq(\"A point ({point}) has no Y coordinate!\")\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"A point ({'X': 212.98, 'Z': 526}) has no Y coordinate!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -293,13 +293,13 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
-							"  pm.expect(errStr).to.eq(\"A point ({point}) has no Y coordinate!\")\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"A point ({'Z': 212.98, 'Y': 526}) has no X coordinate!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -348,13 +348,13 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
-							"  pm.expect(errStr).to.eq(\"A point ({point}) has no X coordinate!\")\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"A point ({'ala': 212.98, 'ma kota': 526}) has no X coordinate!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -403,13 +403,13 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
-							"  pm.expect(errStr).to.eq(\"A point coordinate X (string) has to be a float!\")\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"A point coordinate X (string) has to be a number!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -458,13 +458,13 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
-							"  pm.expect(errStr).to.eq(\"A point coordinate Y (214,32) has to be a float!\")\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"A point coordinate Y (214,32) has to be a number!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -513,13 +513,13 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
-							"  pm.expect(errStr).to.eq(\"A point (true) is in the wrong format!\")\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"A point (True) is in the wrong format!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -568,12 +568,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Cannot create a map with two the same points!\")\r",
 							"});"
 						],
@@ -623,12 +623,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var jsonData = pm.response;\r",
+							"  var jsonData = pm.response.text();\r",
 							"  pm.expect(jsonData).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Cannot create a map with two the same points!\")\r",
 							"});"
 						],
@@ -678,12 +678,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns a confirm message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Map created!\")\r",
 							"});"
 						],
@@ -733,12 +733,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns a confirm message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Map created!\")\r",
 							"});"
 						],
@@ -788,12 +788,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns a confirm message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Map created!\")\r",
 							"});"
 						],
@@ -843,12 +843,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Email'!\")\r",
 							"});"
 						],
@@ -898,12 +898,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Nickname'!\")\r",
 							"});"
 						],
@@ -953,12 +953,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Password'!\")\r",
 							"});"
 						],
@@ -1008,12 +1008,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
 							"});"
 						],
@@ -1063,12 +1063,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
 							"});"
 						],
@@ -1118,12 +1118,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
 							"});"
 						],
@@ -1173,12 +1173,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Email address too long!\")\r",
 							"});"
 						],
@@ -1191,7 +1191,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Email\" : \"someemaiGGGGGGGGGGGGDSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSXXXXXXXXXXXXXXXVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVl@somecompany.pl\",\r\n    \"Nickname\": \"Awesome Usr123\",\r\n    \"Password\": \"hard_to_hack_passwd\"\r\n}",
+					"raw": "{\r\n    \"Email\" : \"someemaiGGGGGGGGGGGGDSSSSSSSSSSSSJKMASDNdsdhjsjkcxhcdsjfcjsdlkfkjsdjfsdjlfiweijfjdskcjxckdsSSSSSSSSSSSSSJKMASDNdsdhjsjkcxhcdsjfcjsdlkfkjsdjfsdjlfiweijfjdskcjSSSSSSSSSSSSJKMASDNdsdhjsjkcxhcdsjfcjsdlkfkjsdjfsdjlfiweijfjdskcjSSSSSSSSSSSSSSSSSSSSSXXXXXXXXXXXXXXXVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVl@somecompany.pl\",\r\n    \"Nickname\": \"Awesome Usr123\",\r\n    \"Password\": \"hard_to_hack_passwd\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1228,12 +1228,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Password should be at least 12 characters long!\")\r",
 							"});"
 						],
@@ -1283,12 +1283,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Nickname can be maximally 30 characters long!\")\r",
 							"});"
 						],
@@ -1338,12 +1338,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Nickname has to be at least 3 characters long!\")\r",
 							"});"
 						],
@@ -1393,12 +1393,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns info message\", function () {\r",
-							"  var infoStr = pm.response;\r",
+							"  var infoStr = pm.response.text();\r",
 							"  pm.expect(infoStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct info message\", function () {\r",
-							"  var infoStr = pm.response;\r",
+							"  var infoStr = pm.response.text();\r",
 							"  pm.expect(infoStr).to.eq(\"User created\")\r",
 							"});"
 						],
@@ -1448,12 +1448,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Email'!\")\r",
 							"});"
 						],
@@ -1503,12 +1503,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Client received data has no key 'Password'!\")\r",
 							"});"
 						],
@@ -1558,12 +1558,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
 							"});"
 						],
@@ -1613,12 +1613,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
 							"});"
 						],
@@ -1668,12 +1668,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Email address has a wrong format!\")\r",
 							"});"
 						],
@@ -1723,12 +1723,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Email address too long!\")\r",
 							"});"
 						],
@@ -1741,7 +1741,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Email\" : \"someemail34SDDDDDDDDDDDDDDDDDDDDDDDDDDDDDMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMDDDDDDDDDDDDDDDDDDDDDDDDCCCCCCCCCCCCCC@contoso.com\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"raw": "{\r\n    \"Email\" : \"someemail34SDDDDDDDDDDDDDDDDDDDDDDDDDDDDDMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMDDDDDDDDDDDDDDDDDDDDDDDDCCCCDDDDDDDDDDDDDDDDDDDDDDMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMDDDDDDDDDDDDDDDDDCCCCCCCCCC@contoso.com\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1778,12 +1778,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"Password should be at least 12 characters long!\")\r",
 							"});"
 						],
@@ -1833,12 +1833,12 @@
 							"});\r",
 							"\r",
 							"pm.test(\"Check that it returns an error message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
-							"  var errStr = pm.response;\r",
+							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.eq(\"User with this email address and password couldn't be found!\")\r",
 							"});"
 						],
@@ -1871,6 +1871,348 @@
 					"path": [
 						"api",
 						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (no MapId)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'MapId'!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"jan.jankowski@janikowo.pl\",\r\n    \"Password\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (MapId wrong format)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"MapId is in the wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : \"wrong format!\",\r\n    \"Password\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (no BestScore)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"Client received data has no key 'BestScore'!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 54,\r\n    \"232\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (BestScore wrong format)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"Score is in the wrong format!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 54,\r\n    \"BestScore\": \"very_strong_password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - wrong schema (BestScore negative)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"Score cannot be negative number!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 54,\r\n    \"BestScore\": -20.07\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST put score - no user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404 (not found)\", function () {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"There is no user with id 321!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 54,\r\n    \"BestScore\": 20.07\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/321/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"321",
+						"score"
 					]
 				}
 			},

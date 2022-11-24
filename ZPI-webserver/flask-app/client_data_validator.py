@@ -52,7 +52,10 @@ class ClientDataValidator():
         
         if not isinstance(map_serialized['Points'], list):
             raise ex.ValidationError(f'List of points is in the wrong format!')
-        
+
+        if len(map_serialized['Points']) == 0:
+            raise ex.ValidationError(f'There are no points associated with this map!')
+
         for point in map_serialized['Points']:
             if not isinstance(point, dict):
                 raise ex.ValidationError(f'A point ({point}) is in the wrong format!')
@@ -60,6 +63,10 @@ class ClientDataValidator():
                 raise ex.ValidationError(f'A point ({point}) has no X coordinate!')
             elif not 'Y' in point:
                 raise ex.ValidationError(f'A point ({point}) has no Y coordinate!')
+            elif not isinstance(point['X'], float) and not isinstance(point['X'], int):
+                raise ex.ValidationError(f'A point coordinate X ({point["X"]}) has to be a number!')
+            elif not isinstance(point['Y'], float) and not isinstance(point['Y'], int):
+                raise ex.ValidationError(f'A point coordinate Y ({point["Y"]}) has to be a number!')
             
     
     @staticmethod
@@ -74,7 +81,7 @@ class ClientDataValidator():
         if not 'BestScore' in score_serialized:
             raise ex.ValidationError(f'Client received data has no key \'BestScore\'!')
         
-        if not isinstance(score_serialized['BestScore'], float):
+        if not isinstance(score_serialized['BestScore'], float) and not isinstance(score_serialized['BestScore'], int):
             raise ex.ValidationError(f'Score is in the wrong format!')
         
         if score_serialized['BestScore'] < 0.0:

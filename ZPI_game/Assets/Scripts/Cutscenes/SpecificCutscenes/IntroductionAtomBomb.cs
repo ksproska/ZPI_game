@@ -16,6 +16,15 @@ namespace Cutscenes.SpecificCutscenes
             fader.canvasRenderer.SetAlpha(1);
         }
 
+        private void Start()
+        {
+            audioSource.volume = CurrentState.CurrentGameState.Instance.EffectsVolume;
+            if (!CurrentState.CurrentGameState.Instance.IsMusicOn)
+            {
+                audioSource.volume = 0;
+            }
+        }
+
         public IEnumerator Play()
         {
             audioSource.clip = bombSound;

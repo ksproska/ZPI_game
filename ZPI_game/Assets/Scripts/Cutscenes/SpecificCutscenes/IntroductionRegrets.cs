@@ -6,11 +6,12 @@ using CurrentState;
 using DeveloperUtils;
 using LevelUtils;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Cutscenes.SpecificCutscenes
 {
-    public class IntroductionRegrets: MonoBehaviour, ICutscenePlayable
+    public class IntroductionRegrets: MonoBehaviour, ICutscenePlayable, IPointerClickHandler
     {
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip audioClip;
@@ -20,6 +21,7 @@ namespace Cutscenes.SpecificCutscenes
         [SerializeField] private CryoUI cryo;
         private List<string> textLines;
         private int currentIndex = 0;
+        private float lastVolume;
 
         private void Awake()
         {
@@ -32,11 +34,33 @@ namespace Cutscenes.SpecificCutscenes
             chatPanel.SetActive(false);
         }
 
+        private void Start()
+        {
+            var musicVolume = CurrentGameState.Instance.MusicVolume;
+            var isMysiOn = CurrentGameState.Instance.IsMusicOn;
+            if(!isMysiOn)
+            {
+                musicVolume = 0;
+            }
+            lastVolume = musicVolume;
+            audioSource.volume = lastVolume;
+
+        }
+
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    NextLineOnClick();
+            //}
+            if(CurrentGameState.Instance.IsMusicOn)
             {
-                NextLineOnClick();
+                var musicVolume = CurrentGameState.Instance.MusicVolume;
+                if(musicVolume != lastVolume)
+                {
+                    lastVolume = musicVolume;
+                    audioSource.volume = musicVolume;
+                }
             }
         }
 
@@ -83,6 +107,11 @@ namespace Cutscenes.SpecificCutscenes
             }
             SaveCutscene();
             yield return new WaitForSeconds(3f);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            NextLineOnClick();
         }
     }
 }

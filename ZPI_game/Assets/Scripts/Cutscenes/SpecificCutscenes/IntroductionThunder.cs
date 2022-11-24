@@ -18,7 +18,16 @@ public class IntroductionThunder : MonoBehaviour, ICutscenePlayable
     {
         text.canvasRenderer.SetAlpha(0);
     }
-    
+
+    private void Start()
+    {
+        audioSource.volume = CurrentState.CurrentGameState.Instance.EffectsVolume;
+        if(!CurrentState.CurrentGameState.Instance.IsMusicOn)
+        {
+            audioSource.volume = 0;
+        }
+    }
+
     public IEnumerator ShowText(float fadeTime)
     {
         text.CrossFadeAlpha(1, fadeTime, true);
