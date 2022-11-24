@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 6
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554379, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: expectedContents
-      value: mutation_probability
+      value: mut_prob
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554381, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_Name
@@ -677,11 +677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -56
+      value: -57.8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9
+      value: -25.8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -783,11 +783,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 87
+      value: 87.9
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9
+      value: -27.6
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1397,7 +1397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[0]
-      value: mutation_probability
+      value: mut_prob
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[1]
@@ -1567,27 +1567,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "    <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360>run_iteration</color>(<color=#188600><link=\"self\">self</link></color>):\r\n       
+      value: "    <color=#aaf502><link=\"def\">def</link></color> <color=#3e9360><link=\"GeneticAlgorithm_run_iteration\">run_iteration</link></color>(<color=#188600><link=\"self\">self</link></color>):\r\n       
         next_generation = <color=#006e05><link=\"list\">list</link></color>()\r\n       
         <color=#aaf502><link=\"while\">while</link></color> <color=#006e05><link=\"len\">len</link></color>(next_generation)
         < <color=#006e05><link=\"len\">len</link></color>(<color=#188600><link=\"self\">self</link></color>.generation):\r\n           
         parent1 = <color=#188600><link=\"self\">self</link></color>.selector.get(<color=#188600><link=\"self\">self</link></color>.generation)\r\n           
         parent2 = <color=#188600><link=\"self\">self</link></color>.selector.get(<color=#188600><link=\"self\">self</link></color>.generation)\r\n\r\n           
         child_genotype = parent1.city_ids\r\n            <color=#aaf502><link=\"if\">if</link></color>
-        <color=#188600><link=\"self\">self</link></color>.crossover_probability <
-        random.random():\r\n                child_genotype = <color=#188600><link=\"self\">self</link></color>.crosser.get(parent1.city_ids,
-        parent2.city_ids)\r\n\r\n            <color=#aaf502><link=\"if\">if</link></color>
+        <color=#188600><link=\"self\">self</link></color>.cross_prob < random.random():\r\n               
+        child_genotype = <color=#188600><link=\"self\">self</link></color>.crosser.get(\r\n                   
+        parent1.city_ids, parent2.city_ids)\r\n\r\n            <color=#aaf502><link=\"if\">if</link></color>
         <color=#188600><link=\"self\">self</link></color>.                < random.random(): 
         \r\n                child_genotype = <color=#188600><link=\"self\">self</link></color>.              
         .get(               )  \r\n\r\n            child = <link=\"Circuit\">Circuit</link>(child_genotype,
         <color=#188600><link=\"self\">self</link></color>.weights_grid)\r\n           
         next_generation.append(child)\r\n        <color=#188600><link=\"self\">self</link></color>.generation
-        = next_generation\r\n        <color=#188600><link=\"self\">self</link></color>.best_for_iteration
+        = next_generation\r\n        <color=#188600><link=\"self\">self</link></color>.best_for_iter
         = <link=\"Circuit\">Circuit</link>.get_best(<color=#188600><link=\"self\">self</link></color>.generation)\r\n       
         <color=#188600><link=\"self\">self</link></color>.iteration += <color=#89b68b>1</color>\r\n\r\n       
         <color=#aaf502><link=\"if\">if</link></color> <color=#188600><link=\"self\">self</link></color>.best.score
-        > <color=#188600><link=\"self\">self</link></color>.best_for_iteration.score:\r\n           
-        <color=#188600><link=\"self\">self</link></color>.best = <color=#188600><link=\"self\">self</link></color>.best_for_iteration\r\n"
+        > <color=#188600><link=\"self\">self</link></color>.best_for_iter.score:\r\n           
+        <color=#188600><link=\"self\">self</link></color>.best = <color=#188600><link=\"self\">self</link></color>.best_for_iter\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209430, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: details

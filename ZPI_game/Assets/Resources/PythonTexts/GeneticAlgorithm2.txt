@@ -10,8 +10,7 @@
                     parent1.city_ids, parent2.city_ids)
 
             <color=#aaf502><link="if">if</link></color> <color=#188600><link="self">self</link></color>.                < random.random():  
-                child_genotype = <color=#188600><link="self">self</link></color>.               .get(
-                                   )  
+                child_genotype = <color=#188600><link="self">self</link></color>.               .get(               )  
 
             child = <link="Circuit">Circuit</link>(child_genotype, <color=#188600><link="self">self</link></color>.weights_grid)
             next_generation.append(child)
