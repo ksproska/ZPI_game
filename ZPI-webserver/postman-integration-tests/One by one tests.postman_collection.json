@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0ac9c67c-4484-48ca-8722-417942f2c0b1",
+		"_postman_id": "80c554dc-b7a3-4860-8d7e-aabf57cbaeaf",
 		"name": "One by one tests",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19053221"
 	},
 	"item": [
 		{
@@ -562,15 +563,21 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"function areSetsEqual(a, b) {\r",
-							"  if (a.size !== b.size) {\r",
+							"function areArraysEquivalets(a, b) {\r",
+							"  if (a.length !== b.length) {\r",
 							"    return false;\r",
 							"  }\r",
+							"  a_cp = [...a];\r",
+							"  b_cp = [...b];\r",
+							"  a_cp.sort(function(x, y){return x.X + x.Y - y.X - y.Y});\r",
+							"  b_cp.sort(function(x, y){return x.X + x.Y - y.X - y.Y});\r",
 							"\r",
-							"  return Array.from(a).every(element => {\r",
-							"    return b.has(element);\r",
+							"  return a_cp.every((elem, inx) => {\r",
+							"    return Math.abs(elem.X - b_cp[inx].X) < 0.0000001 && Math.abs(elem.Y - b_cp[inx].Y) < 0.0000001;\r",
 							"  });\r",
+							"\r",
 							"}\r",
+							"\r",
 							"pm.test(\"Request is successful with a status code of 200\", function () {\r",
 							"  pm.response.to.have.status(200);\r",
 							"});\r",
@@ -588,26 +595,26 @@
 							"pm.test(\"Verify first map schema\", function () {\r",
 							"  var jsonData = pm.response.json();\r",
 							"  var fstOBOMap = jsonData[0];\r",
-							"  var pointsSet = new Set(fstOBOMap.Points);\r",
-							"  var compSet = new Set([{\"X\": 653.31, \"Y\": 564.943},{\"X\": 332.75, \"Y\": 90.98},{\"X\": 522.23,\"Y\": 905.52},{\"X\": 113.23,\"Y\": 180.22}]);\r",
-							"  pm.expect(areSetsEqual(pointsSet, compSet));\r",
+							"  var points = fstOBOMap.Points;\r",
+							"  var compArr = [{\"X\": 653.31, \"Y\": 564.943},{\"X\": 332.75, \"Y\": 90.98},{\"X\": 522.23,\"Y\": 905.52},{\"X\": 113.23,\"Y\": 180.22}];\r",
+							"  pm.expect(areArraysEquivalets(points, compArr)).to.eq(true);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Verify second map schema\", function () {\r",
 							"  var jsonData = pm.response.json();\r",
 							"  var fstOBOMap = jsonData[1];\r",
-							"  var pointsSet = new Set(fstOBOMap.Points);\r",
-							"  var compSet = new Set([{\"X\": 653.31,\"Y\": 564.943},{\"X\": 332.75,\"Y\": 90.98},{\"X\": 522.23,\"Y\": 905.52},{\"X\": 113.23,\"Y\": 180.22},{\"X\": 87.154,\"Y\": 463.943},{\r",
-							"\"X\": 97.881,\"Y\": 18.88},{\"X\": 18.44,\"Y\": 230.0},{\"X\": 144.43,\"Y\": 563.39}]);\r",
-							"  pm.expect(areSetsEqual(pointsSet, compSet));\r",
+							"  var points = fstOBOMap.Points;\r",
+							"  var compArr = [{\"X\": 653.31,\"Y\": 564.943},{\"X\": 332.75,\"Y\": 90.98},{\"X\": 522.23,\"Y\": 905.52},{\"X\": 113.23,\"Y\": 180.22},{\"X\": 87.154,\"Y\": 463.943},{\r",
+							"\"X\": 97.881,\"Y\": 18.88},{\"X\": 18.44,\"Y\": 230.0},{\"X\": 144.43,\"Y\": 563.39}];\r",
+							"  pm.expect(areArraysEquivalets(points, compArr)).to.eq(true);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Verify third map schema\", function () {\r",
 							"  var jsonData = pm.response.json();\r",
 							"  var fstOBOMap = jsonData[2];\r",
-							"  var pointsSet = new Set(fstOBOMap.Points);\r",
-							"  var compSet = new Set([{\"X\": 985.42,\"Y\": 45.943},{\"X\": 862.65,\"Y\": 872.98},{\"X\": 731.64,\"Y\": 124.4}]);\r",
-							"  pm.expect(areSetsEqual(pointsSet, compSet));\r",
+							"  var points = fstOBOMap.Points;\r",
+							"  var compArr = [{\"X\": 985.42,\"Y\": 45.943},{\"X\": 862.65,\"Y\": 872.98},{\"X\": 731.64,\"Y\": 124.4}];\r",
+							"  pm.expect(areArraysEquivalets(points, compArr)).to.eq(true);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -630,6 +637,205 @@
 					"path": [
 						"api",
 						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET & verify map #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function areArraysEquivalets(a, b) {\r",
+							"  if (a.length !== b.length) {\r",
+							"    return false;\r",
+							"  }\r",
+							"  a_cp = [...a];\r",
+							"  b_cp = [...b];\r",
+							"  a_cp.sort(function(x, y){return x.X + x.Y - y.X - y.Y});\r",
+							"  b_cp.sort(function(x, y){return x.X + x.Y - y.X - y.Y});\r",
+							"\r",
+							"  return a_cp.every((elem, inx) => {\r",
+							"    return Math.abs(elem.X - b_cp[inx].X) < 0.0000001 && Math.abs(elem.Y - b_cp[inx].Y) < 0.0000001;\r",
+							"  });\r",
+							"\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Request is successful with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Verify map schema\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  var points = jsonData.Points;\r",
+							"  var compArr = [{\"X\": 653.31, \"Y\": 564.943},{\"X\": 332.75, \"Y\": 90.98},{\"X\": 522.23,\"Y\": 905.52},{\"X\": 113.23,\"Y\": 180.22}];\r",
+							"  pm.expect(areArraysEquivalets(points, compArr)).to.eq(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET & verify map #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function areArraysEquivalets(a, b) {\r",
+							"  if (a.length !== b.length) {\r",
+							"    return false;\r",
+							"  }\r",
+							"  a_cp = [...a];\r",
+							"  b_cp = [...b];\r",
+							"  a_cp.sort(function(x, y){return x.X + x.Y - y.X - y.Y});\r",
+							"  b_cp.sort(function(x, y){return x.X + x.Y - y.X - y.Y});\r",
+							"\r",
+							"  return a_cp.every((elem, inx) => {\r",
+							"    return Math.abs(elem.X - b_cp[inx].X) < 0.0000001 && Math.abs(elem.Y - b_cp[inx].Y) < 0.0000001;\r",
+							"  });\r",
+							"\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Request is successful with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Verify map schema\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  var points = jsonData.Points;\r",
+							"  var compArr = [{\"X\": 653.31,\"Y\": 564.943},{\"X\": 332.75,\"Y\": 90.98},{\"X\": 522.23,\"Y\": 905.52},{\"X\": 113.23,\"Y\": 180.22},{\"X\": 87.154,\"Y\": 463.943},{\r",
+							"\"X\": 97.881,\"Y\": 18.88},{\"X\": 18.44,\"Y\": 230.0},{\"X\": 144.43,\"Y\": 563.39}];\r",
+							"  pm.expect(areArraysEquivalets(points, compArr)).to.eq(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET & verify map #3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function areArraysEquivalets(a, b) {\r",
+							"  if (a.length !== b.length) {\r",
+							"    return false;\r",
+							"  }\r",
+							"  a_cp = [...a];\r",
+							"  b_cp = [...b];\r",
+							"  a_cp.sort(function(x, y){return x.X + x.Y - y.X - y.Y});\r",
+							"  b_cp.sort(function(x, y){return x.X + x.Y - y.X - y.Y});\r",
+							"\r",
+							"  return a_cp.every((elem, inx) => {\r",
+							"    return Math.abs(elem.X - b_cp[inx].X) < 0.0000001 && Math.abs(elem.Y - b_cp[inx].Y) < 0.0000001;\r",
+							"  });\r",
+							"\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Request is successful with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Verify map schema\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  var points = jsonData.Points;\r",
+							"  var compArr = [{\"X\": 985.42,\"Y\": 45.943},{\"X\": 862.65,\"Y\": 872.98},{\"X\": 731.64,\"Y\": 124.4}];\r",
+							"  pm.expect(areArraysEquivalets(points, compArr)).to.eq(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/map/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"map",
+						"3"
 					]
 				}
 			},
@@ -1126,7 +1332,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/user/5/score",
+					"raw": "http://127.0.0.1:5000/api/user/1/score",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -1138,7 +1344,7 @@
 					"path": [
 						"api",
 						"user",
-						"5",
+						"1",
 						"score"
 					]
 				}
@@ -1183,6 +1389,630 @@
 					}
 				},
 				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/1/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"1",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET score of nonexistent map",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404\", function () {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"There is no map with id 543!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/1/score/543",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"1",
+						"score",
+						"543"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET nonexistent score",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should fail with a status code of 404\", function () {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var errStr = pm.response.text();\r",
+							"  pm.expect(errStr).to.eq(\"There is no score made by user with id 1 associated with map with id 1!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/1/score/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"1",
+						"score",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET score of user #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns a user score in string format\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that user score is correct\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.eq(\"125.98\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/1/score/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"1",
+						"score",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET score of user #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns a user score in string format\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that user score is correct\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.eq(\"575.09\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/2/score/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"2",
+						"score",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET score of user #3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns a user score in string format\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that user score is correct\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.eq(\"783.09\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/3/score/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"3",
+						"score",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET score of user #4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns a user score in string format\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that user score is correct\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.eq(\"378.62\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/4/score/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"4",
+						"score",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET score of user #5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns a user score in string format\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that user score is correct\", function () {\r",
+							"  var usrScore = pm.response.text();\r",
+							"  pm.expect(usrScore).to.eq(\"378.62\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/5/score/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"5",
+						"score",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET top scores of map with no scores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  pm.expect(jsonObj).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that an array is empty\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  pm.expect(jsonObj.length).to.eq(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/scores/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"scores",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET top scores of map with 5 scores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function areArraysEqual(a, b) {\r",
+							"  if (a.length !== b.length) {\r",
+							"    return false;\r",
+							"  }\r",
+							"\r",
+							"  return a.every((elem, inx) => {\r",
+							"    return elem.nickname === b[inx].nickname && Math.abs(elem.score - b[inx].score) < 0.00000001;\r",
+							"  });\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  pm.expect(jsonObj).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that an array has 5 objects\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  pm.expect(jsonObj.length).to.eq(5);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that scores are correct and in the correct order\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  var expArray = [{\"nickname\": \"Sample User\",\"score\": 125.98},{\"nickname\": \"Elias Kolnitsch\",\"score\": 378.62},{\"nickname\": \"Jonas Schmidt\",\"score\": 378.62},{\"nickname\": \"Next usr\",\"score\": 575.09},{\"nickname\": \"Johny Jazz\",\"score\": 783.09}];\r",
+							"  pm.expect(areArraysEqual(jsonObj, expArray)).to.eq(true);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/scores/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"scores",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #1 map #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 1,\r\n    \"BestScore\": 524.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/1/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"1",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #2 map #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 1,\r\n    \"BestScore\": 364.065\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/2/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"2",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #5 map #1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 1,\r\n    \"BestScore\": 124.642\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
 					"raw": "http://127.0.0.1:5000/api/user/5/score",
 					"protocol": "http",
 					"host": [
@@ -1197,6 +2027,641 @@
 						"user",
 						"5",
 						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET top scores of map with less than 5 scores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function areArraysEqual(a, b) {\r",
+							"  if (a.length !== b.length) {\r",
+							"    return false;\r",
+							"  }\r",
+							"\r",
+							"  return a.every((elem, inx) => {\r",
+							"    return elem.nickname === b[inx].nickname && Math.abs(elem.score - b[inx].score) < 0.00000001;\r",
+							"  });\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  pm.expect(jsonObj).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that an array has 3 objects\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  pm.expect(jsonObj.length).to.eq(3);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that scores are correct and in the correct order\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  var expArray = [{\"nickname\": \"Jonas Schmidt\",\"score\": 124.642},{\"nickname\": \"Next usr\",\"score\": 364.065},{\"nickname\": \"Sample User\",\"score\": 524.99}];\r",
+							"  pm.expect(areArraysEqual(jsonObj, expArray)).to.eq(true);\r",
+							"}); "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/scores/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"scores",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - valid #6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"User created\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"yaakov.molsher@munchen.de\",\r\n    \"Nickname\": \"Yaakov Habicht\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new user - valid #7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"User created\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"yochanan.goldmann@wp.de\",\r\n    \"Nickname\": \"Eretz Israel!\",\r\n    \"Password\": \"secure_and_long_password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #1 map #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 2,\r\n    \"BestScore\": 783.11\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/1/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"1",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #2 map #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 2,\r\n    \"BestScore\": 654\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/2/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"2",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #3 map #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 2,\r\n    \"BestScore\": 963.22\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/3/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"3",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #4 map #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 2,\r\n    \"BestScore\": 532.54\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/4/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"4",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #5 map #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 2,\r\n    \"BestScore\": 529.011\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/5/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"5",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #6 map #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 2,\r\n    \"BestScore\": 364.76\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/6/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"6",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new score, user #7 map #2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"  var infoStr = pm.response.text();\r",
+							"  pm.expect(infoStr).to.eq(\"Score created!\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MapId\" : 2,\r\n    \"BestScore\": 267.76\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/user/7/score",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"7",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET top scores of map with more than 5 scores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"function areArraysEqual(a, b) {\r",
+							"  if (a.length !== b.length) {\r",
+							"    return false;\r",
+							"  }\r",
+							"\r",
+							"  return a.every((elem, inx) => {\r",
+							"    return elem.nickname === b[inx].nickname && Math.abs(elem.score - b[inx].score) < 0.00000001;\r",
+							"  });\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Request should succeed with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  pm.expect(jsonObj).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that an array has 5 objects\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  pm.expect(jsonObj.length).to.eq(5);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that scores are correct and in the correct order\", function () {\r",
+							"  var jsonObj = pm.response.json();\r",
+							"  var expArray = [{\"nickname\": \"Eretz Israel!\",\"score\": 267.76},{\"nickname\": \"Yaakov Habicht\",\"score\": 364.76},{\"nickname\": \"Jonas Schmidt\",\"score\": 529.011},{\"nickname\": \"Elias Kolnitsch\",\"score\": 532.54},{\"nickname\": \"Next usr\",\"score\": 654}];\r",
+							"  pm.expect(areArraysEqual(jsonObj, expArray)).to.eq(true);\r",
+							"}); "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/scores/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"scores",
+						"2"
 					]
 				}
 			},

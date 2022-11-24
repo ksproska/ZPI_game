@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "78eeb5a1-96c7-49a5-ade7-91f5cd1ba1bb",
+		"_postman_id": "f1b9e893-5e22-436e-91e6-c10622f34559",
 		"name": "POST api tests (empty db)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19053221"
 	},
 	"item": [
 		{
@@ -408,7 +409,7 @@
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
 							"  var errStr = pm.response.text();\r",
-							"  pm.expect(errStr).to.eq(\"A point coordinate X (string) has to be a float!\")\r",
+							"  pm.expect(errStr).to.eq(\"A point coordinate X (string) has to be a number!\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -463,7 +464,7 @@
 							"\r",
 							"pm.test(\"Check that the response is correct err message\", function () {\r",
 							"  var errStr = pm.response.text();\r",
-							"  pm.expect(errStr).to.eq(\"A point coordinate Y (214,32) has to be a float!\")\r",
+							"  pm.expect(errStr).to.eq(\"A point coordinate Y (214,32) has to be a number!\")\r",
 							"});"
 						],
 						"type": "text/javascript"

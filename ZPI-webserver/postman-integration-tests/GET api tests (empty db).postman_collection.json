@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "1892e246-ecbc-42c5-954f-45eb2c14bf13",
+		"_postman_id": "b4bbf4e5-7cc9-413b-b1f8-5e46b6f11f12",
 		"name": "GET api tests (empty db)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19053221"
 	},
 	"item": [
 		{
