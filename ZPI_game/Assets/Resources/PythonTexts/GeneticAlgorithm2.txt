@@ -5,17 +5,19 @@
             parent2 = <color=#188600><link="self">self</link></color>.selector.get(<color=#188600><link="self">self</link></color>.generation)
 
             child_genotype = parent1.city_ids
-            <color=#aaf502><link="if">if</link></color> <color=#188600><link="self">self</link></color>.crossover_probability < random.random():
-                child_genotype = <color=#188600><link="self">self</link></color>.crosser.get(parent1.city_ids, parent2.city_ids)
+            <color=#aaf502><link="if">if</link></color> <color=#188600><link="self">self</link></color>.cross_prob < random.random():
+                child_genotype = <color=#188600><link="self">self</link></color>.crosser.get(
+                    parent1.city_ids, parent2.city_ids)
 
             <color=#aaf502><link="if">if</link></color> <color=#188600><link="self">self</link></color>.                < random.random():  
-                child_genotype = <color=#188600><link="self">self</link></color>.               .get(               )  
+                child_genotype = <color=#188600><link="self">self</link></color>.               .get(
+                                   )  
 
             child = <link="Circuit">Circuit</link>(child_genotype, <color=#188600><link="self">self</link></color>.weights_grid)
             next_generation.append(child)
         <color=#188600><link="self">self</link></color>.generation = next_generation
-        <color=#188600><link="self">self</link></color>.best_for_iteration = <link="Circuit">Circuit</link>.get_best(<color=#188600><link="self">self</link></color>.generation)
+        <color=#188600><link="self">self</link></color>.best_for_iter = <link="Circuit">Circuit</link>.get_best(<color=#188600><link="self">self</link></color>.generation)
         <color=#188600><link="self">self</link></color>.iteration += <color=#89b68b>1</color>
 
-        <color=#aaf502><link="if">if</link></color> <color=#188600><link="self">self</link></color>.best.score > <color=#188600><link="self">self</link></color>.best_for_iteration.score:
-            <color=#188600><link="self">self</link></color>.best = <color=#188600><link="self">self</link></color>.best_for_iteration
+        <color=#aaf502><link="if">if</link></color> <color=#188600><link="self">self</link></color>.best.score > <color=#188600><link="self">self</link></color>.best_for_iter.score:
+            <color=#188600><link="self">self</link></color>.best = <color=#188600><link="self">self</link></color>.best_for_iter

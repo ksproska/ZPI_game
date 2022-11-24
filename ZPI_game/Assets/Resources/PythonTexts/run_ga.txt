@@ -9,9 +9,9 @@
                                           generation_size=<color=#89b68b>10</color>,
                                           selector=selector,
                                           mutator=mutator,
-                                          mutation_probability=<color=#89b68b>0.2</color>,
+                                          mut_prob=<color=#89b68b>0.2</color>,
                                           crosser=crosser,
-                                          crossover_probability=<color=#89b68b>0.89</color>)
+                                          cross_prob=<color=#89b68b>0.89</color>)
 
                     prev = math.inf
                     <color=#aaf502><link="for">for</link></color> i in <color=#006e05><link="range">range</link></color>(iterations):
