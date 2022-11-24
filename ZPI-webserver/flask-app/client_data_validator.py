@@ -52,7 +52,10 @@ class ClientDataValidator():
         
         if not isinstance(map_serialized['Points'], list):
             raise ex.ValidationError(f'List of points is in the wrong format!')
-        
+
+        if len(map_serialized['Points']) == 0:
+            raise ex.ValidationError(f'There are no points associated with this map!')
+
         for point in map_serialized['Points']:
             if not isinstance(point, dict):
                 raise ex.ValidationError(f'A point ({point}) is in the wrong format!')
@@ -60,6 +63,10 @@ class ClientDataValidator():
                 raise ex.ValidationError(f'A point ({point}) has no X coordinate!')
             elif not 'Y' in point:
                 raise ex.ValidationError(f'A point ({point}) has no Y coordinate!')
+            elif not isinstance(point['X'], float) and not isinstance(point['X'], int):
+                raise ex.ValidationError(f'A point coordinate X ({point["X"]}) has to be a number!')
+            elif not isinstance(point['Y'], float) and not isinstance(point['Y'], int):
+                raise ex.ValidationError(f'A point coordinate Y ({point["Y"]}) has to be a number!')
             
     
     @staticmethod

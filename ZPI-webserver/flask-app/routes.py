@@ -25,6 +25,8 @@ def get_maps():
 @routes.route('/api/map/<int:map_id>')
 def get_map(map_id):
     map = ReadQueries.get_map(map_id)
+    if map is None:
+        return f'There is no map with id {map_id}!', 404
     return jsonify(Schemas.map_schema.dump(map))
 
 @routes.route('/api/map_ids')
