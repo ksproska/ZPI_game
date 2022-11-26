@@ -75,10 +75,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Education/VideoTutorials/map_11_oxClip_7.unity
     guid: eae644c387e40c35795c242a4f117e00
   - enabled: 1
-    path: Assets/Scenes/Education/VideoTutorials/map_18_rsmClip_17.unity
+    path: Assets/Scenes/Education/VideoTutorials/map_19_rsmClip_18.unity
     guid: e4bfeeb2e2d1432a69807f8e59440774
   - enabled: 1
-    path: Assets/Scenes/Education/VideoTutorials/map_22_throrsClip_21.unity
+    path: Assets/Scenes/Education/VideoTutorials/map_22_throrsClip_18.unity
     guid: 3cea9e3e14fb7bb26ad8e2095a85a009
   - enabled: 1
     path: Assets/Scenes/Education/VideoTutorials/map_3_RouletteClip_2.unity
