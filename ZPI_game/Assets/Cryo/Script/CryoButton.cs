@@ -22,6 +22,11 @@ public class CryoButton : MonoBehaviour
             CurrentGameState.Instance.CurrentSlot));
     }
 
+    private void OnEnable()
+    {
+        cryo.SetBothEyesTypes(Assets.Cryo.Script.EyeType.EyeBig);
+    }
+
     private void FixedUpdate()
     {
         lastUpdate += Time.deltaTime;
@@ -44,21 +49,5 @@ public class CryoButton : MonoBehaviour
     {
         gameObject.SetActive(false);
         explanationFrame.SetFrameActive(true);
-        //if (explanationFrame.gameObject.activeSelf)
-        //{
-        //    explanationFrame.gameObject.SetActive(false);
-        //    if(stopper != null)
-        //    {
-        //        stopper.gameObject.SetActive(false);
-        //    }
-        //}
-        //else
-        //{
-        //    explanationFrame.gameObject.SetActive(true);
-        //    if (stopper != null)
-        //    {
-        //        stopper.gameObject.SetActive(true);
-        //    }
-        //}
     }
 }
