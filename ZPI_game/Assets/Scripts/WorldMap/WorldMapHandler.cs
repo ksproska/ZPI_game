@@ -34,7 +34,7 @@ public class WorldMapHandler : MonoBehaviour
         }
         prevTime = Time.time;
         source.volume = CurrentGameState.Instance.EffectsVolume;
-        timeDelay = rnd.Next(10, 20);
+        timeDelay = rnd.Next(30, 60);
 
         if (LevelMap.Instance.IsLevelDone(lastLevel.name, CurrentGameState.Instance.CurrentSlot)){
             challengeButton.SetActive(true);
@@ -56,7 +56,7 @@ public class WorldMapHandler : MonoBehaviour
             {
                 StartCoroutine(glitch());
                 prevTime = Time.time;
-                timeDelay = rnd.Next(10, 20);
+                timeDelay = rnd.Next(30, 60);
             }
 
         }
