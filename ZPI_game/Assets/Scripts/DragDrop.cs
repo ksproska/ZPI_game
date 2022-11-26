@@ -44,8 +44,11 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         canvasGroup.blocksRaycasts = false;
         isAtTheRightPosition = false;
 
-        DropSlot dropslot = FindObjectsOfType<DropSlot>().Where(ds => compareVector3(ds.transform.position)).First();
-        dropslot.SetContent("");
+        var dropSlots = FindObjectsOfType<DropSlot>().Where(ds => compareVector3(ds.transform.position));
+        Debug.Log(dropSlots.Count());
+        if(dropSlots.Count() != 0) {
+            dropSlots.First().SetContent("");
+        }
     }
     
     public void OnDrag(PointerEventData eventData)
