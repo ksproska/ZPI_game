@@ -20,7 +20,6 @@ public class CreditsScroller : MonoBehaviour
     private void Awake()
     {
         windowSize = GetComponent<RectTransform>().rect.height;
-        Debug.Log(windowSize);
         startPosition = GetComponent<RectTransform>().anchoredPosition3D;
         creditsText = Resources.Load<TextAsset>("Credits/credits").text;
         credits.text = creditsText;
@@ -35,9 +34,7 @@ public class CreditsScroller : MonoBehaviour
         time = 2;
         Canvas.ForceUpdateCanvases();
         startSize = credits.gameObject.GetComponent<RectTransform>().rect.height;
-        Debug.Log(startSize);
         GetComponent<RectTransform>().anchoredPosition3D = startPosition + Vector3.down * (startSize / 2 + windowSize/2);
-        Debug.Log(GetComponent<RectTransform>().anchoredPosition3D);
 
     }
 
