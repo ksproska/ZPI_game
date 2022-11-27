@@ -11,7 +11,8 @@ namespace Webserver
     {
         public static async Task<UnityWebRequest.Result> CreateNewMap(Map map)
         {
-            using UnityWebRequest wr = new UnityWebRequest("http://localhost:5000/api/map", "POST");
+            using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/map", "POST");
+            wr.certificateHandler = new SslCertHandler();
             wr.SetRequestHeader("Content-Type", "application/json");
             byte[] rawMapSerialized = Encoding.UTF8.GetBytes(MapUtils.MapToJson(map));
             wr.uploadHandler = new UploadHandlerRaw(rawMapSerialized);
@@ -25,7 +26,8 @@ namespace Webserver
         }
         public static async Task<List<int>> GetMapsId()
         {
-            using UnityWebRequest wr = new UnityWebRequest("http://localhost:5000/api/map_ids", "GET");
+            using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/map_ids", "GET");
+            wr.certificateHandler = new SslCertHandler();
             wr.SetRequestHeader("Content-Type", "application/json");
             wr.downloadHandler = new DownloadHandlerBuffer();
 
@@ -47,7 +49,8 @@ namespace Webserver
         }
         public static async Task<List<Map>> GetMaps()
         {
-            using UnityWebRequest wr = new UnityWebRequest("http://localhost:5000/api/maps", "GET");
+            using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/maps", "GET");
+            wr.certificateHandler = new SslCertHandler();
             wr.downloadHandler = new DownloadHandlerBuffer();
 
             var asyncOperation = wr.SendWebRequest();
@@ -68,7 +71,8 @@ namespace Webserver
         }
         public static async Task<Map> GetMap(int mapId)
         {
-            using UnityWebRequest wr = new UnityWebRequest($"http://localhost:5000/api/map/{mapId}", "GET");
+            using UnityWebRequest wr = new UnityWebRequest($"https://zpi-project.westeurope.cloudapp.azure.com:5000/api/map/{mapId}", "GET");
+            wr.certificateHandler = new SslCertHandler();
             wr.downloadHandler = new DownloadHandlerBuffer();
 
             var asyncOperation = wr.SendWebRequest();
@@ -89,7 +93,8 @@ namespace Webserver
         }
         public static async Task<List<Point>> GetMapsPoints(int mapId)
         {
-            using UnityWebRequest wr = new UnityWebRequest($"http://localhost:5000/api/points/{mapId}", "GET");
+            using UnityWebRequest wr = new UnityWebRequest($"https://zpi-project.westeurope.cloudapp.azure.com:5000/api/points/{mapId}", "GET");
+            wr.certificateHandler = new SslCertHandler();
             wr.SetRequestHeader("Content-Type", "application/json");
             wr.downloadHandler = new DownloadHandlerBuffer();
 
@@ -111,7 +116,8 @@ namespace Webserver
         }
         public static async Task<(UnityWebRequest.Result, string)> CreateNewUsrMap(Map map)
         {
-            using UnityWebRequest wr = new UnityWebRequest($"http://localhost:5000/api/user/{map.CreatorId}/map", "POST");
+            using UnityWebRequest wr = new UnityWebRequest($"https://zpi-project.westeurope.cloudapp.azure.com:5000/api/user/{map.CreatorId}/map", "POST");
+            wr.certificateHandler = new SslCertHandler();
             wr.SetRequestHeader("Content-Type", "application/json");
             wr.downloadHandler = new DownloadHandlerBuffer();
             byte[] rawMapSerialized = Encoding.UTF8.GetBytes(map.ToJson());
@@ -128,7 +134,8 @@ namespace Webserver
         }
         public static async Task<(UnityWebRequest.Result, List<Map>)> GetUserMaps(int userId)
         {
-            using UnityWebRequest wr = new UnityWebRequest($"http://localhost:5000/api/user/{userId}/maps", "GET");
+            using UnityWebRequest wr = new UnityWebRequest($"https://zpi-project.westeurope.cloudapp.azure.com:5000/api/user/{userId}/maps", "GET");
+            wr.certificateHandler = new SslCertHandler();
             wr.downloadHandler = new DownloadHandlerBuffer();
 
             var asyncOperation = wr.SendWebRequest();

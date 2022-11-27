@@ -12,7 +12,8 @@ namespace Webserver
     {
         public static async Task<(UnityWebRequest.Result, string)> CreateNewUser(User user)
         {
-            using UnityWebRequest wr = new UnityWebRequest("http://localhost:5000/api/user", "POST");
+            using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/user", "POST");
+            wr.certificateHandler = new SslCertHandler();
             wr.SetRequestHeader("Content-Type", "application/json");
             byte[] rawUsrSerialized = Encoding.UTF8.GetBytes(user.ToJson());
             wr.uploadHandler = new UploadHandlerRaw(rawUsrSerialized);
@@ -28,7 +29,8 @@ namespace Webserver
         }
         public static async Task<(UnityWebRequest.Result, string)> AuthenticateUser(User user)
         {
-            using UnityWebRequest wr = new UnityWebRequest("http://localhost:5000/api/auth", "POST");
+            using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/auth", "POST");
+            wr.certificateHandler = new SslCertHandler();
             wr.SetRequestHeader("Content-Type", "application/json");
             byte[] rawUsrSerialized = Encoding.UTF8.GetBytes(user.ToJson());
             wr.uploadHandler = new UploadHandlerRaw(rawUsrSerialized);
