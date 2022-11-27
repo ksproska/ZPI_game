@@ -75,10 +75,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Education/VideoTutorials/map_11_oxClip_7.unity
     guid: eae644c387e40c35795c242a4f117e00
   - enabled: 1
-    path: Assets/Scenes/Education/VideoTutorials/map_18_rsmClip_17.unity
+    path: Assets/Scenes/Education/VideoTutorials/map_19_rsmClip_18.unity
     guid: e4bfeeb2e2d1432a69807f8e59440774
   - enabled: 1
-    path: Assets/Scenes/Education/VideoTutorials/map_22_throrsClip_21.unity
+    path: Assets/Scenes/Education/VideoTutorials/map_22_throrsClip_18.unity
     guid: 3cea9e3e14fb7bb26ad8e2095a85a009
   - enabled: 1
     path: Assets/Scenes/Education/VideoTutorials/map_3_RouletteClip_2.unity
@@ -92,4 +92,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Challenge.unity
     guid: d918cc416cca5db4bb8492cb300fc1e7
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/map_9_pmxTutorial_8.unity
+    guid: bf8d902a871be8b40a81f32f4c88afb4
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/map_12_oxTutorial_11.unity
+    guid: 8387781f4c66268478a7cf401395652e
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/map_15_cxTutorial_14.unity
+    guid: b52bb1d40c23cb44ab6b5feff6957671
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/map_20_rsmTutorial_19.unity
+    guid: b8dd0e882a0e42d4f9a3a38f84f37f78
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/map_23_throrsTutorial_22.unity
+    guid: bc700eb4683c0fe419dd94782feeae29
+  - enabled: 1
+    path: Assets/Scenes/Education/map_7_SelectionImpl_4_6.unity
+    guid: e2a99aa372b31a34b9a28ac18e9164fd
+  - enabled: 1
+    path: Assets/Scenes/Education/map_18_CrossingImpl_10_13_17.unity
+    guid: 5cf8bb90a97e9974b91b286246e238e9
+  - enabled: 1
+    path: Assets/Scenes/Education/map_25_MutationImpl_21_24.unity
+    guid: 6ba841eba6946fa4584bd671113e6c73
   m_configObjects: {}

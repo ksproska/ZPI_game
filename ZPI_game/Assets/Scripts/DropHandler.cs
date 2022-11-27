@@ -48,7 +48,7 @@ public class DropHandler : MonoBehaviour
                 LevelMap.Instance.CompleteALevel(CurrentGameState.Instance.CurrentLevelName, CurrentGameState.Instance.CurrentSlot);
             }
             CurrentGameState.Instance.CurrentLevelName = null;
-            GoToScene transporter = new GoToScene();
+            GoToScene transporter = Instantiate(this.transporter);
             transporter.scene = "WorldMap";
             transporter.GoTo();
         }

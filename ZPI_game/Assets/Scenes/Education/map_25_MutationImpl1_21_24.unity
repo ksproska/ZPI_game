@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5010301029226359832, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5010301029226359832, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -487,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -73.3
+      value: -158
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -507,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554379, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: expectedContents
-      value: mutation_probability
+      value: mut_prob
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554381, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_Name
@@ -812,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6235930773461463207, guid: ea45a87d65244974e8e0979300eae49d, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6235930773461463207, guid: ea45a87d65244974e8e0979300eae49d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -984,63 +984,63 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4003925387543796992, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925387543796992, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925387543796992, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.090451956
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925387737904354, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925387737904354, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925387737904354, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925387737904354, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925387742310015, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003925388015052837, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925388015052837, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4003925388015052837, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925388399415135, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925388399415135, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925389011753758, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4003925389094967090, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4003925389094967090, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6420813506645377308, guid: b8e5ce5e0c103b44da38625176f2aa79, type: 3}
       propertyPath: m_fontSizeBase
@@ -1214,7 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573037, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573037, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1298,7 +1298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[1]
-      value: mutation_probability
+      value: mut_prob
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[2]
@@ -1339,7 +1339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493945075900873945, guid: 31aef63cb9f6f33489809e038c64a647, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8493945075900873945, guid: 31aef63cb9f6f33489809e038c64a647, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1431,19 +1431,18 @@ PrefabInstance:
       value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>GeneticAlgorithm</color>:\r\n\r\n   
         <color=#aaf502><link=\"def\">def</link></color> __init__(<color=#188600><link=\"self\">self</link></color>,
         weights_grid: DistancesGrid, generation_size: <color=#006e05><link=\"int\">int</link></color>,
-        selector,\r\n                 mutator, mutation_probability: <color=#006e05><link=\"float\">float</link></color>,\r\n                
-        crosser, crossover_probability: <color=#006e05><link=\"float\">float</link></color>):\r\n\r\n       
+        selector,\r\n                 mutator, mut_prob: <color=#006e05><link=\"float\">float</link></color>,\r\n                
+        crosser, cross_prob: <color=#006e05><link=\"float\">float</link></color>):\r\n\r\n       
         <color=#188600><link=\"self\">self</link></color>.weights_grid = weights_grid\r\n       
         <color=#188600><link=\"self\">self</link></color>.selector = selector\r\n       
         <color=#188600><link=\"self\">self</link></color>.mutator =                 
-        \r\n        <color=#188600><link=\"self\">self</link></color>.mutation_probability
-        =                  \r\n        <color=#188600><link=\"self\">self</link></color>.crosser
-        = crosser\r\n        <color=#188600><link=\"self\">self</link></color>.crossover_probability
-        = crossover_probability\r\n\r\n        <color=#188600><link=\"self\">self</link></color>.generation
-        = [<link=\"Circuit\">Circuit</link>.get_random(weights_grid) <color=#aaf502><link=\"for\">for</link></color>
-        _ in <color=#006e05><link=\"range\">range</link></color>(generation_size)]\r\n       
+        \r\n        <color=#188600><link=\"self\">self</link></color>.mut_prob =                 
+        \r\n        <color=#188600><link=\"self\">self</link></color>.crosser = crosser\r\n       
+        <color=#188600><link=\"self\">self</link></color>.cross_prob = cross_prob\r\n\r\n       
+        <color=#188600><link=\"self\">self</link></color>.generation = [<link=\"Circuit\">Circuit</link>.get_random(\r\n           
+        weights_grid) <color=#aaf502><link=\"for\">for</link></color> _ in <color=#006e05><link=\"range\">range</link></color>(generation_size)]\r\n       
         <color=#188600><link=\"self\">self</link></color>.best = <link=\"Circuit\">Circuit</link>.get_best(<color=#188600><link=\"self\">self</link></color>.generation)\r\n       
-        <color=#188600><link=\"self\">self</link></color>.best_for_iteration = <color=#188600><link=\"self\">self</link></color>.best\r\n       
+        <color=#188600><link=\"self\">self</link></color>.best_for_iter = <color=#188600><link=\"self\">self</link></color>.best\r\n       
         <color=#188600><link=\"self\">self</link></color>.iteration = <color=#89b68b>0</color>\r\n\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209430, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}

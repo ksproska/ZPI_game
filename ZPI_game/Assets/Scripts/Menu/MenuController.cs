@@ -105,4 +105,9 @@ public class MenuController : MonoBehaviour
         return (Math.Abs(vector3[1] - otherVector3[1]) < 0.1f);
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
 }

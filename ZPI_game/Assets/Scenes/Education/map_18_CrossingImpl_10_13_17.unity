@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554379, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: expectedContents
-      value: crossover_probability
+      value: cross_prob
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554381, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_Name
@@ -753,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554379, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: expectedContents
-      value: next_generation
+      value: next_gen
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554381, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_Name
@@ -859,7 +859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554379, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: expectedContents
-      value: best_for_iteration
+      value: best_for_iter
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554381, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_Name
@@ -1013,7 +1013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 42.999992
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1225,7 +1225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -75.100006
+      value: -155
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1245,7 +1245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554379, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: expectedContents
-      value: crossover_probability
+      value: cross_prob
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554381, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_Name
@@ -1447,11 +1447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -62
+      value: -63.8
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -33.836
+      value: -36.5
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1914,7 +1914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -136
+      value: -186
       objectReference: {fileID: 0}
     - target: {fileID: 51125089691554378, guid: 2169afb6d152c684c9a8b26258ca56be, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2528,7 +2528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[1]
-      value: crossover_probability
+      value: cross_prob
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[2]
@@ -2548,7 +2548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[6]
-      value: next_generation
+      value: next_gen
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[7]
@@ -2560,7 +2560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452076985702573038, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
       propertyPath: contents.Array.data[9]
-      value: best_for_iteration
+      value: best_for_iter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83b4aa1d0bd73ae4c86538a7280ee68a, type: 3}
@@ -2678,33 +2678,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_text
-      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>GeneticAlgorithm</color>:\n   
+      value: "<color=#aaf502><link=\"class\">class</link></color> <color=#009607>GeneticAlgorithm</color>:\r\n   
         <color=#aaf502><link=\"def\">def</link></color> __init__(<color=#188600><link=\"self\">self</link></color>,
         weights_grid: DistancesGrid, generation_size: <color=#006e05><link=\"int\">int</link></color>,
-        selector,\n                 crosser, crossover_probability: <color=#006e05><link=\"float\">float</link></color>):\n       
-        ...\n        <color=#188600><link=\"self\">self</link></color>.crosser =                 
-        \n        <color=#188600><link=\"self\">self</link></color>.crossover_probability
-        =                  \n        ...\n\n    <color=#aaf502><link=\"def\">def</link></color>
-        <color=#3e9360>run_iteration</color>(<color=#188600><link=\"self\">self</link></color>):\n       
-        next_generation = <color=#006e05><link=\"list\">list</link></color>()\n       
-        <color=#aaf502><link=\"while\">while</link></color> <color=#006e05><link=\"len\">len</link></color>(next_generation)
-        < <color=#006e05><link=\"len\">len</link></color>(<color=#188600><link=\"self\">self</link></color>.generation):\n           
-        parent1 = <color=#188600><link=\"self\">self</link></color>.selector.get(<color=#188600><link=\"self\">self</link></color>.generation)\n           
-        parent2 = <color=#188600><link=\"self\">self</link></color>.selector.get(<color=#188600><link=\"self\">self</link></color>.generation)\n\n           
-        child_genotype = parent1.                 \n            <color=#aaf502><link=\"if\">if</link></color>
+        selector,\r\n                 crosser, cross_prob: <color=#006e05><link=\"float\">float</link></color>):\r\n       
+        ...\r\n        <color=#188600><link=\"self\">self</link></color>.crosser
+        =                  \r\n        <color=#188600><link=\"self\">self</link></color>.cross_prob
+        =                  \r\n        ...\r\n\r\n    <color=#aaf502><link=\"def\">def</link></color>
+        <color=#3e9360><link=\"GeneticAlgorithm_2_run_iteration\">run_iteration</link></color>(<color=#188600><link=\"self\">self</link></color>):\r\n       
+        next_gen = <color=#006e05><link=\"list\">list</link></color>()\r\n       
+        <color=#aaf502><link=\"while\">while</link></color> <color=#006e05><link=\"len\">len</link></color>(next_gen)
+        < <color=#006e05><link=\"len\">len</link></color>(<color=#188600><link=\"self\">self</link></color>.generation):\r\n           
+        parent1 = <color=#188600><link=\"self\">self</link></color>.selector.get(<color=#188600><link=\"self\">self</link></color>.generation)\r\n           
+        parent2 = <color=#188600><link=\"self\">self</link></color>.selector.get(<color=#188600><link=\"self\">self</link></color>.generation)\r\n\r\n           
+        child_genotype = parent1.                 \r\n            <color=#aaf502><link=\"if\">if</link></color>
         <color=#188600><link=\"self\">self</link></color>.                < random.random(): 
-        \n                child_genotype = <color=#188600><link=\"self\">self</link></color>.              
-        .get(\n                    parent1.city_ids, parent2.               )  \n           
-        ...\n\n            child = <link=\"Circuit\">               </link>(              
-        , <color=#188600><link=\"self\">self</link></color>.weights_grid)  \n           
-        next_generation.               (child)  \n        <color=#188600><link=\"self\">self</link></color>.generation
-        =                  \n        <color=#188600><link=\"self\">self</link></color>.best_for_iteration
-        = <link=\"Circuit\">Circuit</link>.get_best(<color=#188600><link=\"self\">self</link></color>.generation)\n       
+        \r\n                child_genotype = <color=#188600><link=\"self\">self</link></color>.              
+        .get(\r\n                    parent1.city_ids, parent2.               ) 
+        \r\n            ...\r\n\r\n            child = <link=\"Circuit\">              
+        </link>(               , <color=#188600><link=\"self\">self</link></color>.weights_grid) 
+        \r\n            next_gen.               (child)  \r\n        <color=#188600><link=\"self\">self</link></color>.generation
+        =                  \r\n        <color=#188600><link=\"self\">self</link></color>.best_for_iter
+        = <link=\"Circuit\">Circuit</link>.get_best(<color=#188600><link=\"self\">self</link></color>.generation)\r\n       
         <color=#188600><link=\"self\">self</link></color>.iteration                
-        <color=#89b68b>1</color>  \n\n        <color=#aaf502><link=\"if\">if</link></color>
-        <color=#188600><link=\"self\">self</link></color>.best.score > <color=#188600><link=\"self\">self</link></color>.best_for_iteration.              
-        :  \n            <color=#188600><link=\"self\">self</link></color>.best =
-        <color=#188600><link=\"self\">self</link></color>.                 \n"
+        <color=#89b68b>1</color>  \r\n\r\n        <color=#aaf502><link=\"if\">if</link></color>
+        <color=#188600><link=\"self\">self</link></color>.best.score > <color=#188600><link=\"self\">self</link></color>.best_for_iter.              
+        :  \r\n            <color=#188600><link=\"self\">self</link></color>.best
+        = <color=#188600><link=\"self\">self</link></color>.                 \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 9064324380975209428, guid: ff8a856e2bf35d344bdde5e502ad8fb9, type: 3}
       propertyPath: m_margin.w

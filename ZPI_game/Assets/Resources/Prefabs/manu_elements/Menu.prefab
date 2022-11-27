@@ -500,6 +500,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3763718512800953864, guid: 6e7c01b08ef32d64fafbd40e623bd007, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763718512800953864, guid: 6e7c01b08ef32d64fafbd40e623bd007, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5010301029226359835}
+    - target: {fileID: 3763718512800953864, guid: 6e7c01b08ef32d64fafbd40e623bd007, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
     - target: {fileID: 4429907553960948150, guid: 6e7c01b08ef32d64fafbd40e623bd007, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
