@@ -1,0 +1,5 @@
+Welcome back!
+This level belongs to one of the two possible paths to choose from. You <b>don't</b> need to complete the second path for the algorithm to work.
+
+Hope you enjoyed the introduction video! It's one of the many pre-atomic movies made for dumdums like you... I mean... smart people like you.
+I think the video was pretty clear. Have fun implementing this selector!

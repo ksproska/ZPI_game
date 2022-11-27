@@ -319,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CryoExplanation
       objectReference: {fileID: 0}
+    - target: {fileID: 4259500241076787337, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
+      propertyPath: textResource
+      value: roulette
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150463f725e1c9845adb0aa14d380c09, type: 3}
 --- !u!224 &149294117 stripped
@@ -778,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5010301029226359832, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5010301029226359832, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
       propertyPath: m_LocalScale.x
@@ -1376,8 +1380,9 @@ RectTransform:
   - {fileID: 1634717321}
   - {fileID: 1459729393}
   - {fileID: 6420813507850211096}
-  - {fileID: 234509139}
+  - {fileID: 317022186}
   - {fileID: 1984164593}
+  - {fileID: 234509139}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
