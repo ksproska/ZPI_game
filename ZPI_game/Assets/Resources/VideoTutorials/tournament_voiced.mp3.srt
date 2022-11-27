@@ -1,0 +1,32 @@
+1
+00:00:01,490 --> 00:00:04,430
+Introduction Video for Tournament Selector.
+
+2
+00:00:05,150 --> 00:00:07,100
+We start with an entire generation of
+individuals.
+
+3
+00:00:08,090 --> 00:00:10,280
+We don't yet look at their scores.
+
+4
+00:00:10,790 --> 00:00:13,430
+Then we proceed to select the subset of
+individuals.
+
+5
+00:00:14,570 --> 00:00:19,760
+In the presented example, the subset is 40%
+of the entire generation's size.
+
+6
+00:00:20,630 --> 00:00:25,220
+Having a selected subset, we finally look at
+the individual's scores.
+
+7
+00:00:26,150 --> 00:00:29,960
+The best one in the subset is the winner of
+the selection.
