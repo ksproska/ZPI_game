@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.27450982, g: 0.44705886, b: 0.3803922, a: 1}
+  m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.027450982, g: 0.07058824, b: 0.039215688, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -529,6 +529,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 833645813519280824}
     m_Modifications:
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: baseColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: baseColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: baseColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: textColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: textColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: textColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: secondaryColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: secondaryColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32991143304405905, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: secondaryColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2544662701481343479, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_Text
       value: OK
@@ -537,6 +573,26 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: ae65c358fe8c76547895fc95f3a763f7, type: 3}
+    - target: {fileID: 2544662701481343479, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739614090139244039, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739614090139244039, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739614090139244039, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739614090139244039, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9206782008505251749, guid: d93e098ab184b074385d71ff3630fbbe, type: 3}
       propertyPath: m_Name
       value: EduButton

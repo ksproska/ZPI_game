@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 9206782008505251753}
   - component: {fileID: 9206782008505251752}
   - component: {fileID: 9206782008505251751}
+  - component: {fileID: 32991143304405905}
   m_Layer: 5
   m_Name: EduButton
   m_TagString: Untagged
@@ -356,3 +357,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &32991143304405905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9206782008505251749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30e6eaaa3724b71ab8e2081c5dbaa29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 0.10196079, g: 0.35686275, b: 0.2784314, a: 1}
+  secondaryColor: {r: 0, g: 0.28235295, b: 0.003921569, a: 1}
+  textColor: {r: 0.4666667, g: 0.8862746, b: 0.454902, a: 1}
+  baseImage: {fileID: 7758265924984854812}
+  secondaryImage: {fileID: 7919806856115925665}
+  buttonText: {fileID: 2544662701481343479}
