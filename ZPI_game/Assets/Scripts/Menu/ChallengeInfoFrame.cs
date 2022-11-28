@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DeveloperUtils;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -50,7 +51,6 @@ public class ChallengeInfoFrame : MonoBehaviour
         slot2BestScore.text = $"<color='#3300ffff'>Game 2</color>\n{s2}";
         slot3BestScore.text = $"<color='#ff9900ff'>Game 3</color>\n{s3}";
         gameObject.SetActive(true);
-        
         var (success, score, topList) = await LoadDataFromServer(bundle.ChallengeID);
         SetupAccountBestScoreInfo(success, score);
         SetupTopFivePlayersInfo(success, topList);
@@ -58,6 +58,8 @@ public class ChallengeInfoFrame : MonoBehaviour
 
     private async Task<(bool, float, string)> LoadDataFromServer(int challengeID)
     {
+        if(CurrentGameState.Instance.CurrentUserId == -1)
+            return (false, -1, null);
         float bestScore = -1;
         string topList;
 
@@ -70,7 +72,6 @@ public class ChallengeInfoFrame : MonoBehaviour
             default:
                 return (false, -1, "");
         }
-        
         var (unityTopFiveResult, bestScores) = await Webserver.ScoreSynchro.GetTopFiveBestScores(challengeID);
 
         switch (unityTopFiveResult)

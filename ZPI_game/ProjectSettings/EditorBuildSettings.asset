@@ -44,9 +44,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education/map_26_MutationImpl2_25.unity
     guid: 6baa1116ee54b42498fc97efa0048e34
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Curscenes/map_0_StoryBeginning.unity
     guid: 2ad462aff665bd94f8b62fad5973073f
@@ -113,7 +110,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Education/map_18_CrossingImpl_10_13_17.unity
     guid: 5cf8bb90a97e9974b91b286246e238e9
-  - enabled: 1
-    path: Assets/Scenes/Education/map_25_MutationImpl_21_24.unity
-    guid: 6ba841eba6946fa4584bd671113e6c73
   m_configObjects: {}

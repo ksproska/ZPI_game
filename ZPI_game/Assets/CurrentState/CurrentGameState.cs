@@ -3,6 +3,7 @@ using System.IO;
 using System.Text.Json;
 using LevelUtils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CurrentState
 {
@@ -34,6 +35,7 @@ namespace CurrentState
             _musicVolume = userSettings.MusicVolume;
             _areEffectsOn = userSettings.EffectsOn;
             _effectsVolume = userSettings.EffectsVolume;
+            Instance.CurrentLevelName = SceneManager.GetActiveScene().name;
         }
         private void CreateDefUsrSett()
         {

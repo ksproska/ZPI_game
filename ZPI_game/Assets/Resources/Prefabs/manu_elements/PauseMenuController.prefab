@@ -372,7 +372,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 945127470411510786}
         m_TargetAssemblyTypeName: MenuSettingsController, Assembly-CSharp
         m_MethodName: OnMusicToggleChange
         m_Mode: 0
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 945127470411510786}
         m_TargetAssemblyTypeName: MenuSettingsController, Assembly-CSharp
         m_MethodName: OnEffectsVolumeChange
         m_Mode: 0
@@ -5055,7 +5055,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 945127470411510786}
         m_TargetAssemblyTypeName: MenuSettingsController, Assembly-CSharp
         m_MethodName: OnEffectsToggleChange
         m_Mode: 0
@@ -5775,7 +5775,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 945127470411510786}
         m_TargetAssemblyTypeName: MenuSettingsController, Assembly-CSharp
         m_MethodName: OnMusicVolumeChange
         m_Mode: 0
@@ -7037,7 +7037,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 945127470411510784}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: SwapToMenu
         m_Mode: 1

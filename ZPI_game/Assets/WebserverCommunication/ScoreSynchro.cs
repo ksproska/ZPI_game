@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using DeveloperUtils;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -42,6 +43,8 @@ namespace Webserver
             {
                 await Task.Yield();
             }
+            // wr.downloadHandler.data.ToList().Select(c => (char)c).ToList().DebugString();
+            Encoding.UTF8.GetString(wr.downloadHandler.data).Debug();
             float bestScore = wr.downloadHandler.data != null ? float.Parse(Encoding.UTF8.GetString(wr.downloadHandler.data), System.Globalization.CultureInfo.InvariantCulture) : -1;
             return (wr.result, bestScore);
         }
