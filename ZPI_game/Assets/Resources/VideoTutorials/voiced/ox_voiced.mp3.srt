@@ -1,0 +1,45 @@
+1
+00:00:01,560 --> 00:00:04,290
+Introduction video for Order Crossover.
+
+2
+00:00:04,950 --> 00:00:10,320
+We start with genotypes of two parents and
+two parameters first index and segment length
+
+3
+00:00:10,320 --> 00:00:12,540
+for the genotype part specified by those
+parameters.
+
+4
+00:00:13,290 --> 00:00:16,230
+We rewrite the values from the first parent.
+
+5
+00:00:16,260 --> 00:00:18,660
+Then we proceed to fill the missing values.
+
+6
+00:00:18,660 --> 00:00:22,890
+We examine values of succeeding indexes in
+the second parent, and if the value is
+
+7
+00:00:22,890 --> 00:00:26,460
+missing from the child, we place it in the
+first available spot.
+
+8
+00:00:30,790 --> 00:00:34,270
+If the value is already present in the
+child, we ignore it.
+
+9
+00:00:49,850 --> 00:00:54,200
+The result is a genotype of a child
+necessary for further steps of genetic
+
+10
+00:00:54,200 --> 00:00:54,800
+algorithm.

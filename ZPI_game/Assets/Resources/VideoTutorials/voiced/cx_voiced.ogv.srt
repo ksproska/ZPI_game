@@ -1,0 +1,63 @@
+1
+00:00:00,980 --> 00:00:03,740
+Introduction Video for Cycle Crossover.
+
+2
+00:00:04,700 --> 00:00:08,540
+We start with genotypes of two parents and
+nothing else.
+
+3
+00:00:09,690 --> 00:00:14,910
+First thing is to find all cycles, select
+the first index and the first parent and
+
+4
+00:00:14,910 --> 00:00:18,750
+check what value is contained in the second
+parent at the same index.
+
+5
+00:00:18,930 --> 00:00:23,400
+Then we'll look for an index and the first
+parent containing the previously selected
+
+6
+00:00:23,400 --> 00:00:28,560
+value. If the value is not yet present in
+the cycle, we continue the process.
+
+7
+00:00:28,590 --> 00:00:30,810
+Otherwise, the cycle is finished.
+
+8
+00:00:40,100 --> 00:00:42,650
+After all, indexes are assigned to a cycle.
+
+9
+00:00:42,650 --> 00:00:44,690
+We can proceed with the next step.
+
+10
+00:00:46,120 --> 00:00:48,040
+Number all the cycles.
+
+11
+00:00:49,810 --> 00:00:54,820
+If the cyclist number is odd, copy the
+values from the index included in the cycle,
+
+12
+00:00:54,820 --> 00:00:59,860
+from the first bar and otherwise copy the
+values from the second parent.
+
+13
+00:00:59,890 --> 00:01:04,300
+The result is a genotype of a child
+necessary for further steps of genetic
+
+14
+00:01:04,300 --> 00:01:04,870
+algorithm.
