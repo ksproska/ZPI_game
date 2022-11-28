@@ -13,10 +13,11 @@ namespace DeveloperUtils
         /// <code>arg.Debug() = Debug.Log(arg)</code>
         /// </summary>
         /// <param name="arg">String to print in debug mode.</param>
+        /// <param name="message">Additional message to print after object is printed</param>
         /// <typeparam name="T">Any type</typeparam>
-        public static void Debug<T>(this T arg)
+        public static void Debug<T>(this T arg, string message="")
         {
-            UnityEngine.Debug.Log(arg);
+            UnityEngine.Debug.Log(arg + " " + message);
         }
 
         /// <summary>
