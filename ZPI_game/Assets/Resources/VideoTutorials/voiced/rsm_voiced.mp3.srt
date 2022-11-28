@@ -1,0 +1,23 @@
+1
+00:00:00,560 --> 00:00:02,930
+Introduction video for the reverse sequence
+mutation.
+
+2
+00:00:04,880 --> 00:00:09,860
+We start with the child's genotype and two
+parameters first index and segment length.
+
+3
+00:00:10,130 --> 00:00:14,210
+Then we proceed to reverse order of values
+in the selected segment.
+
+4
+00:00:30,160 --> 00:00:34,480
+After we reversed all the values from the
+segment, we rewrite the missing indexes.
+
+5
+00:00:45,470 --> 00:00:48,020
+The result is a finished child genotype.
