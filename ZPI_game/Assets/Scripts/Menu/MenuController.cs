@@ -17,9 +17,11 @@ public class MenuController : MonoBehaviour
     public Text text;
 
     private bool rollInMenu = false;
-    // Start is called before the first frame update
+
+    private RectTransform _rectTransform;
     void Start()
     {
+        _rectTransform = GetComponent<RectTransform>();
         settingsMenu.SetActive(false);
         popupMenu.SetActive(true);
         expectedPosition = container.GetComponent<RectTransform>().localPosition;
