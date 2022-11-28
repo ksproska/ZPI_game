@@ -1,0 +1,3 @@
+This is the second part of implementing a genetic algorithm. You've already added the selector, now it's time to add the <b>crossover</b> operator.
+
+So, do you wanna get your gift right now? Hahaha, I'm joking! People don't deserve presents! Just finish the algorithm and be happy about how smart you are!

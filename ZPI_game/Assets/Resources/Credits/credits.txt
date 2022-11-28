@@ -8,26 +8,27 @@ Witold Frącek
 Jakub Jastrzębski
 
 <b>PROMOTER</b>
-dr hab. inż. Kazimierz Choroś
+Kazimierz Choroś
 
-<b>PROMOTER SUPPORT</b>
-dr inż. Bogumiła Hnatkowska
-dr inż. Adrainna Kozierkiewicz
-
+<b>STORY</b>
+Witold Frącek
+Maciej Futyma
 
 <b>GRAPHICS</b>
 Witold Frącek
 Maciej Futyma
-
-<b>THE EXPERIENCE</b>
-Jakub Jastrzębksi
-
-<b>EMOTIONAL SUPPORT</b>
 Kamila Sproska
-The magic of friendship
+Pixabay
+Icons8
 
-<b>EMOTIONAL DAMAGE</b>
-PWR
+<b>VOICE OVERS</b>
+Kamila Sproska
+Maciej Futyma
+Witold Frącek
+Jakub Jastrzębski
 
-<b>SPECIAL THANKS</b>
-Supportive <s>friends</s> people
+<b>MUSIC</b>
+Pixabay
+
+<b>BACKEND</b>
+Jakub Jastrzębski

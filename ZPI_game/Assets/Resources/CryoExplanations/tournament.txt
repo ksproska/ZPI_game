@@ -1,0 +1,4 @@
+Hey, it's me again!
+This level belongs to one of the two possible paths to choose from. You <b>don't</b> need to complete the second path for the algorithm to work.
+
+This introduction video was really... pre-atomic, for sure... Well, the most important thing is that you now have an idea on how does the tournament selector work. Good luck implementing that!

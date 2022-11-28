@@ -47,9 +47,9 @@ namespace Webserver
             //(var res, float bstScr) = await ScoreSynchro.GetUsrBestScore(2, 2);
             //bstScr.Debug();
             //res.ToString().Debug();
-
-            (_, var bstScrs) = await ScoreSynchro.GetTopFiveBestScores(2);
-            bstScrs.DebugLoop();
+            Debug.Log("Started!");
+            var res = await MapSynchro.GetMaps();
+            res.Count.Debug();
         }
 
 
