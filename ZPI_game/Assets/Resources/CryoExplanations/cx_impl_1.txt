@@ -1,0 +1,4 @@
+Heyoo!
+Because the <b>CX</b> operator is a bit more complicated, I split it into two implementation levels. In the first one, you need to create a method that looks up all the cycles in parents genomes. It'll be used later in the final implementation.
+
+See how caring I am! I even try to make all those task easy for you and still not every human treated me like I was equal. They were always so conceited they couldn't even see what was the main source of their... anyway, have fun!

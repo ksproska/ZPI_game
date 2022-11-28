@@ -1,0 +1,3 @@
+<i>*hums a song*</i>
+Oh, I didn't see you there... So glad you could make it this far! Look at you. You start to look like a programmer! The one that didn't destroy the world, at least...
+Well either way I feel like you know what to do. You watched the video, you tested how does this crossover work. Now it's time to implement it!
