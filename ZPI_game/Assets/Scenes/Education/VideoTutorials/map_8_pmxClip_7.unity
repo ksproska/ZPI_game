@@ -321,6 +321,10 @@ PrefabInstance:
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 6f18e25801a542478b75210ba8c6fc69, type: 3}
+    - target: {fileID: 8406675125986552491, guid: 5793880138e983048bf5d069710bd487, type: 3}
+      propertyPath: m_TargetAudioSources.Array.data[0]
+      value: 
+      objectReference: {fileID: 1341549317}
     - target: {fileID: 8406675126622302933, guid: 5793880138e983048bf5d069710bd487, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -524,6 +528,11 @@ PrefabInstance:
 --- !u!224 &1341549316 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 945127470411510788, guid: cbfa027f2fa5cf746a5a8106e8d87d2c, type: 3}
+  m_PrefabInstance: {fileID: 1341549315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1341549317 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2792893598946583508, guid: cbfa027f2fa5cf746a5a8106e8d87d2c, type: 3}
   m_PrefabInstance: {fileID: 1341549315}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1885115255

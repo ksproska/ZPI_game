@@ -514,6 +514,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 945127470411510788, guid: cbfa027f2fa5cf746a5a8106e8d87d2c, type: 3}
   m_PrefabInstance: {fileID: 1067368385}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1067368387 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2792893598946583508, guid: cbfa027f2fa5cf746a5a8106e8d87d2c, type: 3}
+  m_PrefabInstance: {fileID: 1067368385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1176594440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -650,6 +655,10 @@ PrefabInstance:
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 1ed518268ad2289b7a5c7b92b62c3b06, type: 3}
+    - target: {fileID: 8406675125986552491, guid: 5793880138e983048bf5d069710bd487, type: 3}
+      propertyPath: m_TargetAudioSources.Array.data[0]
+      value: 
+      objectReference: {fileID: 1067368387}
     - target: {fileID: 8406675126622302933, guid: 5793880138e983048bf5d069710bd487, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
