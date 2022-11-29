@@ -1772,6 +1772,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: fader
       objectReference: {fileID: 0}
+    - target: {fileID: 6235930773461463206, guid: ea45a87d65244974e8e0979300eae49d, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 1351157171}
+    - target: {fileID: 6235930773461463206, guid: ea45a87d65244974e8e0979300eae49d, type: 3}
+      propertyPath: fadeSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235930773461463206, guid: ea45a87d65244974e8e0979300eae49d, type: 3}
+      propertyPath: fadeOutMusic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6235930773461463207, guid: ea45a87d65244974e8e0979300eae49d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4708,7 +4720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6512430946249631238, guid: 322b2703a201e414aab2c27055de8170, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6512430946249631238, guid: 322b2703a201e414aab2c27055de8170, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5871,6 +5883,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5083918204745743682, guid: e0af2d65a5a6c18469e01ffd20b07c68, type: 3}
   m_PrefabInstance: {fileID: 1336538790}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1351157171 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6446672147554789076, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
+  m_PrefabInstance: {fileID: 1455896595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1374894074
 GameObject:
   m_ObjectHideFlags: 0
@@ -6581,6 +6598,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 37
       objectReference: {fileID: 0}
+    - target: {fileID: 6446672147554789076, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6530551d494ede54e878d5d372db1a24, type: 3}
     - target: {fileID: 6769855304772750251, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6597,6 +6618,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8105974994125493403, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
+      propertyPath: effectAudioSource
+      value: 
+      objectReference: {fileID: 1196359754}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dc16218a7b276f41b6d6c33d07924b9, type: 3}
 --- !u!1 &1469293080
