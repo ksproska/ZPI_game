@@ -29,7 +29,7 @@ public class RunGa : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
-        _updateDeltaTime = speed;
+        _updateDeltaTime = 1 - speed;
     }
     
     void Start()
