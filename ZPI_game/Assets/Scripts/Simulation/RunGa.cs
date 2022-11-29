@@ -13,10 +13,12 @@ public class RunGa : MonoBehaviour
 {
     [SerializeField] private InputField generationSize;
     [SerializeField] private Dropdown selection, crossover, mutation;
-    [SerializeField] private Slider crossoverProbability, mutationProbability;
+    [SerializeField] private Slider crossoverProbability, mutationProbability, genSizeSlider;
     [SerializeField] Text currentDetails;
     [SerializeField] Text history;
     [SerializeField] private DrawGraph _graph;
+    [SerializeField] private GameObject citiesContainer;
+    [SerializeField] private City mockup;
     
     private List<City> _allCities;
 
@@ -34,6 +36,7 @@ public class RunGa : MonoBehaviour
     
     void Start()
     {
+        LoadSavedSandboxState();
         // Filter all the selectors that have been completed by the player
         var allSelectors = TypeToNameMappers.GetSelectionDescriptionMapper()
             .Select(pair => (pair.Key, pair.Value))
@@ -121,6 +124,7 @@ public class RunGa : MonoBehaviour
         {
             _graph.RemoveAllPoints();
             var newCities = CityHandler.GetAllCities();
+            if (newCities.Count < 3) return;
             if (newCities.Count != _allCities.Count)
             {
                 _graph.ClearBest();
@@ -129,6 +133,93 @@ public class RunGa : MonoBehaviour
             SetGa();
         }
         _isRunning = !_isRunning;
+    }
+
+    public void SaveMapState()
+    {
+        _allCities = CityHandler.GetAllCities();
+        var map = CityHandler.CitiesToMap(_allCities);
+        var slotNum = CurrentGameState.Instance.CurrentSlot;
+        var slot = LoadSaveHelper.Instance.GetSlot(slotNum);
+
+        var (selectionEnum, mutEnum, crossEnum) = MapDropdownState();
+
+        slot.Sandbox.Crosser = crossEnum;
+        slot.Sandbox.Mutator = mutEnum;
+        slot.Sandbox.Selector = selectionEnum;
+        slot.Sandbox.MutationProb = mutationProbability.value;
+        slot.Sandbox.CrossoverProbab = crossoverProbability.value;
+        slot.Sandbox.PopulationSize = int.Parse(generationSize.text);
+        slot.Sandbox.UserMap = map;
+        LoadSaveHelper.Instance.SaveGameState();
+    }
+
+    private (Selector, Mutator, Crosser) MapDropdownState()
+    {
+        Crosser crossEnum = TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text] switch
+        {
+            CrossoverType.Cycle => Crosser.CX,
+            CrossoverType.Order => Crosser.OX,
+            CrossoverType.PartiallyMatched => Crosser.PMX,
+        };
+
+        Mutator mutEnum = TypeToNameMappers.GetMutationDescriptionMapper()[mutation.options[mutation.value].text] switch
+        {
+            MutationType.RSM => Mutator.RSM,
+            MutationType.Thrors => Mutator.Thrors,
+        };
+
+        Selector selectionEnum = TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text] switch
+        {
+            SelectionType.Roulette => Selector.Roulette,
+            SelectionType.Tournament => Selector.Tournament,
+        };
+        return (selectionEnum, mutEnum, crossEnum);
+    }
+
+    private (SelectionType, MutationType, CrossoverType) MapToDropdownState(SavedSlotInfo slot)
+    {
+        SelectionType selectionType = slot.Sandbox.Selector switch
+        {
+            Selector.Roulette => SelectionType.Roulette,
+            Selector.Tournament => SelectionType.Tournament,
+        };
+        MutationType mutationType = slot.Sandbox.Mutator switch
+        {
+            Mutator.RSM => MutationType.RSM,
+            Mutator.Thrors => MutationType.Thrors,
+        };
+        CrossoverType crossoverType = slot.Sandbox.Crosser switch
+        {
+            Crosser.CX => CrossoverType.Cycle,
+            Crosser.OX => CrossoverType.Order,
+            Crosser.PMX => CrossoverType.PartiallyMatched,
+        };
+        return (selectionType, mutationType, crossoverType);
+    }
+
+    public void LoadSavedSandboxState()
+    {
+        var slotNum = CurrentGameState.Instance.CurrentSlot;
+        var slot = LoadSaveHelper.Instance.GetSlot(slotNum);
+        _allCities = CityHandler.MapToCity(slot.Sandbox.UserMap, citiesContainer, mockup);
+        var (sel, mut, cross) = MapToDropdownState(slot);
+
+        selection.value = (int)sel;
+        mutation.value = (int)mut;
+        crossover.value = (int)cross;
+
+        crossoverProbability.value = slot.Sandbox.CrossoverProbab;
+        mutationProbability.value = slot.Sandbox.MutationProb;
+        generationSize.text = slot.Sandbox.PopulationSize.ToString();
+        genSizeSlider.value = slot.Sandbox.PopulationSize;
+    }
+
+    public void ClearMap()
+    {
+        _allCities = CityHandler.GetAllCities();
+        _allCities.Count.Debug();
+        _allCities.ForEach(c => Destroy(c.gameObject));
     }
 }
 

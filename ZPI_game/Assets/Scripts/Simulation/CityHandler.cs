@@ -29,6 +29,8 @@ public class CityHandler : MonoBehaviour
             var pointTransform = city.GetComponent<RectTransform>();
             pointTransform.SetParent(parentRectTransform);
             pointTransform.anchoredPosition = new Vector3(x, y, 0);
+            pointTransform.anchorMax = new(0, 0);
+            pointTransform.anchorMin = new(0, 0);
             pointTransform.pivot = new Vector2(0.5f, 0.5f);
             ret.Add(city);
         }
