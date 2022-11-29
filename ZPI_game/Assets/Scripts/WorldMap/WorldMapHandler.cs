@@ -12,7 +12,6 @@ public class WorldMapHandler : MonoBehaviour
 
     System.Random rnd = new System.Random();
     private float prevTime;
-    private float glitchRandom;
     public Image map;
     public Sprite[] glithched;
     public AudioClip[] audioGlitches;
@@ -21,6 +20,8 @@ public class WorldMapHandler : MonoBehaviour
     [SerializeField] private AudioSource source;
     private int glitchLevel;
     private int timeDelay;
+    public GameObject mask;
+    public GameObject content;
 
     [SerializeField] private GameObject challengeButton;
     [SerializeField] private GameObject lastLevel;
@@ -28,9 +29,10 @@ public class WorldMapHandler : MonoBehaviour
     void Start()
     {
         var donelevels = LevelMap.Instance.GetListOfLevels(CurrentGameState.Instance.CurrentSlot).Where(level => level.IsFinished).ToList();
+        var maxlvl = donelevels.Max(level => level.LevelNumber);
         if(donelevels.Count != 0)
         {
-            glitchLevel = Math.Max(0, donelevels.Max(level => level.LevelNumber) - glitchBeginningLevel);
+            glitchLevel = Math.Max(0, maxlvl - glitchBeginningLevel);
         }
         prevTime = Time.time;
         source.volume = CurrentGameState.Instance.EffectsVolume;
@@ -43,12 +45,18 @@ public class WorldMapHandler : MonoBehaviour
         {
             challengeButton.SetActive(false);
         }
+        var maxpos = FindObjectsOfType<LvlButton>().Max(level => level.GetComponent<RectTransform>().anchoredPosition.y);
+        var minpos = FindObjectsOfType<LvlButton>().Min(level => level.GetComponent<RectTransform>().anchoredPosition.y);
+        var maxLevelPos = FindObjectsOfType<LvlButton>().Where(level => LevelUtils.LevelMap.Instance.IsLevelDone(level.name, CurrentGameState.Instance.CurrentSlot)).Max(level => level.GetComponent<RectTransform>().anchoredPosition.y);
+        //var lastDoneLevel = GameObject.Find(donelevels.Where(level => level.LevelNumber == donelevels.Max(level => level.LevelNumber)).First().LevelName);
+        var lastDoneLevel = FindObjectsOfType<LvlButton>().Where(level => Math.Abs(maxLevelPos - level.GetComponent<RectTransform>().anchoredPosition.y) < 0.01).First();
+        mask.GetComponent<ScrollRect>().verticalNormalizedPosition = (lastDoneLevel.GetComponent<RectTransform>().anchoredPosition.y - minpos)/(maxpos - minpos);
+        Debug.Log((lastDoneLevel.GetComponent<RectTransform>().anchoredPosition.y - minpos) / (maxpos - minpos));
     }
 
     // Update is called once per frame
     void Update()
     {
-        glitchRandom = UnityEngine.Random.Range(0.0f, 1.0f);
 
         if (glitchLevel > 0)
         {
@@ -60,6 +68,7 @@ public class WorldMapHandler : MonoBehaviour
             }
 
         }
+        Debug.Log(mask.transform.position);
     }
 
     IEnumerator glitch()
