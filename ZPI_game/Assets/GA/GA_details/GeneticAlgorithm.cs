@@ -121,12 +121,12 @@ namespace GA
                 var p2 = _selector.Get(_generation);
 
                 List<int> childGenotype = p1.Genotype;
-                if (_crossoverProbability < Random.NextDouble())
+                if (_crossoverProbability > Random.NextDouble())
                 {
                     childGenotype = _crosser.Get(p1.Genotype, p2.Genotype);
                 }
 
-                if (_mutationProbability < Random.NextDouble())
+                if (_mutationProbability > Random.NextDouble())
                 {
                     childGenotype = _mutator.Get(childGenotype);
                 }

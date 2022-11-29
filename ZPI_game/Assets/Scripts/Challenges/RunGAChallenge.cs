@@ -13,10 +13,10 @@ namespace Challenges
 {
     public class RunGAChallenge: MonoBehaviour
     {
-        [SerializeField] private InputField generationSize;
+        //[SerializeField] private InputField generationSize;
         [SerializeField] private Dropdown selection, crossover, mutation;
-        [SerializeField] private Slider crossoverProbability, mutationProbability;
-        [SerializeField] private Text crossoverLabel, mutationLabel;
+        [SerializeField] private Slider crossoverProbability, mutationProbability, generationSize;
+        [SerializeField] private Text crossoverLabel, mutationLabel, generationSizeLabel;
         [SerializeField] Text currentDetails;
         [SerializeField] Text history;
         [SerializeField] private DrawGraph _graph;
@@ -59,58 +59,67 @@ namespace Challenges
         
         void Start()
         {
-            // // Filter all the selectors that have been completed by the player
-            // var allSelectors = TypeToNameMappers.GetSelectionDescriptionMapper()
-            //     .Select(pair => (pair.Key, pair.Value))
-            //     .ToList();
-            // var selectorLevelNames = allSelectors
-            //     .Select(s => (s.Key, s.Value, RunGAOptionsFilter.SelectionLevelNames[s.Value]))
-            //     .ToList();
-            // var completedSelectors = selectorLevelNames
-            //     .Where(s => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(s.Item3), CurrentGameState.Instance.CurrentSlot))
-            //     .ToList();
-            // selection.AddOptions(completedSelectors.Select(tuple => tuple.Key).ToList());
+            // Filter all the selectors that have been completed by the player
+            var allSelectors = TypeToNameMappers.GetSelectionDescriptionMapper()
+                .Select(pair => (pair.Key, pair.Value))
+                .ToList();
+            var selectorLevelNames = allSelectors
+                .Select(s => (s.Key, s.Value, RunGAOptionsFilter.SelectionLevelNames[s.Value]))
+                .ToList();
+            var completedSelectors = selectorLevelNames
+                .Where(s => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(s.Item3), CurrentGameState.Instance.CurrentSlot))
+                .ToList();
+            selection.AddOptions(completedSelectors.Select(tuple => tuple.Key).ToList());
 
-            // // Filter all the crosseres that have been completed by the player
-            // var allCrossers = TypeToNameMappers.GetCrossoverDescriptionMapper()
-            //     .Select(pair => (pair.Key, pair.Value))
-            //     .ToList();
-            // var crossersLevelNames = allCrossers
-            //     .Select(c => (c.Key, c.Value, RunGAOptionsFilter.CrossoverLevelNames[c.Value]))
-            //     .ToList();
-            // var completedCrossers = crossersLevelNames
-            //     .Where(c => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(c.Item3), CurrentGameState.Instance.CurrentSlot))
-            //     .ToList();
-            // crossover.AddOptions(completedCrossers.Select(tuple => tuple.Key).ToList());
+            // Filter all the crosseres that have been completed by the player
+            var allCrossers = TypeToNameMappers.GetCrossoverDescriptionMapper()
+                .Select(pair => (pair.Key, pair.Value))
+                .ToList();
+            var crossersLevelNames = allCrossers
+                .Select(c => (c.Key, c.Value, RunGAOptionsFilter.CrossoverLevelNames[c.Value]))
+                .ToList();
+            var completedCrossers = crossersLevelNames
+                .Where(c => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(c.Item3), CurrentGameState.Instance.CurrentSlot))
+                .ToList();
+            crossover.AddOptions(completedCrossers.Select(tuple => tuple.Key).ToList());
 
-            // // Filter all the mutators that have been completed by the player
-            // var allMutators = TypeToNameMappers.GetMutationDescriptionMapper()
-            //     .Select(pair => (pair.Key, pair.Value))
-            //     .ToList();
-            // var mutatorsLevelNames = allMutators
-            //     .Select(m => (m.Key, m.Value, RunGAOptionsFilter.MutationLevelNames[m.Value]))
-            //     .ToList();
-            // var completedMutators = mutatorsLevelNames
-            //     .Where(m => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(m.Item3), CurrentGameState.Instance.CurrentSlot))
-            //     .ToList();
-            // mutation.AddOptions(completedMutators.Select(tuple => tuple.Key).ToList());
+            // Filter all the mutators that have been completed by the player
+            var allMutators = TypeToNameMappers.GetMutationDescriptionMapper()
+                .Select(pair => (pair.Key, pair.Value))
+                .ToList();
+            var mutatorsLevelNames = allMutators
+                .Select(m => (m.Key, m.Value, RunGAOptionsFilter.MutationLevelNames[m.Value]))
+                .ToList();
+            var completedMutators = mutatorsLevelNames
+                .Where(m => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(m.Item3), CurrentGameState.Instance.CurrentSlot))
+                .ToList();
+            mutation.AddOptions(completedMutators.Select(tuple => tuple.Key).ToList());
 
             var slotInfo = LoadSaveHelper.Instance.GetSlot(CurrentGameState.Instance.CurrentSlot);
             bestAllTime = slotInfo.BestScores[CurrentGameState.Instance.CurrentMapId];
             if (bestAllTime == -1) bestAllTime = int.MaxValue;
-            
-            selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
-            crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
-            mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
-            
+
+            //selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+            //crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+            //mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+            generationSize.value = 10;
             mapImage.sprite = Resources.Load<Sprite>($"Challenges/challenge{CurrentGameState.Instance.CurrentMapId}");
             crossoverLabel.text = $"Crossover probability: {crossoverProbability.value * 100:0.00}%";
             mutationLabel.text = $"Mutation probability: {mutationProbability.value * 100:0.00}%";
+            generationSizeLabel.text = $"Generation size: {generationSize.value}";
             SetGa();
         }
 
         private void SetGa()
         {
+            // For debug purpouse
+            if(selection.options.Count == 0)
+                selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+            if (mutation.options.Count == 0)
+                mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+            if (crossover.options.Count == 0)
+                crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+
             _allCities = CityHandler.GetAllCities();
             var selectionType = TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text];
             var crossoverType = TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text];
@@ -118,7 +127,7 @@ namespace Challenges
 
             _ga = GeneticAlgorithmProxy.Get(
                 CityCalculations.GetDistances(_allCities),
-                Int32.Parse(generationSize.text),
+                (int)generationSize.value,
                 mutationType,
                 mutationProbability.value,
                 crossoverType,
@@ -205,6 +214,11 @@ namespace Challenges
         public void SetupMutationProbability(float value)
         {
             mutationLabel.text = $"Mutation probability: {value * 100:0.00}%";
+        }
+
+        public void SetupGenerationSizeLabel(float value)
+        {
+            generationSizeLabel.text = $"Generation size: {(int)value}";
         }
     }
 }
