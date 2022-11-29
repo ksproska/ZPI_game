@@ -92,7 +92,7 @@ public class ChallengeInfoFrame : MonoBehaviour
         topList
             .Select((value, index) => (index, value))
             .ToList()
-            .ForEach(elem => ret += $"{elem.index + 1}. {elem.value.Item1}\n");
+            .ForEach(elem => ret += $"{elem.index + 1}. {elem.value.Item1}:  {elem.value.Item2:0.00}\n");
         return ret;
     }
 
