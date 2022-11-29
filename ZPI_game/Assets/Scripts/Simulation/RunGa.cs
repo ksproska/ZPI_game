@@ -36,7 +36,6 @@ public class RunGa : MonoBehaviour
     
     void Start()
     {
-        LoadSavedSandboxState();
         // Filter all the selectors that have been completed by the player
         var allSelectors = TypeToNameMappers.GetSelectionDescriptionMapper()
             .Select(pair => (pair.Key, pair.Value))
@@ -76,7 +75,7 @@ public class RunGa : MonoBehaviour
         //selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
         //crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
         //mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
-        
+        LoadSavedSandboxState();
         SetGa();
     }
 
@@ -202,6 +201,11 @@ public class RunGa : MonoBehaviour
     {
         var slotNum = CurrentGameState.Instance.CurrentSlot;
         var slot = LoadSaveHelper.Instance.GetSlot(slotNum);
+        if(slot.Sandbox.UserMap == null)
+        {
+            InstantiateDummyCities();
+            return;
+        }
         _allCities = CityHandler.MapToCity(slot.Sandbox.UserMap, citiesContainer, mockup);
         var (sel, mut, cross) = MapToDropdownState(slot);
 
@@ -213,6 +217,23 @@ public class RunGa : MonoBehaviour
         mutationProbability.value = slot.Sandbox.MutationProb;
         generationSize.text = slot.Sandbox.PopulationSize.ToString();
         genSizeSlider.value = slot.Sandbox.PopulationSize;
+    }
+
+    private void InstantiateDummyCities()
+    {
+        var coords = new List<(int, int)> { (195, 205),  (159, 112), (159, 432), (273, 121) };
+        var parentRectTransform = citiesContainer.gameObject.GetComponent<RectTransform>();
+        foreach (var (x, y) in coords)
+        {
+            var city = Instantiate(mockup, citiesContainer.transform);
+            var pointTransform = city.GetComponent<RectTransform>();
+            pointTransform.SetParent(parentRectTransform);
+            pointTransform.anchoredPosition = new Vector3(x, y, 0);
+            pointTransform.anchorMax = new(0, 0);
+            pointTransform.anchorMin = new(0, 0);
+            pointTransform.pivot = new Vector2(0.5f, 0.5f);
+        }
+        
     }
 
     public void ClearMap()
