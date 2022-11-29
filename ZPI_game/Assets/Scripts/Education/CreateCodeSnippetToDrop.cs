@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DeveloperUtils;
 using UnityEngine;
+using Random = System.Random;
 
 public class CreateCodeSnippetToDrop : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class CreateCodeSnippetToDrop : MonoBehaviour
         {
             pixelDistance = 90;
         }
+
+        contents = contents.OrderBy(e => new Random().NextDouble()).ToList();
         
         for (int i = 0; i < contents.Count; i++)
         {
