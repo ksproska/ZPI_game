@@ -132,7 +132,6 @@ namespace LevelUtils
         public List<string> GetPrevGameObjectNames(string gameObjectName, LoadSaveHelper.SlotNum slotNum)
         {
             SynchronizeSlotNumber(slotNum);
-            Debug.Log(gameObjectName);
             List<LevelButtonInfo> prevLevels = ListOfLevels.Where(lvl => lvl.GameObjectName == gameObjectName).First().PrevLevels;
             if (prevLevels == null)
             {
