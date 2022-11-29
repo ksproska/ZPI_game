@@ -46,6 +46,8 @@ public class CryoUI : MonoBehaviour
                 return eyeTypes[5];
             case EyeType.Closed:
                 return eyeTypes[6];
+            case EyeType.Loading:
+                return eyeTypes[7];
             default:
                 return null;
         }
@@ -64,6 +66,8 @@ public class CryoUI : MonoBehaviour
             case MouthType.Smile:
             case MouthType.Sad:
                 return mouthTypes[3];
+            case MouthType.Line:
+                return mouthTypes[4];
             default:
                 return null;
         }

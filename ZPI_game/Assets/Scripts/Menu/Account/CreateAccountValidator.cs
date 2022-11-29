@@ -54,6 +54,8 @@ namespace Assets.Scripts.Menu.Account
                 StartCoroutine(SetCryoToNormal());
                 return;
             }
+            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Loading);
+            cryo.SetMouthType(Cryo.Script.MouthType.Line);
             var menuActives = new List<IMenuActive>(GetComponentsInChildren<IMenuActive>());
             menuActives.ForEach(m => m.SetEnabled(false));
 
@@ -99,12 +101,18 @@ namespace Assets.Scripts.Menu.Account
         private void OnDataProcessingError()
         {
             accountCreatedText.text = "Bad user";
+            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Sad);
+            cryo.SetMouthType(Cryo.Script.MouthType.Confused);
+            StartCoroutine(SetCryoToNormal());
         }
 
 
         private void OnProtocolError()
         {
             accountCreatedText.text = "Bad user";
+            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Sad);
+            cryo.SetMouthType(Cryo.Script.MouthType.Confused);
+            StartCoroutine(SetCryoToNormal());
         }
 
         public bool IsEmailLoccalyValid()
