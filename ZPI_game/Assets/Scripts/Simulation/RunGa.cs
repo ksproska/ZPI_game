@@ -29,50 +29,50 @@ public class RunGa : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
-        _updateDeltaTime = speed;
+        _updateDeltaTime = 1 - speed;
     }
     
     void Start()
     {
-        // // Filter all the selectors that have been completed by the player
-        // var allSelectors = TypeToNameMappers.GetSelectionDescriptionMapper()
-        //     .Select(pair => (pair.Key, pair.Value))
-        //     .ToList();
-        // var selectorLevelNames = allSelectors
-        //     .Select(s => (s.Key, s.Value, RunGAOptionsFilter.SelectionLevelNames[s.Value]))
-        //     .ToList();
-        // var completedSelectors = selectorLevelNames
-        //     .Where(s => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(s.Item3), CurrentGameState.Instance.CurrentSlot))
-        //     .ToList();
-        // selection.AddOptions(completedSelectors.Select(tuple => tuple.Key).ToList());
-        
-        // // Filter all the crosseres that have been completed by the player
-        // var allCrossers = TypeToNameMappers.GetCrossoverDescriptionMapper()
-        //     .Select(pair => (pair.Key, pair.Value))
-        //     .ToList();
-        // var crossersLevelNames = allCrossers
-        //     .Select(c => (c.Key, c.Value, RunGAOptionsFilter.CrossoverLevelNames[c.Value]))
-        //     .ToList();
-        // var completedCrossers = crossersLevelNames
-        //     .Where(c => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(c.Item3), CurrentGameState.Instance.CurrentSlot))
-        //     .ToList();
-        // crossover.AddOptions(completedCrossers.Select(tuple => tuple.Key).ToList());
-        
-        // // Filter all the mutators that have been completed by the player
-        // var allMutators = TypeToNameMappers.GetMutationDescriptionMapper()
-        //     .Select(pair => (pair.Key, pair.Value))
-        //     .ToList();
-        // var mutatorsLevelNames = allMutators
-        //     .Select(m => (m.Key, m.Value, RunGAOptionsFilter.MutationLevelNames[m.Value]))
-        //     .ToList();
-        // var completedMutators = mutatorsLevelNames
-        //     .Where(m => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(m.Item3), CurrentGameState.Instance.CurrentSlot))
-        //     .ToList();
-        // mutation.AddOptions(completedMutators.Select(tuple => tuple.Key).ToList());
-        
-        selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
-        crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
-        mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+        // Filter all the selectors that have been completed by the player
+        var allSelectors = TypeToNameMappers.GetSelectionDescriptionMapper()
+            .Select(pair => (pair.Key, pair.Value))
+            .ToList();
+        var selectorLevelNames = allSelectors
+            .Select(s => (s.Key, s.Value, RunGAOptionsFilter.SelectionLevelNames[s.Value]))
+            .ToList();
+        var completedSelectors = selectorLevelNames
+            .Where(s => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(s.Item3), CurrentGameState.Instance.CurrentSlot))
+            .ToList();
+        selection.AddOptions(completedSelectors.Select(tuple => tuple.Key).ToList());
+
+        // Filter all the crosseres that have been completed by the player
+        var allCrossers = TypeToNameMappers.GetCrossoverDescriptionMapper()
+            .Select(pair => (pair.Key, pair.Value))
+            .ToList();
+        var crossersLevelNames = allCrossers
+            .Select(c => (c.Key, c.Value, RunGAOptionsFilter.CrossoverLevelNames[c.Value]))
+            .ToList();
+        var completedCrossers = crossersLevelNames
+            .Where(c => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(c.Item3), CurrentGameState.Instance.CurrentSlot))
+            .ToList();
+        crossover.AddOptions(completedCrossers.Select(tuple => tuple.Key).ToList());
+
+        // Filter all the mutators that have been completed by the player
+        var allMutators = TypeToNameMappers.GetMutationDescriptionMapper()
+            .Select(pair => (pair.Key, pair.Value))
+            .ToList();
+        var mutatorsLevelNames = allMutators
+            .Select(m => (m.Key, m.Value, RunGAOptionsFilter.MutationLevelNames[m.Value]))
+            .ToList();
+        var completedMutators = mutatorsLevelNames
+            .Where(m => LevelMap.Instance.IsLevelDone(LevelMap.GetClearMapName(m.Item3), CurrentGameState.Instance.CurrentSlot))
+            .ToList();
+        mutation.AddOptions(completedMutators.Select(tuple => tuple.Key).ToList());
+
+        //selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+        //crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+        //mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
         
         SetGa();
     }

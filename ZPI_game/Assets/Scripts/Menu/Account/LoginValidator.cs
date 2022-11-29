@@ -45,8 +45,8 @@ namespace Assets.Scripts.Menu.Account
             var login = loginText.text.Trim();
             var password = passwordText.text.Trim();
             User user = new(login, password);
-            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Wink);
-            cryo.SetMouthType(Cryo.Script.MouthType.Confused);
+            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Loading);
+            cryo.SetMouthType(Cryo.Script.MouthType.Line);
             var (unityResponse, serverString) = await Auth.AuthenticateUser(user);
             serverString.Debug();
             switch(unityResponse)

@@ -259,11 +259,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7bcbe646f48b3f54f90591aff659d3f6, type: 3}
   - {fileID: 21300000, guid: 673ac022d9f8a734a97ba5ba158629d7, type: 3}
   - {fileID: 21300000, guid: 84c2889e294d17a41a5d64d9b425f6e0, type: 3}
+  - {fileID: 21300000, guid: 2c297b645c7123043b6f757bee528692, type: 3}
   mouthTypes:
   - {fileID: 21300000, guid: 1fbd34eb29335df4a8bd99ac8bd1af43, type: 3}
   - {fileID: 21300000, guid: d3167da7f011c944a84f936a58bbeede, type: 3}
   - {fileID: 21300000, guid: 5c5a952f9e6ef26418ae92f55ca26905, type: 3}
   - {fileID: 21300000, guid: 80c46d8eef87998428b1f933ffab4185, type: 3}
+  - {fileID: 21300000, guid: f0caf54246030a9469bf04dd8108189f, type: 3}
 --- !u!1 &6601383963389727207
 GameObject:
   m_ObjectHideFlags: 0

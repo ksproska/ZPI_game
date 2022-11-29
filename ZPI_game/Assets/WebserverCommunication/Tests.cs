@@ -46,10 +46,9 @@ namespace Webserver
 
             //(var res, float bstScr) = await ScoreSynchro.GetUsrBestScore(2, 2);
             //bstScr.Debug();
-            //res.ToString().Debug();
-            Debug.Log("Started!");
-            var res = await MapSynchro.GetMaps();
-            res.Count.Debug();
+            //res.ToString().Debug()
+            //var res = await MapSynchro.CreateNewMap(new Map(new List<Point>() { new Point(136.3f, 160.2f), new Point(117.5f, 185.5f), new Point(102.1f, 223.4f), new Point(102.1f, 223.4f) }));
+            //res.Debug();
         }
 
 

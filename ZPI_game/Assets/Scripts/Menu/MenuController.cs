@@ -31,7 +31,10 @@ public class MenuController : MonoBehaviour
         if(CurrentGameState.Instance.CurrentLevelName != "WorldMap")
         {
             Debug.Log(CurrentGameState.Instance.CurrentLevelName);
-            text.text = LevelMap.GetClearMapName(CurrentGameState.Instance.CurrentLevelName);
+            var lvlName = CurrentGameState.Instance.CurrentLevelName;
+            if (LevelMap.IsNavigableFromMap(lvlName))
+                lvlName = LevelMap.GetClearMapName(lvlName);
+            text.text = lvlName;
         }
         else
         {

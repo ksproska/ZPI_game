@@ -49,6 +49,7 @@ namespace Assets.Cryo.Script
         Happy,
         Sad,
         Closed,
+        Loading,
     }
 
     public enum MouthType
@@ -58,6 +59,7 @@ namespace Assets.Cryo.Script
         Crying,
         Smile,
         Sad,
+        Line,
     }
 
     public class MouthTypeHandler

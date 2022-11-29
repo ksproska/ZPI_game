@@ -8,7 +8,7 @@ public class SlidingComponent : MonoBehaviour
     [SerializeField] private RectTransform rectTransform;
     [NonSerialized] private Vector2 targetPosition;
 
-    private float slideSpeed = 20;
+    private float slideSpeed = 60;
     private float screenOffset = 1_000;
 
     private void Awake()
