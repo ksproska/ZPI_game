@@ -34,22 +34,42 @@ namespace LevelUtils
             loadSaveHelper.LoadTestConfiguration();
             loadSaveHelper.EraseAllSlots();
         }
-        private bool AreSavedSlotsEqual(SavedSlotInfo slt1, SavedSlotInfo slt2)
+        private bool AreMapsEqual(Map map1, Map map2)
         {
-            if(slt1.Sandbox.UserMap.MapId != slt2.Sandbox.UserMap.MapId || slt1.Sandbox.UserMap.CreatorId != slt2.Sandbox.UserMap.CreatorId || slt1.Sandbox.UserMap.CreationDate != slt2.Sandbox.UserMap.CreationDate)
+            if(map1 == null && map2 == null)
+            {
+                return true;
+            }
+            else if(map1 == null && map2 != null || map1 != null && map2 == null)
             {
                 return false;
             }
-
-            if (slt1.Sandbox.UserMap.Points.Count != slt2.Sandbox.UserMap.Points.Count)
+            if(!(map1.MapId == map2.MapId && map1.CreatorId == map2.CreatorId && map1.CreationDate == map2.CreationDate))
             {
-                for (int inx = 0; inx < slt1.Sandbox.UserMap.Points.Count; inx++)
+                return false;
+            }
+            if (map1.Points.Count == map2.Points.Count)
+            {
+                for (int inx = 0; inx < map1.Points.Count; inx++)
                 {
-                    if(Math.Abs(slt1.Sandbox.UserMap.Points[inx].X - slt2.Sandbox.UserMap.Points[inx].X) > 0.0000000001f || Math.Abs(slt1.Sandbox.UserMap.Points[inx].Y - slt2.Sandbox.UserMap.Points[inx].Y) > 0.0000000001f)
+                    if (Math.Abs(map1.Points[inx].X - map2.Points[inx].X) > 0.0000000001f || Math.Abs(map2.Points[inx].Y - map2.Points[inx].Y) > 0.0000000001f)
                     {
                         return false;
                     }
                 }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool AreSavedSlotsEqual(SavedSlotInfo slt1, SavedSlotInfo slt2)
+        {
+            
+            if(!AreMapsEqual(slt1.Sandbox.UserMap, slt2.Sandbox.UserMap))
+            {
+                return false;
             }
 
             bool sandboxesEqual = slt1.Sandbox.Crosser == slt2.Sandbox.Crosser && slt1.Sandbox.Mutator == slt2.Sandbox.Mutator &&
