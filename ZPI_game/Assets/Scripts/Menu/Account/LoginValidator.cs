@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Webserver;
 
@@ -24,18 +25,57 @@ namespace Assets.Scripts.Menu.Account
         [SerializeField] private ConnectionErrorBox errorInfoFrame;
 
         [SerializeField] private CryoUI cryo;
+        private EventSystem system;
+        private GameObject currentSelection;
 
+        private void Awake()
+        {
+            system = EventSystem.current;
+        }
 
         private void Start()
         {
             loginValidationText.text = "";
             passwordValidationText.text = "";
             errorInfoFrame.gameObject.SetActive(false);
+            system.SetSelectedGameObject(loginText.gameObject);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                if (currentSelection != loginText.gameObject && currentSelection != passwordText.gameObject)
+                {
+                    var obj = loginText.gameObject;
+                    currentSelection = obj;
+                    system.SetSelectedGameObject(obj);
+                }
+                SwapTextField();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SendData();
+            }
+        }
+
+        private void OnEnable()
+        {
+            system.SetSelectedGameObject(loginText.gameObject);
+            currentSelection = loginText.gameObject;
         }
 
         private void OnDisable()
         {
             errorInfoFrame.gameObject.SetActive(false);
+        }
+
+        private void SwapTextField()
+        {
+            var obj = currentSelection == loginText.gameObject ? passwordText.gameObject : loginText.gameObject;
+            currentSelection = obj;
+            system.SetSelectedGameObject(obj);
         }
 
         public async void SendData()

@@ -160,18 +160,21 @@ public class RunGa : MonoBehaviour
             CrossoverType.Cycle => Crosser.CX,
             CrossoverType.Order => Crosser.OX,
             CrossoverType.PartiallyMatched => Crosser.PMX,
+            _ => Crosser.OX,
         };
 
         Mutator mutEnum = TypeToNameMappers.GetMutationDescriptionMapper()[mutation.options[mutation.value].text] switch
         {
             MutationType.RSM => Mutator.RSM,
             MutationType.Thrors => Mutator.Thrors,
+            _ => Mutator.RSM,
         };
 
         Selector selectionEnum = TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text] switch
         {
             SelectionType.Roulette => Selector.Roulette,
             SelectionType.Tournament => Selector.Tournament,
+            _ => Selector.Roulette,
         };
         return (selectionEnum, mutEnum, crossEnum);
     }
@@ -182,17 +185,20 @@ public class RunGa : MonoBehaviour
         {
             Selector.Roulette => SelectionType.Roulette,
             Selector.Tournament => SelectionType.Tournament,
+            _ => SelectionType.Roulette
         };
         MutationType mutationType = slot.Sandbox.Mutator switch
         {
             Mutator.RSM => MutationType.RSM,
             Mutator.Thrors => MutationType.Thrors,
+            _ => MutationType.RSM,
         };
         CrossoverType crossoverType = slot.Sandbox.Crosser switch
         {
             Crosser.CX => CrossoverType.Cycle,
             Crosser.OX => CrossoverType.Order,
             Crosser.PMX => CrossoverType.PartiallyMatched,
+            _ => CrossoverType.Order,
         };
         return (selectionType, mutationType, crossoverType);
     }

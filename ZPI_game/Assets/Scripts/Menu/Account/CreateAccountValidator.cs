@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Webserver;
 
@@ -31,7 +32,18 @@ namespace Assets.Scripts.Menu.Account
         [SerializeField] private CryoUI cryo;
 
         private Regex emailRegex;
+        private List<GameObject> menuSelected;
+        private EventSystem system;
+        private int currentIndex = 0;
 
+        private void Awake()
+        {
+            system = EventSystem.current;
+            menuSelected = new List<TMP_InputField>
+            {
+                nameText, loginText, passwordText, confirmPasswordText
+            }.Select(tmp => tmp.gameObject).ToList();
+        }
 
         private void Start()
         {
@@ -40,6 +52,43 @@ namespace Assets.Scripts.Menu.Account
             loginValidationText.text = "";
             passwordValidationText.text = "";
             accountCreatedText.text = "";
+            
+            system.SetSelectedGameObject(menuSelected[0]);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                if (!menuSelected.Contains(system.currentSelectedGameObject))
+                {
+                    system.SetSelectedGameObject(menuSelected[0]);
+                    currentIndex = 0;
+                }
+                MoveToNextMenuItem();
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SendData();
+            }
+        }
+
+        private void OnEnable()
+        {
+            system.SetSelectedGameObject(menuSelected[currentIndex]);
+        }
+
+        private void MoveToNextMenuItem()
+        {
+            currentIndex = (currentIndex + 1) % menuSelected.Count;
+            system.SetSelectedGameObject(menuSelected[currentIndex]);
+        }
+
+        private void MoveToPreviousMenuItem()
+        {
+            if (currentIndex == 0) return;
+            currentIndex -= 1;
+            system.SetSelectedGameObject(menuSelected[currentIndex]);
         }
 
         public async void SendData()

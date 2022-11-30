@@ -750,7 +750,8 @@ MonoBehaviour:
   effectsToggle: {fileID: 1456646493}
   musicVolumeText: {fileID: 1699849431}
   effectsVolumeText: {fileID: 475259298}
-  source: {fileID: 1385618450}
+  musicAudioSource: {fileID: 0}
+  effectAudioSource: {fileID: 0}
 --- !u!1 &264402847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,7 +3211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20.799988
+      value: -20.800049
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4147,11 +4148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 386.89484
+      value: 386.89478
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20.800003
+      value: -20.800049
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6613,7 +6614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20.8
+      value: -20.800049
       objectReference: {fileID: 0}
     - target: {fileID: 371946129119074681, guid: 79b6ecbbc4f57b64aa6415a774298253, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
