@@ -1790,6 +1790,7 @@ GameObject:
   - component: {fileID: 1504640894642513945}
   - component: {fileID: 1504640894642513942}
   - component: {fileID: 7733160891415034912}
+  - component: {fileID: 4856760512343020782}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -1932,6 +1933,23 @@ MonoBehaviour:
   baseImage: {fileID: 40079801606047405}
   secondaryImage: {fileID: 489854150338080016}
   buttonText: {fileID: 5221066837539939910}
+--- !u!114 &4856760512343020782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504640894642513940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596967061e37c214ebdc58cda745b273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cryo: {fileID: 1781107066709186152}
+  eyesNormalState: 0
+  eyesTriggeredState: 5
+  mouthNormalState: 3
+  mouthTriggeredState: 3
 --- !u!1 &1599695660586827281
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,6 +3922,7 @@ GameObject:
   - component: {fileID: 4118170665166128729}
   - component: {fileID: 4118170665166128726}
   - component: {fileID: 5086415928424682080}
+  - component: {fileID: 8955047913990639964}
   m_Layer: 5
   m_Name: ExitToDesktop
   m_TagString: Untagged
@@ -4046,6 +4065,23 @@ MonoBehaviour:
   baseImage: {fileID: 3263215079436167405}
   secondaryImage: {fileID: 3101695141870486352}
   buttonText: {fileID: 7328434308572235782}
+--- !u!114 &8955047913990639964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118170665166128724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596967061e37c214ebdc58cda745b273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cryo: {fileID: 1781107066709186152}
+  eyesNormalState: 0
+  eyesTriggeredState: 3
+  mouthNormalState: 3
+  mouthTriggeredState: 0
 --- !u!1 &4278874190738268574
 GameObject:
   m_ObjectHideFlags: 0
@@ -6019,6 +6055,7 @@ GameObject:
   - component: {fileID: 5926853970562804467}
   - component: {fileID: 5926853970562804476}
   - component: {fileID: 3310234206387273418}
+  - component: {fileID: 6855600614406286318}
   m_Layer: 5
   m_Name: ReturnToMap
   m_TagString: Untagged
@@ -6161,6 +6198,23 @@ MonoBehaviour:
   baseImage: {fileID: 5057402731645797447}
   secondaryImage: {fileID: 4642555228922966010}
   buttonText: {fileID: 1068778093261415596}
+--- !u!114 &6855600614406286318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926853970562804478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596967061e37c214ebdc58cda745b273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cryo: {fileID: 1781107066709186152}
+  eyesNormalState: 0
+  eyesTriggeredState: 1
+  mouthNormalState: 3
+  mouthTriggeredState: 1
 --- !u!1 &6121729661861371762
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,6 +6916,7 @@ GameObject:
   - component: {fileID: 7672960530382579454}
   - component: {fileID: 7672960530382579441}
   - component: {fileID: 1570611416908886727}
+  - component: {fileID: 6439578898232961986}
   m_Layer: 5
   m_Name: ReturnToStart
   m_TagString: Untagged
@@ -7004,6 +7059,23 @@ MonoBehaviour:
   baseImage: {fileID: 9084954822773246026}
   secondaryImage: {fileID: 8671142158261838839}
   buttonText: {fileID: 3958293230664640673}
+--- !u!114 &6439578898232961986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672960530382579443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596967061e37c214ebdc58cda745b273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cryo: {fileID: 0}
+  eyesNormalState: 0
+  eyesTriggeredState: 6
+  mouthNormalState: 3
+  mouthTriggeredState: 4
 --- !u!1 &7719883470590578838
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,6 +7127,7 @@ GameObject:
   - component: {fileID: 7878670870511745207}
   - component: {fileID: 7878670870511745208}
   - component: {fileID: 1361937951262305422}
+  - component: {fileID: 5629867214862954814}
   m_Layer: 5
   m_Name: back
   m_TagString: Untagged
@@ -7197,6 +7270,23 @@ MonoBehaviour:
   baseImage: {fileID: 8735087564933109251}
   secondaryImage: {fileID: 9186050501958335934}
   buttonText: {fileID: 3585941872448861928}
+--- !u!114 &5629867214862954814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7878670870511745210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596967061e37c214ebdc58cda745b273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cryo: {fileID: 1082351496122187395}
+  eyesNormalState: 0
+  eyesTriggeredState: 4
+  mouthNormalState: 3
+  mouthTriggeredState: 3
 --- !u!1 &7905422899044798693
 GameObject:
   m_ObjectHideFlags: 0

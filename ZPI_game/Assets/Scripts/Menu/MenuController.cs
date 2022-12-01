@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour
     public GameObject container;
     public GoToScene goToScene;
     public Text text;
+    [SerializeField] private GameObject mouth;
 
     private bool rollInMenu = false;
 
@@ -40,6 +41,8 @@ public class MenuController : MonoBehaviour
         {
             text.text = "WorldMap";
         }
+
+        mouth.SetActive(CurrentGameState.Instance.AreEffectsOn);
     }
 
     // Update is called once per frame
@@ -108,6 +111,11 @@ public class MenuController : MonoBehaviour
     private bool compareVector3(Vector3 vector3, Vector3 otherVector3)
     {
         return (Math.Abs(vector3[1] - otherVector3[1]) < 0.1f);
+    }
+
+    public void SwapMouthVisibility(bool isActive)
+    {
+        mouth.SetActive(isActive);
     }
 
     public void Quit()
