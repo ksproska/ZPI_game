@@ -81,6 +81,14 @@ public class RunGa : MonoBehaviour
 
     private void SetGa()
     {
+        // For debug purpouse
+        if (selection.options.Count == 0)
+            selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+        if (mutation.options.Count == 0)
+            mutation.AddOptions(TypeToNameMappers.GetMutationDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+        if (crossover.options.Count == 0)
+            crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
+
         _allCities = CityHandler.GetAllCities();
         var selectionType = TypeToNameMappers.GetSelectionDescriptionMapper()[selection.options[selection.value].text];
         var crossoverType = TypeToNameMappers.GetCrossoverDescriptionMapper()[crossover.options[crossover.value].text];
