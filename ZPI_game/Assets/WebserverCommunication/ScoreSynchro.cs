@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,9 +45,18 @@ namespace Webserver
             {
                 await Task.Yield();
             }
-            // wr.downloadHandler.data.ToList().Select(c => (char)c).ToList().DebugString();
             Encoding.UTF8.GetString(wr.downloadHandler.data).Debug();
-            float bestScore = wr.downloadHandler.data != null ? float.Parse(Encoding.UTF8.GetString(wr.downloadHandler.data), System.Globalization.CultureInfo.InvariantCulture) : -1;
+            float bestScore = -1;
+            if (wr.downloadHandler.data == null) return (wr.result, bestScore);
+            try
+            {
+                bestScore = float.Parse(Encoding.UTF8.GetString(wr.downloadHandler.data),
+                    System.Globalization.CultureInfo.InvariantCulture);
+            }
+            catch (FormatException e)
+            {
+                bestScore = -1;
+            }
             return (wr.result, bestScore);
         }
 
