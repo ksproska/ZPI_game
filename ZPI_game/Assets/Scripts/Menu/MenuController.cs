@@ -28,10 +28,8 @@ public class MenuController : MonoBehaviour
         expectedPosition = container.GetComponent<RectTransform>().localPosition;
         container.GetComponent<RectTransform>().localPosition += Vector3.up * container.GetComponent<RectTransform>().rect.height * container.GetComponent<RectTransform>().localScale.y;
         temporaryPosition = container.GetComponent<RectTransform>().localPosition;
-        Debug.Log(CurrentGameState.Instance.CurrentLevelName);
         if(CurrentGameState.Instance.CurrentLevelName != "WorldMap")
         {
-            Debug.Log(CurrentGameState.Instance.CurrentLevelName);
             var lvlName = CurrentGameState.Instance.CurrentLevelName;
             if (LevelMap.IsNavigableFromMap(lvlName))
                 lvlName = LevelMap.GetClearMapName(lvlName);

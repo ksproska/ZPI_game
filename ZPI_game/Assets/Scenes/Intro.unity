@@ -771,6 +771,8 @@ MonoBehaviour:
   time: 5
   goToScene: {fileID: 1324630425}
   audiosource: {fileID: 312365345}
+  title: {fileID: 1008686671}
+  timeToWait: 2
 --- !u!1 &1344201121
 GameObject:
   m_ObjectHideFlags: 0
