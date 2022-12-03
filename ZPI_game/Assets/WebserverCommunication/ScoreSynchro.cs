@@ -45,9 +45,16 @@ namespace Webserver
                 await Task.Yield();
             }
             // wr.downloadHandler.data.ToList().Select(c => (char)c).ToList().DebugString();
-            Encoding.UTF8.GetString(wr.downloadHandler.data).Debug();
-            float bestScore = wr.downloadHandler.data != null ? float.Parse(Encoding.UTF8.GetString(wr.downloadHandler.data), System.Globalization.CultureInfo.InvariantCulture) : -1;
-            return (wr.result, bestScore);
+
+            if (wr.result == UnityWebRequest.Result.Success)
+            {
+                float bestScore = wr.downloadHandler.data != null ? float.Parse(Encoding.UTF8.GetString(wr.downloadHandler.data), System.Globalization.CultureInfo.InvariantCulture) : -1;
+                return (wr.result, bestScore);
+            }
+            else
+            {
+                return (wr.result, -1f);
+            }
         }
 
         public static async Task<(UnityWebRequest.Result, List<(string, float)>)> GetTopFiveBestScores(int mapId)

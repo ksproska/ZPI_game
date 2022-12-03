@@ -24,29 +24,29 @@ namespace Webserver
             }
             return wr.result;
         }
-        public static async Task<List<int>> GetMapsId()
-        {
-            using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/map_ids", "GET");
-            wr.certificateHandler = new SslCertHandler();
-            wr.SetRequestHeader("Content-Type", "application/json");
-            wr.downloadHandler = new DownloadHandlerBuffer();
+        //public static async Task<List<int>> GetMapsId()
+        //{
+        //    using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/map_ids", "GET");
+        //    wr.certificateHandler = new SslCertHandler();
+        //    wr.SetRequestHeader("Content-Type", "application/json");
+        //    wr.downloadHandler = new DownloadHandlerBuffer();
 
-            var asyncOperation = wr.SendWebRequest();
+        //    var asyncOperation = wr.SendWebRequest();
 
-            while (!asyncOperation.isDone)
-            {
-                await Task.Yield();
-            }
-            if (wr.result == UnityWebRequest.Result.Success)
-            {
-                string jsonResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
-                return JsonSerializer.Deserialize<List<int>>(jsonResp);
-            }
-            else
-            {
-                return new List<int>();
-            }
-        }
+        //    while (!asyncOperation.isDone)
+        //    {
+        //        await Task.Yield();
+        //    }
+        //    if (wr.result == UnityWebRequest.Result.Success)
+        //    {
+        //        string jsonResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
+        //        return JsonSerializer.Deserialize<List<int>>(jsonResp);
+        //    }
+        //    else
+        //    {
+        //        return new List<int>();
+        //    }
+        //}
         public static async Task<List<Map>> GetMaps()
         {
             using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/maps", "GET");
@@ -91,29 +91,29 @@ namespace Webserver
                 return null;
             }
         }
-        public static async Task<List<Point>> GetMapsPoints(int mapId)
-        {
-            using UnityWebRequest wr = new UnityWebRequest($"https://zpi-project.westeurope.cloudapp.azure.com:5000/api/points/{mapId}", "GET");
-            wr.certificateHandler = new SslCertHandler();
-            wr.SetRequestHeader("Content-Type", "application/json");
-            wr.downloadHandler = new DownloadHandlerBuffer();
+        //public static async Task<List<Point>> GetMapsPoints(int mapId)
+        //{
+        //    using UnityWebRequest wr = new UnityWebRequest($"https://zpi-project.westeurope.cloudapp.azure.com:5000/api/points/{mapId}", "GET");
+        //    wr.certificateHandler = new SslCertHandler();
+        //    wr.SetRequestHeader("Content-Type", "application/json");
+        //    wr.downloadHandler = new DownloadHandlerBuffer();
 
-            var asyncOperation = wr.SendWebRequest();
+        //    var asyncOperation = wr.SendWebRequest();
 
-            while (!asyncOperation.isDone)
-            {
-                await Task.Yield();
-            }
-            if (wr.result == UnityWebRequest.Result.Success)
-            {
-                string jsonResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
-                return JsonSerializer.Deserialize<List<Point>>(jsonResp);
-            }
-            else
-            {
-                return new List<Point>();
-            }
-        }
+        //    while (!asyncOperation.isDone)
+        //    {
+        //        await Task.Yield();
+        //    }
+        //    if (wr.result == UnityWebRequest.Result.Success)
+        //    {
+        //        string jsonResp = Encoding.UTF8.GetString(wr.downloadHandler.data);
+        //        return JsonSerializer.Deserialize<List<Point>>(jsonResp);
+        //    }
+        //    else
+        //    {
+        //        return new List<Point>();
+        //    }
+        //}
         public static async Task<(UnityWebRequest.Result, string)> CreateNewUsrMap(Map map)
         {
             using UnityWebRequest wr = new UnityWebRequest($"https://zpi-project.westeurope.cloudapp.azure.com:5000/api/user/{map.CreatorId}/map", "POST");
