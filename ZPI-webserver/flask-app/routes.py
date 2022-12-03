@@ -26,7 +26,7 @@ def get_maps():
 def get_map(map_id):
     map = ReadQueries.get_map(map_id)
     if map is None:
-        return f'There is no map with id {map_id}!', 404
+        return f'', 404
     return jsonify(Schemas.map_schema.dump(map))
 
 @routes.route('/api/map_ids')
@@ -38,7 +38,7 @@ def get_map_ids():
 def get_points(map_id):
     points = ReadQueries.get_points(map_id)
     if not points:
-        return f'There is no map with id: {map_id}', 404
+        return f'', 404
     else:
         return jsonify(Schemas.points_schema.dump(points))
 
@@ -79,8 +79,8 @@ def create_user_map(user_id):
 def get_user_maps(user_id): 
     try:
         DatabaseValidator.user_exists_validation(user_id)
-    except IntegrityError as i_err:
-        return f'{i_err.statement}', 404
+    except IntegrityError:
+        return f'', 404
 
     usr_maps = ReadQueries.get_user_maps(user_id)
     return jsonify(Schemas.maps_schema.dump(usr_maps)), 200
@@ -115,8 +115,8 @@ def get_score(user_id, map_id):
         DatabaseValidator.user_exists_validation(user_id)
         DatabaseValidator.map_exists_validation(map_id)
         DatabaseValidator.score_exists_validation(map_id, user_id)
-    except IntegrityError as i_err:
-        return f'{i_err.statement}', 404
+    except IntegrityError:
+        return f'', 404
 
     curr_score = ReadQueries.get_usr_score(user_id, map_id)
     return str(curr_score.score), 200
@@ -125,8 +125,8 @@ def get_score(user_id, map_id):
 def get_top_five_scores(map_id):
     try:
         DatabaseValidator.map_exists_validation(map_id)
-    except IntegrityError as i_err:
-        return f'{i_err.statement}', 404
+    except IntegrityError:
+        return f'', 404
 
     scores = ReadQueries.get_scores_w_nick_ord(map_id)
     five_best_scores = scores[:5]
