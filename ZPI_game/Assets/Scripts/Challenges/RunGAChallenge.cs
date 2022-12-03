@@ -204,6 +204,7 @@ namespace Challenges
         {
             _isRunning = false;
             changeImage();
+            OnEndRun();
         }
 
         public async void OnEndRun()
