@@ -27,7 +27,12 @@ public class ChallengeInfoFrame : MonoBehaviour
 
     private void OnEnable()
     {
-        if (CurrentGameState.Instance.CurrentUserId != -1) return;
+        if (CurrentGameState.Instance.CurrentUserId != -1)
+        {
+            bestScoreForAccount.text = "Best score: loading...";
+            leaderboard.text = "Loading...";
+            return;
+        }
         leaderboard.gameObject.SetActive(false);
         leaderboardTitle.gameObject.SetActive(false);
     }
@@ -62,6 +67,16 @@ public class ChallengeInfoFrame : MonoBehaviour
             return (false, -1, null);
         float bestScore = -1;
         string topList;
+        
+        var (unityTopFiveResult, bestScores) = await Webserver.ScoreSynchro.GetTopFiveBestScores(challengeID);
+        switch (unityTopFiveResult)
+        {
+            case UnityWebRequest.Result.Success:
+                topList = TopListToString(bestScores);
+                break;
+            default:
+                return (false, -1, "");
+        }
 
         var (unityBestScoreResult, best) = await Webserver.ScoreSynchro.GetUsrBestScore(CurrentGameState.Instance.CurrentUserId, challengeID);
         switch (unityBestScoreResult)
@@ -69,16 +84,8 @@ public class ChallengeInfoFrame : MonoBehaviour
             case UnityWebRequest.Result.Success:
                 bestScore = best;
                 break; 
-            default:
-                return (false, -1, "");
-        }
-        var (unityTopFiveResult, bestScores) = await Webserver.ScoreSynchro.GetTopFiveBestScores(challengeID);
-
-        switch (unityTopFiveResult)
-        {
-            case UnityWebRequest.Result.Success:
-                topList = TopListToString(bestScores);
-                break; 
+            case UnityWebRequest.Result.ProtocolError:
+                return (true, -1, topList);
             default:
                 return (false, -1, "");
         }

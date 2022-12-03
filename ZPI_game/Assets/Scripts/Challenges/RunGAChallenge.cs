@@ -6,6 +6,7 @@ using DeveloperUtils;
 using GA;
 using LevelUtils;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -28,7 +29,7 @@ namespace Challenges
 
         [SerializeField] private Image image;
 
-        private float bestAllTime;
+        private float bestForSlot, bestForAccount;
 
         public void changeImage()
         {
@@ -57,7 +58,7 @@ namespace Challenges
             _updateDeltaTime = 1 - speed;
         }
         
-        void Start()
+        async void  Start()
         {
             // Filter all the selectors that have been completed by the player
             var allSelectors = TypeToNameMappers.GetSelectionDescriptionMapper()
@@ -96,8 +97,25 @@ namespace Challenges
             mutation.AddOptions(completedMutators.Select(tuple => tuple.Key).ToList());
 
             var slotInfo = LoadSaveHelper.Instance.GetSlot(CurrentGameState.Instance.CurrentSlot);
-            bestAllTime = slotInfo.BestScores[CurrentGameState.Instance.CurrentMapId];
-            if (bestAllTime == -1) bestAllTime = int.MaxValue;
+            bestForSlot = slotInfo.BestScores[CurrentGameState.Instance.CurrentMapId];
+            if (Math.Abs(bestForSlot + 1) < 1e-10) bestForSlot = int.MaxValue;
+            if (CurrentGameState.Instance.CurrentUserId != -1)
+            {
+                var (unityBestScoreResult, accountBest) = await Webserver.ScoreSynchro.GetUsrBestScore(CurrentGameState.Instance.CurrentUserId, CurrentGameState.Instance.CurrentMapId);
+                bestForAccount = unityBestScoreResult switch
+                {
+                    UnityWebRequest.Result.Success => accountBest,
+                    _ => accountBest switch
+                    {
+                        > -1 => accountBest,
+                        _ => int.MaxValue
+                    }
+                };
+            }
+            else
+            {
+                bestForAccount = int.MaxValue;
+            }
 
             //selection.AddOptions(TypeToNameMappers.GetSelectionDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
             //crossover.AddOptions(TypeToNameMappers.GetCrossoverDescriptionMapper().Keys.Select(k => k.ToString()).ToList());
@@ -186,23 +204,27 @@ namespace Challenges
         {
             _isRunning = false;
             changeImage();
+            OnEndRun();
         }
 
         public async void OnEndRun()
         {
             var currentBest = (float)_ga.GetBestForIterationScore();
-            if(currentBest < bestAllTime)
+            currentBest.Debug("Current best");
+            bestForSlot.Debug("Best all time");
+            if(currentBest < bestForSlot)
             {
                 var slotInfo = LoadSaveHelper.Instance.GetSlot(CurrentGameState.Instance.CurrentSlot);
                 slotInfo.BestScores[CurrentGameState.Instance.CurrentMapId] = currentBest;
                 LoadSaveHelper.Instance.SaveGameState();
-                if(CurrentGameState.Instance.CurrentUserId != -1)
-                {
-                    var userId = CurrentGameState.Instance.CurrentUserId;
-                    var mapId = CurrentGameState.Instance.CurrentMapId;
-                    var score = new Webserver.Score(userId, mapId, currentBest);
-                    var (result, info) = await Webserver.ScoreSynchro.PutNewScore(score);
-                }
+            }
+            if (currentBest < bestForAccount)
+            {
+                if (CurrentGameState.Instance.CurrentUserId == -1) return;
+                var userId = CurrentGameState.Instance.CurrentUserId;
+                var mapId = CurrentGameState.Instance.CurrentMapId;
+                var score = new Webserver.Score(userId, mapId, currentBest);
+                var (result, info) = await Webserver.ScoreSynchro.PutNewScore(score);
             }
         }
 

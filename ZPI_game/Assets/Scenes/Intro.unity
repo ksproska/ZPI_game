@@ -500,8 +500,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -771,6 +771,8 @@ MonoBehaviour:
   time: 5
   goToScene: {fileID: 1324630425}
   audiosource: {fileID: 312365345}
+  title: {fileID: 1008686671}
+  timeToWait: 2
 --- !u!1 &1344201121
 GameObject:
   m_ObjectHideFlags: 0
