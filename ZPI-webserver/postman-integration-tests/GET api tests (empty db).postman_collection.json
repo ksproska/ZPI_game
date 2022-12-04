@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b4bbf4e5-7cc9-413b-b1f8-5e46b6f11f12",
+		"_postman_id": "e13480a4-4109-47f4-bcf0-7f8ebd04b070",
 		"name": "GET api tests (empty db)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19053221"
@@ -24,7 +24,7 @@
 							"\r",
 							"pm.test(\"Check that the response is empty\", function () {\r",
 							"  var jsonData = pm.response.json();\r",
-							"  pm.expect(jsonData.length).to.eq(0)\r",
+							"  pm.expect(jsonData.length).to.eq(0);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -72,14 +72,14 @@
 							"  pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"pm.test(\"Check that it returns a string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"pm.test(\"Check that the response is en empty string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
-							"  pm.expect(errStr).to.eq(\"There is no map with id 42334!\")\r",
+							"  pm.expect(errStr).to.eq(\"\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -119,14 +119,14 @@
 							"  pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"pm.test(\"Check that it returns a string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"pm.test(\"Check that the response is an empty string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
-							"  pm.expect(errStr).to.eq(\"There is no map with id 6547!\")\r",
+							"  pm.expect(errStr).to.eq(\"\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -171,9 +171,9 @@
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that the response is correct err message\", function () {\r",
+							"pm.test(\"Check that the response is an empty string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
-							"  pm.expect(errStr).to.eq(\"There is no user with id 321!\")\r",
+							"  pm.expect(errStr).to.eq(\"\");\r",
 							"});"
 						],
 						"type": "text/javascript"

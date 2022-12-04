@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "80c554dc-b7a3-4860-8d7e-aabf57cbaeaf",
+		"_postman_id": "3caeaa6f-a190-42d5-a9e7-93ded257509a",
 		"name": "One by one tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19053221"
@@ -1419,14 +1419,14 @@
 							"  pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"pm.test(\"Check that it returns a string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"pm.test(\"Check that the response is an empty string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
-							"  pm.expect(errStr).to.eq(\"There is no map with id 543!\")\r",
+							"  pm.expect(errStr).to.eq(\"\")\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -1468,14 +1468,14 @@
 							"  pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that it returns an error message\", function () {\r",
+							"pm.test(\"Check that it returns a string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
 							"  pm.expect(errStr).to.be.a(\"string\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that the response is correct info message\", function () {\r",
+							"pm.test(\"Check that the response is an empty string\", function () {\r",
 							"  var errStr = pm.response.text();\r",
-							"  pm.expect(errStr).to.eq(\"There is no score made by user with id 1 associated with map with id 1!\")\r",
+							"  pm.expect(errStr).to.eq(\"\")\r",
 							"});"
 						],
 						"type": "text/javascript"
