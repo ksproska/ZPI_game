@@ -10,8 +10,6 @@ public class BackgroundScroller : MonoBehaviour
     [Range(-10f, 10f)]
     public float scrollSpeed = -0.5f;
 
-    //[SerializeField] private Renderer renderer;
-
     private float offset;
     private float startupSpeed;
     [NonSerialized] private Material mat;
