@@ -62,6 +62,10 @@ namespace Assets.Scripts.Menu.Account
 
         private void OnEnable()
         {
+            loginValidationText.text = "";
+            passwordValidationText.text = "";
+            loginText.text = "";
+            passwordText.text = "";
             system.SetSelectedGameObject(loginText.gameObject);
             currentSelection = loginText.gameObject;
         }
@@ -88,7 +92,6 @@ namespace Assets.Scripts.Menu.Account
             cryo.SetBothEyesTypes(Cryo.Script.EyeType.Loading);
             cryo.SetMouthType(Cryo.Script.MouthType.Line);
             var (unityResponse, serverString) = await Auth.AuthenticateUser(user);
-            serverString.Debug();
             switch(unityResponse)
             {
                 case UnityEngine.Networking.UnityWebRequest.Result.Success:
@@ -117,6 +120,7 @@ namespace Assets.Scripts.Menu.Account
             errorInfoFrame.SetErrorText("You have been logged in successfully!");
             CurrentState.CurrentGameState.Instance.CurrentUserId = userResponse.user_id;
             CurrentState.CurrentGameState.Instance.CurrentUserNickname = userResponse.nickname;
+            errorInfoFrame.IsLoginSuccessful = true;
             errorInfoFrame.gameObject.SetActive(true);
         }
 
@@ -139,7 +143,7 @@ namespace Assets.Scripts.Menu.Account
 
         }
 
-        class UserResponse
+        public class UserResponse
         {
             public string nickname { get; set; }
             public int user_id { get; set; }

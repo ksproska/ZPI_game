@@ -1,3 +1,4 @@
+using System;
 using Assets.Cryo.Script;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,10 +9,8 @@ public class ConnectionErrorBox : MonoBehaviour
 {
     [SerializeField] private Text errorText;
     [SerializeField] private CryoUI cryo;
-    void Start()
-    {
-        
-    }
+
+    public bool IsLoginSuccessful { get; set; } = false;
 
     public void SetErrorText(string text)
     {
@@ -26,5 +25,14 @@ public class ConnectionErrorBox : MonoBehaviour
     public void SetCryoMouthType(MouthType mouthType)
     {
         cryo.SetMouthType(mouthType);
+    }
+
+    public void BackButtonAction()
+    {
+        if (!IsLoginSuccessful) return;
+        IsLoginSuccessful = false;
+        var menu = FindObjectOfType<MainMenu>();
+        menu.SpeedUp();
+        menu.SlideOut(0);
     }
 }

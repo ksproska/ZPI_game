@@ -6,9 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Text.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 using Webserver;
 
@@ -30,6 +32,8 @@ namespace Assets.Scripts.Menu.Account
         [SerializeField] private Text accountCreatedText;
 
         [SerializeField] private CryoUI cryo;
+
+        private bool IsRegistrationSuccessful { get; set; } = false;
 
         private Regex emailRegex;
         private List<GameObject> menuSelected;
@@ -75,6 +79,12 @@ namespace Assets.Scripts.Menu.Account
 
         private void OnEnable()
         {
+            cryo.SetBothEyesTypes(Cryo.Script.EyeType.Eye);
+            cryo.SetMouthType(Cryo.Script.MouthType.Smile);
+            loginValidationText.text = "";
+            nameValidationText.text = "";
+            passwordValidationText.text = "";
+            accountCreatedText.text = "";
             system.SetSelectedGameObject(menuSelected[currentIndex]);
         }
 
@@ -84,17 +94,10 @@ namespace Assets.Scripts.Menu.Account
             system.SetSelectedGameObject(menuSelected[currentIndex]);
         }
 
-        private void MoveToPreviousMenuItem()
-        {
-            if (currentIndex == 0) return;
-            currentIndex -= 1;
-            system.SetSelectedGameObject(menuSelected[currentIndex]);
-        }
-
         public async void SendData()
         {
             bool isNameOk = IsNameLocallyValid();
-            bool isEmailOk = IsEmailLoccalyValid();
+            bool isEmailOk = IsEmailLocallyValid();
             bool isPasswordOk = IsPasswordLocallyValid();
             if (!isNameOk || !isEmailOk || !isPasswordOk)
             {
@@ -116,7 +119,7 @@ namespace Assets.Scripts.Menu.Account
             switch (unityResponse)
             {
                 case UnityEngine.Networking.UnityWebRequest.Result.Success:
-                    OnSuccess();
+                    OnSuccess(login, password);
                     break;
                 case UnityEngine.Networking.UnityWebRequest.Result.ConnectionError:
                     OnConnectionError();
@@ -131,12 +134,18 @@ namespace Assets.Scripts.Menu.Account
             menuActives.ForEach(m => m.SetEnabled(true));
         }
 
-        private void OnSuccess()
+        private async void OnSuccess(string login, string password)
         {
             accountCreatedText.text = "Hooray! Your account has been successfully created!";
             cryo.SetBothEyesTypes(Cryo.Script.EyeType.Happy);
             cryo.SetMouthType(Cryo.Script.MouthType.Smile);
             StartCoroutine(SetCryoToNormal());
+            User user = new(login, password);
+            var (unityResponse, serverString) = await Auth.AuthenticateUser(user);
+            var userResponse = JsonSerializer.Deserialize<LoginValidator.UserResponse>(serverString);
+            CurrentState.CurrentGameState.Instance.CurrentUserId = userResponse.user_id;
+            CurrentState.CurrentGameState.Instance.CurrentUserNickname = userResponse.nickname;
+            IsRegistrationSuccessful = true;
         }
 
         private void OnConnectionError()
@@ -164,7 +173,7 @@ namespace Assets.Scripts.Menu.Account
             StartCoroutine(SetCryoToNormal());
         }
 
-        public bool IsEmailLoccalyValid()
+        public bool IsEmailLocallyValid()
         {
             var email = loginText.text;
             loginValidationText.text = "";
@@ -213,6 +222,14 @@ namespace Assets.Scripts.Menu.Account
             cryo.SetMouthType(Cryo.Script.MouthType.Smile);
         }
 
-        
+        public void ButtonBackAction()
+        {
+            var index = IsRegistrationSuccessful ? 0 : 4;
+            IsRegistrationSuccessful = false;
+            var menu = FindObjectOfType<MainMenu>();
+            menu.SpeedUp();
+            menu.SlideOut(index);
+        }
+
     }
 }
