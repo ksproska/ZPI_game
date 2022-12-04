@@ -38,15 +38,16 @@ public class TutorialHandler : MonoBehaviour
         Previous,
         Next
     }
+
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         tutorialStack = new();
         colorStack = new();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (slider != null && target != null)
         {

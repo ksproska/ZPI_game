@@ -23,7 +23,6 @@ public class GenomCreator : MonoBehaviour
     {
         if (initializeGenome)
         {
-
             InitializeGenome();
         }
     }
@@ -33,7 +32,6 @@ public class GenomCreator : MonoBehaviour
     {
         if (initializeGrid)
         {
-
             CreateNewGenom();
         }
     }

@@ -68,7 +68,6 @@ public class WorldMapHandler : MonoBehaviour
             }
 
         }
-        Debug.Log(mask.transform.position);
     }
 
     IEnumerator glitch()

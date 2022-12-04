@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 using Assets.GA.Utils;
+using DeveloperUtils;
 using GA;
 
 public class CrossoverTutorialController : MonoBehaviour
@@ -49,7 +50,6 @@ public class CrossoverTutorialController : MonoBehaviour
     [NonSerialized] public List<(int, int, int)> steps;
 
     public string crossingType;
-    // Start is called before the first frame update
     void Start()
     {
         currentStep = 0;

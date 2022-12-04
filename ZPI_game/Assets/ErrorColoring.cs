@@ -1,3 +1,4 @@
+using System;
 using CurrentState;
 using LevelUtils;
 using System.Collections;
@@ -10,6 +11,12 @@ public class ErrorColoring : MonoBehaviour
 {
     [SerializeField] private Color _colorOk, _colorNotOk, _colorEmpty;
     [SerializeField] GoToScene transporter;
+
+    private void Start()
+    {
+        transporter = FindObjectOfType<GoToScene>();
+    }
+
     public bool AreAllCorrect()
     {
         return FindObjectsOfType<DropSlot>().All(ds => ds.IsCorrect());
@@ -45,12 +52,12 @@ public class ErrorColoring : MonoBehaviour
 
             if (!LevelMap.Instance.IsLevelDone(CurrentGameState.Instance.CurrentLevelName, CurrentGameState.Instance.CurrentSlot))
             {
-                Debug.Log(CurrentGameState.Instance.CurrentLevelName);
-                Debug.Log(CurrentGameState.Instance.CurrentSlot);
+                // Debug.Log(CurrentGameState.Instance.CurrentLevelName);
+                // Debug.Log(CurrentGameState.Instance.CurrentSlot);
                 LevelMap.Instance.CompleteALevel(CurrentGameState.Instance.CurrentLevelName, CurrentGameState.Instance.CurrentSlot);
             }
             CurrentGameState.Instance.CurrentLevelName = null;
-            GoToScene transporter = new GoToScene();
+            //GoToScene transporter = Instantiate(this.transporter);
             transporter.scene = "WorldMap";
             transporter.GoTo();
         }

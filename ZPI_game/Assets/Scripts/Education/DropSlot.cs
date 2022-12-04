@@ -1,3 +1,4 @@
+using DeveloperUtils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -32,6 +33,8 @@ public class DropSlot : MonoBehaviour, IDropHandler
     }
     public bool IsCorrect()
     {
+        // "Teeeeeeest".Debug();
+        // expectedContents.Debug();
         return expectedContents == _placedContent;
     }
 

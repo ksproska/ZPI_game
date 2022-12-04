@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using DeveloperUtils;
 using TMPro;
 using UnityEngine.UI;
 
@@ -12,8 +13,9 @@ public class GenomSlotsCreator : MonoBehaviour
 
     [NonSerialized] public List<int> valueList;
     [NonSerialized] public List<GameObject> geneList = new();
-    public bool initialize; 
-    void Start()
+    public bool initialize;
+
+    private void Awake()
     {
         if (initialize)
         {
@@ -27,6 +29,22 @@ public class GenomSlotsCreator : MonoBehaviour
                 geneList.Add(staticAdded);
             }
         }
+    }
+
+    void Start()
+    {
+        // if (initialize)
+        // {
+        //     for (int i = 0; i < 10; i++)
+        //     {
+        //         var staticAdded = Instantiate(prefab, gameObject.transform.position, Quaternion.identity,
+        //             transform);
+        //         var index = staticAdded.GetComponentInChildren<Text>();
+        //         index.text = $"{i}";
+        //         staticAdded.transform.position += new Vector3(i * 1.25f, 0, 0);
+        //         geneList.Add(staticAdded);
+        //     }
+        // }
     }
 
     public void CreateSlots(List<int> input)
@@ -48,7 +66,6 @@ public class GenomSlotsCreator : MonoBehaviour
     {
         for (int i = 0; i < geneList.Count; i++)
         {
-            print(parents[i]);
             geneList[i].GetComponent<DropSlot>().expectedParent = parents[i];
         }
     }

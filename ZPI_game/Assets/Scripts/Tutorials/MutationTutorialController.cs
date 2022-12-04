@@ -51,6 +51,7 @@ public class MutationTutorialController : MonoBehaviour
     void Start()
     {
         currentStep = 0;
+        endGenome = new List<int>(new int[10]);
         CalculateNextCrossing();
 
         slotListPrefab.GetComponent<GenomSlotsCreator>().FillGenome(endGenome);
