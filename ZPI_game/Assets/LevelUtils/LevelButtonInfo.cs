@@ -11,7 +11,7 @@ namespace LevelUtils
         public int LevelNumber { get; }
         public bool IsFinished { get; set; }
         public List<LevelButtonInfo> PrevLevels { get; set; }
-        public string LevelName { get; private set; }
+        public string LevelName { get; }
         public LevelButtonInfo(string gameObjectName, string levelName, int levelNumber, bool isFinished, List<LevelButtonInfo> prevLevels)
         {
             GameObjectName = gameObjectName;

@@ -21,11 +21,6 @@ namespace Maps
             }
             return distMatrix;
         }
-        public static string MapToJson(Map map)
-        {
-            return JsonSerializer.Serialize<Map>(map);
-        }
-
 
         private static double GetDistance(Point fst, Point snd)
         {
