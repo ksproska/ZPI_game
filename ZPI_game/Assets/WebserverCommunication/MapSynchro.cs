@@ -14,7 +14,7 @@ namespace Webserver
             using UnityWebRequest wr = new UnityWebRequest("https://zpi-project.westeurope.cloudapp.azure.com:5000/api/map", "POST");
             wr.certificateHandler = new SslCertHandler();
             wr.SetRequestHeader("Content-Type", "application/json");
-            byte[] rawMapSerialized = Encoding.UTF8.GetBytes(MapUtils.MapToJson(map));
+            byte[] rawMapSerialized = Encoding.UTF8.GetBytes(map.ToJson());
             wr.uploadHandler = new UploadHandlerRaw(rawMapSerialized);
             
             var asyncOperation = wr.SendWebRequest();
