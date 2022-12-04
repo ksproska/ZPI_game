@@ -750,7 +750,7 @@ MonoBehaviour:
   effectsToggle: {fileID: 1456646493}
   musicVolumeText: {fileID: 1699849431}
   effectsVolumeText: {fileID: 475259298}
-  musicAudioSource: {fileID: 0}
+  musicAudioSource: {fileID: 1385618450}
   effectAudioSource: {fileID: 0}
 --- !u!1 &264402847
 GameObject:

@@ -28,10 +28,11 @@ public class MenuSettingsController : MonoBehaviour
 
         musicToggle.isOn = CurrentGameState.Instance.IsMusicOn;
         effectsToggle.isOn = CurrentGameState.Instance.AreEffectsOn;
-
+        
         musicAudioSource.volume = musicVolumeSlider.value;
 
-        effectAudioSource.volume = effectsVolumeSlider.value;
+        if (effectAudioSource != null)
+            effectAudioSource.volume = effectsVolumeSlider.value;
 
 
 
@@ -47,6 +48,7 @@ public class MenuSettingsController : MonoBehaviour
             musicAudioSource.Stop();
         }
 
+        if (effectAudioSource == null) return;
         if (effectsToggle.isOn)
         {
             effectAudioSource.volume = effectsVolumeSlider.value;
@@ -74,7 +76,8 @@ public class MenuSettingsController : MonoBehaviour
     public void OnEffectsVolumeChange(float volume)
     {
         effectsVolumeText.text = $"{(int)(effectsVolumeSlider.value * 100)}%";
-        effectAudioSource.volume = volume;
+        if (effectAudioSource != null)
+            effectAudioSource.volume = volume;
     }
 
     public void OnMusicToggleChange(bool isOn)
@@ -93,6 +96,7 @@ public class MenuSettingsController : MonoBehaviour
     public void OnEffectsToggleChange(bool isOn)
     {
         effectsToggle.isOn = isOn;
+        if (effectAudioSource == null) return;
         if (effectsToggle.isOn)
         {
             effectAudioSource.volume = effectsVolumeSlider.value;
