@@ -128,7 +128,7 @@ namespace Assets.Scripts.Menu.Account
         {
             errorInfoFrame.SetCryoEyeType(Cryo.Script.EyeType.Sad);
             errorInfoFrame.SetCryoMouthType(Cryo.Script.MouthType.Confused);
-            errorInfoFrame.SetErrorText("No nternet connection. Please check your internet connection or try again later.");
+            errorInfoFrame.SetErrorText("It seems the server is not responding. Please check your internet connection or try again later.");
             errorInfoFrame.gameObject.SetActive(true);
         }
 
