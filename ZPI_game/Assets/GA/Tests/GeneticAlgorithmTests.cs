@@ -1,4 +1,5 @@
-﻿using GA.mutations;
+﻿using System.Collections.Generic;
+using GA.mutations;
 using NUnit.Framework;
 
 namespace GA
@@ -25,29 +26,41 @@ namespace GA
             var testcases = TravellingSalesmanTestCase.Get();
             for (int j = testcases.Count - 1; j >= 0; j--)
             {
-                var bestResult = 2020;
+                var bestResult = testcases[j].BestScore;
                 var generationSize = 100;
+                var numbOfIterations = 100;
+                var mutationProbability = 0.3;
+                var crossoverProbability = 0.3;
                 
                 var grid = new WeightsGrid(testcases[j].Weights);
-                var selector = new SelectorTournament();
-                selector.SetArgs(0.3);
-                var ga = new GeneticAlgorithm(grid, generationSize, 
-                    selector,
-                    new MutatorReverseSequence<int>(), 0.3,
-                    new CrosserPartiallyMatched(), 0.3
-                    );
-        
-                var prevBest = ga.Best.Score;
-                for (int i = 0; i < 100 || bestResult >= ga.Best.Score; i++)
+                var selectorTournament = new SelectorTournament();
+                selectorTournament.SetArgs(0.3);
+                
+                foreach (var selector in new List<ISelector>(){selectorTournament, new SelectorRoulette()})
                 {
-                    Assert.AreEqual(i, ga.Iteration);
-                    ga.RunIteration();
-                    Assert.LessOrEqual(ga.Best.Score, prevBest);
-                    prevBest = ga.Best.Score;
-                    Assert.LessOrEqual(ga.Best.Score, ga.BestForIteration.Score);
-                    Assert.LessOrEqual(ga.LastIterationWithNewBestDiscovered, ga.Iteration);
+                    foreach (var crosser in new List<ICrosser<int>>(){new CrosserPartiallyMatched(), new CrosserCycle(), new CrosserOrder()})
+                    {
+                        foreach (var mutator in new List<IMutator<int>>(){new MutatorReverseSequence<int>(), new MutatorThrors<int>()})
+                        {
+                            var ga = new GeneticAlgorithm(grid, generationSize, 
+                                 selector,
+                                 mutator, mutationProbability,
+                                 crosser, crossoverProbability
+                                 );
+                             var prevBest = ga.Best.Score;
+                             for (int i = 0; i < numbOfIterations || bestResult >= ga.Best.Score; i++)
+                             {
+                                 Assert.AreEqual(i, ga.Iteration);
+                                 ga.RunIteration();
+                                 Assert.LessOrEqual(ga.Best.Score, prevBest);
+                                 prevBest = ga.Best.Score;
+                                 Assert.LessOrEqual(ga.Best.Score, ga.BestForIteration.Score);
+                                 Assert.LessOrEqual(ga.LastIterationWithNewBestDiscovered, ga.Iteration);
+                             }
+                             Assert.LessOrEqual(bestResult, ga.Best.Score);
+                        }
+                    }
                 }
-                Assert.LessOrEqual(bestResult, ga.Best.Score);
             };
         }
     }
