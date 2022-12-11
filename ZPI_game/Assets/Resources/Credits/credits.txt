@@ -18,8 +18,8 @@ Maciej Futyma
 Witold Frącek
 Maciej Futyma
 Kamila Sproska
-Pixabay
-Icons8
+Pixabay (pixabay.com)
+Icons8 (icons8.com)
 
 <b>VOICE OVERS</b>
 Kamila Sproska
@@ -28,7 +28,28 @@ Witold Frącek
 Jakub Jastrzębski
 
 <b>MUSIC</b>
-Pixabay
+Pixabay (pixabay.com)
+Mixkit (mixkit.co)
 
 <b>BACKEND</b>
 Jakub Jastrzębski
+Kamila Sproska
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
