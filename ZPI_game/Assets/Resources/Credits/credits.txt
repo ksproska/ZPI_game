@@ -34,22 +34,3 @@ Mixkit (mixkit.co)
 <b>BACKEND</b>
 Jakub Jastrzębski
 Kamila Sproska
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
