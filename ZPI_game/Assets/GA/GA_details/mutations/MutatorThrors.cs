@@ -22,9 +22,17 @@ namespace GA.mutations
             for (int i = 0; i < indexes.Count - 1; i++)
             {
                 genotypeCopy[indexes[i + 1]] = genotype[indexes[i]];
+                if (recordedList is not DummyRecordedList<T>)
+                {
+                    recordedList[indexes[i + 1]] = genotype[indexes[i]];
+                }
             }
 
             genotypeCopy[indexes[0]] = temp;
+            if (recordedList is not DummyRecordedList<T>)
+            {
+                recordedList[indexes[0]] = temp;
+            }
 
             return genotypeCopy;
         }
