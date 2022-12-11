@@ -3334,6 +3334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   credits: {fileID: 1015060545}
   speed: 50
+  window: {fileID: 657091651}
 --- !u!114 &1015060544
 MonoBehaviour:
   m_ObjectHideFlags: 0
