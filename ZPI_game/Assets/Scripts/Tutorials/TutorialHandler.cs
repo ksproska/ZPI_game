@@ -62,6 +62,7 @@ public class TutorialHandler : MonoBehaviour
                 target = null;
                 previousButton.GetComponent<Button>().enabled = true;
                 nextButton.GetComponent<Button>().enabled = true;
+                levelButton.GetComponent<Button>().enabled = true;
             }
         }
 
@@ -142,6 +143,7 @@ public class TutorialHandler : MonoBehaviour
     {
         previousButton.GetComponent<Button>().enabled = false;
         nextButton.GetComponent<Button>().enabled = false;
+        levelButton.GetComponent<Button>().enabled = false;
         var drop = drops.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{dropNumber}").First();
         var staticElem = statics.Where(item => item.GetComponent<TextMeshProUGUI>().text == $"{dropNumber}").First();
         LineRenderer lineRenderer = drop.GetComponent<LineRenderer>();

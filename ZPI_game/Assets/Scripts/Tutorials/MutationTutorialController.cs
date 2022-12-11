@@ -78,7 +78,7 @@ public class MutationTutorialController : MonoBehaviour
         else if(mutationType == "thrors")
         {
             indices = new() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            indices = indices.OrderBy(x => rnd.Next()).Take(rnd.Next(1, 8)).ToList();
+            indices = indices.OrderBy(x => rnd.Next()).Take(rnd.Next(2, 8)).ToList();
 
             endGenome = MutatorThrors<int>.SwipeOneRight(beginGenome, indices, ref recordedMutation);
             steps = recordedMutation.GetFullHistory().Distinct().ToList();
