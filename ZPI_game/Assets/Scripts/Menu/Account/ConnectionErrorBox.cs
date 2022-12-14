@@ -29,7 +29,11 @@ public class ConnectionErrorBox : MonoBehaviour
 
     public void BackButtonAction()
     {
-        if (!IsLoginSuccessful) return;
+        if (!IsLoginSuccessful)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         IsLoginSuccessful = false;
         var menu = FindObjectOfType<MainMenu>();
         menu.SpeedUp();
