@@ -1,34 +1,34 @@
 # game
 
 ## Our crew:
-![](crew.gif)
+![](gifs/crew.gif)
 
 ## Opening cutscene:
-![](1.gif)
+![](gifs/1.gif)
 
 ## Level map:
-![](2.gif)
+![](gifs/2.gif)
 
 ## Single level completion:
-![](3.gif)
+![](gifs/3.gif)
 
 ## Level done incorrectly:
-![](4.gif)
+![](gifs/4.gif)
 
 ## Level help:
-![](5.gif)
+![](gifs/5.gif)
 
 ## Tutorial video:
-![](6.gif)
+![](gifs/6.gif)
 
 ## Tutorial level:
-![](7.gif)
+![](gifs/7.gif)
 
 ## Sandbox:
-![](8.gif)
+![](gifs/8.gif)
 
 ## Registration and login:
-![](9.gif)
+![](gifs/9.gif)
 
 ## Challenges:
-![](10.gif)
+![](gifs/10.gif)
